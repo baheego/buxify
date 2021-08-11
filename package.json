@@ -1,0 +1,22 @@
+{
+  "name": "buxify",
+  "version": "0.0.1",
+  "description": "A cryptocurrency miner app & network that distributes Robux to its users",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "buxify"
+  },
+  "author": "BIQ Labs",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.1.8"
+  },
+  "dependencies": {
+    "custom-electron-titlebar": "^3.2.7",
+    "jquery": "^3.6.0"
+  }
+}

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/buxify.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="../css/bi-icons.css">
+
+    <title>Hello, world!</title>
+  </head>
+
+  <body class="bgAnimation">
+    <style>
+        * {
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif;
+        }
+        body {
+            margin: 0px !important;
+            height: 100%;
+            height: 100vh;
+        }
+
+        .landingBg {
+            display: flex;
+            flex-direction: column;
+            /*background: url('../images/bg.png');   */
+            background-size: cover;
+            background-position: -250px -2px;
+            height: 100%;         
+        }
+
+        #animatedBackground {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url("https://www12.lunapic.com/do-not-link-here-use-hosting-instead/16286751364098796?4871859");
+            background-repeat: repeat;
+            background-position: 0 0;
+            background-size: auto 100%;
+            /*adjust s value for speed*/
+            animation: animatedBackground 500s linear infinite;
+        }
+
+        @keyframes animatedBackground {
+            from {
+                background-position: 0 0;
+            }
+            /*use negative width if you want it to flow right to left else and positive for left to right*/
+            to {
+                background-position: -10000px 0;
+            }
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+            width: 50%;
+        }
+
+        .landingBranding {
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 10rem;
+            width: 80%;
+        }
+
+        .landingLabel {
+            color: white;
+            text-align: center;
+            font-weight: 400;
+	        font-family: 'Montserrat';
+        }
+
+        .bgAnimation {
+            background: linear-gradient(272deg, #1b1f1e, #102c1d, #1b1f1e, #102c1d);
+            background-size: 400% 400%;
+
+            -webkit-animation: AnimationName 7s ease infinite;
+            -moz-animation: AnimationName 7s ease infinite;
+            animation: AnimationName 7s ease infinite;
+        }
+
+        @-webkit-keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @-moz-keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        ::-webkit-scrollbar { width: 0px; }
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: white;
+            opacity: 1; /* Firefox */
+        }
+
+        ::-webkit-input-placeholder {
+            color: white;
+            opacity: 1; /* Firefox */
+            text-align: center;
+        }
+
+        .form-control {
+            color: white !important;
+            border: 1px solid #343a40;
+            background-color: #343a40;
+        }
+
+        .form-control:focus{
+            color: #212529;
+            background-color: #343a40;
+            border-color: #343a40;
+            outline: 0;
+            box-shadow: 0 0 0 0.05rem #1b8b51;
+        }
+
+        .input-group-text {
+            border: 1px solid #343a40;
+            background-color: #343a40;
+        }
+    </style>
+    <main class="landingBg">
+        <div id="animatedBackground"></div>
+        <div class="landingBranding" style="z-index: 2;">
+            <img src="../images/logo.png" style="display:block; margin: 0 auto; max-width: 240px" class="img-fluid mb-3">
+            <h3 class="landingLabel">Earn Robux by running your PC</h3>
+        </div>
+        <div class="center" style="z-index: 2;">
+            <div class="input-group mb-3" style="box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;">
+                <span class="input-group-text" id="basic-addon1"><img src="https://bux.fun/img/roblox-icon.png" style="height:32px"></span>
+                <input type="text" class="form-control" placeholder="Enter your ROBLOX Username.." aria-label="Username" aria-describedby="basic-addon1">
+                
+            </div>
+            <div class="btn btn-xlg btn-success shadow btn-block d-none" style="font-weight: 700; width:50%; margin-left: 25%; text-align: center;" data-toggle="modal" data-target="#register-modal"><span class="fas fa-user-plus mr-3" aria-hidden="true"></span>Start!</div>
+        </div>
+
+        
+    </main>
+    
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="../js/bootstrapbundle.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+   
+  </body>
+</html>
