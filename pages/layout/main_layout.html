@@ -34,18 +34,19 @@
       }
     </style>
     <main style="display: flex;flex-wrap: nowrap;height: 100%; overflow-x: auto; overflow-y: hidden;">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="min-width: 200px; max-width: 240px;">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 25%">
             <a href="/" class="d-flex align-items-center text-white text-decoration-none" style="justify-content: center;">
               <img src="../../images/logo.png" style="display:block; margin: 0 auto; max-width: 70%" class="img-fluid">
             </a>
             <hr>
+            
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
                 <a href="#" class="nav-link active" aria-current="page">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bucket-fill me-2" viewBox="0 0 16 16">
                     <path d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527z"/>
                   </svg>
-                  Earn
+                  Earn R$
                 </a>
               </li>
               <li>
@@ -69,24 +70,56 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle-fill me-2" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
                   </svg>
-                  FAQ/Help
+                  Support
                 </a>
               </li>
             </ul>
-            <hr>
-            <div class="dropdown">
+            <!--  -->
+            <div class="dropdown mb-2">
               <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://tr.rbxcdn.com/c4265017c98559993061733b1125a23c/48/48/AvatarHeadshot/Png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>ROBLOX</strong>
+                <div class="d-flex align-items-center">
+                  <img src="https://tr.rbxcdn.com/c4265017c98559993061733b1125a23c/48/48/AvatarHeadshot/Png" alt="" width="32" height="32" class="rounded-circle me-2">
+                  <strong class="mr-2" style="font-size: 1rem;">ROBLOX</strong>
+                </div> 
               </a>
               <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <!-- <li><a class="dropdown-item" href="#">New project...</a></li>
                 <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li><hr class="dropdown-divider"></li> -->
+                <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
               </ul>
             </div>
+            <div class="shadow d-flex flex-row w-100" href="#" style="justify-content: center;text-align: center;background-color: #21312b;padding: 8px;border-radius: 12px;">
+              <img src="../../images/Robux_Old_Logo.svg" alt="" width="20" height="20" class="rounded-circle me-2" style="margin-top: 2px;">
+              <div><strong class="text-white" style="font-size: 16px;">53 Robux</strong></div>
+            </div>
+            
+            
+            
+          </div>
+          <div class="d-flex flex-column flex-shrink-0 p-3 text-white p-3" style="width: 75%; margin-top: 30px; ">
+            <div id="dashboardContent" style="min-height:10px;" style="display: none">
+              
+            </div>
+            <nav id="miningBar" class="navbar navbar-dark bg-dark d-flex mt-auto rounded shadow">
+              <div class="container-fluid">
+                <div class="row" style="width:80%">
+                  <div class="col-4" style="text-align: center;">
+                    <strong class="mr-2"><small class="fw-light">Hourly Estimated:</small><br>...</strong>
+                  </div>
+                  <div class="col-4" style="text-align: center;">
+                    <strong class="mr-2"><small class="fw-light">Daily Estimated:</small><br>...</strong>
+                  </div>
+                  <div class="col-4" style="text-align: center;">
+                    <strong class="mr-2"><small class="fw-light">Pending Balance:</small><br>R$ 0</strong>
+                  </div>
+                </div>
+                <button class="btn btn-success shadow">
+                  Start Buxing
+                </button>
+              </div>
+            </nav>
           </div>
     </main>
     

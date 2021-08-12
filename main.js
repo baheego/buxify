@@ -6,10 +6,10 @@ const path = require('path');
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow() {
+function createNonLandingWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1000,
+    width: 1200,
     minWidth: 800,
     //maxWidth: 800,
     height: 600,
@@ -37,9 +37,6 @@ function createWindow() {
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     mainWindow = null
   })
 
@@ -48,15 +45,49 @@ function createWindow() {
   });
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+function createLandingWindow() {
+  // Create the browser window.
+  mainWindow = new BrowserWindow({
+    width: 800,
+    minWidth: 800,
+    maxWidth: 800,
+    height: 600,
+    minHeight: 600,
+    maxHeight: 600,
+    show: false,
+    frame: false,
+    titleBarStyle: "hidden", // add this line
+    webPreferences: {
+      preload: path.join(__dirname, '/js/preload.js'),
+      enableRemoteModule: true,
+      nodeIntegration: true,
+    }
+  })
+
+
+  const menu = Menu.buildFromTemplate(exampleMenuTemplate());
+  Menu.setApplicationMenu(menu);
+
+  // and load the index.html of the app.
+  mainWindow.loadFile('pages/landing.html')
+
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools()
+
+  // Emitted when the window is closed.
+  mainWindow.on('closed', function () {
+    mainWindow = null
+  })
+
+  mainWindow.on('ready-to-show', () => {
+    mainWindow.show();
+  });
+}
+
+app.on('ready', createNonLandingWindow)
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') app.quit()
 })
 
@@ -66,26 +97,3 @@ app.on('window-all-closed', function () {
 const exampleMenuTemplate = () => [
   
 ];
-
-// function createWindow () {
-//     const win = new BrowserWindow({
-//         width: 800,
-//         height: 600,
-//         show: false,
-//         webPreferences: {
-//             preload: path.join(__dirname, 'preload.js'),
-//             nodeIntegration: true,
-//             contextIsolation: false,
-//             enableRemoteModule: true,
-//         }
-//     })
-
-//     win.loadFile('pages/landing.html');
-//     win.on('ready-to-show', () => {
-//         win.show();
-//     });
-// }
-
-// app.whenReady().then(() => {
-//     createWindow();
-// })
