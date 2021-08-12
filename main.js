@@ -9,17 +9,17 @@ let mainWindow
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1000,
     minWidth: 800,
-    maxWidth: 800,
+    //maxWidth: 800,
     height: 600,
     minHeight: 600,
-    maxHeight: 600,
+    //maxHeight: 600,
     show: false,
     frame: false,
     titleBarStyle: "hidden", // add this line
     webPreferences: {
-      preload: path.join(__dirname, '/js/preload.js'),
+      preload: path.join(__dirname, '/js/preloadNonLanding.js'),
       enableRemoteModule: true,
       nodeIntegration: true,
     }
@@ -30,10 +30,10 @@ function createWindow() {
   Menu.setApplicationMenu(menu);
 
   // and load the index.html of the app.
-  mainWindow.loadFile('pages/landing.html')
+  mainWindow.loadFile('pages/layout/main_layout.html')
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

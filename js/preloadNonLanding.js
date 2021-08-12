@@ -7,11 +7,12 @@ const customTitlebar = require('custom-electron-titlebar');
 
 window.addEventListener('DOMContentLoaded', () => {
   titlebar = new customTitlebar.Titlebar({
-    backgroundColor: new customTitlebar.Color(new customTitlebar.RGBA(0,0,0,0.4)),
+    backgroundColor: new customTitlebar.Color(new customTitlebar.RGBA(0,0,0,0)),
     
     icon: url.format(path.join(__dirname, '/images', '/icon.png')),
   });
-  titlebar.updateTitle('Buxify');
+  titlebar.updateTitle(' ');
+  document.title="Buxify";
   titlebar.setHorizontalAlignment('left');
 
 
