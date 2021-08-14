@@ -22,6 +22,7 @@ function createNonLandingWindow() {
       preload: path.join(__dirname, '/js/preloadNonLanding.js'),
       enableRemoteModule: true,
       nodeIntegration: true,
+      contextIsolation: false,
     }
   })
 
@@ -61,6 +62,7 @@ function createLandingWindow() {
       preload: path.join(__dirname, '/js/preload.js'),
       enableRemoteModule: true,
       nodeIntegration: true,
+      contextIsolation: false,
     }
   })
 

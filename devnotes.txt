@@ -1,0 +1,28 @@
+Users table
+
+id // Their ID/Workername in the mining pool
+roblox_username
+roblox_user_id
+balance
+pending_balance
+total_earned
+total_received
+total_paid
+is_admin
+is_reseller
+created_at
+updated_at
+
+Reseller_Accounts table
+
+id
+active
+email
+balance
+total_paid
+payment_option
+payment_address
+
+
+
+

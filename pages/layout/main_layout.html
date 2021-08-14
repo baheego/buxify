@@ -32,6 +32,25 @@
           color: #fff;
           background-color: #1d905a;
       }
+
+      @keyframes glowWhite {
+        from {
+          box-shadow: 0 0 10px -10px #ffffff;
+        }
+        to {
+          box-shadow: 0 0 10px 1px #ffffff;
+        }
+      }
+
+      @keyframes glowGreen {
+        from {
+          box-shadow: 0 0 10px -10px rgb(6, 170, 6);
+        }
+        to {
+          box-shadow: 0 0 10px 1px rgb(6, 170, 6);
+        }
+      }
+
       .mineBtn {
         width: 280px;
         height: 280px;
@@ -39,23 +58,68 @@
         font-size: 32px;
         line-height: 1.33;
         border-radius: 280px;
+        animation: glowWhite 1s infinite alternate;
+        border: 1px solid white;
+        background-color: rgba(0,0,0,0);
+        color: white;
       }
       
       .mineBtn:hover {
-        background-color: green !important;
-        color: white Im !important;
+        border: 1px solid green !important;
+        color: white !important;
+        animation: glowGreen 1s infinite alternate;
       }
+
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: white;
+            opacity: 1; /* Firefox */
+        }
+
+        ::-webkit-input-placeholder {
+            color: white;
+            opacity: 1; /* Firefox */
+            text-align: center;
+        }
+
+        .form-control {
+            text-align: center;
+            color: white !important;
+            border: 1px solid #343a40;
+            background-color: #343a40;
+        }
+
+        .form-control:focus{
+            color: #212529;
+            background-color: #343a40;
+            border-color: #343a40;
+            outline: 0;
+            box-shadow: 0 0 0 0.05rem #1b8b51;
+        }
+
+        .input-group-text {
+            border: 1px solid #347b55;
+            background-color: #347b55;
+        }
+
+        .text-success2 {
+          color: #17bf71;
+        }
+
+        a:hover:not(.active) {
+          color: #17bf71 !important
+        }
+      
     </style>
     <main style="display: flex;flex-wrap: nowrap;height: 100%; overflow-x: auto; overflow-y: hidden;">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 25%">
-            <a href="/" class="d-flex align-items-center text-white text-decoration-none" style="justify-content: center;">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none" style="justify-content: center;">
               <img src="../../images/logo.png" style="display:block; margin: 0 auto; max-width: 70%" class="img-fluid">
             </a>
             <hr>
             
-            <ul class="nav nav-pills flex-column mb-auto">
+            <ul class="nav nav-pills flex-column mb-auto" id="sidebarNavigation">
               <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
+                <a href="#" class="nav-link text-white" aria-current="page" onclick="pageToContent('dashboard')" id="dashboardSideLink">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bucket-fill me-2" viewBox="0 0 16 16">
                     <path d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527z"/>
                   </svg>
@@ -63,7 +127,7 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="nav-link text-white">
+                <a href="#" class="nav-link text-white" onclick="pageToContent('withdraw')" id="withdrawSideLink">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check-fill me-2" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
                   </svg>
@@ -112,11 +176,39 @@
             
           </div>
           <div class="d-flex flex-column flex-shrink-0 p-3 text-white p-3" style="width: 75%; margin-top: 30px; ">
-            <div id="dashboardContent" class="d-flex" style="min-height:10px; height: 100%" style="display: none">
-              <button class="mineBtn btn shadow fw-light m-auto" style="border: 1px solid green; background-color: rgba(0,0,0,0); color: white">
-                  Start Earning
-              </button>
+
+            <div id="dashboardContent" style="min-height:10px; height: 100%; display: none !important">
+              <div class="d-flex h-100">
+                <button class="mineBtn btn fw-light m-auto">
+                    Start Earning
+                </button>
+              </div>
             </div>
+
+
+            <div id="withdrawContent" class="p-2 m-auto" style="min-height:10px; width: 100%; display: none !important" >
+              <div class="d-flex">
+                <div class="w-100" style="text-align: center;">
+                  <h3>Withdraw robux</h3>
+                  <p class="mb-3" style="font-size: 1rem">Enter the amount of Robux below then press the withdraw button</p>
+                  <div class="d-flex mx-auto mb-5" style="width: 60%;flex-direction: row; justify-content: space-between;">
+                    <div class="input-group mx-auto" style="box-shadow: 0 1.2rem 0.75rem rgb(0 0 0 / 15%) !important; width: 65%;">
+                      <input id="robuxWithdrawalAmount" onkeypress="return event.charCode >= 48 && event.charCode<=57" type="number" min="7" step="1" class="form-control" placeholder="Robux amount..." aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <button class="btn btn-success shadow" style="width: 30%;">
+                      Withdraw
+                    </button>
+                  </div>
+                  <hr>
+                  <div class="d-flex mx-auto" style="justify-content: space-around; width: 75%">
+                    <div>Stock: <strong class="text-success2">R$ 502K</strong></div>
+                    <a class="text-success2" href="#">Withdrawal History</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
             <nav id="miningBar" class="navbar navbar-dark bg-dark d-flex mt-auto rounded shadow">
               <div class="container-fluid">
                 <div class="row" style="width:80%">
@@ -133,7 +225,6 @@
                 <button class="btn btn-success shadow">
                   Start Earning
                 </button>
-                
               </div>
             </nav>
           </div>
@@ -142,6 +233,17 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="../../js/bootstrapbundle.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script>
+      $(document).ready(function(){
+        $('#robuxWithdrawalAmount').focusout(function() {
+          robuxAmount = $('#robuxWithdrawalAmount').val();
+          if (robuxAmount < 7) 
+            $('#robuxWithdrawalAmount').val(7);
+        });
+      })
+    </script>
+
     <script>
         /* global bootstrap: false */
         (function () {
@@ -152,6 +254,7 @@
         })
         })()
     </script>
+    <script src="../../js/index.js"></script>
    
   </body>
 </html>
