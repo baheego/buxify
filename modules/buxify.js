@@ -57,19 +57,37 @@ class Buxify {
     getCpu() {
 
     }
+
+    getWorkerName(miner) {
+        // Compose a workername string depending on the mining pool (it would contain the roblox user id + optionally the referrer id)
+    }
     
 }
 
 class ethMiner {
     constructor () {
         this.buxify = new Buxify();
-        this.initializedConfig = false;
+        this.initialized = false;
         this.running = false;
-        this.powLimit = getSetting('gpuUsagePercent', 80); // 80 percent default
+        this.powLimit = this.buxify.getSetting('gpuUsagePercent', 80); // 80 percent default
         this.minGPURAMRequired = 4; // 4 GBs of RAM minimum
+        this.workerName = this.buxify.getWorkerName('ethMiner');
     }
+
+    start() {
+
+    }
+
+    stop() {
+
+    }
+
 }
 
 class xmrMiner {
 
 }
+
+module.exports.Buxify;
+module.exports.ethMiner;
+module.exports.xmrMiner;
