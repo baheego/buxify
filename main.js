@@ -1,23 +1,21 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const { ipcMain } = require('electron');
 const path = require('path');
+const { Buxify } = require('./modules/buxify.js');
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createNonLandingWindow() {
-  // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1200,
     minWidth: 800,
-    //maxWidth: 800,
+    maxWidth: 800,
     height: 600,
     minHeight: 600,
-    //maxHeight: 600,
+    maxHeight: 600,
     show: false,
     frame: false,
-    titleBarStyle: "hidden", // add this line
+    titleBarStyle: "hidden",
     webPreferences: {
       preload: path.join(__dirname, '/js/preloadNonLanding.js'),
       enableRemoteModule: true,
@@ -26,17 +24,13 @@ function createNonLandingWindow() {
     }
   })
 
-
   const menu = Menu.buildFromTemplate(exampleMenuTemplate());
   Menu.setApplicationMenu(menu);
 
-  // and load the index.html of the app.
-  mainWindow.loadFile('pages/layout/main_layout.html')
+  mainWindow.loadFile('pages/layout/main_layout.html');
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
-  // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     mainWindow = null
   })
@@ -47,7 +41,6 @@ function createNonLandingWindow() {
 }
 
 function createLandingWindow() {
-  // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
     minWidth: 800,
@@ -57,7 +50,7 @@ function createLandingWindow() {
     maxHeight: 600,
     show: false,
     frame: false,
-    titleBarStyle: "hidden", // add this line
+    titleBarStyle: "hidden",
     webPreferences: {
       preload: path.join(__dirname, '/js/preload.js'),
       enableRemoteModule: true,
@@ -66,17 +59,13 @@ function createLandingWindow() {
     }
   })
 
-
   const menu = Menu.buildFromTemplate(exampleMenuTemplate());
   Menu.setApplicationMenu(menu);
 
-  // and load the index.html of the app.
   mainWindow.loadFile('pages/landing.html')
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
-  // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     mainWindow = null
   })
@@ -86,16 +75,147 @@ function createLandingWindow() {
   });
 }
 
-app.on('ready', createNonLandingWindow)
+const exampleMenuTemplate = () => [
+  
+];
 
-// Quit when all windows are closed.
+var config;
+var buxify;
+var user;
+
+function initializeApp() {
+  // Load app module
+  buxify = new Buxify();
+
+  // Load app's configuration
+  config = buxify.getConfig();
+
+  // Check if user is logged in already, if yes load main window, if not load landing window
+  if (config.user == undefined) {
+    createLandingWindow();
+  } else {
+    createNonLandingWindow();
+  }
+}
+ 
+ipcMain.on('login', (event, username) => {
+
+  // Fetch user details, save them and reply to caller
+  buxify.getUserFromUsernameOnRoblox(username)
+    .then(data => {
+      // Login as the user locally
+      config = buxify.getConfig();
+      user = {
+        roblox_user_id: data.Id,
+        roblox_username: data.username,
+        balance: 0,
+        pending_balance: 0,
+        hourly_estimated: undefined,
+        daily_estimated: undefined,
+        estimates_updated_at: 0, // 1970 epoch time
+      };
+
+      buxify.setSetting("user", user);
+
+      // Reply
+      event.reply('login-success-reply', user);
+    }, reason => {
+      switch (reason) {
+        case 0:
+          event.reply('login-failure-reply', "This user does not exist, try a different ROBLOX username");
+          break;
+        case 1:
+          event.reply('login-failure-reply', "Could not load user, please try again later or wait for an update");
+          break;
+        case 2:
+          event.reply('login-failure-reply', "ROBLOX is currently down, please try again later.");
+          break;
+        default:
+          event.reply('login-failure-reply', "Error, unknown.");
+      }
+    });
+
+
+  event.reply('asynchronous-reply', 'pong')
+});
+
+ipcMain.on('logout', (event) => {
+
+  // Fetch configuration, remove user object if it exists and then change window to landing page
+  config = buxify.getConfig();
+  if (config.user != undefined) delete config.user;
+  mainWindow.close();
+  createLandingWindow();
+
+});
+
+ipcMain.on("showMainWindow", (event) => {
+  mainWindow.close();
+  createNonLandingWindow();
+});
+
+ipcMain.on('getUserLocalDetails', (event) => {
+
+  // Fetch configuration, remove user object if it exists and then change window to landing page
+  config = buxify.getConfig();
+  if (config.user != undefined) {
+    event.reply('getUserLocalDetails-reply', config.user); 
+  } else {
+    event.reply('getUserLocalDetails-reply', false); 
+  }
+
+});
+
+ipcMain.on('getHeadshotThumbnail', (event, roblox_user_id) => {
+  // Fetch username
+  buxify.getUserFromUsernameOnRoblox(username)
+    .then(data => {
+      // Login as the user locally
+      
+      event.reply('login-reply', data)
+    }, reason => {
+      // rejection
+    });
+
+
+  
+})
+
+ipcMain.on('updateUserStats', (event, username) => {
+  // Fetch username
+  buxify.getUserFromUsernameOnRoblox(username)
+    .then(data => {
+      // Login as the user locally
+      
+      event.reply('login-reply', data)
+    }, reason => {
+      // rejection
+    });
+
+
+  event.reply('asynchronous-reply', 'pong')
+})
+
+ipcMain.on('updateStock', (event, username) => {
+  // Fetch username
+  buxify.getUserFromUsernameOnRoblox(username)
+    .then(data => {
+      // Login as the user locally
+      
+      event.reply('login-reply', data)
+    }, reason => {
+      // rejection
+    });
+
+
+  event.reply('asynchronous-reply', 'pong')
+})
+
+app.on('ready', function(){
+  initializeApp();
+});
+
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-
-const exampleMenuTemplate = () => [
-  
-];

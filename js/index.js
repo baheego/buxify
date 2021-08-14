@@ -69,3 +69,10 @@ function toggleMining() {
 $(document).ready(function(){
     pageToContent('dashboard');
 });
+
+const { ipcRenderer } = require('electron');
+
+function logout() {
+    // ensure that all miners are closed first
+    ipcRenderer.send("logout");
+}

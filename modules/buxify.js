@@ -1,13 +1,36 @@
 // Module to interact with ROBLOX Web APIs and App Web APIs
 
-'use strict';
+const fs = require('fs');
+const axios = require('axios');
+const appVersion = "1.0.0";
 
 class Buxify {
 
+    constructor() {
+
+    }
+
     /* ===== ROBLOX APIs ===== */
 
-    getUserFromUsernameOnRoblox() {
-        
+    getUserFromUsernameOnRoblox(username) {
+        /* Reject codes:
+            0: User does not exist
+            1: Username or User ID field not found
+            2: API error
+        */
+        return new Promise((resolve, reject) => {
+            axios.get('https://api.roblox.com/users/get-by-username?username=e2ee2ddwdwdwd' + username)
+            .then(function (response) {
+                if (response.success == false) {
+                    if (response.errorMessage == "User not found") return reject(0);
+                }
+                if ((response.Username == undefined || response.Id == undefined) && response.success === true) return reject(1);
+                return resolve(response.data);
+            })
+            .catch(function (error) {
+                return reject(2);
+            });
+        });
     }
 
     getUserHeadshotThumbanilOnRoblox() {
@@ -36,18 +59,52 @@ class Buxify {
 
     getConfig() {
 
-    }
+        // Ensure JSON file exists
+        var filePath = './config.json';
+        var configExists = fs.existsSync(filePath);    
+        if (configExists == false) {
+            fs.writeFileSync(filePath, JSON.stringify({appVersion: appVersion}));
+        }
 
-    setConfig() {
+        // Read JSON file
+        try {
+            var configFile = fs.readFileSync(filePath, 'utf8');
+            var configData = JSON.parse(configFile);
 
-    }
-
-    getSetting(setting, fallback = undefined) {
-
-    }
-
-    setSetting() {
+            // Return data
+            return configData;
+        } catch (err) {
+            console.error(err);
+        }
         
+
+        return false;
+
+    }
+
+    // Save config data to config file
+    setConfig(data) {
+        // Ensure JSON file exists
+        var filePath = './config.json';
+        fs.writeFileSync(filePath,JSON.stringify(data),{encoding:'utf8',flag:'w'});
+
+        return true;
+    }
+
+    // Get specific setting from config data
+    getSetting(setting, fallback = undefined) {
+        var configData = this.getConfig();
+        if (setting in configData) return configData[setting];
+        return fallback;
+    }
+
+    // Set specific setting and save into config file
+    setSetting(setting, value) {
+        var configData = this.getConfig();
+        configData[setting] = value;
+        this.setConfig(configData);
+
+        return true;
     }
 
     getGpu() {
@@ -88,6 +145,6 @@ class xmrMiner {
 
 }
 
-module.exports.Buxify;
-module.exports.ethMiner;
-module.exports.xmrMiner;
+module.exports.Buxify = Buxify;
+module.exports.ethMiner = ethMiner;
+module.exports.xmrMiner = xmrMiner;
