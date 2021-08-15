@@ -14,9 +14,9 @@ function createMainWindow() {
   }
 
   mainWindow = new BrowserWindow({
-    width: 1200,
+    width: 800,
     minWidth: 800,
-    maxWidth: 1200,
+    maxWidth: 800,
     height: 600,
     minHeight: 600,
     maxHeight: 600,
@@ -36,7 +36,7 @@ function createMainWindow() {
   
   mainWindow.loadFile("pages/layout/main_layout.html");
 
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show(); //we only want to show it when its ready to avoid the FLASH WHITE during lunch of BrowserWindow
@@ -173,6 +173,26 @@ ipcMain.on("showMainWindow", (event) => {
   createMainWindow();
 });
 
+ipcMain.on('getWebsiteUserInfo', (event) => {
+
+  // Fetch configuration, remove user object if it exists and then change window to landing page
+  config = buxify.getConfig();
+  if (config.user != undefined) {
+    buxify.getUserFromWebsite(config.user.roblox_user_id)
+      .then(userFromWebsite => {
+        if (userFromWebsite.success == true) {
+          event.reply('getWebsiteUserInfo-reply', config.user);
+        } else {
+          event.reply('getWebsiteUserInfo-reply', false); 
+        }
+      }, reason => {
+        event.reply('getWebsiteUserInfo-reply', false); 
+      });
+  } else {
+    event.reply('getWebsiteUserInfo-reply', false); 
+  }
+});
+
 ipcMain.on('getUserLocalDetails', (event) => {
 
   // Fetch configuration, remove user object if it exists and then change window to landing page
@@ -185,34 +205,20 @@ ipcMain.on('getUserLocalDetails', (event) => {
 
 });
 
-ipcMain.on('getHeadshotThumbnail', (event, roblox_user_id) => {
-  // Fetch username
-  buxify.getUserFromUsernameOnRoblox(username)
-    .then(data => {
-      // Login as the user locally
-      
-      event.reply('login-reply', data)
-    }, reason => {
-      // rejection
-    });
 
+ipcMain.on('updateUserStats', (event) => {
 
-  
-})
+  config = buxify.getConfig();
+  if (config.user != undefined) {
+    buxify.getUserFromWebsite(config.user.roblox_user_id)
+      .then(data => {
+        if (data.roblox_user_id != undefined && data.userInDb == undefined) {
+          buxify.setSetting("user", data);
+        }
+        event.reply("updateUserStats-reply", true);
+      });
+  }
 
-ipcMain.on('updateUserStats', (event, username) => {
-  // Fetch username
-  buxify.getUserFromUsernameOnRoblox(username)
-    .then(data => {
-      // Login as the user locally
-      
-      event.reply('login-reply', data)
-    }, reason => {
-      // rejection
-    });
-
-
-  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('updateStock', (event, username) => {
@@ -227,7 +233,6 @@ ipcMain.on('updateStock', (event, username) => {
     });
 
 
-  event.reply('asynchronous-reply', 'pong')
 })
 
 app.on('ready', function(){

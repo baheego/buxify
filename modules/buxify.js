@@ -3,6 +3,7 @@
 const fs = require('fs');
 const axios = require('axios');
 const appVersion = "1.0.0";
+const apiURL = 'http://test.buxify.com';
 
 class Buxify {
 
@@ -40,7 +41,23 @@ class Buxify {
     /* ===== App Web APIs ===== */
 
     getUserFromWebsite(robloxUserId) {
-
+        /* Reject codes:
+            0: Unexpected API response
+            1: Could not load page, possible API downtime
+        */
+        return new Promise((resolve, reject) => {
+            axios.get(apiURL + '/api/user_details/' + robloxUserId)
+            .then(function (response) {
+                if (response.data.success == false) {
+                    if (response.data.errorMessage == "Unexpected API response") return reject(0);
+                } else {
+                    return resolve(response.data);
+                }
+            })
+            .catch(function (error) {
+                return reject(1);
+            });
+        });
     }
 
     getStockOnWebsite() {

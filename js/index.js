@@ -2,10 +2,10 @@
 const { ipcRenderer } = require('electron');
 var estimatedHourly = undefined;
 var estimatedDaily = undefined;
-var pendingRobux = 0;
+var pending_balance = 0;
 var balance = 0;
 var username = "";
-var accountId = "";
+var roblox_user_id;
 var mining = false;
 var miningType = 1; // 0 for CPU, 1 for GPU (ETH)
 
@@ -46,37 +46,41 @@ function pageToContent(page) {
     }
 }
 
-// Get authenticated user's local info
-function getAuthInfo() {
-    return new Promise((resolve, reject) => {
-        ipcRenderer.send("getUserLocalDetails");
-        ipcRenderer.on('getUserLocalDetails-reply', (event, arg) => {
-            if (arg !== false) return resolve(arg);
-            return reject("User not logged in.");
-        })
-    });
+// Update user's stats to local config file
+function updateUserInfoFromWebsite() {
+    ipcRenderer.send("updateUserStats");
 }
 
 // Update authenticated user's username in main window
 function updateUserInDom() {
-    getAuthInfo()
-        .then(user => {
-            $('#userUsername').html(user.roblox_username)
-            $('#userBalance').html(user.balance + " Robux");
-            $('#userAvatarImage').attr('src', 'https://www.roblox.com/headshot-thumbnail/image?userId=' + user.roblox_user_id + '&width=420&height=420&format=png')
-        }, err => {
-            alert(err);
-        });
+    ipcRenderer.send("getUserLocalDetails");
 }
+
+// Update user's stats from website, then u pdate DOM
+ipcRenderer.on('updateUserStats-reply', (event, arg) => {
+    if (arg !== false) updateUserInDom();
+})
+
+// Update DOM for local details
+ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
+    if (user !== false && user.roblox_user_id != undefined ) {
+        balance = user.balance;
+        pending_balance = user.pending_balance;
+        roblox_user_id = user.roblox_user_id;
+        $('#userUsername').html(user.roblox_username)
+        $('#userBalance').html(user.balance + " Robux");
+        $('#userAvatarImage').attr('src', 'https://www.roblox.com/headshot-thumbnail/image?userId=' + user.roblox_user_id + '&width=420&height=420&format=png')
+    }
+})
 
 // Update the mining bar
 function updateMiningBar() {
 
 }
 
-// Update user's balance to the local config file
+// Update user's balance and name to the local config file
 function updateBalance() {
-
+    updateUserInfoFromWebsite();
 }
 
 // Toggle mining
@@ -87,7 +91,11 @@ function toggleMining() {
 // Init app on page load
 $(document).ready(function(){
     pageToContent('dashboard');
-    updateUserInDom();
+    updateBalance();
+
+    setInterval(() => {
+        updateBalance();
+    }, 5000);
 });
 
 function logout() {
