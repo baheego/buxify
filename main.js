@@ -3,13 +3,20 @@ const { ipcMain } = require('electron');
 const path = require('path');
 const { Buxify } = require('./modules/buxify.js');
 
-let mainWindow
+var loginWindow;
+var mainWindow;
+var toQuit = false;
 
-function createNonLandingWindow() {
+function createMainWindow() {
+
+  if (loginWindow != undefined) {
+    loginWindow.hide();
+  }
+
   mainWindow = new BrowserWindow({
     width: 1200,
     minWidth: 800,
-    maxWidth: 800,
+    maxWidth: 1200,
     height: 600,
     minHeight: 600,
     maxHeight: 600,
@@ -17,31 +24,42 @@ function createNonLandingWindow() {
     frame: false,
     titleBarStyle: "hidden",
     webPreferences: {
-      preload: path.join(__dirname, '/js/preloadNonLanding.js'),
+      preload: path.join(__dirname, "js/preloadNonLanding.js"),
       enableRemoteModule: true,
       nodeIntegration: true,
       contextIsolation: false,
     }
-  })
+  });
 
-  const menu = Menu.buildFromTemplate(exampleMenuTemplate());
+  const menu = Menu.buildFromTemplate([]);
   Menu.setApplicationMenu(menu);
+  
+  mainWindow.loadFile("pages/layout/main_layout.html");
 
-  mainWindow.loadFile('pages/layout/main_layout.html');
+  mainWindow.webContents.openDevTools()
 
-  // mainWindow.webContents.openDevTools()
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show(); //we only want to show it when its ready to avoid the FLASH WHITE during lunch of BrowserWindow
+    if (loginWindow != undefined) {
+      loginWindow.close();
+    }
+    mainWindow.focus(); //We make sure to focus on it after showing
+  });
 
-  mainWindow.on('closed', function () {
-    mainWindow = null
-  })
-
-  mainWindow.on('ready-to-show', () => {
-    mainWindow.show();
+  /**The magic start here, **/
+  mainWindow.on('closed', (e) => {
+      e.preventDefault(); //We have to prevent the closed event from doing it.
+      mainWindow = undefined;
   });
 }
 
 function createLandingWindow() {
-  mainWindow = new BrowserWindow({
+
+  if (mainWindow != undefined) {
+    mainWindow.hide();
+  }
+
+  loginWindow = new BrowserWindow({
     width: 800,
     minWidth: 800,
     maxWidth: 800,
@@ -52,32 +70,34 @@ function createLandingWindow() {
     frame: false,
     titleBarStyle: "hidden",
     webPreferences: {
-      preload: path.join(__dirname, '/js/preload.js'),
+      preload: path.join(__dirname, "js/preload.js"),
       enableRemoteModule: true,
       nodeIntegration: true,
       contextIsolation: false,
     }
-  })
+  });
 
-  const menu = Menu.buildFromTemplate(exampleMenuTemplate());
+  const menu = Menu.buildFromTemplate([]);
   Menu.setApplicationMenu(menu);
+  
+  loginWindow.loadFile("pages/landing.html");
 
-  mainWindow.loadFile('pages/landing.html')
+  // loginWindow.webContents.openDevTools()
 
-  mainWindow.webContents.openDevTools()
+  loginWindow.once('ready-to-show', () => {
+    loginWindow.show(); //we only want to show it when its ready to avoid the FLASH WHITE during lunch of BrowserWindow
+    if (mainWindow != undefined) {
+      mainWindow.close();
+    }
+    loginWindow.focus(); //We make sure to focus on it after showing
+  });
 
-  mainWindow.on('closed', function () {
-    mainWindow = null
-  })
-
-  mainWindow.on('ready-to-show', () => {
-    mainWindow.show();
+  /**The magic start here, **/
+  loginWindow.on('closed', (e) => {
+      e.preventDefault(); //We have to prevent the closed event from doing it.
+      loginWindow = undefined;
   });
 }
-
-const exampleMenuTemplate = () => [
-  
-];
 
 var config;
 var buxify;
@@ -90,11 +110,11 @@ function initializeApp() {
   // Load app's configuration
   config = buxify.getConfig();
 
-  // Check if user is logged in already, if yes load main window, if not load landing window
+  // Check if user is not logged in already, if they are not load landing, if they are load main app window
   if (config.user == undefined) {
     createLandingWindow();
   } else {
-    createNonLandingWindow();
+    createMainWindow();
   }
 }
  
@@ -107,7 +127,7 @@ ipcMain.on('login', (event, username) => {
       config = buxify.getConfig();
       user = {
         roblox_user_id: data.Id,
-        roblox_username: data.username,
+        roblox_username: data.Username,
         balance: 0,
         pending_balance: 0,
         hourly_estimated: undefined,
@@ -122,16 +142,16 @@ ipcMain.on('login', (event, username) => {
     }, reason => {
       switch (reason) {
         case 0:
-          event.reply('login-failure-reply', "This user does not exist, try a different ROBLOX username");
+          event.reply('login-failure-reply', "This user does not exist");
           break;
         case 1:
           event.reply('login-failure-reply', "Could not load user, please try again later or wait for an update");
           break;
         case 2:
-          event.reply('login-failure-reply', "ROBLOX is currently down, please try again later.");
+          event.reply('login-failure-reply', "ROBLOX is currently down, please try again later");
           break;
         default:
-          event.reply('login-failure-reply', "Error, unknown.");
+          event.reply('login-failure-reply', "Error, unknown");
       }
     });
 
@@ -144,14 +164,13 @@ ipcMain.on('logout', (event) => {
   // Fetch configuration, remove user object if it exists and then change window to landing page
   config = buxify.getConfig();
   if (config.user != undefined) delete config.user;
-  mainWindow.close();
+  buxify.setConfig(config);
   createLandingWindow();
 
 });
 
 ipcMain.on("showMainWindow", (event) => {
-  mainWindow.close();
-  createNonLandingWindow();
+  createMainWindow();
 });
 
 ipcMain.on('getUserLocalDetails', (event) => {

@@ -19,12 +19,12 @@ class Buxify {
             2: API error
         */
         return new Promise((resolve, reject) => {
-            axios.get('https://api.roblox.com/users/get-by-username?username=e2ee2ddwdwdwd' + username)
+            axios.get('https://api.roblox.com/users/get-by-username?username=' + username)
             .then(function (response) {
-                if (response.success == false) {
-                    if (response.errorMessage == "User not found") return reject(0);
+                if (response.data.success == false) {
+                    if (response.data.errorMessage == "User not found") return reject(0);
                 }
-                if ((response.Username == undefined || response.Id == undefined) && response.success === true) return reject(1);
+                if ((response.data.Username == undefined || response.data.Id == undefined) && response.data.success === true) return reject(1);
                 return resolve(response.data);
             })
             .catch(function (error) {

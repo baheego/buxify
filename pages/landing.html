@@ -152,8 +152,13 @@
                 <span class="input-group-text" id="basic-addon1"><img src="../images/roblox-icon.png" style="height:32px"></span>
                 <input id="robloxUsername" type="text" class="form-control" placeholder="Enter your ROBLOX Username..." aria-label="Username" aria-describedby="basic-addon1">
             </div>
-            <div class="invalid-feedback" style="text-align: center; font-weight: 500; font-size: 1rem" id="robloxLoginErrorMessage">
+            <div class="invalid-feedback" style="display: none; text-align: center; font-weight: 500; font-size: 1rem" id="robloxLoginErrorMessage">
                 
+            </div>
+            <div class="loading-login-feedback" style="display: none; text-align: center; font-weight: 500; font-size: 1rem" id="robloxLoadingLogin">
+                <div class="spinner-border text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </div>
 
@@ -171,12 +176,15 @@
             if(e.which === 13 && loginDebounce == false){
                 loginDebounce = true;
 
+                // Hide error message if it previously existed
+                $('#robloxLoginErrorMessage').hide();
+
                 //Disable textbox to prevent multiple submit
-                $(this).attr("disabled", "disabled");
+                $('#robloxLoadingLogin').show();
 
                 //Default re-enable text box after 10 seconds
                 setTimeout(() => {
-                    $(this).removeAttr("disabled");
+                    $('#robloxLoadingLogin').hide();
                     loginDebounce = false;
                 }, 10000);
 
@@ -187,7 +195,7 @@
 
         ipcRenderer.on('login-success-reply', (event, arg) => {
             loginDebounce = false;
-            $(this).removeAttr("disabled");
+            $('#robloxLoadingLogin').hide();
             $('#robloxLoginErrorMessage').hide();
             ipcRenderer.send('showMainWindow');
         });
@@ -196,7 +204,7 @@
             $('#robloxLoginErrorMessage').html(arg);
             $('#robloxLoginErrorMessage').show();
             loginDebounce = false;
-            $(this).removeAttr("disabled");
+            $('#robloxLoadingLogin').hide();
         });
     </script>
    
