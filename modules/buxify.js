@@ -75,14 +75,12 @@ class Buxify {
     /* ===== App APIs ===== */
 
     getConfig() {
-
         // Ensure JSON file exists
         var filePath = './config.json';
         var configExists = fs.existsSync(filePath);    
         if (configExists == false) {
             fs.writeFileSync(filePath, JSON.stringify({appVersion: appVersion}));
         }
-
         // Read JSON file
         try {
             var configFile = fs.readFileSync(filePath, 'utf8');
@@ -93,10 +91,7 @@ class Buxify {
         } catch (err) {
             console.error(err);
         }
-        
-
         return false;
-
     }
 
     // Save config data to config file
@@ -104,7 +99,6 @@ class Buxify {
         // Ensure JSON file exists
         var filePath = './config.json';
         fs.writeFileSync(filePath,JSON.stringify(data),{encoding:'utf8',flag:'w'});
-
         return true;
     }
 
@@ -120,7 +114,6 @@ class Buxify {
         var configData = this.getConfig();
         configData[setting] = value;
         this.setConfig(configData);
-
         return true;
     }
 
@@ -149,7 +142,7 @@ class ethMiner {
     }
 
     start() {
-
+        
     }
 
     stop() {

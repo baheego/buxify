@@ -5,7 +5,8 @@ const { Buxify } = require('./modules/buxify.js');
 
 var loginWindow;
 var mainWindow;
-var toQuit = false;
+var isMining = false;
+var miners = [];
 
 function createMainWindow() {
 
@@ -231,9 +232,29 @@ ipcMain.on('updateStock', (event, username) => {
     }, reason => {
       // rejection
     });
-
-
 })
+
+
+ipcMain.on('toggleMining', (event) => {
+  // Mining has been toggled, workflow:
+  /*
+    - If toggled to turn off:
+      1. Terminate all mining processes by sending SIGINT signal, the mining processes will be stored in an array
+      2. Reply to ipcRenderer notifying them that mining has stopped
+    - If toggled to turn on (Only ETH for now):
+      1. Compose workername and retrieve pool URL + wallet address from API (and fallback to local wallet)
+      2. Retrieve GPU limit from configuration file (or resorted to 80% default)
+      3. Execute phoenixminer/another miner with command line arguments
+  */
+
+  switch (isMining) {
+    case true:
+      break;
+    case false:
+      
+      break;
+  }
+});
 
 app.on('ready', function(){
   initializeApp();

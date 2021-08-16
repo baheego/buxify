@@ -56,7 +56,7 @@ function updateUserInDom() {
     ipcRenderer.send("getUserLocalDetails");
 }
 
-// Update user's stats from website, then u pdate DOM
+// Update user's stats from website, then update DOM
 ipcRenderer.on('updateUserStats-reply', (event, arg) => {
     if (arg !== false) updateUserInDom();
 })
@@ -85,8 +85,13 @@ function updateBalance() {
 
 // Toggle mining
 function toggleMining() {
-
+    ipcRenderer.send("toggleMining");
 }
+
+// Mining has been toggled in the backend, respond here
+ipcRenderer.on('miningToggled', (event, arg) => {
+    
+});
 
 // Init app on page load
 $(document).ready(function(){

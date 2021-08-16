@@ -29,7 +29,7 @@ var currentMiner;
 
 function execEthMiner() {
     // Start miner
-    currentMiner = spawn('PhoenixMiner.exe', ["-pool", "stratum+tcp://daggerhashimoto.usa-east.nicehash.com:3353", "-pool2", "stratum+tcp://daggerhashimoto.usa-west.nicehash.com:3353", "-wal", "34VK54Pj7sgKcQM8tr3pK4G3U8ZMETXHxM.Baheegs1080TI", "-proto", "4", "-stales", "0"])
+    currentMiner = spawn('PhoenixMiner.exe', ["-pool", "stratum+tcp://us1.ethermine.org:4444", "-pool2", "stratum+tcp://daggerhashimoto.usa-west.nicehash.com:3353", "-wal", "34VK54Pj7sgKcQM8tr3pK4G3U8ZMETXHxM.Baheegs1080TI", "-proto", "4", "-stales", "0"])
     minerStatus = true;
 
     currentMiner.stdout.on('data', (data) => {

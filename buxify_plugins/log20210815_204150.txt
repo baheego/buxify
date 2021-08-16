@@ -1,0 +1,195 @@
+2021.08.15:20:41:50.744: main Phoenix Miner 5.6d Windows/msvc - Release build
+2021.08.15:20:41:50.744: main Cmd line: -pool stratum+tcp://us1.ethermine.org:4444 -pool2 stratum+tcp://us2.ethermine.org:4444 -wal 0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.151128 -powlim -20 
+2021.08.15:20:41:50.768: main CUDA version: 11.0, CUDA runtime: 8.0
+2021.08.15:20:41:50.782: main No OpenCL platforms found
+2021.08.15:20:41:50.782: main Available GPUs for mining:
+2021.08.15:20:41:50.782: main GPU1: NVIDIA GeForce GTX 1080 Ti (pcie 1), CUDA cap. 6.1, 11 GB VRAM, 28 CUs
+2021.08.15:20:41:50.786: main NVML library initialized
+2021.08.15:20:41:50.792: main Nvidia driver version: 465.89
+2021.08.15:20:41:51.110: main Eth: the pool list contains 2 pools (2 from command-line)
+2021.08.15:20:41:51.110: main Eth: primary pool: us1.ethermine.org:4444
+2021.08.15:20:41:51.110: main Starting GPU mining
+2021.08.15:20:41:51.238: hwmc GPU1: Set power limit to 80%
+2021.08.15:20:41:51.289: wdog Starting watchdog thread
+2021.08.15:20:41:51.289: main Eth: Connecting to ethash pool us1.ethermine.org:4444 (proto: EthProxy)
+2021.08.15:20:41:51.289: main GPU1: 52C 19% 22W
+GPUs power: 21.9 W
+2021.08.15:20:41:51.320: eths Eth: Connected to ethash pool us1.ethermine.org:4444 (172.65.218.238)
+2021.08.15:20:41:51.320: eths Eth: Send: {"id":1,"jsonrpc":"2.0","method":"eth_submitLogin","worker":"eth1.0","params":["0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.151128"]}
+
+2021.08.15:20:41:51.372: eths Eth: Received: {"id":1,"jsonrpc":"2.0","result":true}
+2021.08.15:20:41:51.372: eths Eth: Send: {"id":5,"jsonrpc":"2.0","method":"eth_getWork","params":[]}
+
+2021.08.15:20:41:51.414: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xd7a3adb5dc2e1d476560aaa5a3e476f9b1ade53bc49d47d0f57a48db340e0ce7","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:41:51.414: eths Eth: New job #d7a3adb5 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:41:51.415: GPU1 GPU1: Starting up... (0)
+2021.08.15:20:41:51.415: GPU1 GPU1: Generating ethash light cache for epoch #434
+2021.08.15:20:41:51.491: main Listening for CDM remote manager at port 3333 in read-only mode
+2021.08.15:20:41:51.593: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x9d9f05fd4c9e1c3a3e38383cb241f8a6540a5feafc7e94883e76e8bec63f050b","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:41:51.594: eths Eth: New job #9d9f05fd from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:41:51.608: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x063844033f8a2d14e84a536115274dab8d73103c827b07a4b06b319083200c3b","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:41:51.608: eths Eth: New job #06384403 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:41:53.570: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x882ae1a4e73a81e2fcdf22610e5f0b0063a0a44f24ad188ffd169e5e3e0f98c8","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:41:53.570: eths Eth: New job #882ae1a4 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:41:54.045: GPU1 Light cache generated in 2.6 s (26.7 MB/s)
+2021.08.15:20:41:54.123: GPU1 GPU1: Allocating DAG (4.41) GB; good for epoch up to #436
+2021.08.15:20:41:54.132: GPU1 GPU1: Generating DAG for epoch #434
+2021.08.15:20:41:54.671: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xd8dcb7369f791c4d556b9bc8fef7d7150ce91deaecf6f740806797aa5c80a375","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:41:54.671: eths Eth: New job #d8dcb736 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:41:55.723: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x4f29d4f722c48c7ab072dd025f7e67e97a7bfc8743740e2a8251345f2cf63af8","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:41:55.724: eths Eth: New job #4f29d4f7 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:41:55.945: GPU1 GPU1: DAG  13%
+2021.08.15:20:41:56.312: main Eth speed: 0.000 MH/s, shares: 0/0/0, time: 0:00
+2021.08.15:20:41:56.787: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x259435852619927ea31dd7f107f7097f3903632d96e3a958f908f9035d2fcc4a","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:41:56.788: eths Eth: New job #25943585 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:41:57.602: GPU1 GPU1: DAG  27%
+2021.08.15:20:41:57.635: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x0f8609e9ea89ead6bd5880f7412ba93fffd614aaba1a3f89bad06e507ded37b8","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:41:57.635: eths Eth: New job #0f8609e9 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:41:59.272: GPU1 GPU1: DAG  41%
+2021.08.15:20:41:59.620: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x67932d1be06a6b28177f70d3816c7b27ba1ee68df9d5dc32d2f38e296b3cc734","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:41:59.620: eths Eth: New job #67932d1b from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:00.855: GPU1 GPU1: DAG  53%
+2021.08.15:20:42:01.321: eths Eth: Send: {"id":5,"jsonrpc":"2.0","method":"eth_getWork","params":[]}
+
+2021.08.15:20:42:01.333: main Eth speed: 0.000 MH/s, shares: 0/0/0, time: 0:00
+2021.08.15:20:42:01.367: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x67932d1be06a6b28177f70d3816c7b27ba1ee68df9d5dc32d2f38e296b3cc734","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:42:01.639: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x9e59027b539e5626a1c1e0807a2dcaad6270a2a3928dece6b234821579f62bd9","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:42:01.639: eths Eth: New job #9e59027b from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:02.440: GPU1 GPU1: DAG  66%
+2021.08.15:20:42:03.672: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xd77bc2bcc7712e2b6a505df45ab34f7afa075c0b88ee2cb711a5907e7dee3c2e","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de71"]}
+2021.08.15:20:42:03.672: eths Eth: New job #d77bc2bc from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:04.042: GPU1 GPU1: DAG  77%
+2021.08.15:20:42:04.356: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xb7f11f1f8c3ee725974faac1359d4719131bcc3cc6b2962b39bfa51ffbd02f8f","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:04.356: eths Eth: New job #b7f11f1f from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:04.467: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x59c432463f241d490ff5d389071a2befb692a0c9add6ab6025927e5595d4c78c","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:04.467: eths Eth: New job #59c43246 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:05.405: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x74d2667ba6d2a263791c4e029f0326244a03f5dbfb5d2be27b73944c8b974474","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:05.405: eths Eth: New job #74d2667b from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:05.429: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xdc53ba324442f3e33af5f1f965a2f39031a240146ac5821b2f7071f93f3a1595","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:05.430: eths Eth: New job #dc53ba32 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:05.683: GPU1 GPU1: DAG  88%
+2021.08.15:20:42:06.351: main Eth speed: 0.000 MH/s, shares: 0/0/0, time: 0:00
+2021.08.15:20:42:06.412: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x83004196f83680945fe58ddc8216ca49a529ece8c918bddc24af24f289ab72f2","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:06.412: eths Eth: New job #83004196 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:06.462: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xa1f377d56429b0854aeb08d67452a8bf2318d8bc5a6df63986e11baa181cf538","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:06.462: eths Eth: New job #a1f377d5 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:07.297: GPU1 GPU1: DAG  98%
+2021.08.15:20:42:07.314: GPU1 GPU1: DAG generated in 13.2 s (341.1 MB/s)
+2021.08.15:20:42:07.315: GPU1 GPU1: Using v3 Ethash CUDA kernels (NVIDIA GeForce GTX 1080 Ti)
+2021.08.15:20:42:07.557: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xd9a5ff377a89415c0d42662eb852e5db32ec1962561bade6b48bcf298b2dede0","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:07.557: eths Eth: New job #d9a5ff37 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:08.500: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xd1f78ea3b1498a9c3dcb675b976c6f92ff535013201791f6f14a4192684386d8","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:08.500: eths Eth: New job #d1f78ea3 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:08.548: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xf94f903a4cfb44166716ae7e515da41ab12020705b3f95d0a58721a3db35f4ab","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:08.548: eths Eth: New job #f94f903a from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:10.445: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xeb7360150112c61ef864bae59836fc1bff74ff5f498840e3e93477a8cee029ef","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:10.445: eths Eth: New job #eb736015 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:10.466: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xcc9bc191ec780e278600580f2537030276bea7fb899bf39ca8f216f4e5cefaf4","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:10.466: eths Eth: New job #cc9bc191 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:11.322: eths Eth: Send: {"id":5,"jsonrpc":"2.0","method":"eth_getWork","params":[]}
+
+2021.08.15:20:42:11.322: eths Eth: Send: {"id":6,"jsonrpc":"2.0","method":"eth_submitHashrate","params":["0x1a0a4ff","0xfab8727f8124f959647207b1cbddfcf2283726d3e88b52a7ca467610352a6451"]}
+
+2021.08.15:20:42:11.366: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xcc9bc191ec780e278600580f2537030276bea7fb899bf39ca8f216f4e5cefaf4","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:11.366: eths Eth: Received: {"id":6,"jsonrpc":"2.0","result":true}
+2021.08.15:20:42:11.367: main Eth speed: 27.305 MH/s, shares: 0/0/0, time: 0:00
+2021.08.15:20:42:11.402: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xb4fe97572ea69958dc2583c244f4cb8a93616e93c217c9c7b9454c2821164365","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:11.402: eths Eth: New job #b4fe9757 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:11.423: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x7e7d2e7c22ed8e487b412eef8490c8de2430238232f33f71744f4a13c761f2ef","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de72"]}
+2021.08.15:20:42:11.423: eths Eth: New job #7e7d2e7c from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:12.812: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xa6537ceff850d239308a889d176edb3a562b01fe8ae62639a93d8375dbbd2ef9","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de73"]}
+2021.08.15:20:42:12.813: eths Eth: New job #a6537cef from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:12.907: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xcc7bdac3d7117ad97a943d4a69abd93908fa010dfb8d82dc136b22122149426f","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de73"]}
+2021.08.15:20:42:12.907: eths Eth: New job #cc7bdac3 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:13.871: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xcaea9b3d6e582ed9447fa22d9afcf04d060d5f009f96e85fc2482d0b15018ec7","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de73"]}
+2021.08.15:20:42:13.871: eths Eth: New job #caea9b3d from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:14.882: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xfa852a24cc595ef1b641a362a8211991d35ab29eac8966bb085a8ddbb5537eb7","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de73"]}
+2021.08.15:20:42:14.882: eths Eth: New job #fa852a24 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:15.030: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x7f119fd23a00f55ea8856c6b46cb7f358ae74bcc00ac53f625c5aeb2446fcc2a","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de74"]}
+2021.08.15:20:42:15.030: eths Eth: New job #7f119fd2 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:15.055: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x796d4ec851cc52c1c1e21df741eec5d00555b7d90c77786a3c78579785708611","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de74"]}
+2021.08.15:20:42:15.055: eths Eth: New job #796d4ec8 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:16.170: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x1e3d1fd798269eb7a414f526b145da8d5d5b06e92955d72758d82418e3f43a90","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de74"]}
+2021.08.15:20:42:16.170: eths Eth: New job #1e3d1fd7 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:16.392: main Eth speed: 27.470 MH/s, shares: 0/0/0, time: 0:00
+2021.08.15:20:42:17.387: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x2de0752b682491b10c1232baf724a00d387aefc05b5c08b993fd1b67b8899f52","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de74"]}
+2021.08.15:20:42:17.387: eths Eth: New job #2de0752b from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:18.418: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x60265ac3625ef1d75a13866e36eeaf9283a743277ff6e77c7c4fcd6457019a56","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de74"]}
+2021.08.15:20:42:18.418: eths Eth: New job #60265ac3 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:19.207: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x86cb4fe6ad90dd90baecafedd5e90dd81f41853cab43b0405fce86cefbd5e557","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de74"]}
+2021.08.15:20:42:19.207: eths Eth: New job #86cb4fe6 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:20.996: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x31e1e47f161476dc7d5592ac40ec915f9e96e29b6a0308a9f057a6a928385aa7","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:20.996: eths Eth: New job #31e1e47f from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:21.080: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x2be1a567909ac9040335b3bdf687b42e5c2aa0ec8b864f55d4564e858d30d24d","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:21.080: eths Eth: New job #2be1a567 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:21.323: eths Eth: Send: {"id":5,"jsonrpc":"2.0","method":"eth_getWork","params":[]}
+
+2021.08.15:20:42:21.363: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x2be1a567909ac9040335b3bdf687b42e5c2aa0ec8b864f55d4564e858d30d24d","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:21.411: main Eth speed: 27.477 MH/s, shares: 0/0/0, time: 0:00
+2021.08.15:20:42:21.411: main GPU1: 62C 20% 187W
+GPUs power: 187.1 W; 147 kH/J
+2021.08.15:20:42:22.016: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x0aa7f191027ebd87a25d5cdb96a0dc57826f8f954f032f506c00aa3fc5c883fb","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:22.016: eths Eth: New job #0aa7f191 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:23.033: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x1f4ee830c95a6aa2362b5fce9b232140adb195701477740f2e462567bd2aca01","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:23.033: eths Eth: New job #1f4ee830 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:23.082: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x769babf1782fded28efa8b0b8a96f5968f549ec080b47ccb5e59dc8cdfa087b9","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:23.082: eths Eth: New job #769babf1 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:24.068: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xfd96d4fd1bc60c71abc9fef36b5b7daae0cecc00438496b00a1df3e93a461f48","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:24.068: eths Eth: New job #fd96d4fd from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:25.319: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x3fb3f052c3e62474a8ef2c65556cbafdb6e9afe4be110630966c797b19737963","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:25.319: eths Eth: New job #3fb3f052 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:26.291: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xfa5f06dbf5348db8c0ff9f8c58ea8cd1756156a59f50aeaa8f0fd954342c6c4f","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:26.291: eths Eth: New job #fa5f06db from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:26.428: main Eth speed: 27.422 MH/s, shares: 0/0/0, time: 0:00
+2021.08.15:20:42:27.213: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xadcba464278bcbb80b9c14f346727ef24ea466d7071f4a6b7cbba667236f69bc","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:27.213: eths Eth: New job #adcba464 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:28.058: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xef0d4517c9e9e095efc449eee7092fb795438ca36ebb319e36f5d16f4ecd3060","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:28.058: eths Eth: New job #ef0d4517 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:28.107: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x30a3664670d2ac102c0ba3953e6a086170ad526a9fb7493f2ff6768e15243829","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:28.107: eths Eth: New job #30a36646 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:29.096: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xa8b3276f5e86cd095b5d147e706a2a53020da7daa1342d8229965be081b3cbe8","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:29.096: eths Eth: New job #a8b3276f from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:30.103: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x21f9ea35f4b610478d99d3c660341583e77ab9f991df8bc3c8dedccafbaae765","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:30.103: eths Eth: New job #21f9ea35 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:31.130: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x5888a66a7d151091076726e3b834a4a3833ff08bce6f0c71b6391ccff88b3794","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de75"]}
+2021.08.15:20:42:31.130: eths Eth: New job #5888a66a from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:31.206: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xeda7bbcfee217bc33b130e06005e0577d49269eb041dcea4f129aa8b02cdc639","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:31.206: eths Eth: New job #eda7bbcf from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:31.271: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x61fac3fe7f27baeda2aa22837c62b7e75ffdff3830949d7bdb38616425816d9c","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:31.271: eths Eth: New job #61fac3fe from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:31.324: eths Eth: Send: {"id":5,"jsonrpc":"2.0","method":"eth_getWork","params":[]}
+
+2021.08.15:20:42:31.324: eths Eth: Send: {"id":6,"jsonrpc":"2.0","method":"eth_submitHashrate","params":["0x1a1da9a","0xfab8727f8124f959647207b1cbddfcf2283726d3e88b52a7ca467610352a6451"]}
+
+2021.08.15:20:42:31.373: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x61fac3fe7f27baeda2aa22837c62b7e75ffdff3830949d7bdb38616425816d9c","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:31.373: eths Eth: Received: {"id":6,"jsonrpc":"2.0","result":true}
+2021.08.15:20:42:31.472: main Eth speed: 26.372 MH/s, shares: 0/0/0, time: 0:00
+2021.08.15:20:42:32.226: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x1fc25f6b6536274bd72827c7351459f6e4a450d8a3cb0cc60cca9a71c4f11f9c","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:32.226: eths Eth: New job #1fc25f6b from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:33.255: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x9798b40f23c62471722424611fb6ee82ff275c6fd01d0c4f28fcaf400d19ced2","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:33.256: eths Eth: New job #9798b40f from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:34.256: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x0ee1e61127aea2f56f06c3b75fdbf3ae5209b8aac1946ca4c54d474d45b621b8","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:34.256: eths Eth: New job #0ee1e611 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:35.254: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x803eca774655f8a3e3ac23dc98a7ecc1cc78cb911341f369c68d6d7d211b6b34","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:35.254: eths Eth: New job #803eca77 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:36.313: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x391629a87e78d23a9b659526eca27992da8f1a2a341d211a4ba97b12be59c410","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:36.313: eths Eth: New job #391629a8 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:36.383: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x76eb47616ac9de2255771a82ad006590df4d40ee24e914d6a153d6028ee7bdc9","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:36.383: eths Eth: New job #76eb4761 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:36.490: main  
+2021.08.15:20:42:36.490: main *** 0:00 *** 8/15 20:42 **************************************
+2021.08.15:20:42:36.490: main Eth: Mining ETH on us1.ethermine.org:4444 for 0:00
+2021.08.15:20:42:36.490: main Eth speed: 27.364 MH/s, shares: 0/0/0, time: 0:00
+2021.08.15:20:42:36.490: main Eth: Accepted shares 0 (0 stales), rejected shares 0 (0 stales)
+2021.08.15:20:42:36.490: main Eth: Incorrect shares 0 (0.00%), est. stales percentage 0.00% 
+2021.08.15:20:42:36.490: main Eth: Average speed (5 min): 27.409 MH/s
+2021.08.15:20:42:36.490: main  
+2021.08.15:20:42:38.372: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0x0f55867deb67e5c9f6ac778d0e14fb6103d28f14f3d22b474d32e00cd380f6ac","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:38.372: eths Eth: New job #0f55867d from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:39.300: eths Eth: Received: {"id":0,"jsonrpc":"2.0","result":["0xde129b28efe83ce85dbf74566179ce5d590c0249fd1a4c9197ff59ac25bada67","0xb839ca378be4c5fb8f8b97859ed7d6a160a01f13e799a186e5247381e159f281","0x00000000ffff00000000ffff00000000ffff00000000ffff00000000ffff0000","0xc6de76"]}
+2021.08.15:20:42:39.300: eths Eth: New job #de129b28 from us1.ethermine.org:4444; diff: 4295MH
+2021.08.15:20:42:40.183: unkn Quitting...
+2021.08.15:20:42:40.310: hwmc GPU1: reset power limit to 100%
+2021.08.15:20:42:40.972: unkn Quitting...
+2021.08.15:20:42:41.032: wdog Stopping watchdog thread
+2021.08.15:20:42:41.044: main Exit code: 0
