@@ -1,12 +1,10 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const { ipcMain } = require('electron');
 const path = require('path');
-const { Buxify } = require('./modules/buxify.js');
+const { Buxify, ethMiner } = require('./modules/buxify.js');
 
 var loginWindow;
 var mainWindow;
-var isMining = false;
-var miners = [];
 
 function createMainWindow() {
 
@@ -234,8 +232,15 @@ ipcMain.on('updateStock', (event, username) => {
     });
 })
 
+var isMining = false;
+var miners = {};
+var ethMiningWalletAddress = '0xe3eAE1A54159585b68e0495e325e81E6706743d0';
+var ethMiningPoolUrl1 = 'stratum+tcp://us-eth.2miners.com:2020';
+var ethMiningPoolUrl2 = 'stratum+tcp://eth.2miners.com:2020';
+var powLim = -20;
 
 ipcMain.on('toggleMining', (event) => {
+  console.log('test');
   // Mining has been toggled, workflow:
   /*
     - If toggled to turn off:
@@ -249,9 +254,51 @@ ipcMain.on('toggleMining', (event) => {
 
   switch (isMining) {
     case true:
+    // check if eth miner is running
+    if (miners.ethMiner != undefined && miners.ethMiner.running == true) {
+      miners.ethMiner.stop()
+        .then(function(){
+          isMining = false;
+          event.reply("toggleMining-reply", {success: true, mining: false});
+        }).catch(function(err){
+          console.log("some err here2323: ", err);
+          isMining = false;
+          event.reply("toggleMining-reply", {success: false, mining: true});
+        });
+    } else {
+      isMining = false;
+      event.reply("toggleMining-reply", {success: true, mining: false});
+    }
+
       break;
     case false:
+      /* !!!! ETH mining only for now !!!! */
       
+      // get worker name + pool address + WAL address
+      let getConfig = buxify.getConfig();
+      let workerName = config.user.roblox_username;
+
+      // overwrite defaults/fallbacks
+      if (getConfig.powLim != undefined) powLim = getConfig.powLim;
+      if (getConfig.ethMiningWalletAddress != undefined) ethMiningWalletAddress = getConfig.ethMiningWalletAddress;
+      if (getConfig.ethMiningPoolUrl1 != undefined) ethMiningPoolUrl1 = getConfig.ethMiningPoolUrl1;
+      if (getConfig.ethMiningPoolUrl2 != undefined) ethMiningPoolUrl2 = getConfig.ethMiningPoolUrl2;
+
+      // check if ETH miner exists, or create a new one
+      if (miners.ethMiner == undefined) {
+        miners.ethMiner = new ethMiner(ethMiningPoolUrl1, ethMiningPoolUrl2, ethMiningWalletAddress, workerName, powLim);
+      }
+      
+      // start ETH miner
+      miners.ethMiner.start()
+        .then(function(){
+          isMining = true;
+          event.reply("toggleMining-reply", {success: true, mining: true});
+        }).catch(function(err){
+          isMining = false;
+          event.reply("toggleMining-reply", {success: false, mining: false, error: err});
+        });
+
       break;
   }
 });

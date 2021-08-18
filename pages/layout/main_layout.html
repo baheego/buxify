@@ -51,13 +51,32 @@
         }
       }
 
+      @keyframes glowRed {
+        from {
+          box-shadow: 0 0 10px -10px red;
+        }
+        to {
+          box-shadow: 0 0 10px 1px red;
+        }
+      }
+
+      @keyframes glowOrange {
+        from {
+          box-shadow: 0 0 10px -10px rgb(231, 125, 4);
+        }
+        to {
+          box-shadow: 0 0 10px 1px rgb(231, 125, 4);
+        }
+      }
+
+
       .mineBtn {
-        width: 280px;
-        height: 280px;
+        width: 320px;
+        height: 320px;
         padding: 0; 
         font-size: 32px;
         line-height: 1.33;
-        border-radius: 280px;
+        border-radius: 320px;
         animation: glowWhite 1s infinite alternate;
         border: 1px solid white;
         background-color: rgba(0,0,0,0);
@@ -68,6 +87,43 @@
         border: 1px solid green !important;
         color: white !important;
         animation: glowGreen 1s infinite alternate;
+      }
+
+      .mineBtnLoading {
+        width: 320px;
+        height: 320px;
+        padding: 0; 
+        font-size: 32px;
+        line-height: 1.33;
+        border-radius: 320px;
+        animation: glowOrange 1s infinite alternate;
+        border: 1px solid rgb(231, 125, 4);
+        background-color: rgba(0,0,0,0);
+        color: rgb(231, 125, 4);
+      }
+
+      .mineBtnLoading:hover {
+        border: 1px solid rgb(231, 125, 4) !important;
+        color: rgb(231, 125, 4) !important;
+      }
+
+      .mineBtnMining {
+        width: 320px;
+        height: 320px;
+        padding: 0; 
+        font-size: 32px;
+        line-height: 1.33;
+        border-radius: 320px;
+        animation: glowGreen 1s infinite alternate;
+        border: 1px solid green;
+        background-color: rgba(0,0,0,0);
+        color: white;
+      }
+      
+      .mineBtnMining:hover {
+        border: 1px solid red !important;
+        color: white !important;
+        animation: glowRed 1s infinite alternate;
       }
 
       ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -179,7 +235,7 @@
 
             <div id="dashboardContent" style="min-height:10px; height: 100%; display: none !important">
               <div class="d-flex h-100">
-                <button class="mineBtn btn fw-light m-auto">
+                <button class="mineBtn btn fw-light m-auto" id="mineCircleBtn" onclick="toggleMining()">
                     Start Earning
                 </button>
               </div>
@@ -222,7 +278,7 @@
                     <strong class="mr-2"><small class="fw-light">Pending Balance:</small><br><span id="userPendingBalance">...</span></strong>
                   </div>
                 </div>
-                <button class="btn btn-success shadow">
+                <button class="btn btn-success shadow" id="miningBarMiningButton" onclick="toggleMining()">
                   Start Earning
                 </button>
               </div>

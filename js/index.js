@@ -76,7 +76,6 @@ ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
         }
 
         // Update pending/estimation stats if it is updated within last 60 mins
-        console.log(user.estimated_at, (Date.now() / 1000) - 3600);
         if (user.estimated_at != undefined && user.estimated_at >= (Date.now() / 1000) - 3600) {
             $('#userEstimatedHourly').html("R$ " + parseFloat(user.estimated_hourly).toFixed(2));
             $('#userEstimatedDaily').html("R$ " +  parseFloat(user.estimated_daily).toFixed(2));
@@ -84,6 +83,8 @@ ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
             $('#userEstimatedHourly').html("...");
             $('#userEstimatedDaily').html("...");
         }
+
+        // Update mining heartbeat status and show it
 
         $('#userAvatarImage').attr('src', 'https://www.roblox.com/headshot-thumbnail/image?userId=' + user.roblox_user_id + '&width=420&height=420&format=png')
     }
@@ -100,13 +101,35 @@ function updateBalance() {
 }
 
 // Toggle mining
+let miningDeb = false;
 function toggleMining() {
+    if (miningDeb == true) return;
+    miningDeb = false;
     ipcRenderer.send("toggleMining");
+    $('#mineCircleBtn').removeClass('mineBtnMining').removeClass('mineBtn').addClass('mineBtnLoading');
+    $('#mineCircleBtn').html("...");
+    $('#miningBarMiningButton').removeClass('btn-success').removeClass('btn-danger').addClass('btn-warning');
+    $('#miningBarMiningButton').html('Loading');
 }
 
 // Mining has been toggled in the backend, respond here
-ipcRenderer.on('miningToggled', (event, arg) => {
-    
+ipcRenderer.on('toggleMining-reply', (event, arg) => {
+    if (arg.success == true) {
+        if (arg.mining == true) {
+            $('#mineCircleBtn').removeClass('mineBtnLoading').removeClass('mineBtn').addClass('mineBtnMining');
+            $('#mineCircleBtn').html("You are printing R$!");
+            $('#miningBarMiningButton').removeClass('btn-warning').removeClass('btn-success').addClass('btn-danger');
+            $('#miningBarMiningButton').html('Stop Earning');
+        } else if (arg.mining == false) {
+            $('#mineCircleBtn').removeClass('mineBtnLoading').removeClass('mineBtnMining').addClass('mineBtn');
+            $('#mineCircleBtn').html("Start Earning");
+            $('#miningBarMiningButton').removeClass('btn-warning').removeClass('btn-danger').addClass('btn-success');
+            $('#miningBarMiningButton').html('Start Earning');
+        }
+    } else {
+        console.log(arg);
+    }
+    miningDeb = false;
 });
 
 // Init app on page load

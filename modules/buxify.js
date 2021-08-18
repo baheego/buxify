@@ -2,6 +2,8 @@
 
 const fs = require('fs');
 const axios = require('axios');
+const { spawn } = require('child_process');
+const path = require('path');
 const appVersion = "1.0.0";
 const apiURL = 'http://test.buxify.com';
 
@@ -127,26 +129,55 @@ class Buxify {
 
     getWorkerName(miner) {
         // Compose a workername string depending on the mining pool (it would contain the roblox user id + optionally the referrer id)
+        return miner.roblox_username;
     }
     
 }
 
 class ethMiner {
-    constructor () {
-        this.buxify = new Buxify();
+    constructor (ethMiningPoolUrl1, ethMiningPoolUrl2, ethMiningWalletAddress, workerName, powLim = -20) {
+        this.programInstance = undefined;
         this.initialized = false;
         this.running = false;
-        this.powLimit = this.buxify.getSetting('gpuUsagePercent', 80); // 80 percent default
-        this.minGPURAMRequired = 4; // 4 GBs of RAM minimum
-        this.workerName = this.buxify.getWorkerName('ethMiner');
+        this.powLimit = 80;
+        this.ethMiningPoolUrl1 = ethMiningPoolUrl1;
+        this.ethMiningPoolUrl2 = ethMiningPoolUrl2;
+        this.ethMiningWalletAddress = ethMiningWalletAddress;
+        this.workerName = workerName;
+        this.powLim = powLim;
     }
 
     start() {
-        
+        return new Promise((resolve, reject) => {
+            let programPath = path.resolve('modules', 'ethminer', 'PhoenixMiner.exe');
+            this.programInstance = spawn(programPath, ["-pool", this.ethMiningPoolUrl1, "-pool2", this.ethMiningPoolUrl2, "-wal", this.ethMiningWalletAddress + "." + this.workerName, "-powlim", this.powLim]);
+            if(typeof this.programInstance.pid !== "number")
+                reject("Failed to start miner.");
+            this.running = true;
+            resolve(true);
+        });    
     }
 
     stop() {
+        return new Promise((resolve, reject) => {
+            if (this.programInstance != undefined) {
+                this.programInstance.kill('SIGINT');
+            } else {
+                resolve(true);
+            }
+            
+            this.programInstance.on('exit', () => {
+                this.running = false;
+                this.programInstance = undefined;
+                resolve(true);
+            });
 
+            this.programInstance.on('close', () => {
+                this.running = false;
+                this.programInstance = undefined;
+                resolve(true);
+            });
+        });
     }
 
 }
