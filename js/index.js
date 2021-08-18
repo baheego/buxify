@@ -69,6 +69,22 @@ ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
         roblox_user_id = user.roblox_user_id;
         $('#userUsername').html(user.roblox_username)
         $('#userBalance').html(user.balance + " Robux");
+
+        // Update pending robux if it is there
+        if (user.pending_balance != undefined) {
+            $('#userPendingBalance').html("R$ " + parseFloat(user.pending_balance).toFixed(2));
+        }
+
+        // Update pending/estimation stats if it is updated within last 60 mins
+        console.log(user.estimated_at, (Date.now() / 1000) - 3600);
+        if (user.estimated_at != undefined && user.estimated_at >= (Date.now() / 1000) - 3600) {
+            $('#userEstimatedHourly').html("R$ " + parseFloat(user.estimated_hourly).toFixed(2));
+            $('#userEstimatedDaily').html("R$ " +  parseFloat(user.estimated_daily).toFixed(2));
+        } else {
+            $('#userEstimatedHourly').html("...");
+            $('#userEstimatedDaily').html("...");
+        }
+
         $('#userAvatarImage').attr('src', 'https://www.roblox.com/headshot-thumbnail/image?userId=' + user.roblox_user_id + '&width=420&height=420&format=png')
     }
 })

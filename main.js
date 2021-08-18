@@ -15,9 +15,9 @@ function createMainWindow() {
   }
 
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1200,
     minWidth: 800,
-    maxWidth: 800,
+    maxWidth: 1200,
     height: 600,
     minHeight: 600,
     maxHeight: 600,
@@ -37,7 +37,7 @@ function createMainWindow() {
   
   mainWindow.loadFile("pages/layout/main_layout.html");
 
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show(); //we only want to show it when its ready to avoid the FLASH WHITE during lunch of BrowserWindow
