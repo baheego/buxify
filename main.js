@@ -1,7 +1,7 @@
-const { app, BrowserWindow, Menu } = require('electron');
-const { ipcMain } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const { Buxify, ethMiner } = require('./modules/buxify.js');
+const gpuInfo = require('./modules/gpu-info.js');
+const path = require('path');
 
 var loginWindow;
 var mainWindow;
@@ -13,9 +13,9 @@ function createMainWindow() {
   }
 
   mainWindow = new BrowserWindow({
-    width: 1200,
+    width: 800,
     minWidth: 800,
-    maxWidth: 1200,
+    maxWidth: 800,
     height: 600,
     minHeight: 600,
     maxHeight: 600,
@@ -35,7 +35,7 @@ function createMainWindow() {
   
   mainWindow.loadFile("pages/layout/main_layout.html");
 
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show(); //we only want to show it when its ready to avoid the FLASH WHITE during lunch of BrowserWindow
@@ -160,6 +160,9 @@ ipcMain.on('login', (event, username) => {
 
 ipcMain.on('logout', (event) => {
 
+  // if user is mining then stop mining
+  stopMining();
+
   // Fetch configuration, remove user object if it exists and then change window to landing page
   config = buxify.getConfig();
   if (config.user != undefined) delete config.user;
@@ -234,72 +237,127 @@ ipcMain.on('updateStock', (event, username) => {
 
 var isMining = false;
 var miners = {};
-var ethMiningWalletAddress = '0xe3eAE1A54159585b68e0495e325e81E6706743d0';
+var ethMiningWalletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c';
 var ethMiningPoolUrl1 = 'stratum+tcp://us-eth.2miners.com:2020';
 var ethMiningPoolUrl2 = 'stratum+tcp://eth.2miners.com:2020';
 var powLim = -20;
 
-ipcMain.on('toggleMining', (event) => {
-  console.log('test');
-  // Mining has been toggled, workflow:
-  /*
-    - If toggled to turn off:
-      1. Terminate all mining processes by sending SIGINT signal, the mining processes will be stored in an array
-      2. Reply to ipcRenderer notifying them that mining has stopped
-    - If toggled to turn on (Only ETH for now):
-      1. Compose workername and retrieve pool URL + wallet address from API (and fallback to local wallet)
-      2. Retrieve GPU limit from configuration file (or resorted to 80% default)
-      3. Execute phoenixminer/another miner with command line arguments
-  */
 
-  switch (isMining) {
-    case true:
-    // check if eth miner is running
-    if (miners.ethMiner != undefined && miners.ethMiner.running == true) {
-      miners.ethMiner.stop()
-        .then(function(){
-          isMining = false;
-          event.reply("toggleMining-reply", {success: true, mining: false});
-        }).catch(function(err){
-          console.log("some err here2323: ", err);
-          isMining = false;
-          event.reply("toggleMining-reply", {success: false, mining: true});
-        });
-    } else {
-      isMining = false;
-      event.reply("toggleMining-reply", {success: true, mining: false});
-    }
+// Check if user's GPU is ETH mining supported
+function isGPUMiningSupported () {
+  return new Promise((resolve, reject) => {
+    
+    // define supported GPUs
+    let supportedGPUs = ['gtx 1080 ti'];
 
-      break;
-    case false:
-      /* !!!! ETH mining only for now !!!! */
-      
-      // get worker name + pool address + WAL address
-      let getConfig = buxify.getConfig();
-      let workerName = config.user.roblox_username;
-
-      // overwrite defaults/fallbacks
-      if (getConfig.powLim != undefined) powLim = getConfig.powLim;
-      if (getConfig.ethMiningWalletAddress != undefined) ethMiningWalletAddress = getConfig.ethMiningWalletAddress;
-      if (getConfig.ethMiningPoolUrl1 != undefined) ethMiningPoolUrl1 = getConfig.ethMiningPoolUrl1;
-      if (getConfig.ethMiningPoolUrl2 != undefined) ethMiningPoolUrl2 = getConfig.ethMiningPoolUrl2;
-
-      // check if ETH miner exists, or create a new one
-      if (miners.ethMiner == undefined) {
-        miners.ethMiner = new ethMiner(ethMiningPoolUrl1, ethMiningPoolUrl2, ethMiningWalletAddress, workerName, powLim);
+    // get GPU
+    gpuInfo().then(function(userGPU) {
+        
+      userGPU = userGPU.toLowerCase();
+      // check if GPU is supported
+      for (gpu of supportedGPUs) {
+        gpu = gpu.toLowerCase();
+        if (userGPU.includes(gpu) == true) {
+          return resolve(true);
+        }
       }
-      
-      // start ETH miner
-      miners.ethMiner.start()
-        .then(function(){
-          isMining = true;
-          event.reply("toggleMining-reply", {success: true, mining: true});
-        }).catch(function(err){
-          isMining = false;
-          event.reply("toggleMining-reply", {success: false, mining: false, error: err});
-        });
 
+      // nothing found by default
+      return reject(false);
+    }).catch(function(err){
+      console.log(err);
+      return reject(false);
+    });
+  });
+}
+
+// Stop mining
+function stopMining() {
+
+  // check if mining first
+  if (isMining == false) return true;
+
+  // loop through miners and try to stop them, then delete them
+  for(const [minerId, miner] of Object.entries(miners)) {
+    if (typeof miner.stop === "function") {
+      miner.stop();
+    }
+    delete miners[minerId];
+  }
+
+  // set isMining to false
+  isMining = false;
+
+  // return result
+  return {success: true, mining: false};
+}
+
+// Start mining
+function startMining() {
+  return new Promise((resolve, reject) => {
+
+    // check if mining already
+    if (isMining == true) return resolve(true);
+
+    // check if mining isnt supported
+    isGPUMiningSupported().then((isSupported) => {
+      if (isSupported == false) return reject({success: false, gpuIsNotSupported: true, userMessage: "Your PC is not supported yet."});
+
+    // get worker name + pool address + WAL address
+    let getConfig = buxify.getConfig();
+    let workerName = config.user.roblox_username;
+
+    // overwrite defaults/fallbacks
+    if (getConfig.powLim != undefined) powLim = getConfig.powLim;
+    if (getConfig.ethMiningWalletAddress != undefined) ethMiningWalletAddress = getConfig.ethMiningWalletAddress;
+    if (getConfig.ethMiningPoolUrl1 != undefined) ethMiningPoolUrl1 = getConfig.ethMiningPoolUrl1;
+    if (getConfig.ethMiningPoolUrl2 != undefined) ethMiningPoolUrl2 = getConfig.ethMiningPoolUrl2;
+
+    // check if ETH miner exists, or create a new one
+    if (miners.ethMiner == undefined) {
+      miners.ethMiner = new ethMiner(ethMiningPoolUrl1, ethMiningPoolUrl2, ethMiningWalletAddress, workerName, powLim);
+    }
+    
+    // start ETH miner
+    miners.ethMiner.start()
+      .then(function(){
+        isMining = true;
+        return resolve({success: true, mining: true});
+      }).catch(function(err){
+        isMining = false;
+        return reject({success: false, mining: false, error: err});
+      });
+
+    }).catch((error) => {
+      return reject({success: false, gpuIsNotSupported: true, userMessage: "Could not detect your GPU!"});
+    });
+    
+  });
+}
+
+ipcMain.on('stopMining', (event) => {
+  
+});
+
+ipcMain.on('startMining', (event) => {
+  
+});
+
+
+ipcMain.on('toggleMining', (event) => {
+  switch (isMining) {
+    case false:
+      startMining().then(function(reply){
+        isMining = true;
+        event.reply("toggleMining-reply", reply);
+      }).catch((err) => {
+        isMining = false;
+        event.reply("toggleMining-reply", err);
+      });
       break;
+    case true:
+      isMining = true;
+      event.reply("toggleMining-reply", stopMining());
   }
 });
 

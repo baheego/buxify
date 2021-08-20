@@ -19,6 +19,7 @@
     "axios": "^0.21.1",
     "custom-electron-titlebar": "^3.2.7",
     "detect-gpu": "^3.1.12",
+    "gpu-info": "0.0.1",
     "jquery": "^3.6.0",
     "request": "^2.88.2"
   }

@@ -77,14 +77,27 @@ ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
 
         // Update pending/estimation stats if it is updated within last 60 mins
         if (user.estimated_at != undefined && user.estimated_at >= (Date.now() / 1000) - 3600) {
-            $('#userEstimatedHourly').html("R$ " + parseFloat(user.estimated_hourly).toFixed(2));
-            $('#userEstimatedDaily').html("R$ " +  parseFloat(user.estimated_daily).toFixed(2));
-        } else {
-            $('#userEstimatedHourly').html("...");
-            $('#userEstimatedDaily').html("...");
-        }
+            if (mining == true) {
+                $('#userEstimatedHourly').html("R$ " + parseFloat(user.estimated_hourly).toFixed(2));
+                $('#userEstimatedDaily').html("R$ " +  parseFloat(user.estimated_daily).toFixed(2));
 
-        // Update mining heartbeat status and show it
+                $('#miningStatus').html('<div><div class="spinner-border text-success" role="status" style="width: 0.9rem; height: 0.9rem;"><span class="visually-hidden">Loading...</span></div> <span style="font-size: 0.8rem">Earning</span></div>');
+            } else {
+                $('#userEstimatedHourly').html("...");
+                $('#userEstimatedDaily').html("...");
+                $('#miningStatus').html('...');
+            }
+        } else {
+            if (mining == true) {
+                $('#userEstimatedHourly').html("Loading");
+                $('#userEstimatedDaily').html("Loading");
+                $('#miningStatus').html('<div><div class="spinner-border text-warning" role="status" style="width: 0.9rem; height: 0.9rem;"><span class="visually-hidden">Loading...</span></div> <span style="font-size: 0.8rem">Loading</span></div>');
+            } else {
+                $('#userEstimatedHourly').html("...");
+                $('#userEstimatedDaily').html("...");
+                $('#miningStatus').html('...');
+            }
+        }
 
         $('#userAvatarImage').attr('src', 'https://www.roblox.com/headshot-thumbnail/image?userId=' + user.roblox_user_id + '&width=420&height=420&format=png')
     }
@@ -107,27 +120,39 @@ function toggleMining() {
     miningDeb = false;
     ipcRenderer.send("toggleMining");
     $('#mineCircleBtn').removeClass('mineBtnMining').removeClass('mineBtn').addClass('mineBtnLoading');
-    $('#mineCircleBtn').html("...");
+    $('#mineCircleBtn').html("Starting...");
     $('#miningBarMiningButton').removeClass('btn-success').removeClass('btn-danger').addClass('btn-warning');
-    $('#miningBarMiningButton').html('Loading');
+    $('#miningBarMiningButton').html('Starting...');
 }
 
 // Mining has been toggled in the backend, respond here
 ipcRenderer.on('toggleMining-reply', (event, arg) => {
     if (arg.success == true) {
         if (arg.mining == true) {
+            mining = true;
             $('#mineCircleBtn').removeClass('mineBtnLoading').removeClass('mineBtn').addClass('mineBtnMining');
             $('#mineCircleBtn').html("You are printing R$!");
             $('#miningBarMiningButton').removeClass('btn-warning').removeClass('btn-success').addClass('btn-danger');
             $('#miningBarMiningButton').html('Stop Earning');
         } else if (arg.mining == false) {
+            mining = false;
             $('#mineCircleBtn').removeClass('mineBtnLoading').removeClass('mineBtnMining').addClass('mineBtn');
             $('#mineCircleBtn').html("Start Earning");
             $('#miningBarMiningButton').removeClass('btn-warning').removeClass('btn-danger').addClass('btn-success');
             $('#miningBarMiningButton').html('Start Earning');
         }
     } else {
-        console.log(arg);
+        if (arg.gpuIsNotSupported != undefined && arg.gpuIsNotSupported === true) {
+            $('#mineCircleBtn').removeClass('mineBtnLoading').removeClass('mineBtnMining').addClass('mineBtn');
+            $('#mineCircleBtn').html("Start Earning");
+            $('#miningBarMiningButton').removeClass('btn-warning').removeClass('btn-danger').addClass('btn-success');
+            $('#miningBarMiningButton').html('Start Earning');
+            Swal.fire({
+                icon: 'error',
+                title: 'Uh Oh...',
+                text: 'Our app does not support your PC yet, so you will not be able to Earn Robux until a future update.',
+            });
+        }
     }
     miningDeb = false;
 });
@@ -140,6 +165,11 @@ $(document).ready(function(){
     setInterval(() => {
         updateBalance();
     }, 5000);
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 });
 
 function logout() {

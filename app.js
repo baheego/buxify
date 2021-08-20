@@ -5,7 +5,7 @@ const fs = require('fs');
 const async = require('async');
 
 var ethMiningPool = '2miners';
-var ethMiningAccountAPI = 'https://eth.2miners.com/api/accounts/0xe3eAE1A54159585b68e0495e325e81E6706743d0';
+var ethMiningAccountAPI = 'https://eth.2miners.com/api/accounts/0x231d255f4a1b873d66e8d746abcca5e1b149ac6c';
 
 /* Make SQL functions to:
 	1- 
@@ -32,6 +32,20 @@ var pool  = mysql.createPool({
   database        : 'buxify'
 });
 
+
+// Helper function to convert timestamp to MySQL timestamp
+ function timeConverter(UNIX_timestamp){
+    var date = new Date(UNIX_timestamp*1000);
+    var year = date.getUTCFullYear();
+    var month = ("0"+(date.getUTCMonth()+1)).substr(-2);
+    var day = ("0"+date.getUTCDate()).substr(-2);
+    var hour = ("0"+date.getUTCHours()).substr(-2);
+    var minutes = ("0"+date.getUTCMinutes()).substr(-2);
+    var seconds = ("0"+date.getUTCSeconds()).substr(-2);
+
+    return year+"-"+month+"-"+day+" "+hour+":"+minutes+":"+seconds;
+}
+
 // Get ETH's USD price
 function getEthPrice() {
 	let ethPriceAPI = 'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd';
@@ -39,12 +53,13 @@ function getEthPrice() {
 		axios({
 		    method: "get",
 		    url: ethPriceAPI,
+		    timeout: 10000,
 		}).then(function (response) {
 			if (response.data.ethereum != undefined)
 				resolve(response.data.ethereum.usd);
 		}).catch(function(err){
 			reject(err);
-			console.log("ERR: Couldnt fetch ETH's price", err);
+			console.log("[" + timeToReadableFormat(Date.now()) + "]", "ERR: Couldnt fetch ETH's price", err);
 		});
 	});
 }
@@ -56,12 +71,13 @@ function getEthPrice2Miners() {
 			axios({
 			    method: "get",
 			    url: ethPriceAPI,
+			    timeout: 10000,
 			}).then(function (response) {
 				if (response.data.length > 0 && response.data[0].id == 'eth')
 					resolve(response.data[0].price_usd);
 			}).catch(function(err){
 				reject(err);
-				console.log("ERR: Couldnt fetch ETH's price", err);
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", "ERR: Couldnt fetch ETH's price", err);
 			});
 	});
 }
@@ -76,6 +92,7 @@ function getEthAccount() {
 				axios({
 				    method: "get",
 				    url: ethMiningAccountAPI,
+				    timeout: 10000,
 				}).then(function (response) {
 					var millis = Date.now() - start;
 				    resolve([response.data, millis]);
@@ -90,19 +107,19 @@ function getEthAccount() {
 
 // Get ROBLOX acc details
 function getUsersFromRoblox(userIds) {
-	console.log("users to scan: ", userIds.length);
+	console.log("[" + timeToReadableFormat(Date.now()) + "]", "users to scan: ", userIds.length);
 	return new Promise((resolve, reject) => {
 		// Load all of them at once
 		let users = [];
 		let promises = [];
 
-		for (i = 0; i < userIds.length; i++) {
+		for (userId of userIds) {
 		  promises.push(
-		    axios({ url: "https://api.roblox.com/users/get-by-username?username=" + userIds[i], method: "get" })
+		    axios({ url: "https://api.roblox.com/users/" + userId, method: "get" })
 			   .then(response => {
 			   	  // If user does not exist, add to blacklisted IDs so we dont scan them again
-			      if (response.data.errorMessage == "User not found") {
-			      	blacklistedIDs.push(userIds[i])
+			      if (response.data.errorMessage == "User not found" || (!response.data.errors != undefined && response.data.errors[0].code == 404)) {
+			      	blacklistedIDs.push(userId)
 			      }
 
 			      // Add to users table
@@ -120,11 +137,22 @@ function getUsersFromRoblox(userIds) {
 			      }
 			    }).catch(err => {
 			    	if (err.response.status == 400){
-			    		console.log("Skipped ID", err.config.url);
-			    		// this is an error that usually happens for specific users, like user ID 4
+			    		console.log("[" + timeToReadableFormat(Date.now()) + "]", "Skipped ID", err.config.url);
+			    		if (err.response.data != undefined) {
+			    			// this is an error that usually happens for specific users, like user ID 4
+			    			if (err.response.data.errors != undefined && err.response.data.errors[0].code == 400 && err.response.data.errors[0].message == "BadRequest") {
+			    				blacklistedIDs.push(userId);
+			    				console.log("[" + timeToReadableFormat(Date.now()) + "]", "Blacklisted user ID: ", userId, ", User is glitched (like user ID 4)");
+			    			}
+			    		} else {
+			    			console.log("[" + timeToReadableFormat(Date.now()) + "]", err);
+			    		}
+			    	} else if (err.response.status == 404) { 
+			    		blacklistedIDs.push(userId);
+			    		console.log("[" + timeToReadableFormat(Date.now()) + "]", "Blacklisted user ID: ", userId, ",User does not exist!");
 			    	} else {
-			    		requeuedIDsForRobloxScan.push([userIds[i], 0, Date.now()]); // [ID, attempts, time when requeued]
-			    		console.log("Failed to load: ", userIds[i], "Added to queue!");
+			    		requeuedIDsForRobloxScan.push([userId, 0, Date.now()]); // [ID, attempts, time when requeued]
+			    		console.log("[" + timeToReadableFormat(Date.now()) + "]", "Failed to load: ", userId, "Added to queue!");
 			    	}
 			    })
 		  )
@@ -136,7 +164,7 @@ function getUsersFromRoblox(userIds) {
 // Select user IDs from DB
 function getUserIDsFromDB(userIds) {
 	return new Promise((resolve, reject) => {
-		pool.query('SELECT `roblox_username` FROM `users` WHERE `roblox_username` IN (' + mysql.escape(userIds) + ')', function (error, results, fields) {
+		pool.query('SELECT `roblox_user_id` FROM `users` WHERE `roblox_user_id` IN (' + mysql.escape(userIds) + ')', function (error, results, fields) {
 
 		  // Error handle DB stuff here
 		  if (error) {
@@ -147,7 +175,7 @@ function getUserIDsFromDB(userIds) {
 		  // User IDs from DB
 		  let returnedIDs = [];
 		  for (row of results) {
-		  	returnedIDs.push(row.roblox_username);
+		  	returnedIDs.push(row.roblox_user_id);
 		  }
 
 		  // Return IDs found in DB
@@ -201,20 +229,101 @@ function addToVerified(userIds) {
 
 */
 
+// Update all workers hashrate in the DB
+function updateWorkersInDB() {
+	return new Promise((resolve, reject) => {
+
+		// dont update unless minerAccount is setup
+		if (minerAccount == undefined) return resolve(true);
+
+		if (minerAccount.length == 0) return resolve(true);
+
+		// Fetch average reward of blocks made within last 60 mins
+		let totalHourlyReward = 0;
+
+		blocksRewardsWithinLastSixtyMinutes = [];
+		timeMin = (Date.now() / 1000) - 3600;
+		for (block of minerAccount.rewards) {
+			if (block.timestamp >= timeMin) {
+				let localReward = block.reward / 1000000000;
+				blocksRewardsWithinLastSixtyMinutes.push(block.reward / 1000000000);
+				totalHourlyReward += localReward;
+			}
+		}
+
+		// If there are no blockRewards detected, skip
+		if (blocksRewardsWithinLastSixtyMinutes.length == 0) return resolve(true);
+
+		// Convert to USD
+		let avgRewardInUSD = totalHourlyReward * ethUSD;
+
+		// Convert to Robux
+		let avgRewardInRobux = avgRewardInUSD * (1 - profitMargin) * (1000 / robuxCostRate);
+
+		// Get total hashrate
+		let totalHashrate = minerAccount.currentHashrate;
+
+		// Loop through workers and generate array of user updates query values
+		let usersToUpdateArr = [];
+
+		for(const [workerId, worker] of Object.entries(workers)) {
+
+			// calculate their estimation only if worker is verifiedInDB, and if they are not offline and have some megahash
+			if (!verifiedInDB.includes(workerId) || worker.hr < 100000 || worker.offline == true) continue; 
+
+			// get their HR
+			let userHr = worker.hr;
+
+			// get their percent
+			let userPercent = userHr / totalHashrate;
+
+			// get their robux per hour
+			let userHourlyRobux = userPercent * avgRewardInRobux;
+
+			// get their robux per 24h
+			let userDailyRobux = userHourlyRobux * 24;
+
+			// generate timestamp now
+			let updateTimestamp = timeConverter(Date.now() / 1000);
+
+			// insert values
+			usersToUpdateArr.push([workerId, userHourlyRobux, userDailyRobux, updateTimestamp]);
+		}
+
+		// Write query
+		let query = "INSERT INTO `users` (roblox_user_id, estimated_hourly, estimated_daily, estimated_at) VALUES ? ON DUPLICATE KEY UPDATE estimated_hourly = VALUES(estimated_hourly), estimated_daily = VALUES(estimated_daily), estimated_at = VALUES(estimated_at)";
+
+		// Execute the query
+		pool.query(query, [usersToUpdateArr], function (error, results, fields) {
+			if (error) {
+				reject(true);
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", "MYSQL Error updating users' earning estimates: ", error);
+			} else {
+				resolve(true);
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", "Updated users' earning estimates.");
+			}
+		});
+	});
+}
+
 // Insert new ROBLOX users into DB
 function insertUsersIntoDB(users) {
 	return new Promise((resolve, reject) => {
+
+		// Check if there is at least one user
+		if (users.length == 0) return resolve(true);
 
 		// Form users array for the bulk insert query
 		var usersArr = [];
 		var usersIds = [];
 		for (user of users) {
-			usersIds.push(user.Username);
+			console.log("added", user);
+			usersIds.push(user.Id);
 			usersArr.push([user.Username, user.Username, user.Id]);
 		}
 
 		// Write query
-		var query = "INSERT INTO `users` (`name`, `roblox_username`, `roblox_user_id`) VALUES "+ mysql.escape(usersArr) +"";
+		var query = "INSERT INTO `users` (`name`, `roblox_username`, `roblox_user_id`) VALUES "+ mysql.escape(usersArr) +" ON DUPLICATE KEY UPDATE roblox_username = VALUES(roblox_username)";
 
 		// Execute query
 		pool.query(query, function (error, results, fields) {
@@ -223,12 +332,12 @@ function insertUsersIntoDB(users) {
 				// Add users to verifiedInDB array
 				addToVerified(usersIds);
 
-				console.log('Inserted users into DB');
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", 'Inserted users into DB');
 
 				// Resolve
 				resolve();
 			} else {
-				console.log("Insert Users DB Error:", error);
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", "Insert Users DB Error:", error);
 			}
 		});
 	});
@@ -237,10 +346,11 @@ function insertUsersIntoDB(users) {
 // Scan from ROBLOX API then add to DB
 function scanFromROBLOXAndInsertIntoDB(userIds) {
 	return new Promise((resolve, reject) => {
-		console.log('Fetching IDs from ROBLOX...');
+		console.log("[" + timeToReadableFormat(Date.now()) + "]", 'Fetching IDs from ROBLOX...');
 		getUsersFromRoblox(userIds)
 			.then(function(data){
-				console.log('Fetched IDs from ROBLOX');
+				console.log("users from ROBLOX: ", data);
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", 'Fetched IDs from ROBLOX');
 				insertUsersIntoDB(data)
 					.then(() => {
 						resolve();
@@ -335,13 +445,16 @@ function addWorkersToBlock(block, rewardInETH, rewardInUSD, robux) {
 			workerArr.push([block.blockheight, workerId, userHr, userRewardInETH, userRobux, 0]);
 		}
 
+		// Check if there is no one to reward
+		if (workerArr.length == 0) return resolve(true);
+
 		// Write query
 		var query = "INSERT INTO `eth_mining_block_rewards` (`height`, `user_id`, `hashrate`, `reward`, `robux`, `matured`) VALUES " + mysql.escape(workerArr);
 
 		// Bulk insert all of these rewards
 		pool.query(query, function(error, results, fields) {
 			if (!error) {
-				console.log("Added " + workerArr.length + " workers to block #", block.blockheight);
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", "Added " + workerArr.length + " workers to block #", block.blockheight);
 				return resolve(true);
 			} else {
 				console.log(error);
@@ -363,7 +476,7 @@ function addBlockToDB(block) {
 		var rewardInUSD = rewardInETH * ethUSD
 
 		// Calculate robux rewarded by that block
-		var robux = rewardInUSD * profitMargin * (1000 / robuxCostRate);
+		var robux = rewardInUSD * (1 - profitMargin) * (1000 / robuxCostRate);
 
 		// Form query values
 		var queryValues = [block.blockheight, rewardInETH, !block.immature, block.orphan, block.uncle, block.timestamp, minerAccount.currentHashrate, rewardInUSD, robux, robuxCostRate, profitMargin];
@@ -375,18 +488,18 @@ function addBlockToDB(block) {
 		var checkQuery = "SELECT height FROM `eth_mining_blocks` WHERE height = " + mysql.escape(block.blockheight);
 		pool.query(checkQuery, function(error, results, fields) {
 			if (!error && results.length > 0) {
-				console.log('found block ', block.blockheight,'in db already, skipping...');
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", 'found block ', block.blockheight,'in db already, skipping...');
 			} else {
 				// Execute query
 				pool.query(query, function (error, results, fields) {
 					if (!error) {
 						addWorkersToBlock(block, rewardInETH, rewardInUSD, robux)
 							.then(function(){
-								console.log("Added workers + Block to DB #", block.blockheight);
+								console.log("[" + timeToReadableFormat(Date.now()) + "]", "Added workers + Block to DB #", block.blockheight);
 								resolve();
 							})
 					} else {
-						console.log("Insert Users DB Error:", error);
+						console.log("[" + timeToReadableFormat(Date.now()) + "]", "Insert Users DB Error:", error);
 					}
 				});
 			}
@@ -397,11 +510,11 @@ function addBlockToDB(block) {
 // Update ETH's price
 function updateEthPrice() {
 	getEthPrice().then(function(price){
-		console.log('Loaded ETHUSD (coingecko): ', price);
+		console.log("[" + timeToReadableFormat(Date.now()) + "]", 'Loaded ETHUSD (coingecko): ', price);
 		ethUSD = price;
 	}).catch(function(err){
 		getEthPrice2Miners().then(function(price){
-			console.log('Loaded ETHUSD (2miners): ', price);
+			console.log("[" + timeToReadableFormat(Date.now()) + "]", 'Loaded ETHUSD (2miners): ', price);
 			ethUSD = price;
 		});
 	});
@@ -444,7 +557,7 @@ function processImmatureBlock(height) {
 		pool.query(updateRewardsToMaturedQuery, function(err, results, fields){});
 		pool.query(usersRewardsQuery, function(err, results, fields){
 			if (err) {
-				console.log("Failed to retrieve rewards rows for block #", height, err);
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", "Failed to retrieve rewards rows for block #", height, err);
 			} else {
 
 				// Generate users array for updating users' balances
@@ -454,12 +567,12 @@ function processImmatureBlock(height) {
 				}
 
 				// The magic
-				var updateUsersBalancesQuery = "INSERT INTO `users` (roblox_username, balance, total_earned) VALUES ? ON DUPLICATE KEY UPDATE balance = balance + VALUES(balance), total_earned = total_earned + VALUES(total_earned)";
+				var updateUsersBalancesQuery = "INSERT INTO `users` (roblox_user_id, balance, total_earned) VALUES ? ON DUPLICATE KEY UPDATE balance = balance + VALUES(balance), total_earned = total_earned + VALUES(total_earned)";
 				pool.query(updateUsersBalancesQuery, [usersToUpdateArr], function(err, results, fields){
 					if (!err) {
-						console.log("rewarded all users!");
+						console.log("[" + timeToReadableFormat(Date.now()) + "]", "rewarded all users!");
 					} else {
-						console.log("failed to reward users: ", err);
+						console.log("[" + timeToReadableFormat(Date.now()) + "]", "failed to reward users: ", err);
 					}
 				});
 			}
@@ -519,31 +632,20 @@ function handleEthAccountChange(account) {
 		// check if balance hasnt updated since last scan, and resolve if thats the case
 		if (account.updatedAt == updatedAt || account.updatedAt == undefined) return resolve("No change.")
 
-		// check if this is the first scan, and if so store the highest block number and then resolve.
-		if (firstScan == true) {
-			if (account.rewards.length > 0) {
-				starterBlockNumber = account.rewards[0]['blockheight'];
-			}
-			firstScan = false;
-			return resolve(true);
-		}
-
 		// check if there are any new immature blocks not added to preprocessedBlocks
 		blocks = account.rewards;
 		workers = account.workers;
 		minerAccount = account;
 
-		// dont scan anything at or before the starting block number
-		if (blocks.length > 0 && blocks[0].blockheight == starterBlockNumber) { return resolve(true); }
-
+		// loop through blocks and either preprocess, process or do nothing to them
 		for (block of blocks) {
 			if (block.immature == true && preprocessedBlocks[block.blockheight] == undefined) {
-				console.log("preprocessing block #", block.blockheight);
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", "preprocessing block #", block.blockheight);
 				preprocessImmatureBlock(block)
 			}
 
 			if (block.immature == false && preprocessedBlocks[block.blockheight] != undefined){
-				console.log("processing block #", block.blockheight);
+				console.log("[" + timeToReadableFormat(Date.now()) + "]", "processing block #", block.blockheight);
 				processImmatureBlock(block.blockheight);
 				delete preprocessedBlocks[block.blockheight];
 			}
@@ -552,11 +654,30 @@ function handleEthAccountChange(account) {
 	});
 }
 
+// Helper function
+function timeToReadableFormat(date) {
+	var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+        hour = d.getHours();
+    	minutes = d.getMinutes();
+   		seconds = d.getSeconds();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-') + " " + [hour, minutes, seconds].join(':');
+}
+
 // Main function of app
 function appLoop() {
 	getEthAccount()
 		.then(function(res){
-			console.log("Loaded ETH account in " + res[1] / 1000 + " seconds!")
+			console.log("[" + timeToReadableFormat(Date.now()) + "]", "Loaded ETH account in " + res[1] / 1000 + " seconds!")
 
 			workers = res[0].workers
 			workernames = [];
@@ -573,14 +694,14 @@ function appLoop() {
 					// Handle balance/hashrate changes
 					handleEthAccountChange(res[0])
 						.then(function(){
-							console.log("Round done.")
+							console.log("[" + timeToReadableFormat(Date.now()) + "]", "Round done.")
 						});
 
 				})
 
 		}).catch(function(res){
 			console.log(res);
-			console.log("Error loading ETH account in: " + res[1] / 1000 + " seconds!")
+			console.log("[" + timeToReadableFormat(Date.now()) + "]", "Error loading ETH account in: " + res[1] / 1000 + " seconds!")
 		});
 }
 
@@ -588,7 +709,8 @@ function appLoop() {
 appLoop();
 setInterval(() => {
 	appLoop();
-}, 5000);
+	updateWorkersInDB();
+}, 60000);
 
 // Keep ETH's price updated
 updateEthPrice();
