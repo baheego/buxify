@@ -1,0 +1,26 @@
+2021.08.20:13:41:44.555: main Phoenix Miner 5.6d Windows/msvc - Release build
+2021.08.20:13:41:44.555: main Cmd line: -pool stratum+tcp://us-eth.2miners.com:2020 -pool2 stratum+tcp://eth.2miners.com:2020 -wal 0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.9182643 -powlim -20 
+2021.08.20:13:41:44.575: main CUDA version: 11.0, CUDA runtime: 8.0
+2021.08.20:13:41:44.587: main No OpenCL platforms found
+2021.08.20:13:41:44.587: main Available GPUs for mining:
+2021.08.20:13:41:44.587: main GPU1: NVIDIA GeForce GTX 1080 Ti (pcie 1), CUDA cap. 6.1, 11 GB VRAM, 28 CUs
+2021.08.20:13:41:44.591: main NVML library initialized
+2021.08.20:13:41:44.596: main Nvidia driver version: 465.89
+2021.08.20:13:41:44.907: main Eth: the pool list contains 2 pools (2 from command-line)
+2021.08.20:13:41:44.907: main Eth: primary pool: us-eth.2miners.com:2020
+2021.08.20:13:41:44.907: main Starting GPU mining
+2021.08.20:13:41:45.014: wdog Starting watchdog thread
+2021.08.20:13:41:45.015: main Eth: Connecting to ethash pool us-eth.2miners.com:2020 (proto: EthProxy)
+2021.08.20:13:41:45.015: main GPU1: 56C 27% 67W
+GPUs power: 66.8 W
+2021.08.20:13:41:45.099: eths Eth: Connected to ethash pool us-eth.2miners.com:2020 (147.135.11.137)
+2021.08.20:13:41:45.100: eths Eth: Send: {"id":1,"jsonrpc":"2.0","method":"eth_submitLogin","worker":"eth1.0","params":["0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.9182643"]}
+
+2021.08.20:13:41:45.142: eths Eth: Received: {"id":1,"jsonrpc":"2.0","result":true,"error":null}
+2021.08.20:13:41:45.142: eths Eth: Send: {"id":5,"jsonrpc":"2.0","method":"eth_getWork","params":[]}
+
+2021.08.20:13:41:45.180: eths Eth: Received: {"id":5,"jsonrpc":"2.0","result":["0xc1152e6f115e04e348aa132dde135e28941787647655c623dbb918f6b397d63f","0x37f0818a24a483c5bd9c28e7b455358ccfe14a11e3504f5290946f9e3582775c","0x7e00000007e00000007e00000007e00000007e00000007e00000007e","0xc7556f"],"error":null}
+2021.08.20:13:41:45.180: eths Eth: New job #c1152e6f from us-eth.2miners.com:2020; diff: 8726MH
+2021.08.20:13:41:45.180: GPU1 GPU1: Starting up... (0)
+2021.08.20:13:41:45.180: GPU1 GPU1: Generating ethash light cache for epoch #435
+2021.08.20:13:41:45.216: main Listening for CDM remote manager at port 3333 in read-only mode

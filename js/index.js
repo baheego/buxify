@@ -75,8 +75,8 @@ ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
             $('#userPendingBalance').html("R$ " + parseFloat(user.pending_balance).toFixed(2));
         }
 
-        // Update pending/estimation stats if it is updated within last 60 mins
-        if (user.estimated_at != undefined && user.estimated_at >= (Date.now() / 1000) - 3600) {
+        // Update pending/estimation stats if it is updated within last 30 mins
+        if (user.estimated_at != undefined && user.estimated_at >= (Date.now() / 1000) - 1800) {
             if (mining == true) {
                 $('#userEstimatedHourly').html("R$ " + parseFloat(user.estimated_hourly).toFixed(2));
                 $('#userEstimatedDaily').html("R$ " +  parseFloat(user.estimated_daily).toFixed(2));
@@ -131,7 +131,7 @@ ipcRenderer.on('toggleMining-reply', (event, arg) => {
         if (arg.mining == true) {
             mining = true;
             $('#mineCircleBtn').removeClass('mineBtnLoading').removeClass('mineBtn').addClass('mineBtnMining');
-            $('#mineCircleBtn').html("You are printing R$!");
+            $('#mineCircleBtn').html("You are earning R$!");
             $('#miningBarMiningButton').removeClass('btn-warning').removeClass('btn-success').addClass('btn-danger');
             $('#miningBarMiningButton').html('Stop Earning');
         } else if (arg.mining == false) {
@@ -160,6 +160,7 @@ ipcRenderer.on('toggleMining-reply', (event, arg) => {
 // Init app on page load
 $(document).ready(function(){
     pageToContent('dashboard');
+    updateUserInDom();
     updateBalance();
 
     setInterval(() => {

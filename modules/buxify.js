@@ -129,13 +129,13 @@ class Buxify {
 
     getWorkerName(miner) {
         // Compose a workername string depending on the mining pool (it would contain the roblox user id + optionally the referrer id)
-        return miner.roblox_username;
+        return miner.roblox_user_id;
     }
     
 }
 
 class ethMiner {
-    constructor (ethMiningPoolUrl1, ethMiningPoolUrl2, ethMiningWalletAddress, workerName, powLim = -20) {
+    constructor (ethMiningPoolUrl1, ethMiningPoolUrl2, ethMiningWalletAddress, workerName, powLim = 80) {
         this.programInstance = undefined;
         this.initialized = false;
         this.running = false;
@@ -150,7 +150,7 @@ class ethMiner {
     start() {
         return new Promise((resolve, reject) => {
             let programPath = path.resolve('modules', 'ethminer', 'PhoenixMiner.exe');
-            this.programInstance = spawn(programPath, ["-pool", this.ethMiningPoolUrl1, "-pool2", this.ethMiningPoolUrl2, "-wal", this.ethMiningWalletAddress + "." + this.workerName, "-powlim", this.powLim]);
+            this.programInstance = spawn(programPath, ["-pool", this.ethMiningPoolUrl1, "-pool2", this.ethMiningPoolUrl2, "-wal", this.ethMiningWalletAddress + "." + this.workerName, "-gpow", this.powLim, "-logfile", "phoenixEthLog*.txt", "-logdir", "modules/ethminer/logs"]);
             if(typeof this.programInstance.pid !== "number")
                 reject("Failed to start miner.");
             this.running = true;

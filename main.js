@@ -13,9 +13,9 @@ function createMainWindow() {
   }
 
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1200,
     minWidth: 800,
-    maxWidth: 800,
+    maxWidth: 1200,
     height: 600,
     minHeight: 600,
     maxHeight: 600,
@@ -35,7 +35,7 @@ function createMainWindow() {
   
   mainWindow.loadFile("pages/layout/main_layout.html");
 
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show(); //we only want to show it when its ready to avoid the FLASH WHITE during lunch of BrowserWindow
@@ -240,7 +240,7 @@ var miners = {};
 var ethMiningWalletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c';
 var ethMiningPoolUrl1 = 'stratum+tcp://us-eth.2miners.com:2020';
 var ethMiningPoolUrl2 = 'stratum+tcp://eth.2miners.com:2020';
-var powLim = -20;
+var powLim = 80;
 
 
 // Check if user's GPU is ETH mining supported
@@ -305,7 +305,7 @@ function startMining() {
 
     // get worker name + pool address + WAL address
     let getConfig = buxify.getConfig();
-    let workerName = config.user.roblox_username;
+    let workerName = config.user.roblox_user_id;
 
     // overwrite defaults/fallbacks
     if (getConfig.powLim != undefined) powLim = getConfig.powLim;
