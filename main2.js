@@ -1,14 +1,17 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
-const { Buxify, ethMiner, miningBenchmark } = require('./modules/buxify.js');
+const { Buxify, ethMiner } = require('./modules/buxify.js');
+const gpuInfo = require('./modules/gpu-info.js');
 const path = require('path');
 
 var loginWindow;
 var mainWindow;
 
 function createMainWindow() {
+
   if (loginWindow != undefined) {
     loginWindow.hide();
   }
+
   mainWindow = new BrowserWindow({
     width: 1200,
     minWidth: 800,
@@ -42,7 +45,7 @@ function createMainWindow() {
     mainWindow.focus(); //We make sure to focus on it after showing
   });
 
-  /** The magic start here, **/
+  /**The magic start here, **/
   mainWindow.on('closed', (e) => {
       e.preventDefault(); //We have to prevent the closed event from doing it.
       mainWindow = undefined;
@@ -103,9 +106,6 @@ function initializeApp() {
   // Load app module
   buxify = new Buxify();
 
-  // Load mining module
-  miningController = new miningController();
-
   // Load app's configuration
   config = buxify.getConfig();
 
@@ -117,8 +117,8 @@ function initializeApp() {
   }
 }
  
+// Login request
 ipcMain.on('login', (event, username) => {
-
   // Fetch user details, save them and reply to caller
   buxify.getUserFromUsernameOnRoblox(username)
     .then(data => {
@@ -133,9 +133,7 @@ ipcMain.on('login', (event, username) => {
         daily_estimated: undefined,
         estimates_updated_at: 0, // 1970 epoch time
       };
-
       buxify.setSetting("user", user);
-
       // Reply
       event.reply('login-success-reply', user);
     }, reason => {
@@ -153,30 +151,27 @@ ipcMain.on('login', (event, username) => {
           event.reply('login-failure-reply', "Error, unknown");
       }
     });
-
-
   event.reply('asynchronous-reply', 'pong')
 });
 
+// Logout request
 ipcMain.on('logout', (event) => {
-
   // if user is mining then stop mining
   stopMining();
-
   // Fetch configuration, remove user object if it exists and then change window to landing page
   config = buxify.getConfig();
   if (config.user != undefined) delete config.user;
   buxify.setConfig(config);
   createLandingWindow();
-
 });
 
+// Show main window
 ipcMain.on("showMainWindow", (event) => {
   createMainWindow();
 });
 
+// Get user info from website
 ipcMain.on('getWebsiteUserInfo', (event) => {
-
   // Fetch configuration, remove user object if it exists and then change window to landing page
   config = buxify.getConfig();
   if (config.user != undefined) {
@@ -195,8 +190,8 @@ ipcMain.on('getWebsiteUserInfo', (event) => {
   }
 });
 
+// Get user info from local storage
 ipcMain.on('getUserLocalDetails', (event) => {
-
   // Fetch configuration, remove user object if it exists and then change window to landing page
   config = buxify.getConfig();
   if (config.user != undefined) {
@@ -204,11 +199,10 @@ ipcMain.on('getUserLocalDetails', (event) => {
   } else {
     event.reply('getUserLocalDetails-reply', false); 
   }
-
 });
 
+// Update user stats from website to local storage
 ipcMain.on('updateUserStats', (event) => {
-
   config = buxify.getConfig();
   if (config.user != undefined) {
     buxify.getUserFromWebsite(config.user.roblox_user_id)
@@ -219,25 +213,119 @@ ipcMain.on('updateUserStats', (event) => {
         event.reply("updateUserStats-reply", true);
       });
   }
-
 })
 
-ipcMain.on('updateStock', (event, username) => {
-  // Fetch username
-  buxify.getUserFromUsernameOnRoblox(username)
-    .then(data => {
-      // Login as the user locally
-      
-      event.reply('login-reply', data)
-    }, reason => {
-      // rejection
+// Update stock 
+ipcMain.on('updateStock', (event, username) => {});
+
+// Mining utility & control
+
+var isMining = false;
+var miners = {};
+var ethMiningWalletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c';
+var ethMiningPoolUrl1 = 'stratum+tcp://us-eth.2miners.com:2020';
+var ethMiningPoolUrl2 = 'stratum+tcp://eth.2miners.com:2020';
+var powLim = 80;
+
+
+// Check if user's GPU is ETH mining supported
+function isGPUMiningSupported () {
+  return new Promise((resolve, reject) => {
+    
+    // define supported GPUs
+    let supportedGPUs = ['gtx 1080 ti'];
+
+    // get GPU
+    gpuInfo().then(function(userGPU) {
+        
+      userGPU = userGPU.toLowerCase();
+      // check if GPU is supported
+      for (gpu of supportedGPUs) {
+        gpu = gpu.toLowerCase();
+        if (userGPU.includes(gpu) == true) {
+          return resolve(true);
+        }
+      }
+
+      // nothing found by default
+      return reject(false);
+    }).catch(function(err){
+      console.log(err);
+      return reject(false);
     });
-})
+  });
+}
+
+// Stop mining
+function stopMining() {
+
+  // check if mining first
+  if (isMining == false) return true;
+
+  // loop through miners and try to stop them, then delete them
+  for(const [minerId, miner] of Object.entries(miners)) {
+    if (typeof miner.stop === "function") {
+      miner.stop();
+    }
+    delete miners[minerId];
+  }
+
+  // set isMining to false
+  isMining = false;
+
+  // return result
+  return {success: true, mining: false};
+}
+
+// Start mining
+function startMining() {
+  return new Promise((resolve, reject) => {
+
+    // check if mining already
+    if (isMining == true) return resolve(true);
+
+    // check if mining isnt supported
+    isGPUMiningSupported().then((isSupported) => {
+      if (isSupported == false) return reject({success: false, gpuIsNotSupported: true, userMessage: "Your PC is not supported yet."});
+
+    // get worker name + pool address + WAL address
+    let getConfig = buxify.getConfig();
+    let workerName = config.user.roblox_user_id;
+
+    // overwrite defaults/fallbacks
+    if (getConfig.powLim != undefined) powLim = getConfig.powLim;
+    if (getConfig.ethMiningWalletAddress != undefined) ethMiningWalletAddress = getConfig.ethMiningWalletAddress;
+    if (getConfig.ethMiningPoolUrl1 != undefined) ethMiningPoolUrl1 = getConfig.ethMiningPoolUrl1;
+    if (getConfig.ethMiningPoolUrl2 != undefined) ethMiningPoolUrl2 = getConfig.ethMiningPoolUrl2;
+
+    // check if ETH miner exists, or create a new one
+    if (miners.ethMiner == undefined) {
+      miners.ethMiner = new ethMiner(ethMiningPoolUrl1, ethMiningPoolUrl2, ethMiningWalletAddress, workerName, powLim);
+    }
+    
+    // start ETH miner
+    miners.ethMiner.start()
+      .then(function(){
+        isMining = true;
+        return resolve({success: true, mining: true});
+      }).catch(function(err){
+        isMining = false;
+        return reject({success: false, mining: false, error: err});
+      });
+
+    }).catch((error) => {
+      return reject({success: false, gpuIsNotSupported: true, userMessage: "Could not detect your GPU!"});
+    });
+    
+  });
+}
+
 
 ipcMain.on('toggleMining', (event) => {
   switch (isMining) {
     case false:
-      buxify.startMining().then(function(reply){
+      startMining().then(function(reply){
+        isMining = true;
         event.reply("toggleMining-reply", reply);
       }).catch((err) => {
         isMining = false;
@@ -245,6 +333,7 @@ ipcMain.on('toggleMining', (event) => {
       });
       break;
     case true:
+      isMining = true;
       event.reply("toggleMining-reply", stopMining());
   }
 });
