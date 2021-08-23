@@ -142,17 +142,29 @@ ipcRenderer.on('toggleMining-reply', (event, arg) => {
             $('#miningBarMiningButton').html('Start Earning');
         }
     } else {
-        if (arg.gpuIsNotSupported != undefined && arg.gpuIsNotSupported === true) {
+        if (arg.mining == false) {
             $('#mineCircleBtn').removeClass('mineBtnLoading').removeClass('mineBtnMining').addClass('mineBtn');
             $('#mineCircleBtn').html("Start Earning");
             $('#miningBarMiningButton').removeClass('btn-warning').removeClass('btn-danger').addClass('btn-success');
             $('#miningBarMiningButton').html('Start Earning');
+        }
+
+        if (arg.gpuIsNotSupported != undefined && arg.gpuIsNotSupported === true) {
             Swal.fire({
                 icon: 'error',
                 title: 'Uh Oh...',
                 text: 'Our app does not support your PC yet, so you will not be able to Earn Robux until a future update.',
             });
         }
+
+        if (arg.error != undefined) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Uh Oh...',
+                text: arg.error,
+            });
+        }
+        
     }
     miningDeb = false;
 });
@@ -163,9 +175,15 @@ $(document).ready(function(){
     updateUserInDom();
     updateBalance();
 
+    // update user balance
     setInterval(() => {
         updateBalance();
     }, 5000);
+
+    // update mining status
+    setInterval(() => {
+        ipcRenderer.send("updateMiningStatus");
+    }, 1000);
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

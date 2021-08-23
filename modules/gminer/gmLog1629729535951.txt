@@ -1,0 +1,7 @@
+10:38:58 Nvidia Driver: 465.89
+10:38:59 Connected to us-eth.2miners.com:2020 [147.135.11.137]
+10:38:59 Authorized on Stratum Server
+10:38:59 New Job: 0a5e79bd Epoch: #436 Block: #13082126 Diff: 8.726G
+10:38:59 Started Mining on GPU0: EVGA NVIDIA GeForce GTX 1080 Ti 11GB [0000:01:00.0]
+10:39:01 Error on GPU0: out of memory
+10:39:01 Stopped Mining on GPU0

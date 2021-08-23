@@ -303,32 +303,35 @@ class baseMiner {
         this.software = gminer; // Store mining software name
         this.softwareInstance = softwareInstance; // Store mining software instance
         this.pools = [pool1, pool2];
-        this.sortPoolsByPing(pools) // Store pool 1 and pool 2
-            .then((pools) => {
-                this.pool1 = pools.fastest;
-                this.pool2 = pools.slowest;
-                this.poolsSelected = true;
-            })
-            .catch((err) => {
-                this.pool1 = pool1;
-                this.pool2 = pool2;
-                this.poolsSelected = true;
-            });
+        this.poolsSelected = true;
+        // this.sortPoolsByPing(this.pools) // Store pool 1 and pool 2
+        //     .then((pools) => {
+        //         this.pool1 = pools[0];
+        //         this.pool2 = pools[1];
+        //         this.poolsSelected = true;
+        //     })
+        //     .catch((err) => {
+        //         this.pool1 = pool1;
+        //         this.pool2 = pool2;
+        //         this.poolsSelected = true;
+        //     });
         this.workername = workername; // Store mining worker name
-        this.performanceLimit = 80;
-        this.temperatureLimit = 80;
+        this.performanceLimit = 100;
+        this.temperatureLimit = 105;
         this.walletAddress = walletAddress;
         this.running = false;
     }
 
-    // Wait until pools are sorted and selected
+    // Wait until pools are sorted and selected (FIX LATER)
     waitUntilPoolsSelected () {
         return new Promise((resolve, reject) => {
+            console.log(this.spoolsSelected);
 
-            if (this.poolsSelected == true)
+            if (this.poolsSelected == true) {
                 return resolve(true);
+            }
 
-            attempts = 0; // try 3 times then return true
+            let attempts = 0; // try 3 times then return true
             let thisInterval = setInterval(function(){
                 if (this.poolsSelected == true) {
                     clearInterval(thisInterval);
@@ -343,24 +346,27 @@ class baseMiner {
         })
     }
 
-    // Sort pools by fastest to slowest
+    // Sort pools by fastest to slowest (FIX LATER)
     sortPoolsByPing (pools) {
-        return ((resolve, reject) => {
+        return new Promise ((resolve, reject) => {
+            return resolve(pools); // fix this later
+
             this.poolsSelected = false; // Reset it just in case of a reconfiguration
             let promises = [];
             let poolsToReturn = [];
-            for (pool of pools) {
+            for (let pool of pools) {
+                let lolPool = pool.replace('stratum+tcp://', 'https://');
                 promises.push(
-                    axios({ url: pool, method: "get", timeout: 5000 })
+                    axios({ url: lolPool, method: "get", timeout: 1500 })
                         .then((response) => {
                             poolsToReturn.push(pool);
-                        }).catch((err) => {/* do nothing */ })
+                        }).catch((err) => {console.log(err);/* do nothing */ })
                 )
             }
             Promise.all(promises).then(() => {
                 if (poolsToReturn.length != pools.length)
-                    return pools
-                return poolsToReturn;
+                    return resolve(pools);
+                return resolve(poolsToReturn);
             });
         })
     }
@@ -375,15 +381,53 @@ class gminer extends baseMiner {
     // start miner
     start() {
         return new Promise((resolve, reject) => {
-            // Insure pools have been selected
-            waitUntilPoolsSelected().then(() => {
-                let programPath = path.resolve('modules', 'gminer', 'miner.exe');
-                this.softwareInstance = spawn(programPath, ["--algo", this.algorithm, "--server", this.pool1, "--user", this.walletAddress + "." + this.workername, "--intensity", this.performanceLimit, "--templimit", this.temperatureLimit]);;
-                if(typeof this.softwareInstance.pid !== "number")
-                    reject("Failed to start miner.");
-                this.running = true;
-                resolve(true);
-            })
+
+            // Ensure pools have been selected (TO BE ADDED LATER)
+            let programPath = path.resolve('modules', 'gminer', 'miner.exe');
+            let pool = this.pools[0].replace('stratum+tcp://', ''); // gminer only accepts non stratum url
+            let options = [
+                "--algo", 
+                this.algorithm, 
+                "--server", 
+                pool, 
+                "--user", 
+                this.walletAddress + "." + this.workername, 
+                "--intensity", 
+                this.performanceLimit, 
+                "--templimit", 
+                this.temperatureLimit, 
+                "--watchdog", 
+                0, 
+                "--logfile", 
+                "modules/gminer/gmLog"+Date.now()+".txt"
+            ];
+
+            // Start miner
+            this.softwareInstance = spawn(programPath, options);
+
+            // Check if miner successfully started, if not then reject.
+            if(typeof this.softwareInstance.pid !== "number")
+                return reject("Failed to start miner.");
+            this.running = true;
+            resolve(true);
+
+            // this.softwareInstance.stdout.on('data', (data) => {
+            //     console.log(data.toString());
+            // });
+
+            // this.softwareInstance.stderr.on('data', (data) => {
+            //     console.error(data.toString());
+            // });
+
+            this.softwareInstance.on('exit', () => {
+                this.running = false;
+                this.softwareInstance = undefined;
+            });
+
+            this.softwareInstance.on('close', () => {
+                this.running = false;
+                this.softwareInstance = undefined;
+            });
         });   
     }
 
@@ -524,6 +568,7 @@ class ethMiner {
 class miningController {
     constructor () {
         this.isMining = false;
+        this.miners = [];
         this.ethAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c';
         this.ethPools = ['stratum+tcp://us-eth.2miners.com:2020', 'stratum+tcp://eth.2miners.com:2020'];
         this.rvnAddress = 'RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe';
@@ -539,34 +584,42 @@ class miningController {
         // check if mining already
         if (this.isMining == true) return resolve(true);
 
-        // check if mining isnt supported
+        // theController
+        let theController = this;
+
+        // benchmark to check if GPU is supported for mining
         this.benchmarkGPU.benchmark().then((isSupported) => {
-          if (isSupported == false) return reject({success: false, gpuIsNotSupported: true, userMessage: "Your PC is not supported yet."});
-
-        // get worker name + pool address + WAL address
-        let getConfig = this.buxify.getConfig();
-        let workerName = config.user.roblox_user_id;
-
-        // overwrite defaults/fallbacks
-        if (getConfig.powLim != undefined) powLim = getConfig.powLim;
-        if (getConfig.ethMiningWalletAddress != undefined) ethMiningWalletAddress = getConfig.ethMiningWalletAddress;
-        if (getConfig.ethMiningPoolUrl1 != undefined) ethMiningPoolUrl1 = getConfig.ethMiningPoolUrl1;
-        if (getConfig.ethMiningPoolUrl2 != undefined) ethMiningPoolUrl2 = getConfig.ethMiningPoolUrl2;
-
-        // check if ETH miner exists, or create a new one
-        if (miners.ethMiner == undefined) {
-          miners.ethMiner = new ethMiner(ethMiningPoolUrl1, ethMiningPoolUrl2, ethMiningWalletAddress, workerName, powLim);
-        }
         
-        // start ETH miner
-        miners.ethMiner.start()
-          .then(function(){
-            isMining = true;
-            return resolve({success: true, mining: true});
-          }).catch(function(err){
-            isMining = false;
-            return reject({success: false, mining: false, error: err});
-          });
+            // check if mining isnt supported
+            if (isSupported !== true) return reject({success: false, gpuIsNotSupported: true, userMessage: "Your PC is not supported yet."});
+
+            // get worker name + pool address + WAL address
+            let getConfig = this.buxify.getConfig();
+            let workerName = getConfig.user.roblox_user_id;
+
+            // overwrite defaults/fallbacks
+            if (getConfig.powLim != undefined) powLim = getConfig.powLim;
+            if (getConfig.ethMiningWalletAddress != undefined) this.ethAddress = getConfig.ethMiningWalletAddress;
+            if (getConfig.ethMiningPoolUrl1 != undefined || getConfig.ethMiningPoolUrl2 != undefined) {
+                this.ethPools = [];
+                if (getConfig.ethMiningPoolUrl1 != undefined) this.ethPools.push(getConfig.ethMiningPoolUrl1);
+                if (getConfig.ethMiningPoolUrl2 != undefined) this.ethPools.push(getConfig.ethMiningPoolUrl2);
+            }
+
+            // check if ETH miner exists, or create a new one
+            if (this.miners.gminer == undefined) {
+              this.miners.gminer = new gminer(workerName, 80, 80, 'eth', 'ethash', this.ethPools[0], this.ethPools[1], this.ethAddress);
+            }
+
+            // start ETH miner
+            this.miners.gminer.start()
+              .then(function(){
+                theController.isMining = true;
+                return resolve({success: true, mining: true});
+              }).catch(function(err){
+                theController.isMining = false;
+                return reject({success: false, mining: false, error: err});
+              });
 
         }).catch((error) => {
           return reject({success: false, gpuIsNotSupported: true, userMessage: "Could not detect your GPU!"});
@@ -579,21 +632,61 @@ class miningController {
     stopMining() {
 
       // check if mining first
-      if (isMining == false) return true;
+      if (this.isMining == false) return true;
 
       // loop through miners and try to stop them, then delete them
-      for(const [minerId, miner] of Object.entries(miners)) {
+      for(const [minerId, miner] of Object.entries(this.miners)) {
         if (typeof miner.stop === "function") {
           miner.stop();
         }
-        delete miners[minerId];
+        delete this.miners[minerId];
       }
 
       // set isMining to false
-      isMining = false;
+      this.isMining = false;
 
       // return result
       return {success: true, mining: false};
+    }
+
+    // Toggle mining
+    toggleMining() {
+        return new Promise((resolve, reject) => {
+            switch (this.isMining) {
+                case false:
+                  this.startMining().then(function(reply){
+                    return resolve(reply);
+                  }).catch((err) => {
+                    this.isMining = false;
+                    return reject(err);
+                  });
+                  break;
+                case true:
+                    return resolve(this.stopMining());
+            }
+        });
+    }
+
+    // Get mining status
+    miningStatus() {
+        return new Promise ((resolve, reject) => {
+
+            // check if there are no miners
+            if (Object.keys(this.miners).length == 0) return resolve({success: true, mining: false});
+
+            // check if there are miners and ensure at least one is running
+            let oneMinerRunning = false;
+            for(const [minerId, miner] of Object.entries(this.miners)) {
+                if (miner.running == true) {
+                    oneMinerRunning = true;
+                    break;
+                }
+            }
+
+            // return result
+            return resolve({success: true, mining: oneMinerRunning}); 
+
+        });
     }
 }
 

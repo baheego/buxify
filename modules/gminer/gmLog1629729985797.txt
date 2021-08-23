@@ -1,0 +1,12 @@
+10:46:28 Nvidia Driver: 465.89
+10:46:28 Connected to us-eth.2miners.com:2020 [51.81.57.44]
+10:46:28 Authorized on Stratum Server
+10:46:28 New Job: 5d0d0e12 Epoch: #436 Block: #13082169 Diff: 8.726G
+10:46:28 Started Mining on GPU0: EVGA NVIDIA GeForce GTX 1080 Ti 11GB [0000:01:00.0]
+10:46:28 New Job: 026081a2 Epoch: #436 Block: #13082169 Diff: 8.726G
+10:46:31 GPU0: Generating DAG for epoch #436 [Single Buffer 4512 MB]
+10:46:36 New Job: 310500a0 Epoch: #436 Block: #13082169 Diff: 8.726G
+10:46:41 GPU0: DAG generated in 10.83s [417 MB/s]
+10:46:41 GPU0: DAG verification passed
+10:46:43 New Job: 42a3b945 Epoch: #436 Block: #13082169 Diff: 8.726G
+10:46:45 New Job: 48a1ae3e Epoch: #436 Block: #13082170 Diff: 8.726G

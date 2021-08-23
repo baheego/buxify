@@ -1,18 +1,19 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
-const { Buxify, ethMiner, miningBenchmark } = require('./modules/buxify.js');
+const { Buxify, miningController } = require('./modules/buxify.js');
 const path = require('path');
 
 var loginWindow;
 var mainWindow;
+var miningControllerInstance;
 
 function createMainWindow() {
   if (loginWindow != undefined) {
     loginWindow.hide();
   }
   mainWindow = new BrowserWindow({
-    width: 1200,
+    width: 800,
     minWidth: 800,
-    maxWidth: 1200,
+    maxWidth: 800,
     height: 600,
     minHeight: 600,
     maxHeight: 600,
@@ -32,7 +33,7 @@ function createMainWindow() {
   
   mainWindow.loadFile("pages/layout/main_layout.html");
 
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show(); //we only want to show it when its ready to avoid the FLASH WHITE during lunch of BrowserWindow
@@ -104,7 +105,7 @@ function initializeApp() {
   buxify = new Buxify();
 
   // Load mining module
-  miningController = new miningController();
+  miningControllerInstance = new miningController();
 
   // Load app's configuration
   config = buxify.getConfig();
@@ -158,25 +159,21 @@ ipcMain.on('login', (event, username) => {
   event.reply('asynchronous-reply', 'pong')
 });
 
+ipcMain.on("showMainWindow", (event) => {
+  createMainWindow();
+});
+
 ipcMain.on('logout', (event) => {
-
   // if user is mining then stop mining
-  stopMining();
-
+  miningControllerInstance.stopMining();
   // Fetch configuration, remove user object if it exists and then change window to landing page
   config = buxify.getConfig();
   if (config.user != undefined) delete config.user;
   buxify.setConfig(config);
   createLandingWindow();
-
-});
-
-ipcMain.on("showMainWindow", (event) => {
-  createMainWindow();
 });
 
 ipcMain.on('getWebsiteUserInfo', (event) => {
-
   // Fetch configuration, remove user object if it exists and then change window to landing page
   config = buxify.getConfig();
   if (config.user != undefined) {
@@ -196,7 +193,6 @@ ipcMain.on('getWebsiteUserInfo', (event) => {
 });
 
 ipcMain.on('getUserLocalDetails', (event) => {
-
   // Fetch configuration, remove user object if it exists and then change window to landing page
   config = buxify.getConfig();
   if (config.user != undefined) {
@@ -204,11 +200,9 @@ ipcMain.on('getUserLocalDetails', (event) => {
   } else {
     event.reply('getUserLocalDetails-reply', false); 
   }
-
 });
 
 ipcMain.on('updateUserStats', (event) => {
-
   config = buxify.getConfig();
   if (config.user != undefined) {
     buxify.getUserFromWebsite(config.user.roblox_user_id)
@@ -219,34 +213,35 @@ ipcMain.on('updateUserStats', (event) => {
         event.reply("updateUserStats-reply", true);
       });
   }
-
 })
 
+// TO DO
 ipcMain.on('updateStock', (event, username) => {
-  // Fetch username
   buxify.getUserFromUsernameOnRoblox(username)
-    .then(data => {
-      // Login as the user locally
-      
+    .then(data => {  
       event.reply('login-reply', data)
     }, reason => {
-      // rejection
     });
 })
 
 ipcMain.on('toggleMining', (event) => {
-  switch (isMining) {
-    case false:
-      buxify.startMining().then(function(reply){
-        event.reply("toggleMining-reply", reply);
-      }).catch((err) => {
-        isMining = false;
-        event.reply("toggleMining-reply", err);
-      });
-      break;
-    case true:
-      event.reply("toggleMining-reply", stopMining());
-  }
+  miningControllerInstance.toggleMining()
+    .then((response) => {
+      event.reply('toggleMining-reply', response);
+    })
+    .catch((err) => {
+      event.reply('toggleMining-reply', err);
+    });
+});
+
+ipcMain.on('updateMiningStatus', (event) => {
+  miningControllerInstance.miningStatus()
+    .then((response) => {
+      event.reply('toggleMining-reply', response);
+    })
+    .catch((err) => {
+      event.reply('toggleMining-reply', err);
+    });
 });
 
 app.on('ready', function(){
