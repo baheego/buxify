@@ -1,0 +1,37 @@
+[20:34:31] INFO - ----------------------------------------------
+[20:34:31] INFO - |                                            |
+[20:34:31] INFO - |                                            |
+[20:34:31] INFO - |                                            |
+[20:34:31] INFO - |                                            |
+[20:34:31] INFO - |                                            |
+[20:34:31] INFO - |                                            |
+[20:34:31] INFO - |                                            |
+[20:34:31] INFO - |         NBMiner - Crypto GPU Miner         |
+[20:34:31] INFO - |                    39.1                    |
+[20:34:31] INFO - |                                            |
+[20:34:31] INFO - ----------------------------------------------
+[20:34:31] INFO - ------------------- System -------------------
+[20:34:31] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[20:34:31] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[20:34:31] INFO - RAM:    17730 MB / 32692 MB
+[20:34:31] INFO - VMEM:   11729 MB / 37556 MB
+[20:34:31] INFO - CU_DRV: 11.3, 465.89
+[20:34:31] INFO - ------------------- Config -------------------
+[20:34:31] INFO - ALGO:   kawpow
+[20:34:31] INFO - URL:    stratum+tcp://us-rvn.2miners.com:6060
+[20:34:31] INFO - USER:   RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe.178591735
+[20:34:31] INFO - TEMP:   limit 105C, start 100C
+[20:34:31] INFO - ------------------- Device -------------------
+[20:34:31] INFO -  |ID|PCI|  CC|Memory|CU|
+[20:34:31] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[20:34:31] INFO - ----------------------------------------------
+[20:34:32] INFO - kawpow - Logging in to us-rvn.2miners.com(135.148.55.16):6060 ...
+[20:34:32] INFO - Set extranonce: 4a
+[20:34:32] INFO - kawpow - Login succeeded.
+[20:34:32] INFO - API:  0.0.0.0:22333
+[20:34:32] INFO - API server started.
+[20:34:32] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 1e5, HEIGHT: 1900291, DIFF: 4.295G
+[20:34:32] INFO - mining.extranonce.subscribe succeeded.
+[20:34:32] INFO - Device 0 started, Free mem = 10227 MB.
+[20:34:34] INFO - Light cache built, 1.54 s.
+[20:34:34] INFO - Building DAG for EPOCH 253 on Device 0 ...

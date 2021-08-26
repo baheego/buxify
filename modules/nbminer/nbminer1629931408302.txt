@@ -1,0 +1,1433 @@
+[18:43:30] INFO - ----------------------------------------------
+[18:43:30] INFO - |                                            |
+[18:43:30] INFO - |                                            |
+[18:43:30] INFO - |                                            |
+[18:43:30] INFO - |                                            |
+[18:43:30] INFO - |                                            |
+[18:43:30] INFO - |                                            |
+[18:43:30] INFO - |                                            |
+[18:43:30] INFO - |         NBMiner - Crypto GPU Miner         |
+[18:43:30] INFO - |                    39.1                    |
+[18:43:30] INFO - |                                            |
+[18:43:30] INFO - ----------------------------------------------
+[18:43:30] INFO - ------------------- System -------------------
+[18:43:30] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[18:43:30] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[18:43:30] INFO - RAM:    16583 MB / 32692 MB
+[18:43:30] INFO - VMEM:   9016 MB / 37556 MB
+[18:43:30] INFO - CU_DRV: 11.3, 465.89
+[18:43:30] INFO - ------------------- Config -------------------
+[18:43:30] INFO - ALGO:   ethash
+[18:43:30] INFO - URL:    stratum+tcp://us-eth.2miners.com:2020
+[18:43:30] INFO - USER:   0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.178591735
+[18:43:30] INFO - TEMP:   limit 75C, start 70C
+[18:43:32] INFO - ------------------- Device -------------------
+[18:43:32] INFO -  |ID|PCI|  CC|Memory|CU|
+[18:43:32] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[18:43:32] INFO - ----------------------------------------------
+[18:43:32] INFO - ethash - Logging in to us-eth.2miners.com(51.81.57.44):2020 ...
+[18:43:32] INFO - ethash - Login succeeded.
+[18:43:32] INFO - API:  0.0.0.0:22333
+[18:43:32] INFO - API server started.
+[18:43:34] INFO - Device 0 started, Free mem = 10227 MB.
+[18:43:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e1a4655d, HEIGHT: 13097247, DIFF: 8.726G
+[18:43:41] INFO - Light cache built, 2.26 s.
+[18:43:43] INFO - Device 0: DAG - Building, EPOCH 436
+[18:43:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 43e6ce79, HEIGHT: 13097247, DIFF: 8.726G
+[18:43:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 85e574d5, HEIGHT: 13097247, DIFF: 8.726G
+[18:43:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 15b9bdfa, HEIGHT: 13097248, DIFF: 8.726G
+[18:43:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d41922e3, HEIGHT: 13097248, DIFF: 8.726G
+[18:43:53] INFO - Device 0: DAG - Built, 9.78 s.
+[18:43:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7734e235, HEIGHT: 13097249, DIFF: 8.726G
+[18:43:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b07c92d9, HEIGHT: 13097249, DIFF: 8.726G
+[18:43:58] INFO - Device 0: DAG - Verification ok.
+[18:44:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 20955839, HEIGHT: 13097249, DIFF: 8.726G
+[18:44:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:44:02 ================
+[18:44:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:44:02] INFO - | 0|1080ti|  0.000 |     0|     0|  0| 196|  64| 32|1949| 5005|  72|  0.000 |
+[18:44:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:44:02] INFO - |    Total:  0.000 |     0|     0|  0| 196| Uptime:  0D 00:00:31   CPU: 25% |
+[18:44:02] INFO - =============================================================================
+[18:44:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:44:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f085aa8d, HEIGHT: 13097249, DIFF: 8.726G
+[18:44:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c7526602, HEIGHT: 13097249, DIFF: 8.726G
+[18:44:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6586aa62, HEIGHT: 13097249, DIFF: 8.726G
+[18:44:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7f1cbd69, HEIGHT: 13097249, DIFF: 8.726G
+[18:44:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 16712a3c, HEIGHT: 13097249, DIFF: 8.726G
+[18:44:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 250f328a, HEIGHT: 13097250, DIFF: 8.726G
+[18:44:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cb4d645b, HEIGHT: 13097250, DIFF: 8.726G
+[18:44:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: df4d2b90, HEIGHT: 13097250, DIFF: 8.726G
+[18:44:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a68c07ac, HEIGHT: 13097251, DIFF: 8.726G
+[18:44:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f3992555, HEIGHT: 13097251, DIFF: 8.726G
+[18:44:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:44:32 ================
+[18:44:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:44:32] INFO - | 0|1080ti| 12.47 M|     0|     0|  0| 182|  63| 31|1949| 5005|  72| 68.50 K|
+[18:44:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:44:32] INFO - |    Total: 12.47 M|     0|     0|  0| 182| Uptime:  0D 00:01:01   CPU: 16% |
+[18:44:32] INFO - =============================================================================
+[18:44:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:44:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a34c9d2a, HEIGHT: 13097251, DIFF: 8.726G
+[18:44:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 45b532ff, HEIGHT: 13097252, DIFF: 8.726G
+[18:44:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6540886f, HEIGHT: 13097252, DIFF: 8.726G
+[18:44:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f15d6c27, HEIGHT: 13097253, DIFF: 8.726G
+[18:44:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b7e1df06, HEIGHT: 13097253, DIFF: 8.726G
+[18:44:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 74d0a47d, HEIGHT: 13097253, DIFF: 8.726G
+[18:44:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 24f09263, HEIGHT: 13097254, DIFF: 8.726G
+[18:45:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fcbb764b, HEIGHT: 13097254, DIFF: 8.726G
+[18:45:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:45:02 ================
+[18:45:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:45:02] INFO - | 0|1080ti| 9.945 M|     0|     0|  0| 175|  63| 31|1949| 5005|  66| 56.83 K|
+[18:45:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:45:02] INFO - |    Total: 9.945 M|     0|     0|  0| 175| Uptime:  0D 00:01:31   CPU: 19% |
+[18:45:02] INFO - =============================================================================
+[18:45:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:45:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4c00d600, HEIGHT: 13097255, DIFF: 8.726G
+[18:45:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 03d57513, HEIGHT: 13097255, DIFF: 8.726G
+[18:45:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f1b024a7, HEIGHT: 13097256, DIFF: 8.726G
+[18:45:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c929cc97, HEIGHT: 13097256, DIFF: 8.726G
+[18:45:11] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d69e692e, HEIGHT: 13097257, DIFF: 8.726G
+[18:45:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5ce2999d, HEIGHT: 13097257, DIFF: 8.726G
+[18:45:23] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4a7108cb, HEIGHT: 13097258, DIFF: 8.726G
+[18:45:23] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f2e71983, HEIGHT: 13097258, DIFF: 8.726G
+[18:45:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5cdd1a72, HEIGHT: 13097258, DIFF: 8.726G
+[18:45:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:45:32 ================
+[18:45:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:45:32] INFO - | 0|1080ti| 10.23 M|     0|     0|  0| 190|  64| 30|1949| 5005|  66| 53.84 K|
+[18:45:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:45:32] INFO - |    Total: 10.23 M|     0|     0|  0| 190| Uptime:  0D 00:02:01   CPU: 18% |
+[18:45:32] INFO - =============================================================================
+[18:45:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:45:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 07dd9b99, HEIGHT: 13097258, DIFF: 8.726G
+[18:45:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 13592b89, HEIGHT: 13097258, DIFF: 8.726G
+[18:45:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e93a74da, HEIGHT: 13097259, DIFF: 8.726G
+[18:45:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 01f64c2e, HEIGHT: 13097259, DIFF: 8.726G
+[18:45:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1b8b4ff7, HEIGHT: 13097260, DIFF: 8.726G
+[18:45:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 83024766, HEIGHT: 13097260, DIFF: 8.726G
+[18:45:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: dd543402, HEIGHT: 13097261, DIFF: 8.726G
+[18:45:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 497716da, HEIGHT: 13097262, DIFF: 8.726G
+[18:45:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 43270128, HEIGHT: 13097262, DIFF: 8.726G
+[18:45:51] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6f73b724, HEIGHT: 13097263, DIFF: 8.726G
+[18:45:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 553bee2a, HEIGHT: 13097263, DIFF: 8.726G
+[18:46:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:46:02 ================
+[18:46:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:46:02] INFO - | 0|1080ti| 10.32 M|     0|     0|  0| 183|  64| 30|1949| 5005|  71| 56.41 K|
+[18:46:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:46:02] INFO - |    Total: 10.32 M|     0|     0|  0| 183| Uptime:  0D 00:02:31   CPU: 15% |
+[18:46:02] INFO - =============================================================================
+[18:46:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:46:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bf157f23, HEIGHT: 13097263, DIFF: 8.726G
+[18:46:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 815aa274, HEIGHT: 13097263, DIFF: 8.726G
+[18:46:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ed5b499c, HEIGHT: 13097264, DIFF: 8.726G
+[18:46:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fefeca9f, HEIGHT: 13097264, DIFF: 8.726G
+[18:46:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a9f29f8e, HEIGHT: 13097264, DIFF: 8.726G
+[18:46:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 94a7b806, HEIGHT: 13097264, DIFF: 8.726G
+[18:46:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f6113d0f, HEIGHT: 13097264, DIFF: 8.726G
+[18:46:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 81a546d7, HEIGHT: 13097264, DIFF: 8.726G
+[18:46:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:46:32 ================
+[18:46:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:46:32] INFO - | 0|1080ti| 10.26 M|     0|     0|  0| 184|  63| 31|1949| 5005|  72| 55.74 K|
+[18:46:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:46:32] INFO - |    Total: 10.26 M|     0|     0|  0| 184| Uptime:  0D 00:03:01   CPU: 15% |
+[18:46:32] INFO - =============================================================================
+[18:46:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:46:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f4028ccc, HEIGHT: 13097264, DIFF: 8.726G
+[18:46:40] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d7db1319, HEIGHT: 13097264, DIFF: 8.726G
+[18:46:44] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 15a8cbb0, HEIGHT: 13097265, DIFF: 8.726G
+[18:46:44] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 02b729cf, HEIGHT: 13097265, DIFF: 8.726G
+[18:46:51] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e5660b0b, HEIGHT: 13097265, DIFF: 8.726G
+[18:46:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d4ddfdfb, HEIGHT: 13097266, DIFF: 8.726G
+[18:46:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5999f52a, HEIGHT: 13097266, DIFF: 8.726G
+[18:47:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fd394268, HEIGHT: 13097266, DIFF: 8.726G
+[18:47:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a134bd6b, HEIGHT: 13097267, DIFF: 8.726G
+[18:47:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 693902df, HEIGHT: 13097268, DIFF: 8.726G
+[18:47:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4797fb10, HEIGHT: 13097268, DIFF: 8.726G
+[18:47:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:47:02 ================
+[18:47:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:47:02] INFO - | 0|1080ti| 10.82 M|     0|     0|  0| 182|  63| 30|1949| 5005|  72| 59.47 K|
+[18:47:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:47:02] INFO - |    Total: 10.82 M|     0|     0|  0| 182| Uptime:  0D 00:03:31   CPU: 15% |
+[18:47:02] INFO - =============================================================================
+[18:47:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:47:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f2d59f59, HEIGHT: 13097268, DIFF: 8.726G
+[18:47:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 869bddd1, HEIGHT: 13097268, DIFF: 8.726G
+[18:47:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0b89e243, HEIGHT: 13097269, DIFF: 8.726G
+[18:47:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 422a2cfb, HEIGHT: 13097269, DIFF: 8.726G
+[18:47:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:47:32 ================
+[18:47:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:47:32] INFO - | 0|1080ti| 10.37 M|     0|     0|  0|  88|  62| 30|1949| 5005|   1| 117.9 K|
+[18:47:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:47:32] INFO - |    Total: 10.37 M|     0|     0|  0|  88| Uptime:  0D 00:04:01   CPU: 14% |
+[18:47:32] INFO - =============================================================================
+[18:47:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:47:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 713b5411, HEIGHT: 13097269, DIFF: 8.726G
+[18:47:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9b3b71f2, HEIGHT: 13097269, DIFF: 8.726G
+[18:47:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 338d6929, HEIGHT: 13097269, DIFF: 8.726G
+[18:47:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 963b9149, HEIGHT: 13097270, DIFF: 8.726G
+[18:47:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8d2aa292, HEIGHT: 13097271, DIFF: 8.726G
+[18:47:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 12816bf8, HEIGHT: 13097271, DIFF: 8.726G
+[18:48:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:48:02 ================
+[18:48:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:48:02] INFO - | 0|1080ti| 11.00 M|     0|     0|  0| 180|  62| 30|1949| 5005|  52| 61.09 K|
+[18:48:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:48:02] INFO - |    Total: 11.00 M|     0|     0|  0| 180| Uptime:  0D 00:04:31   CPU: 15% |
+[18:48:02] INFO - =============================================================================
+[18:48:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:48:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c1c6c166, HEIGHT: 13097272, DIFF: 8.726G
+[18:48:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2e74ff8d, HEIGHT: 13097272, DIFF: 8.726G
+[18:48:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4273bb69, HEIGHT: 13097272, DIFF: 8.726G
+[18:48:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 428a07be, HEIGHT: 13097272, DIFF: 8.726G
+[18:48:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 18102a47, HEIGHT: 13097273, DIFF: 8.726G
+[18:48:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e6cfb861, HEIGHT: 13097273, DIFF: 8.726G
+[18:48:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a3dbc553, HEIGHT: 13097273, DIFF: 8.726G
+[18:48:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:48:32 ================
+[18:48:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:48:32] INFO - | 0|1080ti| 10.73 M|     0|     0|  0|  87|  62| 30|1949| 5005|   1| 123.3 K|
+[18:48:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:48:32] INFO - |    Total: 10.73 M|     0|     0|  0|  87| Uptime:  0D 00:05:01   CPU: 14% |
+[18:48:32] INFO - =============================================================================
+[18:48:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:48:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0fda6873, HEIGHT: 13097273, DIFF: 8.726G
+[18:48:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: de8ea439, HEIGHT: 13097273, DIFF: 8.726G
+[18:48:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5ffd19c9, HEIGHT: 13097274, DIFF: 8.726G
+[18:48:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8a039fd6, HEIGHT: 13097274, DIFF: 8.726G
+[18:48:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a54b03c0, HEIGHT: 13097274, DIFF: 8.726G
+[18:48:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cf2cc37a, HEIGHT: 13097275, DIFF: 8.726G
+[18:48:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3719ed53, HEIGHT: 13097275, DIFF: 8.726G
+[18:49:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 13c7008b, HEIGHT: 13097276, DIFF: 8.726G
+[18:49:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:49:02 ================
+[18:49:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:49:02] INFO - | 0|1080ti| 10.60 M|     0|     0|  0|  88|  62| 29|1949| 5005|  32| 120.5 K|
+[18:49:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:49:02] INFO - |    Total: 10.60 M|     0|     0|  0|  88| Uptime:  0D 00:05:31   CPU: 14% |
+[18:49:02] INFO - =============================================================================
+[18:49:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:49:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a84703f9, HEIGHT: 13097276, DIFF: 8.726G
+[18:49:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7b26e545, HEIGHT: 13097277, DIFF: 8.726G
+[18:49:17] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ea1d8be7, HEIGHT: 13097277, DIFF: 8.726G
+[18:49:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6366ea3b, HEIGHT: 13097278, DIFF: 8.726G
+[18:49:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ce82caea, HEIGHT: 13097278, DIFF: 8.726G
+[18:49:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b40bf561, HEIGHT: 13097278, DIFF: 8.726G
+[18:49:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2252dd45, HEIGHT: 13097279, DIFF: 8.726G
+[18:49:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 15ad4e43, HEIGHT: 13097279, DIFF: 8.726G
+[18:49:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: aa365088, HEIGHT: 13097279, DIFF: 8.726G
+[18:49:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:49:32 ================
+[18:49:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:49:32] INFO - | 0|1080ti| 10.44 M|     0|     0|  0| 183|  63| 29|1949| 5005|  72| 57.03 K|
+[18:49:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:49:32] INFO - |    Total: 10.44 M|     0|     0|  0| 183| Uptime:  0D 00:06:01   CPU: 15% |
+[18:49:32] INFO - =============================================================================
+[18:49:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:49:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d3e01da6, HEIGHT: 13097279, DIFF: 8.726G
+[18:49:44] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 918a28f4, HEIGHT: 13097279, DIFF: 8.726G
+[18:49:51] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d296d67a, HEIGHT: 13097279, DIFF: 8.726G
+[18:50:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 96f35d0c, HEIGHT: 13097279, DIFF: 8.726G
+[18:50:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:50:02 ================
+[18:50:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:50:02] INFO - | 0|1080ti| 10.83 M|     0|     0|  0|  88|  62| 29|1949| 5005|  39| 123.1 K|
+[18:50:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:50:02] INFO - |    Total: 10.83 M|     0|     0|  0|  88| Uptime:  0D 00:06:31   CPU: 16% |
+[18:50:02] INFO - =============================================================================
+[18:50:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:50:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 07668b05, HEIGHT: 13097279, DIFF: 8.726G
+[18:50:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 068c8981, HEIGHT: 13097280, DIFF: 8.726G
+[18:50:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a315d445, HEIGHT: 13097280, DIFF: 8.726G
+[18:50:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d2ffb1c4, HEIGHT: 13097280, DIFF: 8.726G
+[18:50:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 18a32b14, HEIGHT: 13097280, DIFF: 8.726G
+[18:50:17] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 87364e87, HEIGHT: 13097281, DIFF: 8.726G
+[18:50:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 19400567, HEIGHT: 13097281, DIFF: 8.726G
+[18:50:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 580b3835, HEIGHT: 13097282, DIFF: 8.726G
+[18:50:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e474ae8f, HEIGHT: 13097282, DIFF: 8.726G
+[18:50:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f70600dc, HEIGHT: 13097282, DIFF: 8.726G
+[18:50:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 76910b7a, HEIGHT: 13097282, DIFF: 8.726G
+[18:50:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a666ad51, HEIGHT: 13097282, DIFF: 8.726G
+[18:50:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:50:32 ================
+[18:50:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:50:32] INFO - | 0|1080ti| 10.38 M|     0|     0|  0|  88|  62| 29|1949| 5005|  10| 117.9 K|
+[18:50:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:50:32] INFO - |    Total: 10.38 M|     0|     0|  0|  88| Uptime:  0D 00:07:01   CPU: 15% |
+[18:50:32] INFO - =============================================================================
+[18:50:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:50:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9c6834b8, HEIGHT: 13097282, DIFF: 8.726G
+[18:50:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b657be37, HEIGHT: 13097283, DIFF: 8.726G
+[18:50:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9b2e09b8, HEIGHT: 13097283, DIFF: 8.726G
+[18:50:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6d8bc58d, HEIGHT: 13097284, DIFF: 8.726G
+[18:50:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3119ebf6, HEIGHT: 13097284, DIFF: 8.726G
+[18:50:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b6a3415a, HEIGHT: 13097285, DIFF: 8.726G
+[18:50:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ddf1b000, HEIGHT: 13097285, DIFF: 8.726G
+[18:50:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bb981f34, HEIGHT: 13097286, DIFF: 8.726G
+[18:50:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bc55761a, HEIGHT: 13097286, DIFF: 8.726G
+[18:51:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 60e3cd6c, HEIGHT: 13097286, DIFF: 8.726G
+[18:51:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:51:02 ================
+[18:51:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:51:02] INFO - | 0|1080ti| 9.452 M|     0|     0|  0|  87|  62| 29|1949| 5005|   1| 108.6 K|
+[18:51:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:51:02] INFO - |    Total: 9.452 M|     0|     0|  0|  87| Uptime:  0D 00:07:31   CPU: 14% |
+[18:51:02] INFO - =============================================================================
+[18:51:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:51:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8abffb20, HEIGHT: 13097287, DIFF: 8.726G
+[18:51:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f5112b27, HEIGHT: 13097287, DIFF: 8.726G
+[18:51:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0023676d, HEIGHT: 13097288, DIFF: 8.726G
+[18:51:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cd8b0d3b, HEIGHT: 13097288, DIFF: 8.726G
+[18:51:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 449384f6, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 529fea9d, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8bfb2a16, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b5cd644c, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 184404f7, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 33d65c0e, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 50befd6d, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:51:32 ================
+[18:51:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:51:32] INFO - | 0|1080ti| 9.122 M|     0|     0|  0| 180|  63| 29|1949| 5005|  72| 50.68 K|
+[18:51:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:51:32] INFO - |    Total: 9.122 M|     0|     0|  0| 180| Uptime:  0D 00:08:01   CPU: 14% |
+[18:51:32] INFO - =============================================================================
+[18:51:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:51:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e8acc128, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 266a2568, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3f701be8, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b672c240, HEIGHT: 13097289, DIFF: 8.726G
+[18:51:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0c6ff8c2, HEIGHT: 13097289, DIFF: 8.726G
+[18:52:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:52:02 ================
+[18:52:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:52:02] INFO - | 0|1080ti| 10.64 M|     0|     0|  0| 179|  63| 29|1949| 5005|  72| 59.43 K|
+[18:52:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:52:02] INFO - |    Total: 10.64 M|     0|     0|  0| 179| Uptime:  0D 00:08:31   CPU: 13% |
+[18:52:02] INFO - =============================================================================
+[18:52:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:52:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 326cc526, HEIGHT: 13097290, DIFF: 8.726G
+[18:52:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d3a17940, HEIGHT: 13097290, DIFF: 8.726G
+[18:52:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b231a1d4, HEIGHT: 13097290, DIFF: 8.726G
+[18:52:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 10af82c2, HEIGHT: 13097290, DIFF: 8.726G
+[18:52:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 67492620, HEIGHT: 13097291, DIFF: 8.726G
+[18:52:20] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f37307d4, HEIGHT: 13097291, DIFF: 8.726G
+[18:52:20] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6e9fa565, HEIGHT: 13097292, DIFF: 8.726G
+[18:52:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a386f43c, HEIGHT: 13097292, DIFF: 8.726G
+[18:52:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 28439728, HEIGHT: 13097292, DIFF: 8.726G
+[18:52:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:52:32 ================
+[18:52:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:52:32] INFO - | 0|1080ti| 10.60 M|     0|     0|  0| 137|  61| 29|1949| 5005|   1| 77.40 K|
+[18:52:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:52:32] INFO - |    Total: 10.60 M|     0|     0|  0| 137| Uptime:  0D 00:09:01   CPU: 13% |
+[18:52:32] INFO - =============================================================================
+[18:52:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:52:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3a5f337d, HEIGHT: 13097292, DIFF: 8.726G
+[18:52:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6fa262fd, HEIGHT: 13097292, DIFF: 8.726G
+[18:52:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e8f08f71, HEIGHT: 13097293, DIFF: 8.726G
+[18:52:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 712d5550, HEIGHT: 13097294, DIFF: 8.726G
+[18:52:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d68f2e54, HEIGHT: 13097294, DIFF: 8.726G
+[18:52:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d432f9bf, HEIGHT: 13097294, DIFF: 8.726G
+[18:52:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1dc8434b, HEIGHT: 13097295, DIFF: 8.726G
+[18:52:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 62f3ac91, HEIGHT: 13097295, DIFF: 8.726G
+[18:53:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 86749938, HEIGHT: 13097295, DIFF: 8.726G
+[18:53:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:53:02 ================
+[18:53:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:53:02] INFO - | 0|1080ti| 10.25 M|     0|     0|  0|  87|  62| 28|1949| 5005|   1| 117.8 K|
+[18:53:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:53:02] INFO - |    Total: 10.25 M|     0|     0|  0|  87| Uptime:  0D 00:09:31   CPU: 13% |
+[18:53:02] INFO - =============================================================================
+[18:53:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:53:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6c4709dc, HEIGHT: 13097296, DIFF: 8.726G
+[18:53:11] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 73170833, HEIGHT: 13097296, DIFF: 8.726G
+[18:53:11] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2c376892, HEIGHT: 13097296, DIFF: 8.726G
+[18:53:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cad3518f, HEIGHT: 13097297, DIFF: 8.726G
+[18:53:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1e09bc1e, HEIGHT: 13097297, DIFF: 8.726G
+[18:53:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1f065027, HEIGHT: 13097298, DIFF: 8.726G
+[18:53:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f7bc4db9, HEIGHT: 13097298, DIFF: 8.726G
+[18:53:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f32bc77b, HEIGHT: 13097298, DIFF: 8.726G
+[18:53:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6c015eb2, HEIGHT: 13097299, DIFF: 8.726G
+[18:53:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:53:32 ================
+[18:53:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:53:32] INFO - | 0|1080ti| 10.87 M|     0|     0|  0|  88|  62| 29|1949| 5005|   1| 123.5 K|
+[18:53:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:53:32] INFO - |    Total: 10.87 M|     0|     0|  0|  88| Uptime:  0D 00:10:01   CPU: 14% |
+[18:53:32] INFO - =============================================================================
+[18:53:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:53:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e04427c4, HEIGHT: 13097299, DIFF: 8.726G
+[18:53:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 232933da, HEIGHT: 13097300, DIFF: 8.726G
+[18:53:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 74ee06ad, HEIGHT: 13097300, DIFF: 8.726G
+[18:53:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8b10969b, HEIGHT: 13097301, DIFF: 8.726G
+[18:53:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2b6e0b69, HEIGHT: 13097301, DIFF: 8.726G
+[18:53:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f1b6f45e, HEIGHT: 13097301, DIFF: 8.726G
+[18:53:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ea2466f5, HEIGHT: 13097301, DIFF: 8.726G
+[18:53:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fd606f12, HEIGHT: 13097302, DIFF: 8.726G
+[18:53:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a0c2fef1, HEIGHT: 13097302, DIFF: 8.726G
+[18:53:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9a369bd5, HEIGHT: 13097302, DIFF: 8.726G
+[18:54:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:54:02 ================
+[18:54:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:54:02] INFO - | 0|1080ti| 10.34 M|     0|     0|  0| 183|  63| 28|1949| 5005|  72| 56.50 K|
+[18:54:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:54:02] INFO - |    Total: 10.34 M|     0|     0|  0| 183| Uptime:  0D 00:10:31   CPU: 13% |
+[18:54:02] INFO - =============================================================================
+[18:54:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:54:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 17a49737, HEIGHT: 13097302, DIFF: 8.726G
+[18:54:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d64a6658, HEIGHT: 13097302, DIFF: 8.726G
+[18:54:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1e25a039, HEIGHT: 13097302, DIFF: 8.726G
+[18:54:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c6639b26, HEIGHT: 13097303, DIFF: 8.726G
+[18:54:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1d664a7b, HEIGHT: 13097303, DIFF: 8.726G
+[18:54:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:54:32 ================
+[18:54:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:54:32] INFO - | 0|1080ti| 11.05 M|     0|     0|  0|  87|  62| 28|1949| 5005|   0| 127.0 K|
+[18:54:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:54:32] INFO - |    Total: 11.05 M|     0|     0|  0|  87| Uptime:  0D 00:11:01   CPU: 18% |
+[18:54:32] INFO - =============================================================================
+[18:54:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:54:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 952bcaed, HEIGHT: 13097303, DIFF: 8.726G
+[18:54:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 74c7b382, HEIGHT: 13097303, DIFF: 8.726G
+[18:54:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: efc68eff, HEIGHT: 13097304, DIFF: 8.726G
+[18:54:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1783d793, HEIGHT: 13097304, DIFF: 8.726G
+[18:54:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d22dcd97, HEIGHT: 13097305, DIFF: 8.726G
+[18:54:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5c9d49a6, HEIGHT: 13097305, DIFF: 8.726G
+[18:54:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 57e01cec, HEIGHT: 13097306, DIFF: 8.726G
+[18:54:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 41ec9636, HEIGHT: 13097306, DIFF: 8.726G
+[18:55:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e9718a3a, HEIGHT: 13097307, DIFF: 8.726G
+[18:55:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:55:02 ================
+[18:55:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:55:02] INFO - | 0|1080ti| 10.55 M|     0|     0|  0|  87|  61| 28|1949| 5005|   1| 121.3 K|
+[18:55:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:55:02] INFO - |    Total: 10.55 M|     0|     0|  0|  87| Uptime:  0D 00:11:31   CPU: 15% |
+[18:55:02] INFO - =============================================================================
+[18:55:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:55:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 154f5dfe, HEIGHT: 13097307, DIFF: 8.726G
+[18:55:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3e93bba3, HEIGHT: 13097308, DIFF: 8.726G
+[18:55:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5f7effbe, HEIGHT: 13097308, DIFF: 8.726G
+[18:55:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 51820617, HEIGHT: 13097308, DIFF: 8.726G
+[18:55:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0751944c, HEIGHT: 13097309, DIFF: 8.726G
+[18:55:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 840ab3ff, HEIGHT: 13097309, DIFF: 8.726G
+[18:55:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c08ff689, HEIGHT: 13097310, DIFF: 8.726G
+[18:55:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 18d64781, HEIGHT: 13097310, DIFF: 8.726G
+[18:55:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: dca1961c, HEIGHT: 13097310, DIFF: 8.726G
+[18:55:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ebbf71c0, HEIGHT: 13097311, DIFF: 8.726G
+[18:55:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 10ebc707, HEIGHT: 13097311, DIFF: 8.726G
+[18:55:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:55:32 ================
+[18:55:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:55:32] INFO - | 0|1080ti| 9.803 M|     0|     0|  0| 187|  63| 28|1949| 5005|  75| 52.42 K|
+[18:55:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:55:32] INFO - |    Total: 9.803 M|     0|     0|  0| 187| Uptime:  0D 00:12:01   CPU: 16% |
+[18:55:32] INFO - =============================================================================
+[18:55:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:55:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 98e60beb, HEIGHT: 13097311, DIFF: 8.726G
+[18:55:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ddb4f8e8, HEIGHT: 13097311, DIFF: 8.726G
+[18:55:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9082a4d7, HEIGHT: 13097311, DIFF: 8.726G
+[18:55:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 363e4814, HEIGHT: 13097311, DIFF: 8.726G
+[18:55:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 662866b5, HEIGHT: 13097311, DIFF: 8.726G
+[18:55:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: af31468f, HEIGHT: 13097311, DIFF: 8.726G
+[18:56:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1c8fbabd, HEIGHT: 13097311, DIFF: 8.726G
+[18:56:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 991998c9, HEIGHT: 13097311, DIFF: 8.726G
+[18:56:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 095c95d5, HEIGHT: 13097311, DIFF: 8.726G
+[18:56:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:56:02 ================
+[18:56:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:56:02] INFO - | 0|1080ti| 9.848 M|     0|     0|  0|  88|  62| 28|1949| 5005|  70| 111.9 K|
+[18:56:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:56:02] INFO - |    Total: 9.848 M|     0|     0|  0|  88| Uptime:  0D 00:12:31   CPU: 19% |
+[18:56:02] INFO - =============================================================================
+[18:56:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:56:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 66e9e338, HEIGHT: 13097311, DIFF: 8.726G
+[18:56:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: df0377c3, HEIGHT: 13097311, DIFF: 8.726G
+[18:56:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7261e37a, HEIGHT: 13097311, DIFF: 8.726G
+[18:56:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 245d6ed9, HEIGHT: 13097311, DIFF: 8.726G
+[18:56:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d19078ae, HEIGHT: 13097311, DIFF: 8.726G
+[18:56:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 750c966f, HEIGHT: 13097312, DIFF: 8.726G
+[18:56:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cf27d3ea, HEIGHT: 13097312, DIFF: 8.726G
+[18:56:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bfd8b4be, HEIGHT: 13097312, DIFF: 8.726G
+[18:56:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:56:32 ================
+[18:56:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:56:32] INFO - | 0|1080ti| 10.45 M|     0|     0|  0|  89|  62| 28|1949| 5005|  13| 117.4 K|
+[18:56:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:56:32] INFO - |    Total: 10.45 M|     0|     0|  0|  89| Uptime:  0D 00:13:01   CPU: 18% |
+[18:56:32] INFO - =============================================================================
+[18:56:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:56:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 47401067, HEIGHT: 13097312, DIFF: 8.726G
+[18:56:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 22b19641, HEIGHT: 13097312, DIFF: 8.726G
+[18:56:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6219942f, HEIGHT: 13097313, DIFF: 8.726G
+[18:56:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1ef1771d, HEIGHT: 13097313, DIFF: 8.726G
+[18:57:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 07821c86, HEIGHT: 13097313, DIFF: 8.726G
+[18:57:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:57:02 ================
+[18:57:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:57:02] INFO - | 0|1080ti| 10.78 M|     0|     0|  0| 158|  61| 28|1949| 5005|   0| 68.26 K|
+[18:57:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:57:02] INFO - |    Total: 10.78 M|     0|     0|  0| 158| Uptime:  0D 00:13:31   CPU: 19% |
+[18:57:02] INFO - =============================================================================
+[18:57:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:57:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9e75b612, HEIGHT: 13097313, DIFF: 8.726G
+[18:57:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 23fbb57d, HEIGHT: 13097313, DIFF: 8.726G
+[18:57:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 99ec45ce, HEIGHT: 13097313, DIFF: 8.726G
+[18:57:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 91964e8a, HEIGHT: 13097314, DIFF: 8.726G
+[18:57:23] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0e09243e, HEIGHT: 13097314, DIFF: 8.726G
+[18:57:23] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f3183779, HEIGHT: 13097314, DIFF: 8.726G
+[18:57:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a23018b2, HEIGHT: 13097314, DIFF: 8.726G
+[18:57:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 80a282bf, HEIGHT: 13097315, DIFF: 8.726G
+[18:57:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e7b5764a, HEIGHT: 13097315, DIFF: 8.726G
+[18:57:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:57:32 ================
+[18:57:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:57:32] INFO - | 0|1080ti| 11.21 M|     0|     0|  0| 180|  63| 28|1949| 5005|  71| 62.29 K|
+[18:57:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:57:32] INFO - |    Total: 11.21 M|     0|     0|  0| 180| Uptime:  0D 00:14:01   CPU: 15% |
+[18:57:32] INFO - =============================================================================
+[18:57:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:57:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8faf352b, HEIGHT: 13097316, DIFF: 8.726G
+[18:57:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d85d4cdb, HEIGHT: 13097316, DIFF: 8.726G
+[18:57:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9a7362d3, HEIGHT: 13097317, DIFF: 8.726G
+[18:57:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 98505fa7, HEIGHT: 13097317, DIFF: 8.726G
+[18:57:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 74c48b3a, HEIGHT: 13097318, DIFF: 8.726G
+[18:57:44] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6f357367, HEIGHT: 13097319, DIFF: 8.726G
+[18:57:51] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 15ac0f69, HEIGHT: 13097319, DIFF: 8.726G
+[18:57:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0d22c638, HEIGHT: 13097319, DIFF: 8.726G
+[18:58:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:58:02 ================
+[18:58:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:58:02] INFO - | 0|1080ti| 10.76 M|     0|     0|  0| 184|  62| 28|1949| 5005|   0| 58.48 K|
+[18:58:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:58:02] INFO - |    Total: 10.76 M|     0|     0|  0| 184| Uptime:  0D 00:14:31   CPU: 14% |
+[18:58:02] INFO - =============================================================================
+[18:58:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:58:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a6d2fdcd, HEIGHT: 13097319, DIFF: 8.726G
+[18:58:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6e16236a, HEIGHT: 13097320, DIFF: 8.726G
+[18:58:17] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 052e5319, HEIGHT: 13097320, DIFF: 8.726G
+[18:58:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8d42f710, HEIGHT: 13097321, DIFF: 8.726G
+[18:58:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cbea8b8a, HEIGHT: 13097322, DIFF: 8.726G
+[18:58:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 30b5c317, HEIGHT: 13097322, DIFF: 8.726G
+[18:58:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 70584350, HEIGHT: 13097323, DIFF: 8.726G
+[18:58:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c202a148, HEIGHT: 13097323, DIFF: 8.726G
+[18:58:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:58:32 ================
+[18:58:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:58:32] INFO - | 0|1080ti| 10.65 M|     0|     0|  0|  86|  61| 28|1949| 5005|   0| 123.8 K|
+[18:58:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:58:32] INFO - |    Total: 10.65 M|     0|     0|  0|  86| Uptime:  0D 00:15:01   CPU: 13% |
+[18:58:32] INFO - =============================================================================
+[18:58:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:58:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5480a878, HEIGHT: 13097323, DIFF: 8.726G
+[18:58:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9bd95575, HEIGHT: 13097324, DIFF: 8.726G
+[18:58:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 93296161, HEIGHT: 13097324, DIFF: 8.726G
+[18:58:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8a476fc0, HEIGHT: 13097325, DIFF: 8.726G
+[18:58:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 80a6079c, HEIGHT: 13097325, DIFF: 8.726G
+[18:58:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0b9055fd, HEIGHT: 13097325, DIFF: 8.726G
+[18:58:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 96154f98, HEIGHT: 13097325, DIFF: 8.726G
+[18:58:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 053723f3, HEIGHT: 13097325, DIFF: 8.726G
+[18:58:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 957931b5, HEIGHT: 13097325, DIFF: 8.726G
+[18:58:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9a585587, HEIGHT: 13097326, DIFF: 8.726G
+[18:58:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 778a1abe, HEIGHT: 13097326, DIFF: 8.726G
+[18:59:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:59:02 ================
+[18:59:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:59:02] INFO - | 0|1080ti| 9.767 M|     0|     0|  0|  88|  61| 28|1949| 5005|   0| 111.0 K|
+[18:59:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:59:02] INFO - |    Total: 9.767 M|     0|     0|  0|  88| Uptime:  0D 00:15:31   CPU: 15% |
+[18:59:02] INFO - =============================================================================
+[18:59:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:59:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 82fa05f7, HEIGHT: 13097327, DIFF: 8.726G
+[18:59:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 548470dc, HEIGHT: 13097327, DIFF: 8.726G
+[18:59:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 095af45a, HEIGHT: 13097327, DIFF: 8.726G
+[18:59:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: eecf7efa, HEIGHT: 13097327, DIFF: 8.726G
+[18:59:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e979a9d3, HEIGHT: 13097327, DIFF: 8.726G
+[18:59:23] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 329fe56f, HEIGHT: 13097327, DIFF: 8.726G
+[18:59:23] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2526b829, HEIGHT: 13097327, DIFF: 8.726G
+[18:59:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d8b59a5f, HEIGHT: 13097328, DIFF: 8.726G
+[18:59:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: de13d800, HEIGHT: 13097328, DIFF: 8.726G
+[18:59:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 18:59:32 ================
+[18:59:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[18:59:32] INFO - | 0|1080ti| 10.64 M|     0|     0|  0| 186|  62| 28|1949| 5005|  75| 57.22 K|
+[18:59:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[18:59:32] INFO - |    Total: 10.64 M|     0|     0|  0| 186| Uptime:  0D 00:16:01   CPU: 16% |
+[18:59:32] INFO - =============================================================================
+[18:59:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[18:59:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f741e72f, HEIGHT: 13097328, DIFF: 8.726G
+[18:59:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: aecb93b8, HEIGHT: 13097328, DIFF: 8.726G
+[18:59:40] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b4f2dddc, HEIGHT: 13097328, DIFF: 8.726G
+[18:59:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 64f65d68, HEIGHT: 13097328, DIFF: 8.726G
+[18:59:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1de74ba1, HEIGHT: 13097329, DIFF: 8.726G
+[18:59:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9384163f, HEIGHT: 13097329, DIFF: 8.726G
+[18:59:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 66869ce1, HEIGHT: 13097329, DIFF: 8.726G
+[18:59:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 996456fb, HEIGHT: 13097329, DIFF: 8.726G
+[19:00:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:00:02 ================
+[19:00:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:00:02] INFO - | 0|1080ti| 11.27 M|     0|     0|  0|  87|  61| 28|1949| 5005|   1| 129.5 K|
+[19:00:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:00:02] INFO - |    Total: 11.27 M|     0|     0|  0|  87| Uptime:  0D 00:16:31   CPU: 16% |
+[19:00:02] INFO - =============================================================================
+[19:00:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:00:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 44cc8760, HEIGHT: 13097329, DIFF: 8.726G
+[19:00:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e097f724, HEIGHT: 13097329, DIFF: 8.726G
+[19:00:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d1cd3286, HEIGHT: 13097329, DIFF: 8.726G
+[19:00:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5f6e60cd, HEIGHT: 13097330, DIFF: 8.726G
+[19:00:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 35ba0472, HEIGHT: 13097330, DIFF: 8.726G
+[19:00:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2b5f5eba, HEIGHT: 13097331, DIFF: 8.726G
+[19:00:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d91999af, HEIGHT: 13097331, DIFF: 8.726G
+[19:00:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 30af548e, HEIGHT: 13097331, DIFF: 8.726G
+[19:00:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 318d8d7b, HEIGHT: 13097332, DIFF: 8.726G
+[19:00:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 83954ed7, HEIGHT: 13097332, DIFF: 8.726G
+[19:00:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 336884e5, HEIGHT: 13097333, DIFF: 8.726G
+[19:00:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 674c328b, HEIGHT: 13097333, DIFF: 8.726G
+[19:00:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 08a9d3d6, HEIGHT: 13097334, DIFF: 8.726G
+[19:00:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a6dc271e, HEIGHT: 13097334, DIFF: 8.726G
+[19:00:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5d6b919a, HEIGHT: 13097335, DIFF: 8.726G
+[19:00:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:00:32 ================
+[19:00:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:00:32] INFO - | 0|1080ti| 11.34 M|     0|     0|  0| 143|  63| 28|1949| 5005|  70| 79.33 K|
+[19:00:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:00:32] INFO - |    Total: 11.34 M|     0|     0|  0| 143| Uptime:  0D 00:17:01   CPU: 19% |
+[19:00:32] INFO - =============================================================================
+[19:00:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:00:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 64ed0e38, HEIGHT: 13097335, DIFF: 8.726G
+[19:00:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1e936300, HEIGHT: 13097335, DIFF: 8.726G
+[19:00:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9232c88a, HEIGHT: 13097335, DIFF: 8.726G
+[19:00:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 80b13536, HEIGHT: 13097335, DIFF: 8.726G
+[19:00:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f6c4253b, HEIGHT: 13097336, DIFF: 8.726G
+[19:00:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3f6ecacd, HEIGHT: 13097336, DIFF: 8.726G
+[19:01:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cc57d547, HEIGHT: 13097336, DIFF: 8.726G
+[19:01:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3d6f6bd0, HEIGHT: 13097337, DIFF: 8.726G
+[19:01:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:01:02 ================
+[19:01:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:01:02] INFO - | 0|1080ti| 9.989 M|     0|     0|  0|  87|  62| 28|1949| 5005|   2| 114.8 K|
+[19:01:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:01:02] INFO - |    Total: 9.989 M|     0|     0|  0|  87| Uptime:  0D 00:17:31   CPU: 18% |
+[19:01:02] INFO - =============================================================================
+[19:01:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:01:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 53d1733e, HEIGHT: 13097337, DIFF: 8.726G
+[19:01:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fedfb09e, HEIGHT: 13097337, DIFF: 8.726G
+[19:01:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: adde04fc, HEIGHT: 13097338, DIFF: 8.726G
+[19:01:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6c654eb4, HEIGHT: 13097338, DIFF: 8.726G
+[19:01:20] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 468cc7f3, HEIGHT: 13097338, DIFF: 8.726G
+[19:01:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4eb018b1, HEIGHT: 13097338, DIFF: 8.726G
+[19:01:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a3f878ff, HEIGHT: 13097338, DIFF: 8.726G
+[19:01:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8ed09890, HEIGHT: 13097338, DIFF: 8.726G
+[19:01:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:01:32 ================
+[19:01:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:01:32] INFO - | 0|1080ti| 9.873 M|     0|     0|  0|  87|  63| 28|1949| 5005|   1| 113.5 K|
+[19:01:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:01:32] INFO - |    Total: 9.873 M|     0|     0|  0|  87| Uptime:  0D 00:18:01   CPU: 19% |
+[19:01:32] INFO - =============================================================================
+[19:01:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:01:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1435bc85, HEIGHT: 13097339, DIFF: 8.726G
+[19:01:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f44e3ca7, HEIGHT: 13097339, DIFF: 8.726G
+[19:01:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cb4bcaab, HEIGHT: 13097339, DIFF: 8.726G
+[19:01:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cab8ae83, HEIGHT: 13097340, DIFF: 8.726G
+[19:01:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fb24a22a, HEIGHT: 13097340, DIFF: 8.726G
+[19:01:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f575102d, HEIGHT: 13097340, DIFF: 8.726G
+[19:01:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 72ed5265, HEIGHT: 13097340, DIFF: 8.726G
+[19:01:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 56601761, HEIGHT: 13097340, DIFF: 8.726G
+[19:02:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:02:02 ================
+[19:02:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:02:02] INFO - | 0|1080ti| 10.73 M|     0|     0|  0| 187|  64| 28|1949| 5005|  68| 57.38 K|
+[19:02:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:02:02] INFO - |    Total: 10.73 M|     0|     0|  0| 187| Uptime:  0D 00:18:31   CPU: 17% |
+[19:02:02] INFO - =============================================================================
+[19:02:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:02:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3e42b067, HEIGHT: 13097340, DIFF: 8.726G
+[19:02:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a9049f59, HEIGHT: 13097340, DIFF: 8.726G
+[19:02:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 161771c6, HEIGHT: 13097341, DIFF: 8.726G
+[19:02:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9cf7dd2e, HEIGHT: 13097341, DIFF: 8.726G
+[19:02:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ae0255f1, HEIGHT: 13097341, DIFF: 8.726G
+[19:02:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 62125df0, HEIGHT: 13097341, DIFF: 8.726G
+[19:02:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cff4e24a, HEIGHT: 13097342, DIFF: 8.726G
+[19:02:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bc6b7b6e, HEIGHT: 13097342, DIFF: 8.726G
+[19:02:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2da5804d, HEIGHT: 13097343, DIFF: 8.726G
+[19:02:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: eebdef19, HEIGHT: 13097343, DIFF: 8.726G
+[19:02:23] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d863eeae, HEIGHT: 13097343, DIFF: 8.726G
+[19:02:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2d3dd73b, HEIGHT: 13097344, DIFF: 8.726G
+[19:02:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c6a9b6f8, HEIGHT: 13097344, DIFF: 8.726G
+[19:02:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 59b49fcb, HEIGHT: 13097344, DIFF: 8.726G
+[19:02:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1e11b66d, HEIGHT: 13097344, DIFF: 8.726G
+[19:02:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:02:32 ================
+[19:02:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:02:32] INFO - | 0|1080ti| 9.933 M|     0|     0|  0|  87|  62| 29|1949| 5005|   0| 114.2 K|
+[19:02:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:02:32] INFO - |    Total: 9.933 M|     0|     0|  0|  87| Uptime:  0D 00:19:01   CPU: 17% |
+[19:02:32] INFO - =============================================================================
+[19:02:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:02:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 60c7ef64, HEIGHT: 13097345, DIFF: 8.726G
+[19:02:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ab3c1c7c, HEIGHT: 13097345, DIFF: 8.726G
+[19:02:40] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bae6dd6f, HEIGHT: 13097345, DIFF: 8.726G
+[19:02:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f259ee2a, HEIGHT: 13097345, DIFF: 8.726G
+[19:02:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c2a15551, HEIGHT: 13097345, DIFF: 8.726G
+[19:02:51] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4190af87, HEIGHT: 13097346, DIFF: 8.726G
+[19:02:51] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7aa20445, HEIGHT: 13097346, DIFF: 8.726G
+[19:02:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 245b5186, HEIGHT: 13097347, DIFF: 8.726G
+[19:02:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 66efa501, HEIGHT: 13097347, DIFF: 8.726G
+[19:02:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 35f1d5e1, HEIGHT: 13097348, DIFF: 8.726G
+[19:02:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 566c1042, HEIGHT: 13097348, DIFF: 8.726G
+[19:03:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f9a83988, HEIGHT: 13097348, DIFF: 8.726G
+[19:03:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:03:02 ================
+[19:03:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:03:02] INFO - | 0|1080ti| 8.811 M|     0|     0|  0|  87|  61| 29|1949| 5005|   0| 101.3 K|
+[19:03:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:03:02] INFO - |    Total: 8.811 M|     0|     0|  0|  87| Uptime:  0D 00:19:31   CPU: 18% |
+[19:03:02] INFO - =============================================================================
+[19:03:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:03:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6954bdc8, HEIGHT: 13097349, DIFF: 8.726G
+[19:03:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a5311a6a, HEIGHT: 13097349, DIFF: 8.726G
+[19:03:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 772269ed, HEIGHT: 13097349, DIFF: 8.726G
+[19:03:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 862bcbdf, HEIGHT: 13097349, DIFF: 8.726G
+[19:03:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e19d62d9, HEIGHT: 13097349, DIFF: 8.726G
+[19:03:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 85e89796, HEIGHT: 13097349, DIFF: 8.726G
+[19:03:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:03:32 ================
+[19:03:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:03:32] INFO - | 0|1080ti| 10.16 M|     0|     0|  0|  86|  61| 29|1949| 5005|   0| 118.2 K|
+[19:03:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:03:32] INFO - |    Total: 10.16 M|     0|     0|  0|  86| Uptime:  0D 00:20:01   CPU: 16% |
+[19:03:32] INFO - =============================================================================
+[19:03:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:03:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0157da66, HEIGHT: 13097349, DIFF: 8.726G
+[19:03:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 033e303a, HEIGHT: 13097350, DIFF: 8.726G
+[19:03:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 76871eb5, HEIGHT: 13097350, DIFF: 8.726G
+[19:03:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f654d9e6, HEIGHT: 13097350, DIFF: 8.726G
+[19:03:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9f2db98d, HEIGHT: 13097350, DIFF: 8.726G
+[19:03:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d375966b, HEIGHT: 13097350, DIFF: 8.726G
+[19:03:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b719d482, HEIGHT: 13097351, DIFF: 8.726G
+[19:03:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: af76ec3a, HEIGHT: 13097352, DIFF: 8.726G
+[19:04:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c23f1f2f, HEIGHT: 13097352, DIFF: 8.726G
+[19:04:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:04:02 ================
+[19:04:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:04:02] INFO - | 0|1080ti| 10.89 M|     0|     0|  0|  87|  62| 28|1949| 5005|  21| 125.2 K|
+[19:04:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:04:02] INFO - |    Total: 10.89 M|     0|     0|  0|  87| Uptime:  0D 00:20:31   CPU: 14% |
+[19:04:02] INFO - =============================================================================
+[19:04:02] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:04:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a91d796d, HEIGHT: 13097352, DIFF: 8.726G
+[19:04:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2b3991a3, HEIGHT: 13097353, DIFF: 8.726G
+[19:04:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 46221b25, HEIGHT: 13097353, DIFF: 8.726G
+[19:04:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 222e53e7, HEIGHT: 13097353, DIFF: 8.726G
+[19:04:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 48167558, HEIGHT: 13097353, DIFF: 8.726G
+[19:04:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:04:32 ================
+[19:04:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:04:32] INFO - | 0|1080ti| 10.74 M|     0|     0|  0|  86|  61| 28|1949| 5005|   0| 124.9 K|
+[19:04:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:04:32] INFO - |    Total: 10.74 M|     0|     0|  0|  86| Uptime:  0D 00:21:01   CPU: 16% |
+[19:04:32] INFO - =============================================================================
+[19:04:32] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[19:04:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: afac4e48, HEIGHT: 13097354, DIFF: 8.726G
+[19:04:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c3e1f48a, HEIGHT: 13097355, DIFF: 8.726G
+[19:04:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 61a0850e, HEIGHT: 13097355, DIFF: 8.726G
+[19:04:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2bf0e093, HEIGHT: 13097355, DIFF: 8.726G
+[19:04:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2be7a674, HEIGHT: 13097355, DIFF: 8.726G
+[19:04:48] INFO - ethash - #1 Share accepted, 41 ms. [DEVICE 0, #1]
+[19:04:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 904d5dfb, HEIGHT: 13097355, DIFF: 8.726G
+[19:04:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 831c30d8, HEIGHT: 13097355, DIFF: 8.726G
+[19:05:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:05:02 ================
+[19:05:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:05:02] INFO - | 0|1080ti| 10.37 M|     1|     0|  0|  87|  61| 28|1949| 5005|  20| 119.2 K|
+[19:05:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:05:02] INFO - |    Total: 10.37 M|     1|     0|  0|  87| Uptime:  0D 00:21:31   CPU: 15% |
+[19:05:02] INFO - =============================================================================
+[19:05:02] INFO - ethash - On Pool   10m: 13.87 M   4h: 6.759 M   24h: 6.759 M
+[19:05:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: aa03f0fd, HEIGHT: 13097355, DIFF: 8.726G
+[19:05:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6d7cd023, HEIGHT: 13097356, DIFF: 8.726G
+[19:05:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6ed7c6c6, HEIGHT: 13097356, DIFF: 8.726G
+[19:05:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a5ed5d06, HEIGHT: 13097357, DIFF: 8.726G
+[19:05:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fcf89601, HEIGHT: 13097357, DIFF: 8.726G
+[19:05:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1828956d, HEIGHT: 13097357, DIFF: 8.726G
+[19:05:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:05:32 ================
+[19:05:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:05:32] INFO - | 0|1080ti| 10.79 M|     1|     0|  0| 183|  61| 28|1949| 5005|   0| 58.96 K|
+[19:05:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:05:32] INFO - |    Total: 10.79 M|     1|     0|  0| 183| Uptime:  0D 00:22:01   CPU: 16% |
+[19:05:32] INFO - =============================================================================
+[19:05:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 6.606 M   24h: 6.606 M
+[19:05:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1bbf51e1, HEIGHT: 13097357, DIFF: 8.726G
+[19:05:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d0d518e8, HEIGHT: 13097358, DIFF: 8.726G
+[19:05:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ac4b8c06, HEIGHT: 13097359, DIFF: 8.726G
+[19:05:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fabdc2f3, HEIGHT: 13097359, DIFF: 8.726G
+[19:05:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 40d38545, HEIGHT: 13097359, DIFF: 8.726G
+[19:05:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8a70786e, HEIGHT: 13097359, DIFF: 8.726G
+[19:05:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 56236d86, HEIGHT: 13097360, DIFF: 8.726G
+[19:06:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:06:02 ================
+[19:06:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:06:02] INFO - | 0|1080ti| 10.70 M|     1|     0|  0|  86|  61| 28|1949| 5005|   0| 124.5 K|
+[19:06:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:06:02] INFO - |    Total: 10.70 M|     1|     0|  0|  86| Uptime:  0D 00:22:31   CPU: 13% |
+[19:06:02] INFO - =============================================================================
+[19:06:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 6.459 M   24h: 6.459 M
+[19:06:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e3c7c715, HEIGHT: 13097360, DIFF: 8.726G
+[19:06:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6ac934e9, HEIGHT: 13097360, DIFF: 8.726G
+[19:06:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4b1149b5, HEIGHT: 13097360, DIFF: 8.726G
+[19:06:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f843cd62, HEIGHT: 13097360, DIFF: 8.726G
+[19:06:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 31d9e0fd, HEIGHT: 13097360, DIFF: 8.726G
+[19:06:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c3191653, HEIGHT: 13097360, DIFF: 8.726G
+[19:06:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3984343d, HEIGHT: 13097360, DIFF: 8.726G
+[19:06:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c9885b16, HEIGHT: 13097360, DIFF: 8.726G
+[19:06:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:06:32 ================
+[19:06:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:06:32] INFO - | 0|1080ti| 10.98 M|     1|     0|  0| 174|  63| 28|1949| 5005|  67| 63.08 K|
+[19:06:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:06:32] INFO - |    Total: 10.98 M|     1|     0|  0| 174| Uptime:  0D 00:23:01   CPU: 14% |
+[19:06:32] INFO - =============================================================================
+[19:06:32] INFO - ethash - On Pool   10m: 13.87 M   4h: 6.319 M   24h: 6.319 M
+[19:06:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d68bd175, HEIGHT: 13097361, DIFF: 8.726G
+[19:06:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 33f152c5, HEIGHT: 13097361, DIFF: 8.726G
+[19:06:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: dbb4d9ea, HEIGHT: 13097361, DIFF: 8.726G
+[19:06:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8724ab89, HEIGHT: 13097361, DIFF: 8.726G
+[19:06:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d97bd043, HEIGHT: 13097362, DIFF: 8.726G
+[19:06:44] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 77ebab46, HEIGHT: 13097362, DIFF: 8.726G
+[19:06:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2e2ea943, HEIGHT: 13097363, DIFF: 8.726G
+[19:06:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3bed0354, HEIGHT: 13097364, DIFF: 8.726G
+[19:06:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5c309e6d, HEIGHT: 13097364, DIFF: 8.726G
+[19:06:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2e3a392d, HEIGHT: 13097365, DIFF: 8.726G
+[19:07:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:07:02 ================
+[19:07:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:07:02] INFO - | 0|1080ti| 10.19 M|     1|     0|  0|  86|  61| 28|1949| 5005|   0| 118.5 K|
+[19:07:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:07:02] INFO - |    Total: 10.19 M|     1|     0|  0|  86| Uptime:  0D 00:23:31   CPU: 13% |
+[19:07:02] INFO - =============================================================================
+[19:07:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 6.184 M   24h: 6.184 M
+[19:07:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 02528eb3, HEIGHT: 13097365, DIFF: 8.726G
+[19:07:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e36b63da, HEIGHT: 13097365, DIFF: 8.726G
+[19:07:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 464fdeb0, HEIGHT: 13097365, DIFF: 8.726G
+[19:07:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d26a0ad1, HEIGHT: 13097365, DIFF: 8.726G
+[19:07:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1cb0dc0b, HEIGHT: 13097366, DIFF: 8.726G
+[19:07:20] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7f8b5e5d, HEIGHT: 13097366, DIFF: 8.726G
+[19:07:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 06597a71, HEIGHT: 13097366, DIFF: 8.726G
+[19:07:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:07:32 ================
+[19:07:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:07:32] INFO - | 0|1080ti| 10.15 M|     1|     0|  0|  88|  61| 27|1949| 5005|   1| 115.4 K|
+[19:07:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:07:32] INFO - |    Total: 10.15 M|     1|     0|  0|  88| Uptime:  0D 00:24:01   CPU: 13% |
+[19:07:32] INFO - =============================================================================
+[19:07:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 6.056 M   24h: 6.056 M
+[19:07:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9371e7c8, HEIGHT: 13097367, DIFF: 8.726G
+[19:07:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a150abaf, HEIGHT: 13097368, DIFF: 8.726G
+[19:07:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a45a1c1b, HEIGHT: 13097368, DIFF: 8.726G
+[19:07:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3327cba0, HEIGHT: 13097369, DIFF: 8.726G
+[19:07:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d5871926, HEIGHT: 13097370, DIFF: 8.726G
+[19:07:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7b674a23, HEIGHT: 13097370, DIFF: 8.726G
+[19:07:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8da6ed8f, HEIGHT: 13097370, DIFF: 8.726G
+[19:08:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:08:02 ================
+[19:08:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:08:02] INFO - | 0|1080ti| 11.32 M|     1|     0|  0|  86|  61| 27|1949| 5005|   0| 131.7 K|
+[19:08:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:08:02] INFO - |    Total: 11.32 M|     1|     0|  0|  86| Uptime:  0D 00:24:31   CPU: 16% |
+[19:08:02] INFO - =============================================================================
+[19:08:02] INFO - ethash - On Pool   10m: 13.87 M   4h: 5.932 M   24h: 5.932 M
+[19:08:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1db2d442, HEIGHT: 13097370, DIFF: 8.726G
+[19:08:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f1e67152, HEIGHT: 13097370, DIFF: 8.726G
+[19:08:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6d0caf66, HEIGHT: 13097371, DIFF: 8.726G
+[19:08:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b87ea759, HEIGHT: 13097371, DIFF: 8.726G
+[19:08:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 25032be6, HEIGHT: 13097372, DIFF: 8.726G
+[19:08:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 97da822c, HEIGHT: 13097372, DIFF: 8.726G
+[19:08:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1c989e1d, HEIGHT: 13097372, DIFF: 8.726G
+[19:08:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 09ce93ff, HEIGHT: 13097372, DIFF: 8.726G
+[19:08:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ea4411ba, HEIGHT: 13097372, DIFF: 8.726G
+[19:08:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 49cd70fd, HEIGHT: 13097372, DIFF: 8.726G
+[19:08:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:08:32 ================
+[19:08:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:08:32] INFO - | 0|1080ti| 10.94 M|     1|     0|  0| 187|  62| 27|1949| 5005|  67| 58.48 K|
+[19:08:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:08:32] INFO - |    Total: 10.94 M|     1|     0|  0| 187| Uptime:  0D 00:25:01   CPU: 12% |
+[19:08:32] INFO - =============================================================================
+[19:08:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 5.814 M   24h: 5.814 M
+[19:08:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9a0431cc, HEIGHT: 13097373, DIFF: 8.726G
+[19:08:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ffbddd6a, HEIGHT: 13097374, DIFF: 8.726G
+[19:08:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8e01f166, HEIGHT: 13097374, DIFF: 8.726G
+[19:08:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8bc25d56, HEIGHT: 13097375, DIFF: 8.726G
+[19:08:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b6a5a990, HEIGHT: 13097375, DIFF: 8.726G
+[19:08:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e64fbf5c, HEIGHT: 13097376, DIFF: 8.726G
+[19:08:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0ec23ec7, HEIGHT: 13097376, DIFF: 8.726G
+[19:08:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 342afd50, HEIGHT: 13097377, DIFF: 8.726G
+[19:08:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a8c7366b, HEIGHT: 13097377, DIFF: 8.726G
+[19:08:51] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c190ef83, HEIGHT: 13097377, DIFF: 8.726G
+[19:08:51] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bce8a317, HEIGHT: 13097377, DIFF: 8.726G
+[19:08:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 010fdafc, HEIGHT: 13097378, DIFF: 8.726G
+[19:08:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b8841cfe, HEIGHT: 13097378, DIFF: 8.726G
+[19:08:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b2bdb7bb, HEIGHT: 13097379, DIFF: 8.726G
+[19:09:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 209454f2, HEIGHT: 13097380, DIFF: 8.726G
+[19:09:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: efcc0620, HEIGHT: 13097380, DIFF: 8.726G
+[19:09:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:09:02 ================
+[19:09:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:09:02] INFO - | 0|1080ti| 10.22 M|     1|     0|  0| 188|  63| 28|1949| 5005|  76| 54.34 K|
+[19:09:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:09:02] INFO - |    Total: 10.22 M|     1|     0|  0| 188| Uptime:  0D 00:25:31   CPU: 13% |
+[19:09:02] INFO - =============================================================================
+[19:09:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 5.700 M   24h: 5.700 M
+[19:09:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 011ff48d, HEIGHT: 13097381, DIFF: 8.726G
+[19:09:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d9aab2e1, HEIGHT: 13097381, DIFF: 8.726G
+[19:09:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: de39b5a6, HEIGHT: 13097381, DIFF: 8.726G
+[19:09:20] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5e5e0363, HEIGHT: 13097381, DIFF: 8.726G
+[19:09:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 122d7bd3, HEIGHT: 13097382, DIFF: 8.726G
+[19:09:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:09:32 ================
+[19:09:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:09:32] INFO - | 0|1080ti| 10.20 M|     1|     0|  0| 187|  62| 27|1949| 5005|  52| 54.53 K|
+[19:09:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:09:32] INFO - |    Total: 10.20 M|     1|     0|  0| 187| Uptime:  0D 00:26:01   CPU: 15% |
+[19:09:32] INFO - =============================================================================
+[19:09:32] INFO - ethash - On Pool   10m: 13.87 M   4h: 5.590 M   24h: 5.590 M
+[19:09:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 25b9aef2, HEIGHT: 13097382, DIFF: 8.726G
+[19:09:40] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1388d2ee, HEIGHT: 13097382, DIFF: 8.726G
+[19:09:40] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f33657f8, HEIGHT: 13097382, DIFF: 8.726G
+[19:09:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 57222f7e, HEIGHT: 13097382, DIFF: 8.726G
+[19:09:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 670c2285, HEIGHT: 13097382, DIFF: 8.726G
+[19:09:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 05b8c84e, HEIGHT: 13097383, DIFF: 8.726G
+[19:09:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: dc777076, HEIGHT: 13097383, DIFF: 8.726G
+[19:09:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 447e9cc9, HEIGHT: 13097384, DIFF: 8.726G
+[19:09:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 73728e9a, HEIGHT: 13097384, DIFF: 8.726G
+[19:10:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 04662a15, HEIGHT: 13097384, DIFF: 8.726G
+[19:10:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:10:02 ================
+[19:10:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:10:02] INFO - | 0|1080ti| 10.91 M|     1|     0|  0| 188|  63| 27|1949| 5005|  75| 58.02 K|
+[19:10:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:10:02] INFO - |    Total: 10.91 M|     1|     0|  0| 188| Uptime:  0D 00:26:31   CPU: 16% |
+[19:10:02] INFO - =============================================================================
+[19:10:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 5.485 M   24h: 5.485 M
+[19:10:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 90f5c12f, HEIGHT: 13097384, DIFF: 8.726G
+[19:10:17] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4ddcaafc, HEIGHT: 13097384, DIFF: 8.726G
+[19:10:17] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0ab678c1, HEIGHT: 13097384, DIFF: 8.726G
+[19:10:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 13747c42, HEIGHT: 13097385, DIFF: 8.726G
+[19:10:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bb06bb18, HEIGHT: 13097385, DIFF: 8.726G
+[19:10:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 68a0a0fd, HEIGHT: 13097385, DIFF: 8.726G
+[19:10:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 720c17ee, HEIGHT: 13097385, DIFF: 8.726G
+[19:10:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fb6014fd, HEIGHT: 13097386, DIFF: 8.726G
+[19:10:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9305a58b, HEIGHT: 13097386, DIFF: 8.726G
+[19:10:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:10:32 ================
+[19:10:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:10:32] INFO - | 0|1080ti| 10.20 M|     1|     0|  0|  87|  61| 27|1949| 5005|   0| 117.2 K|
+[19:10:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:10:32] INFO - |    Total: 10.20 M|     1|     0|  0|  87| Uptime:  0D 00:27:01   CPU: 18% |
+[19:10:32] INFO - =============================================================================
+[19:10:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 5.383 M   24h: 5.383 M
+[19:10:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bd3cbf45, HEIGHT: 13097386, DIFF: 8.726G
+[19:10:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fecbaf57, HEIGHT: 13097386, DIFF: 8.726G
+[19:10:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d6d5b938, HEIGHT: 13097386, DIFF: 8.726G
+[19:10:59] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2bfe873f, HEIGHT: 13097386, DIFF: 8.726G
+[19:11:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:11:02 ================
+[19:11:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:11:02] INFO - | 0|1080ti| 10.36 M|     1|     0|  0|  87|  61| 27|1949| 5005|   0| 119.1 K|
+[19:11:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:11:02] INFO - |    Total: 10.36 M|     1|     0|  0|  87| Uptime:  0D 00:27:31   CPU: 16% |
+[19:11:02] INFO - =============================================================================
+[19:11:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 5.285 M   24h: 5.285 M
+[19:11:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d15e0150, HEIGHT: 13097387, DIFF: 8.726G
+[19:11:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 667c504e, HEIGHT: 13097387, DIFF: 8.726G
+[19:11:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bb7b5290, HEIGHT: 13097388, DIFF: 8.726G
+[19:11:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1d9c4318, HEIGHT: 13097388, DIFF: 8.726G
+[19:11:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 31f3bdc5, HEIGHT: 13097388, DIFF: 8.726G
+[19:11:17] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1db3972e, HEIGHT: 13097389, DIFF: 8.726G
+[19:11:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 282e6e78, HEIGHT: 13097390, DIFF: 8.726G
+[19:11:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 15e4085e, HEIGHT: 13097390, DIFF: 8.726G
+[19:11:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 133cedbd, HEIGHT: 13097390, DIFF: 8.726G
+[19:11:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:11:32 ================
+[19:11:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:11:32] INFO - | 0|1080ti| 10.56 M|     1|     0|  0| 188|  63| 27|1949| 5005|  75| 56.16 K|
+[19:11:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:11:32] INFO - |    Total: 10.56 M|     1|     0|  0| 188| Uptime:  0D 00:28:01   CPU: 14% |
+[19:11:32] INFO - =============================================================================
+[19:11:32] INFO - ethash - On Pool   10m: 13.87 M   4h: 5.191 M   24h: 5.191 M
+[19:11:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2075c72e, HEIGHT: 13097390, DIFF: 8.726G
+[19:11:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 84751411, HEIGHT: 13097390, DIFF: 8.726G
+[19:11:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b5977a08, HEIGHT: 13097391, DIFF: 8.726G
+[19:11:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 252c56cb, HEIGHT: 13097391, DIFF: 8.726G
+[19:11:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 762b193e, HEIGHT: 13097391, DIFF: 8.726G
+[19:11:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 18e05b48, HEIGHT: 13097391, DIFF: 8.726G
+[19:12:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c2ee30c8, HEIGHT: 13097391, DIFF: 8.726G
+[19:12:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a215a0e0, HEIGHT: 13097392, DIFF: 8.726G
+[19:12:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 045ebbf0, HEIGHT: 13097392, DIFF: 8.726G
+[19:12:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:12:02 ================
+[19:12:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:12:02] INFO - | 0|1080ti| 10.68 M|     1|     0|  0|  88|  61| 27|1949| 5005|  14| 121.4 K|
+[19:12:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:12:02] INFO - |    Total: 10.68 M|     1|     0|  0|  88| Uptime:  0D 00:28:31   CPU: 18% |
+[19:12:02] INFO - =============================================================================
+[19:12:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 5.100 M   24h: 5.100 M
+[19:12:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 344077e4, HEIGHT: 13097393, DIFF: 8.726G
+[19:12:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7c0b2b89, HEIGHT: 13097393, DIFF: 8.726G
+[19:12:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0bd7709d, HEIGHT: 13097394, DIFF: 8.726G
+[19:12:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3776ed35, HEIGHT: 13097394, DIFF: 8.726G
+[19:12:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6e619188, HEIGHT: 13097395, DIFF: 8.726G
+[19:12:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0b135041, HEIGHT: 13097395, DIFF: 8.726G
+[19:12:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8ec76b32, HEIGHT: 13097395, DIFF: 8.726G
+[19:12:23] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3e30502c, HEIGHT: 13097395, DIFF: 8.726G
+[19:12:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 76066846, HEIGHT: 13097395, DIFF: 8.726G
+[19:12:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b28d10b8, HEIGHT: 13097396, DIFF: 8.726G
+[19:12:31] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 37c6c02d, HEIGHT: 13097396, DIFF: 8.726G
+[19:12:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:12:32 ================
+[19:12:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:12:32] INFO - | 0|1080ti| 9.859 M|     1|     0|  0|  87|  61| 27|1949| 5005|   1| 113.3 K|
+[19:12:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:12:32] INFO - |    Total: 9.859 M|     1|     0|  0|  87| Uptime:  0D 00:29:01   CPU: 16% |
+[19:12:32] INFO - =============================================================================
+[19:12:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 5.012 M   24h: 5.012 M
+[19:12:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2a9b6100, HEIGHT: 13097397, DIFF: 8.726G
+[19:12:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: be2885f9, HEIGHT: 13097397, DIFF: 8.726G
+[19:12:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fc7e9b14, HEIGHT: 13097397, DIFF: 8.726G
+[19:12:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1fa30e09, HEIGHT: 13097398, DIFF: 8.726G
+[19:12:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e3731fde, HEIGHT: 13097398, DIFF: 8.726G
+[19:12:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: eb3b0c8b, HEIGHT: 13097399, DIFF: 8.726G
+[19:12:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e0b35ed6, HEIGHT: 13097399, DIFF: 8.726G
+[19:12:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4e6ea977, HEIGHT: 13097400, DIFF: 8.726G
+[19:13:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:13:02 ================
+[19:13:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:13:02] INFO - | 0|1080ti| 10.15 M|     1|     0|  0| 181|  63| 27|1949| 5005|  69| 56.10 K|
+[19:13:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:13:02] INFO - |    Total: 10.15 M|     1|     0|  0| 181| Uptime:  0D 00:29:31   CPU: 20% |
+[19:13:02] INFO - =============================================================================
+[19:13:02] INFO - ethash - On Pool   10m: 13.87 M   4h: 4.927 M   24h: 4.927 M
+[19:13:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 925e7461, HEIGHT: 13097400, DIFF: 8.726G
+[19:13:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7de668c7, HEIGHT: 13097400, DIFF: 8.726G
+[19:13:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fecc3ba4, HEIGHT: 13097400, DIFF: 8.726G
+[19:13:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 59aa5001, HEIGHT: 13097400, DIFF: 8.726G
+[19:13:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0141cef4, HEIGHT: 13097401, DIFF: 8.726G
+[19:13:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e8b3b538, HEIGHT: 13097402, DIFF: 8.726G
+[19:13:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:13:32 ================
+[19:13:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:13:32] INFO - | 0|1080ti| 10.02 M|     1|     0|  0|  88|  61| 27|1949| 5005|   1| 113.9 K|
+[19:13:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:13:32] INFO - |    Total: 10.02 M|     1|     0|  0|  88| Uptime:  0D 00:30:01   CPU: 21% |
+[19:13:32] INFO - =============================================================================
+[19:13:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 4.845 M   24h: 4.845 M
+[19:13:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 452f8216, HEIGHT: 13097403, DIFF: 8.726G
+[19:13:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a98b60c8, HEIGHT: 13097403, DIFF: 8.726G
+[19:13:40] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1ab027ca, HEIGHT: 13097403, DIFF: 8.726G
+[19:13:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9c74b158, HEIGHT: 13097403, DIFF: 8.726G
+[19:13:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b7df7064, HEIGHT: 13097403, DIFF: 8.726G
+[19:13:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 03bd151c, HEIGHT: 13097404, DIFF: 8.726G
+[19:13:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 29c9cb9e, HEIGHT: 13097404, DIFF: 8.726G
+[19:14:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:14:02 ================
+[19:14:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:14:02] INFO - | 0|1080ti| 10.67 M|     1|     0|  0| 175|  62| 27|1949| 5005|   2| 60.98 K|
+[19:14:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:14:02] INFO - |    Total: 10.67 M|     1|     0|  0| 175| Uptime:  0D 00:30:31   CPU: 23% |
+[19:14:02] INFO - =============================================================================
+[19:14:02] INFO - ethash - On Pool   10m: 13.87 M   4h: 4.766 M   24h: 4.766 M
+[19:14:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3d63a7f6, HEIGHT: 13097404, DIFF: 8.726G
+[19:14:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e6dca906, HEIGHT: 13097404, DIFF: 8.726G
+[19:14:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b15adcbf, HEIGHT: 13097404, DIFF: 8.726G
+[19:14:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5ef29c5c, HEIGHT: 13097405, DIFF: 8.726G
+[19:14:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ffa18d24, HEIGHT: 13097405, DIFF: 8.726G
+[19:14:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: aef8d68f, HEIGHT: 13097405, DIFF: 8.726G
+[19:14:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bfb762be, HEIGHT: 13097406, DIFF: 8.726G
+[19:14:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 162b2fb7, HEIGHT: 13097407, DIFF: 8.726G
+[19:14:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ffa41c11, HEIGHT: 13097407, DIFF: 8.726G
+[19:14:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8e732156, HEIGHT: 13097407, DIFF: 8.726G
+[19:14:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: df5ea4bc, HEIGHT: 13097407, DIFF: 8.726G
+[19:14:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:14:32 ================
+[19:14:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:14:32] INFO - | 0|1080ti| 10.31 M|     1|     0|  0| 178|  63| 27|1949| 5005|  68| 57.93 K|
+[19:14:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:14:32] INFO - |    Total: 10.31 M|     1|     0|  0| 178| Uptime:  0D 00:31:01   CPU: 27% |
+[19:14:32] INFO - =============================================================================
+[19:14:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 4.689 M   24h: 4.689 M
+[19:14:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ebbc0b07, HEIGHT: 13097407, DIFF: 8.726G
+[19:14:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e13e827a, HEIGHT: 13097407, DIFF: 8.726G
+[19:14:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ae08de6a, HEIGHT: 13097407, DIFF: 8.726G
+[19:14:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b8656939, HEIGHT: 13097408, DIFF: 8.726G
+[19:14:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c1550d4b, HEIGHT: 13097408, DIFF: 8.726G
+[19:14:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d601bfef, HEIGHT: 13097409, DIFF: 8.726G
+[19:14:44] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 10feb95e, HEIGHT: 13097409, DIFF: 8.726G
+[19:14:44] INFO - ethash - New job: us-eth.2miners.com:2020, ID: eaf527f2, HEIGHT: 13097409, DIFF: 8.726G
+[19:14:51] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 59bcb853, HEIGHT: 13097409, DIFF: 8.726G
+[19:14:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e2c7fe0b, HEIGHT: 13097410, DIFF: 8.726G
+[19:14:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0d3d91c5, HEIGHT: 13097410, DIFF: 8.726G
+[19:15:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fc6f1b2b, HEIGHT: 13097411, DIFF: 8.726G
+[19:15:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9a95290b, HEIGHT: 13097411, DIFF: 8.726G
+[19:15:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2c5eeb7a, HEIGHT: 13097411, DIFF: 8.726G
+[19:15:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:15:02 ================
+[19:15:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:15:02] INFO - | 0|1080ti| 10.19 M|     1|     0|  0| 180|  63| 27|1949| 5005|  72| 56.60 K|
+[19:15:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:15:02] INFO - |    Total: 10.19 M|     1|     0|  0| 180| Uptime:  0D 00:31:31   CPU: 22% |
+[19:15:02] INFO - =============================================================================
+[19:15:02] INFO - ethash - On Pool   10m: 13.85 M   4h: 4.615 M   24h: 4.615 M
+[19:15:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e2b63105, HEIGHT: 13097412, DIFF: 8.726G
+[19:15:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bdaab270, HEIGHT: 13097412, DIFF: 8.726G
+[19:15:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8c75d863, HEIGHT: 13097413, DIFF: 8.726G
+[19:15:05] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8aea4fb2, HEIGHT: 13097413, DIFF: 8.726G
+[19:15:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 53b8dc20, HEIGHT: 13097413, DIFF: 8.726G
+[19:15:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 920b8996, HEIGHT: 13097413, DIFF: 8.726G
+[19:15:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2e76a327, HEIGHT: 13097413, DIFF: 8.726G
+[19:15:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 64d8c78d, HEIGHT: 13097414, DIFF: 8.726G
+[19:15:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ae42bba3, HEIGHT: 13097414, DIFF: 8.726G
+[19:15:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:15:32 ================
+[19:15:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:15:32] INFO - | 0|1080ti| 9.496 M|     1|     0|  0| 179|  63| 27|1949| 5005|  70| 53.05 K|
+[19:15:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:15:32] INFO - |    Total: 9.496 M|     1|     0|  0| 179| Uptime:  0D 00:32:01   CPU: 18% |
+[19:15:32] INFO - =============================================================================
+[19:15:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 4.543 M   24h: 4.543 M
+[19:15:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b6d10273, HEIGHT: 13097414, DIFF: 8.726G
+[19:15:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cfbd1bbe, HEIGHT: 13097414, DIFF: 8.726G
+[19:15:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a85726cd, HEIGHT: 13097415, DIFF: 8.726G
+[19:15:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 08968c31, HEIGHT: 13097415, DIFF: 8.726G
+[19:15:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 45d5ff08, HEIGHT: 13097415, DIFF: 8.726G
+[19:15:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b991257d, HEIGHT: 13097416, DIFF: 8.726G
+[19:15:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: aef974a4, HEIGHT: 13097417, DIFF: 8.726G
+[19:16:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:16:02 ================
+[19:16:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:16:02] INFO - | 0|1080ti| 10.93 M|     1|     0|  0|  88|  61| 27|1949| 5005|   1| 124.2 K|
+[19:16:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:16:02] INFO - |    Total: 10.93 M|     1|     0|  0|  88| Uptime:  0D 00:32:31   CPU: 17% |
+[19:16:02] INFO - =============================================================================
+[19:16:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 4.473 M   24h: 4.473 M
+[19:16:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 54e7f03c, HEIGHT: 13097417, DIFF: 8.726G
+[19:16:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fd43e7b3, HEIGHT: 13097418, DIFF: 8.726G
+[19:16:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e1012d65, HEIGHT: 13097418, DIFF: 8.726G
+[19:16:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b90d504f, HEIGHT: 13097418, DIFF: 8.726G
+[19:16:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a24b9b5f, HEIGHT: 13097418, DIFF: 8.726G
+[19:16:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:16:32 ================
+[19:16:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:16:32] INFO - | 0|1080ti| 10.95 M|     1|     0|  0|  90|  63| 27|1949| 5005|  72| 121.7 K|
+[19:16:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:16:32] INFO - |    Total: 10.95 M|     1|     0|  0|  90| Uptime:  0D 00:33:01   CPU: 15% |
+[19:16:32] INFO - =============================================================================
+[19:16:32] INFO - ethash - On Pool   10m: 13.87 M   4h: 4.405 M   24h: 4.405 M
+[19:16:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 457c8e9a, HEIGHT: 13097418, DIFF: 8.726G
+[19:16:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 125c91e2, HEIGHT: 13097419, DIFF: 8.726G
+[19:16:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 367af5d0, HEIGHT: 13097419, DIFF: 8.726G
+[19:16:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2eff3537, HEIGHT: 13097419, DIFF: 8.726G
+[19:16:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f302067f, HEIGHT: 13097420, DIFF: 8.726G
+[19:17:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e6f41089, HEIGHT: 13097420, DIFF: 8.726G
+[19:17:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1a0a1cb8, HEIGHT: 13097420, DIFF: 8.726G
+[19:17:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 531b1aae, HEIGHT: 13097420, DIFF: 8.726G
+[19:17:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:17:02 ================
+[19:17:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:17:02] INFO - | 0|1080ti| 11.16 M|     1|     0|  0| 181|  62| 27|1949| 5005|  28| 61.68 K|
+[19:17:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:17:02] INFO - |    Total: 11.16 M|     1|     0|  0| 181| Uptime:  0D 00:33:31   CPU: 15% |
+[19:17:02] INFO - =============================================================================
+[19:17:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 4.339 M   24h: 4.339 M
+[19:17:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9e77682a, HEIGHT: 13097421, DIFF: 8.726G
+[19:17:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: beee60dd, HEIGHT: 13097421, DIFF: 8.726G
+[19:17:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e4e36ae7, HEIGHT: 13097422, DIFF: 8.726G
+[19:17:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b44aa719, HEIGHT: 13097422, DIFF: 8.726G
+[19:17:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5cc0a1db, HEIGHT: 13097422, DIFF: 8.726G
+[19:17:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3068b8c9, HEIGHT: 13097423, DIFF: 8.726G
+[19:17:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0c1f7eaf, HEIGHT: 13097423, DIFF: 8.726G
+[19:17:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: bb1e85f0, HEIGHT: 13097423, DIFF: 8.726G
+[19:17:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:17:32 ================
+[19:17:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:17:32] INFO - | 0|1080ti| 10.56 M|     1|     0|  0|  87|  61| 27|1949| 5005|   1| 121.3 K|
+[19:17:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:17:32] INFO - |    Total: 10.56 M|     1|     0|  0|  87| Uptime:  0D 00:34:01   CPU: 21% |
+[19:17:32] INFO - =============================================================================
+[19:17:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 4.275 M   24h: 4.275 M
+[19:17:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 69c3ad60, HEIGHT: 13097423, DIFF: 8.726G
+[19:17:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 154c7378, HEIGHT: 13097423, DIFF: 8.726G
+[19:17:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2c5e5eb3, HEIGHT: 13097423, DIFF: 8.726G
+[19:17:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f798649b, HEIGHT: 13097424, DIFF: 8.726G
+[19:17:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cd0831b8, HEIGHT: 13097424, DIFF: 8.726G
+[19:18:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8188a7df, HEIGHT: 13097425, DIFF: 8.726G
+[19:18:00] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2094de7b, HEIGHT: 13097425, DIFF: 8.726G
+[19:18:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:18:02 ================
+[19:18:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:18:02] INFO - | 0|1080ti| 10.48 M|     1|     0|  0|  88|  61| 27|1949| 5005|   2| 119.1 K|
+[19:18:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:18:02] INFO - |    Total: 10.48 M|     1|     0|  0|  88| Uptime:  0D 00:34:31   CPU: 19% |
+[19:18:02] INFO - =============================================================================
+[19:18:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 4.214 M   24h: 4.214 M
+[19:18:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4a558753, HEIGHT: 13097426, DIFF: 8.726G
+[19:18:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0f8fa3e2, HEIGHT: 13097426, DIFF: 8.726G
+[19:18:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9f0be3fe, HEIGHT: 13097427, DIFF: 8.726G
+[19:18:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8ed0c51c, HEIGHT: 13097428, DIFF: 8.726G
+[19:18:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c6f91fbb, HEIGHT: 13097428, DIFF: 8.726G
+[19:18:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8d85f49b, HEIGHT: 13097428, DIFF: 8.726G
+[19:18:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b03cb41d, HEIGHT: 13097428, DIFF: 8.726G
+[19:18:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 28c2b871, HEIGHT: 13097429, DIFF: 8.726G
+[19:18:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:18:32 ================
+[19:18:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:18:32] INFO - | 0|1080ti| 10.52 M|     1|     0|  0|  89|  62| 27|1949| 5005|  36| 118.2 K|
+[19:18:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:18:32] INFO - |    Total: 10.52 M|     1|     0|  0|  89| Uptime:  0D 00:35:01   CPU: 15% |
+[19:18:32] INFO - =============================================================================
+[19:18:32] INFO - ethash - On Pool   10m: 13.87 M   4h: 4.153 M   24h: 4.153 M
+[19:18:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 88f30b7a, HEIGHT: 13097429, DIFF: 8.726G
+[19:18:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 35b91b9a, HEIGHT: 13097429, DIFF: 8.726G
+[19:18:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: eeb9cce3, HEIGHT: 13097429, DIFF: 8.726G
+[19:18:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 740e1d7f, HEIGHT: 13097429, DIFF: 8.726G
+[19:18:58] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3426fcb4, HEIGHT: 13097429, DIFF: 8.726G
+[19:19:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:19:02 ================
+[19:19:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:19:02] INFO - | 0|1080ti| 10.94 M|     1|     0|  0| 182|  63| 27|1949| 5005|  72| 60.13 K|
+[19:19:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:19:02] INFO - |    Total: 10.94 M|     1|     0|  0| 182| Uptime:  0D 00:35:31   CPU: 16% |
+[19:19:02] INFO - =============================================================================
+[19:19:02] INFO - ethash - On Pool   10m: 14.54 M   4h: 4.095 M   24h: 4.095 M
+[19:19:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3e61efc4, HEIGHT: 13097430, DIFF: 8.726G
+[19:19:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d2ad4eb7, HEIGHT: 13097430, DIFF: 8.726G
+[19:19:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4f235578, HEIGHT: 13097431, DIFF: 8.726G
+[19:19:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e953ef74, HEIGHT: 13097431, DIFF: 8.726G
+[19:19:14] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e496bfbc, HEIGHT: 13097431, DIFF: 8.726G
+[19:19:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: dcc7f0ef, HEIGHT: 13097431, DIFF: 8.726G
+[19:19:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c989180e, HEIGHT: 13097431, DIFF: 8.726G
+[19:19:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:19:32 ================
+[19:19:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:19:32] INFO - | 0|1080ti| 10.99 M|     1|     0|  0|  86|  61| 27|1949| 5005|   0| 127.8 K|
+[19:19:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:19:32] INFO - |    Total: 10.99 M|     1|     0|  0|  86| Uptime:  0D 00:36:01   CPU: 20% |
+[19:19:32] INFO - =============================================================================
+[19:19:32] INFO - ethash - On Pool   10m: 14.54 M   4h: 4.038 M   24h: 4.038 M
+[19:19:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9259b8a6, HEIGHT: 13097431, DIFF: 8.726G
+[19:19:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c107c3f1, HEIGHT: 13097431, DIFF: 8.726G
+[19:19:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 44ca11f7, HEIGHT: 13097431, DIFF: 8.726G
+[19:19:56] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6ede6eed, HEIGHT: 13097431, DIFF: 8.726G
+[19:20:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:20:02 ================
+[19:20:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:20:02] INFO - | 0|1080ti| 11.43 M|     1|     0|  0| 185|  61| 27|1949| 5005|   0| 61.78 K|
+[19:20:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:20:02] INFO - |    Total: 11.43 M|     1|     0|  0| 185| Uptime:  0D 00:36:31   CPU: 17% |
+[19:20:02] INFO - =============================================================================
+[19:20:02] INFO - ethash - On Pool   10m: 13.87 M   4h: 3.983 M   24h: 3.983 M
+[19:20:03] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 135e0b0a, HEIGHT: 13097431, DIFF: 8.726G
+[19:20:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c7875afc, HEIGHT: 13097432, DIFF: 8.726G
+[19:20:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0df59adc, HEIGHT: 13097432, DIFF: 8.726G
+[19:20:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7ae52a5e, HEIGHT: 13097432, DIFF: 8.726G
+[19:20:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b1c23750, HEIGHT: 13097433, DIFF: 8.726G
+[19:20:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2c7a836b, HEIGHT: 13097433, DIFF: 8.726G
+[19:20:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f2e2430a, HEIGHT: 13097433, DIFF: 8.726G
+[19:20:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2bc695d6, HEIGHT: 13097433, DIFF: 8.726G
+[19:20:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:20:32 ================
+[19:20:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:20:32] INFO - | 0|1080ti| 11.10 M|     1|     0|  0|  87|  61| 27|1949| 5005|   1| 127.5 K|
+[19:20:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:20:32] INFO - |    Total: 11.10 M|     1|     0|  0|  87| Uptime:  0D 00:37:01   CPU: 17% |
+[19:20:32] INFO - =============================================================================
+[19:20:32] INFO - ethash - On Pool   10m:  0.000    4h: 3.929 M   24h: 3.929 M
+[19:20:33] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 62441eec, HEIGHT: 13097433, DIFF: 8.726G
+[19:20:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f592d6b9, HEIGHT: 13097434, DIFF: 8.726G
+[19:20:38] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2edfcd08, HEIGHT: 13097434, DIFF: 8.726G
+[19:20:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 880821a4, HEIGHT: 13097434, DIFF: 8.726G
+[19:20:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6bc00186, HEIGHT: 13097434, DIFF: 8.726G
+[19:20:59] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1d6e6a95, HEIGHT: 13097434, DIFF: 8.726G
+[19:20:59] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 237052d3, HEIGHT: 13097434, DIFF: 8.726G
+[19:21:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:21:02 ================
+[19:21:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:21:02] INFO - | 0|1080ti| 10.70 M|     1|     0|  0|  86|  61| 27|1949| 5005|   1| 124.4 K|
+[19:21:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:21:02] INFO - |    Total: 10.70 M|     1|     0|  0|  86| Uptime:  0D 00:37:31   CPU: 15% |
+[19:21:02] INFO - =============================================================================
+[19:21:02] INFO - ethash - On Pool   10m:  0.000    4h: 3.877 M   24h: 3.877 M
+[19:21:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8a1792ba, HEIGHT: 13097434, DIFF: 8.726G
+[19:21:07] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3cf9b245, HEIGHT: 13097434, DIFF: 8.726G
+[19:21:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a525d8eb, HEIGHT: 13097434, DIFF: 8.726G
+[19:21:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d73b2a3c, HEIGHT: 13097434, DIFF: 8.726G
+[19:21:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b05715eb, HEIGHT: 13097434, DIFF: 8.726G
+[19:21:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f74079f5, HEIGHT: 13097434, DIFF: 8.726G
+[19:21:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 92115fe2, HEIGHT: 13097435, DIFF: 8.726G
+[19:21:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fc468755, HEIGHT: 13097435, DIFF: 8.726G
+[19:21:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:21:32 ================
+[19:21:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:21:32] INFO - | 0|1080ti| 11.11 M|     1|     0|  0| 182|  62| 27|1949| 5005|  14| 61.06 K|
+[19:21:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:21:32] INFO - |    Total: 11.11 M|     1|     0|  0| 182| Uptime:  0D 00:38:01   CPU: 17% |
+[19:21:32] INFO - =============================================================================
+[19:21:32] INFO - ethash - On Pool   10m:  0.000    4h: 3.826 M   24h: 3.826 M
+[19:21:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5a78a578, HEIGHT: 13097435, DIFF: 8.726G
+[19:21:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7ce5cb5e, HEIGHT: 13097435, DIFF: 8.726G
+[19:21:42] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 834aee87, HEIGHT: 13097435, DIFF: 8.726G
+[19:21:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7e0af4e8, HEIGHT: 13097436, DIFF: 8.726G
+[19:21:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 671c9c15, HEIGHT: 13097436, DIFF: 8.726G
+[19:21:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d29cf29c, HEIGHT: 13097436, DIFF: 8.726G
+[19:21:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ecc42aa0, HEIGHT: 13097436, DIFF: 8.726G
+[19:22:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d00ac73c, HEIGHT: 13097437, DIFF: 8.726G
+[19:22:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4f2244d0, HEIGHT: 13097437, DIFF: 8.726G
+[19:22:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:22:02 ================
+[19:22:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:22:02] INFO - | 0|1080ti| 10.79 M|     1|     0|  0|  86|  62| 27|1949| 5005|   0| 125.5 K|
+[19:22:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:22:02] INFO - |    Total: 10.79 M|     1|     0|  0|  86| Uptime:  0D 00:38:31   CPU: 20% |
+[19:22:02] INFO - =============================================================================
+[19:22:02] INFO - ethash - On Pool   10m:  0.000    4h: 3.776 M   24h: 3.776 M
+[19:22:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d5556b55, HEIGHT: 13097437, DIFF: 8.726G
+[19:22:16] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 97859e5f, HEIGHT: 13097437, DIFF: 8.726G
+[19:22:17] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e286e955, HEIGHT: 13097437, DIFF: 8.726G
+[19:22:17] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b0d47ba0, HEIGHT: 13097438, DIFF: 8.726G
+[19:22:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 48527c4e, HEIGHT: 13097438, DIFF: 8.726G
+[19:22:24] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8bbb632b, HEIGHT: 13097438, DIFF: 8.726G
+[19:22:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8fc884a3, HEIGHT: 13097438, DIFF: 8.726G
+[19:22:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 30fb2368, HEIGHT: 13097438, DIFF: 8.726G
+[19:22:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:22:32 ================
+[19:22:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:22:32] INFO - | 0|1080ti| 10.89 M|     1|     0|  0| 188|  64| 27|1949| 5005|   0| 57.95 K|
+[19:22:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:22:32] INFO - |    Total: 10.89 M|     1|     0|  0| 188| Uptime:  0D 00:39:01   CPU: 16% |
+[19:22:32] INFO - =============================================================================
+[19:22:32] INFO - ethash - On Pool   10m:  0.000    4h: 3.728 M   24h: 3.728 M
+[19:22:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: d998e736, HEIGHT: 13097438, DIFF: 8.726G
+[19:22:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1c4120d1, HEIGHT: 13097439, DIFF: 8.726G
+[19:22:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 2bbc6752, HEIGHT: 13097439, DIFF: 8.726G
+[19:22:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8a939c25, HEIGHT: 13097439, DIFF: 8.726G
+[19:22:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8c02637d, HEIGHT: 13097439, DIFF: 8.726G
+[19:22:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9daccf36, HEIGHT: 13097439, DIFF: 8.726G
+[19:23:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 74067249, HEIGHT: 13097439, DIFF: 8.726G
+[19:23:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:23:02 ================
+[19:23:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:23:02] INFO - | 0|1080ti| 10.71 M|     1|     0|  0|  87|  62| 28|1949| 5005|   0| 123.1 K|
+[19:23:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:23:02] INFO - |    Total: 10.71 M|     1|     0|  0|  87| Uptime:  0D 00:39:31   CPU: 18% |
+[19:23:02] INFO - =============================================================================
+[19:23:02] INFO - ethash - On Pool   10m:  0.000    4h: 3.680 M   24h: 3.680 M
+[19:23:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1f0a7588, HEIGHT: 13097440, DIFF: 8.726G
+[19:23:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0510982d, HEIGHT: 13097440, DIFF: 8.726G
+[19:23:11] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 73866cbb, HEIGHT: 13097441, DIFF: 8.726G
+[19:23:11] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3fb6887d, HEIGHT: 13097441, DIFF: 8.726G
+[19:23:18] INFO - ethash - New job: us-eth.2miners.com:2020, ID: dbefd6d5, HEIGHT: 13097441, DIFF: 8.726G
+[19:23:25] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cc3d594d, HEIGHT: 13097441, DIFF: 8.726G
+[19:23:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 64c6c171, HEIGHT: 13097442, DIFF: 8.726G
+[19:23:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 579b3d4e, HEIGHT: 13097443, DIFF: 8.726G
+[19:23:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 94631bd7, HEIGHT: 13097443, DIFF: 8.726G
+[19:23:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:23:32 ================
+[19:23:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:23:32] INFO - | 0|1080ti| 11.19 M|     1|     0|  0| 184|  62| 28|1949| 5005|  32| 60.79 K|
+[19:23:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:23:32] INFO - |    Total: 11.19 M|     1|     0|  0| 184| Uptime:  0D 00:40:01   CPU: 15% |
+[19:23:32] INFO - =============================================================================
+[19:23:32] INFO - ethash - On Pool   10m:  0.000    4h: 3.634 M   24h: 3.634 M
+[19:23:37] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e9fbab65, HEIGHT: 13097443, DIFF: 8.726G
+[19:23:45] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 1cfa22b0, HEIGHT: 13097443, DIFF: 8.726G
+[19:23:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3f71b8ab, HEIGHT: 13097443, DIFF: 8.726G
+[19:23:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 066c0ffc, HEIGHT: 13097444, DIFF: 8.726G
+[19:23:53] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f7a11a2c, HEIGHT: 13097444, DIFF: 8.726G
+[19:23:59] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b3756298, HEIGHT: 13097444, DIFF: 8.726G
+[19:24:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:24:02 ================
+[19:24:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:24:02] INFO - | 0|1080ti| 11.20 M|     1|     0|  0|  87|  62| 28|1949| 5005|   0| 128.7 K|
+[19:24:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:24:02] INFO - |    Total: 11.20 M|     1|     0|  0|  87| Uptime:  0D 00:40:31   CPU: 16% |
+[19:24:02] INFO - =============================================================================
+[19:24:02] INFO - ethash - On Pool   10m:  0.000    4h: 3.590 M   24h: 3.590 M
+[19:24:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fff1cfe4, HEIGHT: 13097445, DIFF: 8.726G
+[19:24:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 26907b20, HEIGHT: 13097445, DIFF: 8.726G
+[19:24:11] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 726ac7f8, HEIGHT: 13097445, DIFF: 8.726G
+[19:24:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5da25fa9, HEIGHT: 13097446, DIFF: 8.726G
+[19:24:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 540db536, HEIGHT: 13097446, DIFF: 8.726G
+[19:24:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 38818018, HEIGHT: 13097446, DIFF: 8.726G
+[19:24:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 078c53ae, HEIGHT: 13097447, DIFF: 8.726G
+[19:24:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9d96ea3a, HEIGHT: 13097447, DIFF: 8.726G
+[19:24:26] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8cbccd24, HEIGHT: 13097447, DIFF: 8.726G
+[19:24:28] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9bc0e422, HEIGHT: 13097448, DIFF: 8.726G
+[19:24:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:24:32 ================
+[19:24:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:24:32] INFO - | 0|1080ti| 10.95 M|     1|     0|  0|  87|  62| 28|1949| 5005|  28| 125.9 K|
+[19:24:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:24:32] INFO - |    Total: 10.95 M|     1|     0|  0|  87| Uptime:  0D 00:41:01   CPU: 17% |
+[19:24:32] INFO - =============================================================================
+[19:24:32] INFO - ethash - On Pool   10m:  0.000    4h: 3.546 M   24h: 3.546 M
+[19:24:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 09fd441e, HEIGHT: 13097448, DIFF: 8.726G
+[19:24:35] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7994cbbd, HEIGHT: 13097449, DIFF: 8.726G
+[19:24:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 43fe39b5, HEIGHT: 13097450, DIFF: 8.726G
+[19:24:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: c7e3c9b6, HEIGHT: 13097450, DIFF: 8.726G
+[19:24:46] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8545b282, HEIGHT: 13097450, DIFF: 8.726G
+[19:24:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7bc2cc77, HEIGHT: 13097451, DIFF: 8.726G
+[19:24:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cb659c12, HEIGHT: 13097451, DIFF: 8.726G
+[19:24:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 39cdb0e6, HEIGHT: 13097452, DIFF: 8.726G
+[19:24:52] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f33dbba3, HEIGHT: 13097452, DIFF: 8.726G
+[19:24:59] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 20411709, HEIGHT: 13097452, DIFF: 8.726G
+[19:25:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:25:02 ================
+[19:25:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:25:02] INFO - | 0|1080ti| 10.15 M|     1|     0|  0|  86|  61| 28|1949| 5005|   0| 118.0 K|
+[19:25:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:25:02] INFO - |    Total: 10.15 M|     1|     0|  0|  86| Uptime:  0D 00:41:31   CPU: 17% |
+[19:25:02] INFO - =============================================================================
+[19:25:02] INFO - ethash - On Pool   10m:  0.000    4h: 3.503 M   24h: 3.503 M
+[19:25:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8998b78a, HEIGHT: 13097452, DIFF: 8.726G
+[19:25:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: b73509c7, HEIGHT: 13097452, DIFF: 8.726G
+[19:25:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f48fa3ef, HEIGHT: 13097452, DIFF: 8.726G
+[19:25:21] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 61fe573b, HEIGHT: 13097452, DIFF: 8.726G
+[19:25:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0f1bd335, HEIGHT: 13097452, DIFF: 8.726G
+[19:25:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cd58e921, HEIGHT: 13097452, DIFF: 8.726G
+[19:25:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:25:32 ================
+[19:25:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:25:32] INFO - | 0|1080ti| 11.45 M|     1|     0|  0| 187|  62| 28|1949| 5005|  45| 61.25 K|
+[19:25:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:25:32] INFO - |    Total: 11.45 M|     1|     0|  0| 187| Uptime:  0D 00:42:01   CPU: 15% |
+[19:25:32] INFO - =============================================================================
+[19:25:32] INFO - ethash - On Pool   10m:  0.000    4h: 3.461 M   24h: 3.461 M
+[19:25:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ab9bfe65, HEIGHT: 13097452, DIFF: 8.726G
+[19:25:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 68be14a8, HEIGHT: 13097453, DIFF: 8.726G
+[19:25:40] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 89498cc6, HEIGHT: 13097453, DIFF: 8.726G
+[19:25:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4006e3da, HEIGHT: 13097453, DIFF: 8.726G
+[19:25:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3f62b703, HEIGHT: 13097453, DIFF: 8.726G
+[19:25:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8e3da999, HEIGHT: 13097453, DIFF: 8.726G
+[19:25:54] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 431c9180, HEIGHT: 13097453, DIFF: 8.726G
+[19:26:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 165aefd6, HEIGHT: 13097453, DIFF: 8.726G
+[19:26:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:26:02 ================
+[19:26:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:26:02] INFO - | 0|1080ti| 11.18 M|     1|     0|  0|  86|  61| 28|1949| 5005|   0| 129.9 K|
+[19:26:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:26:02] INFO - |    Total: 11.18 M|     1|     0|  0|  86| Uptime:  0D 00:42:31   CPU: 15% |
+[19:26:02] INFO - =============================================================================
+[19:26:02] INFO - ethash - On Pool   10m:  0.000    4h: 3.421 M   24h: 3.421 M
+[19:26:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4173c668, HEIGHT: 13097453, DIFF: 8.726G
+[19:26:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3be69e24, HEIGHT: 13097454, DIFF: 8.726G
+[19:26:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0e07c757, HEIGHT: 13097454, DIFF: 8.726G
+[19:26:20] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fe5069f7, HEIGHT: 13097454, DIFF: 8.726G
+[19:26:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 25b784e9, HEIGHT: 13097454, DIFF: 8.726G
+[19:26:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:26:32 ================
+[19:26:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:26:32] INFO - | 0|1080ti| 10.63 M|     1|     0|  0|  88|  61| 27|1949| 5005|   1| 120.8 K|
+[19:26:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:26:32] INFO - |    Total: 10.63 M|     1|     0|  0|  88| Uptime:  0D 00:43:01   CPU: 23% |
+[19:26:32] INFO - =============================================================================
+[19:26:32] INFO - ethash - On Pool   10m:  0.000    4h: 3.381 M   24h: 3.381 M
+[19:26:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4718f9d8, HEIGHT: 13097454, DIFF: 8.726G
+[19:26:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a622b475, HEIGHT: 13097454, DIFF: 8.726G
+[19:26:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cb4f2db0, HEIGHT: 13097454, DIFF: 8.726G
+[19:26:48] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0e4cd24e, HEIGHT: 13097454, DIFF: 8.726G
+[19:26:49] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 742a5739, HEIGHT: 13097454, DIFF: 8.726G
+[19:26:55] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 9cedb900, HEIGHT: 13097454, DIFF: 8.726G
+[19:27:02] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a0f1347b, HEIGHT: 13097454, DIFF: 8.726G
+[19:27:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:27:02 ================
+[19:27:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:27:02] INFO - | 0|1080ti| 10.95 M|     1|     0|  0|  87|  61| 27|1949| 5005|   0| 125.8 K|
+[19:27:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:27:02] INFO - |    Total: 10.95 M|     1|     0|  0|  87| Uptime:  0D 00:43:31   CPU: 25% |
+[19:27:02] INFO - =============================================================================
+[19:27:02] INFO - ethash - On Pool   10m:  0.000    4h: 3.342 M   24h: 3.342 M
+[19:27:09] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e2648c30, HEIGHT: 13097454, DIFF: 8.726G
+[19:27:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ded3f4d8, HEIGHT: 13097455, DIFF: 8.726G
+[19:27:11] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 84557d45, HEIGHT: 13097455, DIFF: 8.726G
+[19:27:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 923e40d3, HEIGHT: 13097456, DIFF: 8.726G
+[19:27:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6dd2a0e7, HEIGHT: 13097456, DIFF: 8.726G
+[19:27:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fed35d98, HEIGHT: 13097456, DIFF: 8.726G
+[19:27:29] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5dcc42bf, HEIGHT: 13097456, DIFF: 8.726G
+[19:27:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:27:32 ================
+[19:27:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:27:32] INFO - | 0|1080ti| 10.84 M|     1|     0|  0|  86|  61| 27|1949| 5005|   0| 126.1 K|
+[19:27:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:27:32] INFO - |    Total: 10.84 M|     1|     0|  0|  86| Uptime:  0D 00:44:01   CPU: 16% |
+[19:27:32] INFO - =============================================================================
+[19:27:32] INFO - ethash - On Pool   10m:  0.000    4h: 3.304 M   24h: 3.304 M
+[19:27:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 46c98ee5, HEIGHT: 13097457, DIFF: 8.726G
+[19:27:36] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 436aa284, HEIGHT: 13097457, DIFF: 8.726G
+[19:27:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4336271a, HEIGHT: 13097457, DIFF: 8.726G
+[19:27:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0082d5cd, HEIGHT: 13097457, DIFF: 8.726G
+[19:27:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6451578e, HEIGHT: 13097458, DIFF: 8.726G
+[19:27:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3d7c2864, HEIGHT: 13097458, DIFF: 8.726G
+[19:27:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f8b9af35, HEIGHT: 13097458, DIFF: 8.726G
+[19:27:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ee6aee61, HEIGHT: 13097458, DIFF: 8.726G
+[19:28:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:28:02 ================
+[19:28:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:28:02] INFO - | 0|1080ti| 11.00 M|     1|     0|  0| 188|  63| 27|1949| 5005|  74| 58.51 K|
+[19:28:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:28:02] INFO - |    Total: 11.00 M|     1|     0|  0| 188| Uptime:  0D 00:44:31   CPU: 25% |
+[19:28:02] INFO - =============================================================================
+[19:28:02] INFO - ethash - On Pool   10m:  0.000    4h: 3.267 M   24h: 3.267 M
+[19:28:04] INFO - ethash - New job: us-eth.2miners.com:2020, ID: e666cf1e, HEIGHT: 13097458, DIFF: 8.726G
+[19:28:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 433941d7, HEIGHT: 13097459, DIFF: 8.726G
+[19:28:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 5ee03f6f, HEIGHT: 13097459, DIFF: 8.726G
+[19:28:15] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0fdb7a97, HEIGHT: 13097459, DIFF: 8.726G
+[19:28:22] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 0b3e1ab9, HEIGHT: 13097459, DIFF: 8.726G
+[19:28:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a29fbf48, HEIGHT: 13097459, DIFF: 8.726G
+[19:28:30] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f7c334d9, HEIGHT: 13097459, DIFF: 8.726G
+[19:28:32] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 30544af0, HEIGHT: 13097460, DIFF: 8.726G
+[19:28:32] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:28:32 ================
+[19:28:32] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:28:32] INFO - | 0|1080ti| 11.00 M|     1|     0|  0|  88|  62| 27|1949| 5005|  58| 125.0 K|
+[19:28:32] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:28:32] INFO - |    Total: 11.00 M|     1|     0|  0|  88| Uptime:  0D 00:45:01   CPU: 19% |
+[19:28:32] INFO - =============================================================================
+[19:28:32] INFO - ethash - On Pool   10m:  0.000    4h: 3.231 M   24h: 3.231 M
+[19:28:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 6d258623, HEIGHT: 13097460, DIFF: 8.726G
+[19:28:39] INFO - ethash - New job: us-eth.2miners.com:2020, ID: abcc4323, HEIGHT: 13097460, DIFF: 8.726G
+[19:28:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 76d2a2b0, HEIGHT: 13097461, DIFF: 8.726G
+[19:28:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: fe6c3fc7, HEIGHT: 13097461, DIFF: 8.726G
+[19:28:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 63ae2788, HEIGHT: 13097462, DIFF: 8.726G
+[19:28:43] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 11887f52, HEIGHT: 13097462, DIFF: 8.726G
+[19:28:50] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 7a215b87, HEIGHT: 13097462, DIFF: 8.726G
+[19:28:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3e89236a, HEIGHT: 13097462, DIFF: 8.726G
+[19:28:57] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 18625576, HEIGHT: 13097462, DIFF: 8.726G
+[19:29:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 78dce2d7, HEIGHT: 13097463, DIFF: 8.726G
+[19:29:01] INFO - ethash - New job: us-eth.2miners.com:2020, ID: a3ed31b6, HEIGHT: 13097463, DIFF: 8.726G
+[19:29:02] INFO - ================ [nbminer v39.1] Summary 2021-08-25 19:29:02 ================
+[19:29:02] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[19:29:02] INFO - | 0|1080ti| 10.51 M|     1|     0|  0|  92|  63| 27|1949| 5005|  67| 114.2 K|
+[19:29:02] INFO - |------------------+------+------+---+----+---------------------------------|
+[19:29:02] INFO - |    Total: 10.51 M|     1|     0|  0|  92| Uptime:  0D 00:45:31   CPU: 22% |
+[19:29:02] INFO - =============================================================================
+[19:29:02] INFO - ethash - On Pool   10m:  0.000    4h: 3.195 M   24h: 3.195 M
+[19:29:08] INFO - ethash - New job: us-eth.2miners.com:2020, ID: cafb3dbc, HEIGHT: 13097464, DIFF: 8.726G
+[19:29:10] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 99deda97, HEIGHT: 13097465, DIFF: 8.726G
+[19:29:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: eddf829e, HEIGHT: 13097466, DIFF: 8.726G
+[19:29:12] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 614e3b84, HEIGHT: 13097466, DIFF: 8.726G

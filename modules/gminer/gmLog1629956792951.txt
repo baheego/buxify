@@ -1,0 +1,41 @@
++----------------------------------------------------------------+
+|                          GMiner v2.66                          |
++----------------------------------------------------------------+
+Algorithm:          Ethash
+DevFee:             0.65 %
+Stratum server:     
+  host:             us-eth.2miners.com:2020
+  user:             0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.178591735
+  password:         x
+Power calculator:   on
+Color output:       on
+Watchdog:           on
+API:                off
+Log to file:        modules/gminer/gmLog1629956792951.txt
+Selected devices:   GPU0   
+Intensity:          90     
+Temperature limits: 100/120
+------------------------------------------------------------------
+01:46:36 Nvidia Driver: 465.89
+01:46:36 Connected to us-eth.2miners.com:2020 [147.135.11.137]
+01:46:36 Authorized on Stratum Server
+01:46:36 New Job: b2e6e716 Epoch: #436 Block: #13099156 Diff: 8.726G
+01:46:36 Started Mining on GPU0: EVGA NVIDIA GeForce GTX 1080 Ti 11GB [0000:01:00.0]
+01:46:38 GPU0: Generating DAG for epoch #436 [Single Buffer 4512 MB]
+01:46:39 New Job: 2c8fcad3 Epoch: #436 Block: #13099157 Diff: 8.726G
+01:46:39 New Job: f6234a7f Epoch: #436 Block: #13099157 Diff: 8.726G
+01:46:46 New Job: 6e476a90 Epoch: #436 Block: #13099157 Diff: 8.726G
+01:46:47 GPU0: DAG generated in 9.12s [495 MB/s]
+01:46:47 GPU0: DAG verification passed
+01:46:53 New Job: ff55596a Epoch: #436 Block: #13099157 Diff: 8.726G
+01:47:00 New Job: bd285104 Epoch: #436 Block: #13099158 Diff: 8.726G
+01:47:00 New Job: 9ffe44cb Epoch: #436 Block: #13099158 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   63  26 %  28.43 MH/s  0/0/0 1949  5005 178 W  159.71 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+01:47:06 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+01:47:06 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+01:47:06 Uptime: 0d 00:00:30 Electricity: 0.001 kWh
+01:47:07 New Job: 6899fe63 Epoch: #436 Block: #13099158 Diff: 8.726G

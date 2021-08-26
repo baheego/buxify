@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const { Buxify, miningController } = require('./modules/buxify.js');
+const log = require('electron-log');
 const path = require('path');
 
 var loginWindow;
@@ -116,6 +117,8 @@ function initializeApp() {
   } else {
     createMainWindow();
   }
+
+  log.info("Initialized app!");
 }
  
 ipcMain.on('login', (event, username) => {
@@ -139,6 +142,9 @@ ipcMain.on('login', (event, username) => {
 
       // Reply
       event.reply('login-success-reply', user);
+
+      // Logged in
+      log.info("Logged in!");
     }, reason => {
       switch (reason) {
         case 0:
@@ -154,9 +160,6 @@ ipcMain.on('login', (event, username) => {
           event.reply('login-failure-reply', "Error, unknown");
       }
     });
-
-
-  event.reply('asynchronous-reply', 'pong')
 });
 
 ipcMain.on("showMainWindow", (event) => {
@@ -202,6 +205,16 @@ ipcMain.on('getUserLocalDetails', (event) => {
   }
 });
 
+ipcMain.on('getLocalConfig', (event) => {
+  // Fetch configuration
+  config = buxify.getConfig();
+  if (config.user != undefined) {
+    event.reply('getLocalConfig-reply', config); 
+  } else {
+    event.reply('getLocalConfig-reply', false); 
+  }
+});
+
 ipcMain.on('updateUserStats', (event) => {
   config = buxify.getConfig();
   if (config.user != undefined) {
@@ -211,7 +224,8 @@ ipcMain.on('updateUserStats', (event) => {
           buxify.setSetting("user", data);
         }
         event.reply("updateUserStats-reply", true);
-      });
+      })
+      .catch(() => {});
   }
 })
 
@@ -242,6 +256,14 @@ ipcMain.on('updateMiningStatus', (event) => {
     .catch((err) => {
       event.reply('toggleMining-reply', err);
     });
+});
+
+ipcMain.on('updateSettings', (event, arg) => {
+  for(const [setting, value] of Object.entries(arg)) {
+    buxify.setSetting(setting, value)
+  }
+
+  event.reply('updateSettings-reply', false);
 });
 
 app.on('ready', function(){

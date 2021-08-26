@@ -1,0 +1,47 @@
++----------------------------------------------------------------+
+|                          GMiner v2.66                          |
++----------------------------------------------------------------+
+Algorithm:          Ethash
+DevFee:             0.65 %
+Stratum server:     
+  host:             us-eth.2miners.com:2020
+  user:             0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.178591735
+  password:         x
+Power calculator:   on
+Color output:       on
+Watchdog:           on
+API:                off
+Log to file:        modules/gminer/gmLog1629956727913.txt
+Selected devices:   GPU0   
+Intensity:          100    
+Temperature limits: 100/120
+------------------------------------------------------------------
+01:45:31 Nvidia Driver: 465.89
+01:45:31 Connected to us-eth.2miners.com:2020 [147.135.11.137]
+01:45:31 Authorized on Stratum Server
+01:45:31 New Job: b2fe8c77 Epoch: #436 Block: #13099151 Diff: 8.726G
+01:45:31 Started Mining on GPU0: EVGA NVIDIA GeForce GTX 1080 Ti 11GB [0000:01:00.0]
+01:45:32 New Job: 4db03b22 Epoch: #436 Block: #13099151 Diff: 8.726G
+01:45:33 New Job: ae9f0ad2 Epoch: #436 Block: #13099152 Diff: 8.726G
+01:45:33 New Job: 79c33971 Epoch: #436 Block: #13099152 Diff: 8.726G
+01:45:33 New Job: 49a3ad31 Epoch: #436 Block: #13099152 Diff: 8.726G
+01:45:34 GPU0: Generating DAG for epoch #436 [Single Buffer 4512 MB]
+01:45:40 New Job: b1ae07cd Epoch: #436 Block: #13099152 Diff: 8.726G
+01:45:42 New Job: da532f4c Epoch: #436 Block: #13099153 Diff: 8.726G
+01:45:42 New Job: c9f690e2 Epoch: #436 Block: #13099153 Diff: 8.726G
+01:45:42 New Job: 57e6504d Epoch: #436 Block: #13099153 Diff: 8.726G
+01:45:44 GPU0: DAG generated in 10.87s [415 MB/s]
+01:45:44 GPU0: DAG verification passed
+01:45:49 New Job: 57a084a5 Epoch: #436 Block: #13099153 Diff: 8.726G
+01:45:49 New Job: 23874f3b Epoch: #436 Block: #13099153 Diff: 8.726G
+01:45:51 New Job: 87071eef Epoch: #436 Block: #13099154 Diff: 8.726G
+01:45:52 New Job: d7e9c99a Epoch: #436 Block: #13099154 Diff: 8.726G
+01:45:59 New Job: 621645ac Epoch: #436 Block: #13099154 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   63  26 %  31.92 MH/s  0/0/0 1949  5005 185 W  172.55 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+01:46:01 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+01:46:01 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+01:46:01 Uptime: 0d 00:00:30 Electricity: 0.001 kWh

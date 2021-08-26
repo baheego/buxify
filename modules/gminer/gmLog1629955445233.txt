@@ -1,0 +1,42 @@
++----------------------------------------------------------------+
+|                          GMiner v2.66                          |
++----------------------------------------------------------------+
+Algorithm:          Ethash
+DevFee:             0.65 %
+Stratum server:     
+  host:             us-eth.2miners.com:2020
+  user:             0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.178591735
+  password:         x
+Power calculator:   on
+Color output:       on
+Watchdog:           on
+API:                off
+Log to file:        modules/gminer/gmLog1629955445233.txt
+Selected devices:   GPU0   
+Intensity:          100    
+Temperature limits: 100/120
+------------------------------------------------------------------
+01:24:08 Nvidia Driver: 465.89
+01:24:08 Connected to us-eth.2miners.com:2020 [147.135.11.137]
+01:24:08 Authorized on Stratum Server
+01:24:08 New Job: 7245cf95 Epoch: #436 Block: #13099063 Diff: 8.726G
+01:24:08 Started Mining on GPU0: EVGA NVIDIA GeForce GTX 1080 Ti 11GB [0000:01:00.0]
+01:24:09 New Job: 3d0ec843 Epoch: #436 Block: #13099064 Diff: 8.726G
+01:24:09 New Job: 65524d47 Epoch: #436 Block: #13099064 Diff: 8.726G
+01:24:11 GPU0: Generating DAG for epoch #436 [Single Buffer 4512 MB]
+01:24:16 New Job: 6359ea72 Epoch: #436 Block: #13099064 Diff: 8.726G
+01:24:18 New Job: 79baa041 Epoch: #436 Block: #13099065 Diff: 8.726G
+01:24:19 New Job: 5d5df42f Epoch: #436 Block: #13099065 Diff: 8.726G
+01:24:22 GPU0: DAG generated in 11.46s [394 MB/s]
+01:24:22 GPU0: DAG verification passed
+01:24:26 New Job: a9f08e75 Epoch: #436 Block: #13099065 Diff: 8.726G
+01:24:29 New Job: 5eb00894 Epoch: #436 Block: #13099066 Diff: 8.726G
+01:24:36 New Job: 3302ccf4 Epoch: #436 Block: #13099066 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   59  15 %  25.85 MH/s  0/0/0 1961  5005 171 W  151.17 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+01:24:38 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+01:24:38 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+01:24:38 Uptime: 0d 00:00:30 Electricity: 0.001 kWh

@@ -1,0 +1,29 @@
++----------------------------------------------------------------+
+|                          GMiner v2.66                          |
++----------------------------------------------------------------+
+Algorithm:          Ethash
+DevFee:             0.65 %
+Stratum server:     
+  host:             us-eth.2miners.com:2020
+  user:             0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.178591735
+  password:         x
+Power calculator:   on
+Color output:       on
+Watchdog:           on
+API:                off
+Log to file:        modules/gminer/gmLog1629956839141.txt
+Selected devices:   GPU0   
+Intensity:          70     
+Temperature limits: 100/120
+------------------------------------------------------------------
+01:47:22 Nvidia Driver: 465.89
+01:47:22 Connected to us-eth.2miners.com:2020 [147.135.11.137]
+01:47:22 Authorized on Stratum Server
+01:47:22 New Job: 508a5e97 Epoch: #436 Block: #13099160 Diff: 8.726G
+01:47:22 Started Mining on GPU0: EVGA NVIDIA GeForce GTX 1080 Ti 11GB [0000:01:00.0]
+01:47:24 GPU0: Generating DAG for epoch #436 [Single Buffer 4512 MB]
+01:47:28 New Job: e7cea225 Epoch: #436 Block: #13099160 Diff: 8.726G
+01:47:28 New Job: 1d30d61f Epoch: #436 Block: #13099160 Diff: 8.726G
+01:47:34 GPU0: DAG generated in 9.20s [490 MB/s]
+01:47:34 GPU0: DAG verification passed
+01:47:35 New Job: 4a752556 Epoch: #436 Block: #13099160 Diff: 8.726G

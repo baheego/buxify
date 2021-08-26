@@ -1,0 +1,42 @@
+[14:58:10] INFO - ----------------------------------------------
+[14:58:10] INFO - |                                            |
+[14:58:10] INFO - |                                            |
+[14:58:10] INFO - |                                            |
+[14:58:10] INFO - |                                            |
+[14:58:10] INFO - |                                            |
+[14:58:10] INFO - |                                            |
+[14:58:10] INFO - |                                            |
+[14:58:10] INFO - |         NBMiner - Crypto GPU Miner         |
+[14:58:10] INFO - |                    39.1                    |
+[14:58:10] INFO - |                                            |
+[14:58:10] INFO - ----------------------------------------------
+[14:58:10] INFO - ------------------- System -------------------
+[14:58:10] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[14:58:10] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[14:58:10] INFO - RAM:    18824 MB / 32692 MB
+[14:58:10] INFO - VMEM:   11911 MB / 37556 MB
+[14:58:10] INFO - CU_DRV: 11.3, 465.89
+[14:58:10] INFO - ------------------- Config -------------------
+[14:58:10] INFO - ALGO:   kawpow
+[14:58:10] INFO - URL:    stratum+tcp://us-eth.2miners.com:2020
+[14:58:10] INFO - USER:   0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.178591735
+[14:58:10] INFO - TEMP:   limit 105C, start 100C
+[14:58:10] INFO - ------------------- Device -------------------
+[14:58:10] INFO -  |ID|PCI|  CC|Memory|CU|
+[14:58:10] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[14:58:10] INFO - ----------------------------------------------
+[14:58:11] INFO - kawpow - Logging in to us-eth.2miners.com(147.135.11.137):2020 ...
+[14:58:11] ERROR - Failed to login mining pool, please check mining pool username.
+[14:58:11] INFO - Logout.
+[14:58:11] INFO - API:  0.0.0.0:22333
+[14:58:11] INFO - API server started.
+[14:58:11] INFO - Device 0 started, Free mem = 10227 MB.
+[14:58:13] INFO - kawpow - Logging in to us-eth.2miners.com(147.135.11.137):2020 ...
+[14:58:13] ERROR - Failed to login mining pool, please check mining pool username.
+[14:58:13] INFO - Logout.
+[14:58:15] INFO - kawpow - Logging in to us-eth.2miners.com(147.135.11.137):2020 ...
+[14:58:15] ERROR - Failed to login mining pool, please check mining pool username.
+[14:58:15] INFO - Logout.
+[14:58:17] INFO - kawpow - Logging in to us-eth.2miners.com(147.135.11.137):2020 ...
+[14:58:17] ERROR - Failed to login mining pool, please check mining pool username.
+[14:58:17] INFO - Logout.

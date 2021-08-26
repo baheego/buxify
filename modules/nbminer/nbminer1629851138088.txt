@@ -1,0 +1,93 @@
+[20:25:39] INFO - ----------------------------------------------
+[20:25:39] INFO - |                                            |
+[20:25:39] INFO - |                                            |
+[20:25:39] INFO - |                                            |
+[20:25:39] INFO - |                                            |
+[20:25:39] INFO - |                                            |
+[20:25:39] INFO - |                                            |
+[20:25:39] INFO - |                                            |
+[20:25:39] INFO - |         NBMiner - Crypto GPU Miner         |
+[20:25:39] INFO - |                    39.1                    |
+[20:25:39] INFO - |                                            |
+[20:25:39] INFO - ----------------------------------------------
+[20:25:39] INFO - ------------------- System -------------------
+[20:25:39] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[20:25:39] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[20:25:39] INFO - RAM:    17614 MB / 32692 MB
+[20:25:39] INFO - VMEM:   11706 MB / 37556 MB
+[20:25:39] INFO - CU_DRV: 11.3, 465.89
+[20:25:39] INFO - ------------------- Config -------------------
+[20:25:39] INFO - ALGO:   kawpow
+[20:25:39] INFO - URL:    stratum+tcp://us-rvn.2miners.com:6060
+[20:25:39] INFO - USER:   RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe.178591735
+[20:25:39] INFO - TEMP:   limit 105C, start 100C
+[20:25:40] INFO - ------------------- Device -------------------
+[20:25:40] INFO -  |ID|PCI|  CC|Memory|CU|
+[20:25:40] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[20:25:40] INFO - ----------------------------------------------
+[20:25:40] INFO - kawpow - Logging in to us-rvn.2miners.com(135.148.55.16):6060 ...
+[20:25:40] INFO - Set extranonce: aa
+[20:25:40] INFO - kawpow - Login succeeded.
+[20:25:40] INFO - API:  0.0.0.0:22333
+[20:25:40] INFO - API server started.
+[20:25:40] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 1d8, HEIGHT: 1900278, DIFF: 4.295G
+[20:25:40] INFO - mining.extranonce.subscribe succeeded.
+[20:25:40] INFO - Device 0 started, Free mem = 10227 MB.
+[20:25:42] INFO - Light cache built, 1.52 s.
+[20:25:42] INFO - Building DAG for EPOCH 253 on Device 0 ...
+[20:25:56] INFO - DAG built on Device 0, 14.56 s.
+[20:25:58] INFO - Generate new CUDA kernel [633426].
+[20:25:58] INFO - Generate new CUDA kernel [633427].
+[20:26:10] INFO - ================ [nbminer v39.1] Summary 2021-08-24 20:26:10 ================
+[20:26:10] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[20:26:10] INFO - | 0|1080ti| 18.97 M|     0|     0|  0| 229|  59| 12|1670| 5005| 100| 82.84 K|
+[20:26:10] INFO - |------------------+------+------+---+----+---------------------------------|
+[20:26:10] INFO - |    Total: 18.97 M|     0|     0|  0| 229| Uptime:  0D 00:00:30   CPU: 15% |
+[20:26:10] INFO - =============================================================================
+[20:26:10] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[20:26:35] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 1d9, HEIGHT: 1900279, DIFF: 4.295G
+[20:26:40] INFO - ================ [nbminer v39.1] Summary 2021-08-24 20:26:40 ================
+[20:26:40] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[20:26:40] INFO - | 0|1080ti| 21.10 M|     0|     0|  0| 219|  63| 24|1632| 5005| 100| 96.36 K|
+[20:26:40] INFO - |------------------+------+------+---+----+---------------------------------|
+[20:26:40] INFO - |    Total: 21.10 M|     0|     0|  0| 219| Uptime:  0D 00:01:00   CPU: 11% |
+[20:26:40] INFO - =============================================================================
+[20:26:40] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[20:27:10] INFO - ================ [nbminer v39.1] Summary 2021-08-24 20:27:10 ================
+[20:27:10] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[20:27:10] INFO - | 0|1080ti| 19.77 M|     0|     0|  0| 228|  65| 29|1759| 5005|  88| 86.70 K|
+[20:27:10] INFO - |------------------+------+------+---+----+---------------------------------|
+[20:27:10] INFO - |    Total: 19.77 M|     0|     0|  0| 228| Uptime:  0D 00:01:30   CPU: 14% |
+[20:27:10] INFO - =============================================================================
+[20:27:10] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[20:27:33] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 1da, HEIGHT: 1900280, DIFF: 4.295G
+[20:27:40] INFO - ================ [nbminer v39.1] Summary 2021-08-24 20:27:40 ================
+[20:27:40] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[20:27:40] INFO - | 0|1080ti| 18.33 M|     0|     0|  0| 223|  66| 32|1632| 5005| 100| 82.19 K|
+[20:27:40] INFO - |------------------+------+------+---+----+---------------------------------|
+[20:27:40] INFO - |    Total: 18.33 M|     0|     0|  0| 223| Uptime:  0D 00:02:00   CPU: 14% |
+[20:27:40] INFO - =============================================================================
+[20:27:40] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[20:28:10] INFO - ================ [nbminer v39.1] Summary 2021-08-24 20:28:10 ================
+[20:28:10] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[20:28:10] INFO - | 0|1080ti| 21.32 M|     0|     0|  0| 225|  65| 33|1670| 5005|  98| 94.76 K|
+[20:28:10] INFO - |------------------+------+------+---+----+---------------------------------|
+[20:28:10] INFO - |    Total: 21.32 M|     0|     0|  0| 225| Uptime:  0D 00:02:30   CPU: 11% |
+[20:28:10] INFO - =============================================================================
+[20:28:10] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[20:28:40] INFO - ================ [nbminer v39.1] Summary 2021-08-24 20:28:40 ================
+[20:28:40] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[20:28:40] INFO - | 0|1080ti| 21.34 M|     0|     0|  0| 230|  64| 33|1645| 5005| 100| 92.77 K|
+[20:28:40] INFO - |------------------+------+------+---+----+---------------------------------|
+[20:28:40] INFO - |    Total: 21.34 M|     0|     0|  0| 230| Uptime:  0D 00:03:00   CPU: 11% |
+[20:28:40] INFO - =============================================================================
+[20:28:40] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[20:29:09] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 1db, HEIGHT: 1900281, DIFF: 4.295G
+[20:29:09] INFO - Generate new CUDA kernel [633428].
+[20:29:10] INFO - ================ [nbminer v39.1] Summary 2021-08-24 20:29:10 ================
+[20:29:10] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[20:29:10] INFO - | 0|1080ti| 21.45 M|     0|     0|  0| 230|  63| 33|1670| 5005| 100| 93.25 K|
+[20:29:10] INFO - |------------------+------+------+---+----+---------------------------------|
+[20:29:10] INFO - |    Total: 21.45 M|     0|     0|  0| 230| Uptime:  0D 00:03:30   CPU: 11% |
+[20:29:10] INFO - =============================================================================
+[20:29:10] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 

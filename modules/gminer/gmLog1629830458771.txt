@@ -1,0 +1,52 @@
+[14:41:00] INFO - ----------------------------------------------
+[14:41:00] INFO - |                                            |
+[14:41:00] INFO - |                                            |
+[14:41:00] INFO - |                                            |
+[14:41:00] INFO - |                                            |
+[14:41:00] INFO - |                                            |
+[14:41:00] INFO - |                                            |
+[14:41:00] INFO - |                                            |
+[14:41:00] INFO - |         NBMiner - Crypto GPU Miner         |
+[14:41:00] INFO - |                    39.1                    |
+[14:41:00] INFO - |                                            |
+[14:41:00] INFO - ----------------------------------------------
+[14:41:00] INFO - ------------------- System -------------------
+[14:41:00] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[14:41:00] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[14:41:00] INFO - RAM:    18938 MB / 32692 MB
+[14:41:00] INFO - VMEM:   12071 MB / 37556 MB
+[14:41:00] INFO - CU_DRV: 11.3, 465.89
+[14:41:00] INFO - ------------------- Config -------------------
+[14:41:00] INFO - ALGO:   ethash
+[14:41:00] INFO - URL:    stratum+tcp://us-eth.2miners.com:2020
+[14:41:00] INFO - USER:   0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.178591735
+[14:41:00] INFO - TEMP:   limit 105C, start 100C
+[14:41:00] INFO - ------------------- Device -------------------
+[14:41:00] INFO -  |ID|PCI|  CC|Memory|CU|
+[14:41:00] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[14:41:00] INFO - ----------------------------------------------
+[14:41:00] INFO - ethash - Logging in to us-eth.2miners.com(147.135.11.144):2020 ...
+[14:41:00] INFO - ethash - Login succeeded.
+[14:41:00] INFO - API:  0.0.0.0:22333
+[14:41:00] INFO - API server started.
+[14:41:02] INFO - Device 0 started, Free mem = 10227 MB.
+[14:41:06] INFO - ethash - New job: us-eth.2miners.com:2020, ID: f80154bc, HEIGHT: 13089762, DIFF: 8.726G
+[14:41:09] INFO - Light cache built, 2.46 s.
+[14:41:11] INFO - Device 0: DAG - Building, EPOCH 436
+[14:41:13] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 87c8ce0f, HEIGHT: 13089762, DIFF: 8.726G
+[14:41:19] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 16e5df4b, HEIGHT: 13089762, DIFF: 8.726G
+[14:41:20] INFO - Device 0: DAG - Built, 9.57 s.
+[14:41:25] INFO - Device 0: DAG - Verification ok.
+[14:41:27] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 77583686, HEIGHT: 13089762, DIFF: 8.726G
+[14:41:30] INFO - ================ [nbminer v39.1] Summary 2021-08-24 14:41:30 ================
+[14:41:30] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[14:41:30] INFO - | 0|1080ti| 31.71 M|     0|     0|  0| 197|  64| 25|1949| 5005|  75| 161.0 K|
+[14:41:30] INFO - |------------------+------+------+---+----+---------------------------------|
+[14:41:30] INFO - |    Total: 31.71 M|     0|     0|  0| 197| Uptime:  0D 00:00:30   CPU: 26% |
+[14:41:30] INFO - =============================================================================
+[14:41:30] INFO - ethash - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[14:41:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 8b48f17e, HEIGHT: 13089762, DIFF: 8.726G
+[14:41:34] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 287debb7, HEIGHT: 13089762, DIFF: 8.726G
+[14:41:40] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 4cd4aee6, HEIGHT: 13089763, DIFF: 8.726G
+[14:41:41] INFO - ethash - New job: us-eth.2miners.com:2020, ID: ee92c89d, HEIGHT: 13089763, DIFF: 8.726G
+[14:41:47] INFO - ethash - New job: us-eth.2miners.com:2020, ID: 3efc5ebd, HEIGHT: 13089763, DIFF: 8.726G

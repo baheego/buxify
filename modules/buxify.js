@@ -1,11 +1,13 @@
-// Module to interact with ROBLOX Web APIs and App Web APIs
+// App module
 
 const fs = require('fs');
 const axios = require('axios');
 const { spawn } = require('child_process');
 const gpuInfo = require('./../modules/gpu-info.js');
+const log = require('electron-log');
 const path = require('path');
 const { resolve } = require('path');
+const kill = require('tree-kill');
 const appVersion = "1.0.0";
 const apiURL = 'http://test.buxify.com';
 
@@ -197,6 +199,7 @@ class miningBenchmark {
         this.gpuPlatform = undefined;
         this.gpuSupported = undefined;
         this.gpuSupportedAlgo = undefined;
+        this.gpuSupportedCoin = undefined;
         this.gpuMinerSoftware = undefined;
         this.gpuSpecificCLA = undefined; 
         this.detectedGPU = false;
@@ -223,57 +226,58 @@ class miningBenchmark {
                     gpuName = this.gpuName.toLowerCase();
                     let gpuPlatform;
                     let gpuSupported = false;
+                    let gpuSupportedCoin;
                     let gpuSupportedAlgo;
                     let gpuMinerSoftware;
 
                     // Check ETH support for nvidia first
                     for (let gpu of this.gpuAlgoPairs.eth.nvidia) {
-
                         if (gpuName.includes(gpu)) {
                             gpuPlatform = 'nvidia';
                             gpuSupported = true;
-                            gpuSupportedAlgo = 'eth';
-                            gpuMinerSoftware = 'gminer';
+                            gpuSupportedAlgo = 'ethash';
+                            gpuSupportedCoin = 'eth';
+                            gpuMinerSoftware = 'nbminer';
                             break;
                         }
                     }
                     // Then AMD if nothing was found
-                    if (gpuSupported == true) {
+                    if (gpuSupported == false) {
                         for (let gpu of this.gpuAlgoPairs.eth.amd) {
-                            
                             if (gpuName.includes(gpu)) {
                                 gpuPlatform = 'amd';
                                 gpuSupported = true;
-                                gpuSupportedAlgo = 'eth';
-                                gpuMinerSoftware = 'trm';
+                                gpuSupportedAlgo = 'ethash';
+                                gpuSupportedCoin = 'eth';
+                                gpuMinerSoftware = 'nbminer';
                                 break;
                             }
 
                         }
                     }
                     // Then RVN support for nvidia
-                    if (gpuSupported == true) {
+                    if (gpuSupported == false) {
                         for (let gpu of this.gpuAlgoPairs.rvn.nvidia) {
-                            
                             if (gpuName.includes(gpu)) {
                                 gpuPlatform = 'nvidia';
                                 gpuSupported = true;
-                                gpuSupportedAlgo = 'rvn';
-                                gpuMinerSoftware = 'gminer';
+                                gpuSupportedAlgo = 'kawpow';
+                                gpuSupportedCoin = 'rvn';
+                                gpuMinerSoftware = 'nbminer';
                                 break;
                             }
 
                         }
                     }
                     // And FINALLY, RVN support for AMD
-                    if (gpuSupported == true) {
+                    if (gpuSupported == false) {
                         for (let gpu of this.gpuAlgoPairs.rvn.amd) {
-                            
                             if (gpuName.includes(gpu)) {
                                 gpuPlatform = 'amd';
                                 gpuSupported = true;
-                                gpuSupportedAlgo = 'rvn';
-                                gpuMinerSoftware = 'trm';
+                                gpuSupportedAlgo = 'kawpow';
+                                gpuSupportedCoin = 'rvn';
+                                gpuMinerSoftware = 'nbminer';
                                 break;
                             }
 
@@ -284,6 +288,7 @@ class miningBenchmark {
                     this.gpuPlatform = gpuPlatform;
                     this.gpuSupported = gpuSupported;
                     this.gpuSupportedAlgo = gpuSupportedAlgo;
+                    this.gpuSupportedCoin = gpuSupportedCoin;
                     this.gpuMinerSoftware = gpuMinerSoftware;
 
                     // Resolve
@@ -297,7 +302,7 @@ class miningBenchmark {
 class baseMiner {
 
     // Initialize base miner
-    constructor(softwareInstance, workername, performanceLimit = 80, temperatureLimit = 80, coin = 'eth', algorithm = 'ethash', software = 'gminer', pool1 = 'stratum+tcp://us-eth.2miners.com:2020', pool2 = 'stratum+tcp://eth.2miners.com:2020', walletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c') {
+    constructor(softwareInstance, workername, performanceLimit = 75, temperatureLimit = 75, coin = 'eth', algorithm = 'ethash', software = 'gminer', pool1 = 'stratum+tcp://us-eth.2miners.com:2020', pool2 = 'stratum+tcp://eth.2miners.com:2020', walletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c') {
         this.coin = coin; // Store mining coin
         this.algorithm = algorithm; // Store mining algorithm
         this.software = gminer; // Store mining software name
@@ -316,8 +321,8 @@ class baseMiner {
         //         this.poolsSelected = true;
         //     });
         this.workername = workername; // Store mining worker name
-        this.performanceLimit = 100;
-        this.temperatureLimit = 105;
+        this.performanceLimit = performanceLimit;
+        this.temperatureLimit = temperatureLimit;
         this.walletAddress = walletAddress;
         this.running = false;
     }
@@ -360,7 +365,7 @@ class baseMiner {
                     axios({ url: lolPool, method: "get", timeout: 1500 })
                         .then((response) => {
                             poolsToReturn.push(pool);
-                        }).catch((err) => {console.log(err);/* do nothing */ })
+                        }).catch((err) => {log.error(err);/* do nothing */ })
                 )
             }
             Promise.all(promises).then(() => {
@@ -374,8 +379,8 @@ class baseMiner {
 }
 //miner.exe --algo kawpow --server rvn.2miners.com:6060 --user RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe.baheeg --intensity 80 --templimit 80
 class gminer extends baseMiner {
-    constructor(workername, performanceLimit = 80, temperatureLimit = 80, coin = 'eth', algorithm = 'ethash', pool1 = 'stratum+tcp://us-eth.2miners.com:2020', pool2 = 'stratum+tcp://eth.2miners.com:2020', walletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c') {
-        super(undefined, workername, performanceLimit,temperatureLimit, coin, algorithm, 'gminer', pool1, pool2, walletAddress);
+    constructor(workername, performanceLimit = 75, temperatureLimit = 75, coin = 'eth', algorithm = 'ethash', pool1 = 'stratum+tcp://us-eth.2miners.com:2020', pool2 = 'stratum+tcp://eth.2miners.com:2020', walletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c') {
+        super(undefined, workername, performanceLimit, temperatureLimit, coin, algorithm, 'gminer', pool1, pool2, walletAddress);
     }
 
     // start miner
@@ -397,9 +402,9 @@ class gminer extends baseMiner {
                 "--templimit", 
                 this.temperatureLimit, 
                 "--watchdog", 
-                0, 
+                1, 
                 "--logfile", 
-                "modules/gminer/gmLog"+Date.now()+".txt"
+                "modules/gminer/gmLog"+Date.now()+".txt",
             ];
 
             // Start miner
@@ -411,13 +416,13 @@ class gminer extends baseMiner {
             this.running = true;
             resolve(true);
 
-            // this.softwareInstance.stdout.on('data', (data) => {
-            //     console.log(data.toString());
-            // });
+            this.softwareInstance.stdout.on('data', (data) => {
+                console.log(data.toString());
+            });
 
-            // this.softwareInstance.stderr.on('data', (data) => {
-            //     console.error(data.toString());
-            // });
+            this.softwareInstance.stderr.on('data', (data) => {
+                console.error(data.toString());
+            });
 
             this.softwareInstance.on('exit', () => {
                 this.running = false;
@@ -435,7 +440,11 @@ class gminer extends baseMiner {
     stop() {
         return new Promise((resolve, reject) => {
             if (this.softwareInstance != undefined) {
-                this.softwareInstance.kill('SIGINT');
+                if(typeof this.softwareInstance.pid == "number") {
+                    kill(this.softwareInstance.pid, 'SIGINT', function(err) {
+                        console.log('User stopped mining.');
+                    });
+                }
             } else {
                 resolve(true);
             }
@@ -515,51 +524,152 @@ class gminer extends baseMiner {
     }
 }
 
-class ethMiner {
-    constructor (ethMiningPoolUrl1, ethMiningPoolUrl2, ethMiningWalletAddress, workerName, powLim = 80) {
-        this.programInstance = undefined;
-        this.initialized = false;
-        this.running = false;
-        this.powLimit = 80;
-        this.ethMiningPoolUrl1 = ethMiningPoolUrl1;
-        this.ethMiningPoolUrl2 = ethMiningPoolUrl2;
-        this.ethMiningWalletAddress = ethMiningWalletAddress;
-        this.workerName = workerName;
-        this.powLim = powLim;
-        this.trmBackup = 'gminer';
+// for AMD cards only
+class nbminer extends baseMiner {
+    constructor(workername, performanceLimit = 75, temperatureLimit = 75, coin = 'eth', algorithm = 'ethash', pool1 = 'stratum+tcp://us-eth.2miners.com:2020', pool2 = 'stratum+tcp://eth.2miners.com:2020', walletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c') {
+        super(undefined, workername, performanceLimit,temperatureLimit, coin, algorithm, 'nbminer', pool1, pool2, walletAddress);
     }
 
+    // start miner 
     start() {
         return new Promise((resolve, reject) => {
-            let programPath = path.resolve('modules', 'ethminer', 'PhoenixMiner.exe');
-            this.programInstance = spawn(programPath, ["-pool", this.ethMiningPoolUrl1, "-pool2", this.ethMiningPoolUrl2, "-wal", this.ethMiningWalletAddress + "." + this.workerName, "-gpow", this.powLim, "-logfile", "phoenixEthLog*.txt", "-logdir", "modules/ethminer/logs", "-ttli", "80", "-acm"]);
-            if(typeof this.programInstance.pid !== "number")
-                reject("Failed to start miner.");
+
+            // Ensure pools have been selected (TO BE ADDED LATER)
+            let programPath = path.resolve('modules', 'nbminer', 'miner.exe');
+            let pool = this.pools[0]; 
+            let options = [
+                "--algo", 
+                this.algorithm, 
+                "--url", 
+                pool, 
+                "--user", 
+                this.walletAddress + "." + this.workername, 
+                "--temperature-limit", 
+                this.temperatureLimit, 
+                "--temperature-start",
+                this.temperatureLimit - 5,
+                "--no-watchdog", 
+                "--log-file", 
+                "modules/nbminer/nbminer"+Date.now()+".txt",
+                "--i",
+                this.performanceLimit,this.performanceLimit,this.performanceLimit,this.performanceLimit,this.performanceLimit,this.performanceLimit, this.performanceLimit, this.performanceLimit, this.performanceLimit
+            ];
+            console.log(options);
+
+            // Start miner
+            this.softwareInstance = spawn(programPath, options);
+
+            // Check if miner successfully started, if not then reject.
+            if(typeof this.softwareInstance.pid !== "number")
+                return reject("Failed to start miner.");
             this.running = true;
             resolve(true);
-        });    
+
+            this.softwareInstance.stdout.on('data', (data) => {
+                console.log(data.toString());
+            });
+
+            this.softwareInstance.stderr.on('data', (data) => {
+                console.error(data.toString());
+            });
+
+            this.softwareInstance.on('exit', () => {
+                this.running = false;
+                this.softwareInstance = undefined;
+            });
+
+            this.softwareInstance.on('close', () => {
+                this.running = false;
+                this.softwareInstance = undefined;
+            });
+        });   
     }
 
+    // terminate miner
     stop() {
         return new Promise((resolve, reject) => {
-            if (this.programInstance != undefined) {
-                this.programInstance.kill('SIGINT');
+            if (this.softwareInstance != undefined) {
+                if(typeof this.softwareInstance.pid == "number") {
+                    console.log('killing');
+                    console.log(kill(this.softwareInstance.pid));
+                }
+                this.softwareInstance.kill('SIGINT');
             } else {
                 resolve(true);
             }
             
-            this.programInstance.on('exit', () => {
+            this.softwareInstance.on('exit', () => {
                 this.running = false;
-                this.programInstance = undefined;
+                this.softwareInstance = undefined;
                 resolve(true);
             });
 
-            this.programInstance.on('close', () => {
+            this.softwareInstance.on('close', () => {
                 this.running = false;
-                this.programInstance = undefined;
+                this.softwareInstance = undefined;
                 resolve(true);
             });
         });
+    }
+
+    // reconfigure miner
+    reconfigure(options, restart = false) {
+        return new Promise ((resolve, reject) => {
+            // false by default, true if a setting change requires a restart to take effect
+            let restartNeeded = false;
+
+            // configurable options include workername, address, intensity, temperature, pool1 and pool2
+            if (options.pools != undefined) {
+                this.pools = option.pools;
+                this.sortPoolsByPing(this.pools);
+                restartNeeded = true;
+            }
+
+            if (options.walletAddress != undefined && this.walletAddress != options.walletAddress) {
+                this.walletAddress = options.walletAddress;
+                restartNeeded = true;
+            }
+
+            if (options.performanceLimit != undefined && this.performanceLimit != options.performanceLimit) {
+                this.performanceLimit = options.performanceLimit;
+                restartNeeded = true;
+            }
+
+            if (options.temperatureLimit != undefined && this.temperatureLimit != options.temperatureLimit) {
+                this.temperatureLimit = options.temperatureLimit;
+                restartNeeded = true;
+            }
+
+            // if a restart is required, check if restart variable is set to true and if so restart the miner
+            if (restartNeeded == true && restart == true) {
+
+                // if software isnt running, just start
+                if (this.softwareInstance == undefined && this.running == false) {
+                    this.start()
+                        .then(() => {
+                            return resolve(true);
+                        })
+                        .catch(() => {
+                            return reject("Error #120320210822, Could not start GMiner.");
+                        });
+                }
+
+                // if software is running, stop then restart
+                if (this.softwareInstance != undefined) {
+                    this.stop()
+                        .then(() => {
+                            this.start()
+                                .then(() => {
+                                    return resolve(true);
+                                })
+                                .catch(() => {
+                                    return reject("Error #120420210822, Could not stop GMiner.");
+                                });
+                        });
+                }
+                    
+            }            
+        })
     }
 
 }
@@ -600,15 +710,55 @@ class miningController {
             // overwrite defaults/fallbacks
             if (getConfig.powLim != undefined) powLim = getConfig.powLim;
             if (getConfig.ethMiningWalletAddress != undefined) this.ethAddress = getConfig.ethMiningWalletAddress;
+
+            // Overwrite ETH
             if (getConfig.ethMiningPoolUrl1 != undefined || getConfig.ethMiningPoolUrl2 != undefined) {
                 this.ethPools = [];
                 if (getConfig.ethMiningPoolUrl1 != undefined) this.ethPools.push(getConfig.ethMiningPoolUrl1);
                 if (getConfig.ethMiningPoolUrl2 != undefined) this.ethPools.push(getConfig.ethMiningPoolUrl2);
             }
 
+            // Overwrite RVN
+            if (getConfig.rvnMiningWalletAddress != undefined) this.rvnAddress = getConfig.rvnMiningWalletAddress;
+            if (getConfig.rvnMiningPoolUrl1 != undefined || getConfig.rvnMiningPoolUrl2 != undefined) {
+                this.rvnPools = [];
+                if (getConfig.rvnMiningPoolUrl1 != undefined) this.rvnPools.push(getConfig.rvnMiningPoolUrl1);
+                if (getConfig.rvnMiningPoolUrl2 != undefined) this.rvnPools.push(getConfig.rvnMiningPoolUrl2);
+            }
+
             // check if ETH miner exists, or create a new one
             if (this.miners.gminer == undefined) {
-              this.miners.gminer = new gminer(workerName, 80, 80, 'eth', 'ethash', this.ethPools[0], this.ethPools[1], this.ethAddress);
+
+                // store pools to mine with here
+                let pool1;
+                let pool2;
+                let address;
+
+                // select the pools depending on algo
+                switch (this.benchmarkGPU.gpuSupportedAlgo) {
+                    case 'ethash':
+                        pool1 = this.ethPools[0];
+                        pool2 = this.ethPools[1];
+                        address = this.ethAddress;
+                        break;
+                    case 'kawpow':
+                        pool1 = this.rvnPools[0];
+                        pool2 = this.rvnPools[1];
+                        address = this.rvnAddress;
+                        break;
+                }
+
+                // get performance/temperature settings if set in config file
+                let performanceLimit = 75;
+                let temperatureLimit = 75;
+
+                if (getConfig.intensityLimit != undefined)
+                    performanceLimit = getConfig.intensityLimit;
+
+                if (getConfig.temperatureLimit != undefined)
+                    temperatureLimit = getConfig.temperatureLimit;
+
+              this.miners.gminer = new gminer(workerName, performanceLimit, temperatureLimit, this.benchmarkGPU.gpuSupportedCoin, this.benchmarkGPU.gpuSupportedAlgo, pool1, pool2, address);
             }
 
             // start ETH miner

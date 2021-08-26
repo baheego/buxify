@@ -1,0 +1,27 @@
+[13:14:36] INFO - ----------------------------------------------
+[13:14:36] INFO - |                                            |
+[13:14:36] INFO - |                                            |
+[13:14:36] INFO - |                                            |
+[13:14:36] INFO - |                                            |
+[13:14:36] INFO - |                                            |
+[13:14:36] INFO - |                                            |
+[13:14:36] INFO - |                                            |
+[13:14:36] INFO - |         NBMiner - Crypto GPU Miner         |
+[13:14:36] INFO - |                    39.1                    |
+[13:14:36] INFO - |                                            |
+[13:14:36] INFO - ----------------------------------------------
+[13:14:36] INFO - ------------------- System -------------------
+[13:14:36] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[13:14:36] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[13:14:36] INFO - RAM:    17330 MB / 32692 MB
+[13:14:36] INFO - VMEM:   11703 MB / 37556 MB
+[13:14:36] INFO - CU_DRV: 11.3, 465.89
+[13:14:36] INFO - ------------------- Config -------------------
+[13:14:36] INFO - ALGO:   kawpow
+[13:14:36] INFO - URL:    stratum+tcp://us-rvn.2miners.com:6060
+[13:14:36] INFO - USER:   RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe.178591735
+[13:14:36] INFO - TEMP:   limit 105C, start 100C
+[13:14:36] INFO - ------------------- Device -------------------
+[13:14:36] INFO -  |ID|PCI|  CC|Memory|CU|
+[13:14:36] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[13:14:36] INFO - ----------------------------------------------

@@ -1,0 +1,102 @@
+[06:32:24] INFO - ----------------------------------------------
+[06:32:24] INFO - |                                            |
+[06:32:24] INFO - |                                            |
+[06:32:24] INFO - |                                            |
+[06:32:24] INFO - |                                            |
+[06:32:24] INFO - |                                            |
+[06:32:24] INFO - |                                            |
+[06:32:24] INFO - |                                            |
+[06:32:24] INFO - |         NBMiner - Crypto GPU Miner         |
+[06:32:24] INFO - |                    39.1                    |
+[06:32:24] INFO - |                                            |
+[06:32:24] INFO - ----------------------------------------------
+[06:32:24] INFO - ------------------- System -------------------
+[06:32:24] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[06:32:24] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[06:32:24] INFO - RAM:    17235 MB / 32692 MB
+[06:32:24] INFO - VMEM:   11454 MB / 37556 MB
+[06:32:24] INFO - CU_DRV: 11.3, 465.89
+[06:32:24] INFO - ------------------- Config -------------------
+[06:32:24] INFO - ALGO:   kawpow
+[06:32:24] INFO - URL:    stratum+tcp://us-rvn.2miners.com:6060
+[06:32:24] INFO - USER:   RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe.178591735
+[06:32:24] INFO - TEMP:   limit 105C, start 100C
+[06:32:24] INFO - ------------------- Device -------------------
+[06:32:24] INFO -  |ID|PCI|  CC|Memory|CU|
+[06:32:24] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[06:32:24] INFO - ----------------------------------------------
+[06:32:24] INFO - kawpow - Logging in to us-rvn.2miners.com(135.148.55.16):6060 ...
+[06:32:24] INFO - Set extranonce: 3e
+[06:32:24] INFO - kawpow - Login succeeded.
+[06:32:24] INFO - API:  0.0.0.0:22333
+[06:32:24] INFO - API server started.
+[06:32:24] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 48b, HEIGHT: 1900876, DIFF: 4.295G
+[06:32:24] INFO - mining.extranonce.subscribe succeeded.
+[06:32:24] INFO - Device 0 started, Free mem = 10227 MB.
+[06:32:26] INFO - Light cache built, 1.64 s.
+[06:32:26] INFO - Building DAG for EPOCH 253 on Device 0 ...
+[06:32:39] INFO - DAG built on Device 0, 12.80 s.
+[06:32:40] INFO - Generate new CUDA kernel [633625].
+[06:32:40] INFO - Generate new CUDA kernel [633626].
+[06:32:52] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 48c, HEIGHT: 1900877, DIFF: 4.295G
+[06:32:54] INFO - ================ [nbminer v39.1] Summary 2021-08-25 06:32:54 ================
+[06:32:54] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[06:32:54] INFO - | 0|1080ti| 17.67 M|     0|     0|  0| 215|  66| 39|1569| 5005|  96| 82.19 K|
+[06:32:54] INFO - |------------------+------+------+---+----+---------------------------------|
+[06:32:54] INFO - |    Total: 17.67 M|     0|     0|  0| 215| Uptime:  0D 00:00:30   CPU: 24% |
+[06:32:54] INFO - =============================================================================
+[06:32:54] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[06:33:24] INFO - ================ [nbminer v39.1] Summary 2021-08-25 06:33:24 ================
+[06:33:24] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[06:33:24] INFO - | 0|1080ti| 18.12 M|     0|     0|  0| 222|  68| 39|1746| 5005|  87| 81.63 K|
+[06:33:24] INFO - |------------------+------+------+---+----+---------------------------------|
+[06:33:24] INFO - |    Total: 18.12 M|     0|     0|  0| 222| Uptime:  0D 00:01:00   CPU: 16% |
+[06:33:24] INFO - =============================================================================
+[06:33:24] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[06:33:54] INFO - ================ [nbminer v39.1] Summary 2021-08-25 06:33:54 ================
+[06:33:54] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[06:33:54] INFO - | 0|1080ti| 17.31 M|     0|     0|  0| 230|  68| 39|1746| 5005|  87| 75.27 K|
+[06:33:54] INFO - |------------------+------+------+---+----+---------------------------------|
+[06:33:54] INFO - |    Total: 17.31 M|     0|     0|  0| 230| Uptime:  0D 00:01:30   CPU: 16% |
+[06:33:54] INFO - =============================================================================
+[06:33:54] INFO - kawpow - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[06:34:13] INFO - kawpow - #1 Share accepted, 42 ms. [DEVICE 0, #1]
+[06:34:17] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 48d, HEIGHT: 1900878, DIFF: 4.295G
+[06:34:17] INFO - Generate new CUDA kernel [633627].
+[06:34:19] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 48e, HEIGHT: 1900879, DIFF: 4.295G
+[06:34:24] INFO - ================ [nbminer v39.1] Summary 2021-08-25 06:34:24 ================
+[06:34:24] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[06:34:24] INFO - | 0|1080ti| 20.43 M|     1|     0|  0| 231|  68| 39|1670| 5005|  86| 88.44 K|
+[06:34:24] INFO - |------------------+------+------+---+----+---------------------------------|
+[06:34:24] INFO - |    Total: 20.43 M|     1|     0|  0| 231| Uptime:  0D 00:02:00   CPU: 12% |
+[06:34:24] INFO - =============================================================================
+[06:34:24] INFO - kawpow - On Pool   10m: 35.79 M   4h: 35.79 M   24h: 35.79 M
+[06:34:54] INFO - ================ [nbminer v39.1] Summary 2021-08-25 06:34:54 ================
+[06:34:54] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[06:34:54] INFO - | 0|1080ti| 20.29 M|     1|     0|  0| 228|  68| 39|1645| 5005| 100| 89.01 K|
+[06:34:54] INFO - |------------------+------+------+---+----+---------------------------------|
+[06:34:54] INFO - |    Total: 20.29 M|     1|     0|  0| 228| Uptime:  0D 00:02:30   CPU: 13% |
+[06:34:54] INFO - =============================================================================
+[06:34:54] INFO - kawpow - On Pool   10m: 28.63 M   4h: 28.63 M   24h: 28.63 M
+[06:35:11] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 48f, HEIGHT: 1900880, DIFF: 4.295G
+[06:35:24] INFO - ================ [nbminer v39.1] Summary 2021-08-25 06:35:24 ================
+[06:35:24] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[06:35:24] INFO - | 0|1080ti| 18.25 M|     1|     0|  0| 216|  68| 39|1759| 5005|  88| 84.51 K|
+[06:35:24] INFO - |------------------+------+------+---+----+---------------------------------|
+[06:35:24] INFO - |    Total: 18.25 M|     1|     0|  0| 216| Uptime:  0D 00:03:00   CPU: 17% |
+[06:35:24] INFO - =============================================================================
+[06:35:24] INFO - kawpow - On Pool   10m: 23.86 M   4h: 23.86 M   24h: 23.86 M
+[06:35:54] INFO - ================ [nbminer v39.1] Summary 2021-08-25 06:35:54 ================
+[06:35:54] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[06:35:54] INFO - | 0|1080ti| 18.88 M|     1|     0|  0| 227|  68| 40|1657| 5005| 100| 83.16 K|
+[06:35:54] INFO - |------------------+------+------+---+----+---------------------------------|
+[06:35:54] INFO - |    Total: 18.88 M|     1|     0|  0| 227| Uptime:  0D 00:03:30   CPU: 14% |
+[06:35:54] INFO - =============================================================================
+[06:35:54] INFO - kawpow - On Pool   10m: 20.45 M   4h: 20.45 M   24h: 20.45 M
+[06:36:24] INFO - ================ [nbminer v39.1] Summary 2021-08-25 06:36:24 ================
+[06:36:24] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[06:36:24] INFO - | 0|1080ti| 20.46 M|     1|     0|  0| 225|  68| 40|1759| 5005|  85| 90.94 K|
+[06:36:24] INFO - |------------------+------+------+---+----+---------------------------------|
+[06:36:24] INFO - |    Total: 20.46 M|     1|     0|  0| 225| Uptime:  0D 00:04:00   CPU: 14% |
+[06:36:24] INFO - =============================================================================
+[06:36:24] INFO - kawpow - On Pool   10m: 17.90 M   4h: 17.90 M   24h: 17.90 M

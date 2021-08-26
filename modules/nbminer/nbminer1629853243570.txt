@@ -1,0 +1,43 @@
+[21:00:44] INFO - ----------------------------------------------
+[21:00:44] INFO - |                                            |
+[21:00:44] INFO - |                                            |
+[21:00:44] INFO - |                                            |
+[21:00:44] INFO - |                                            |
+[21:00:44] INFO - |                                            |
+[21:00:44] INFO - |                                            |
+[21:00:44] INFO - |                                            |
+[21:00:44] INFO - |         NBMiner - Crypto GPU Miner         |
+[21:00:44] INFO - |                    39.1                    |
+[21:00:44] INFO - |                                            |
+[21:00:44] INFO - ----------------------------------------------
+[21:00:44] INFO - ------------------- System -------------------
+[21:00:44] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[21:00:44] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[21:00:44] INFO - RAM:    17479 MB / 32692 MB
+[21:00:44] INFO - VMEM:   11596 MB / 37556 MB
+[21:00:44] INFO - CU_DRV: 11.3, 465.89
+[21:00:44] INFO - ------------------- Config -------------------
+[21:00:44] INFO - ALGO:   kawpow
+[21:00:44] INFO - URL:    stratum+tcp://us-rvn.2miners.com:6060
+[21:00:44] INFO - USER:   RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe.178591735
+[21:00:44] INFO - TEMP:   limit 105C, start 100C
+[21:00:45] INFO - ------------------- Device -------------------
+[21:00:45] INFO -  |ID|PCI|  CC|Memory|CU|
+[21:00:45] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[21:00:45] INFO - ----------------------------------------------
+[21:00:45] INFO - kawpow - Logging in to us-rvn.2miners.com(135.148.55.16):6060 ...
+[21:00:45] INFO - Set extranonce: e9
+[21:00:45] INFO - kawpow - Login succeeded.
+[21:00:45] INFO - API:  0.0.0.0:22333
+[21:00:45] INFO - API server started.
+[21:00:45] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 206, HEIGHT: 1900321, DIFF: 4.295G
+[21:00:45] INFO - mining.extranonce.subscribe succeeded.
+[21:00:45] INFO - Device 0 started, Free mem = 10227 MB.
+[21:00:47] INFO - Light cache built, 1.50 s.
+[21:00:47] INFO - Building DAG for EPOCH 253 on Device 0 ...
+[21:00:58] INFO - DAG built on Device 0, 11.78 s.
+[21:01:00] INFO - Generate new CUDA kernel [633440].
+[21:01:00] INFO - Generate new CUDA kernel [633441].
+[21:01:03] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 207, HEIGHT: 1900322, DIFF: 4.295G
+[21:01:06] INFO - kawpow - New job: us-rvn.2miners.com:6060, ID: 208, HEIGHT: 1900323, DIFF: 4.295G
+[21:01:06] INFO - Generate new CUDA kernel [633442].
