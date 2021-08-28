@@ -1,5 +1,6 @@
 // The frontend source code for Buxify
 const { ipcRenderer } = require('electron');
+const logIndex = require('electron-log');
 var estimatedHourly = undefined;
 var estimatedDaily = undefined;
 var pending_balance = 0;
@@ -68,6 +69,7 @@ ipcRenderer.on('updateUserStats-reply', (event, arg) => {
 })
 
 let lastUser = undefined;
+let setToLoading = false;
 // Update DOM for local details
 ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
     if (user !== false && user.roblox_user_id != undefined ) {
@@ -85,11 +87,43 @@ ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
         $('#userAvatarImage').attr('src', 'https://www.roblox.com/headshot-thumbnail/image?userId=' + user.roblox_user_id + '&width=420&height=420&format=png')
 
         // Check if there is any user activity
-        if (mining == true && ((user.eth_estimated_at != undefined && user.eth_estimated_at >= (Date.now() / 1000) - 1800) || (user.rvn_estimated_at != undefined && user.rvn_estimated_at >= (Date.now() / 1000) - 1800))) {
+        let rightNowInSeconds = Date.now() / 1000;
+        let minActivityThreshold = rightNowInSeconds - 1800;
+        let userActivityCheck = [
+            (user.eth_estimated_at != undefined && user.eth_estimated_at >= minActivityThreshold), // ETH
+            (user.rvn_estimated_at != undefined && user.rvn_estimated_at >= minActivityThreshold), // RVN
+            (user.erg_estimated_at != undefined && user.erg_estimated_at >= minActivityThreshold), // ERG
+        ];
+
+        // Check if there is any recent estimates
+        let activityDetectedRecently = false;
+        for (let activity of userActivityCheck) {
+            if (activity === true) {
+                activityDetectedRecently = true;
+                break;
+            }
+        }
+
+        // Check if there is a change
+        let changeDetected = false;
+
+        let userActivityChange = [
+            !(lastUser != undefined && lastUser.eth_estimated_at == user.eth_estimated_at), // ETH
+            !(lastUser != undefined && lastUser.rvn_estimated_at == user.rvn_estimated_at), // RVN 
+            !(lastUser != undefined && lastUser.erg_estimated_at == user.erg_estimated_at), // ERG 
+        ];
+        
+        for (let change of userActivityChange) {
+            if (change === true) {
+                changeDetected = true;
+                break;
+            }
+        }
+
+        if (mining == true && activityDetectedRecently == true) {
 
             // Check if estimated_at is still the same as previous one, if so just do nothing
-            if (lastUser != undefined && (lastUser.rvn_estimated_at != undefined && lastUser.rvn_estimated_at == user.rvn_estimated_at) && (lastUser.eth_estimated_at != undefined && lastUser.eth_estimated_at == user.eth_estimated_at))
-                return;
+            // if (!changeDetected) return false;
 
             // store user into lastUser if the check above did nothing, meaning there is a new estimate now
             lastUser = user;
@@ -109,16 +143,25 @@ ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
                 cumulativeDailyEstimate += user.rvn_estimated_daily;
             }
 
+            // add erg estimate
+            if (user.erg_estimated_at >= (Date.now() / 1000) - 1800) {
+                cumulativeHourlyEstimate += user.erg_estimated_hourly;
+                cumulativeDailyEstimate += user.erg_estimated_daily;
+            }
+
             $('#userEstimatedHourly').html("R$ " + parseFloat(cumulativeHourlyEstimate).toFixed(2));
             $('#userEstimatedDaily').html("R$ " +  parseFloat(cumulativeDailyEstimate).toFixed(2));
-            console.log('hi');
 
             $('#miningStatus').html('<div><div class="spinner-border text-success" role="status" style="width: 0.9rem; height: 0.9rem;"><span class="visually-hidden">Loading...</span></div> <span style="font-size: 0.8rem">Earning</span></div>');
+            setToLoading = false;
         } else if (mining == true) {
+            // if (setToLoading == true) return;
+            // setToLoading = true;
             $('#userEstimatedHourly').html("Loading");
             $('#userEstimatedDaily').html("Loading");
             $('#miningStatus').html('<div><div class="spinner-border text-warning" role="status" style="width: 0.9rem; height: 0.9rem;"><span class="visually-hidden">Loading...</span></div> <span style="font-size: 0.8rem">Loading</span></div>');
         } else {
+            // setToLoading = false;
             $('#userEstimatedHourly').html("...");
             $('#userEstimatedDaily').html("...");
             $('#miningStatus').html('...');
@@ -193,6 +236,7 @@ ipcRenderer.on('updateSettings-reply', (event, arg) => {
             title: 'Uh Oh...',
             text: 'We could not save your settings, please contact support for help.',
         });
+        logIndex.err("ERR Saving user settings: ", arg);
     } else {
         $('#saveSettingsBtn').hide();
     }

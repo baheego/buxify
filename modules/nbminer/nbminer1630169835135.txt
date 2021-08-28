@@ -1,0 +1,33 @@
+[12:57:18] INFO - ----------------------------------------------
+[12:57:18] INFO - |                                            |
+[12:57:18] INFO - |                                            |
+[12:57:18] INFO - |                                            |
+[12:57:18] INFO - |                                            |
+[12:57:18] INFO - |                                            |
+[12:57:18] INFO - |                                            |
+[12:57:18] INFO - |                                            |
+[12:57:18] INFO - |         NBMiner - Crypto GPU Miner         |
+[12:57:18] INFO - |                    39.1                    |
+[12:57:18] INFO - |                                            |
+[12:57:18] INFO - ----------------------------------------------
+[12:57:18] INFO - ------------------- System -------------------
+[12:57:18] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[12:57:18] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[12:57:18] INFO - RAM:    17299 MB / 32692 MB
+[12:57:18] INFO - VMEM:   9053 MB / 37556 MB
+[12:57:18] INFO - CU_DRV: 11.3, 465.89
+[12:57:18] INFO - ------------------- Config -------------------
+[12:57:18] INFO - ALGO:   ergo
+[12:57:18] INFO - URL:    stratum+tcp://erg.2miners.com:8888
+[12:57:18] INFO - USER:   9i1JDE1QcyxN4uR3UbHASzmsaN9gDUyJXczYtB2y6Gn96EePGQz.2905335
+[12:57:18] INFO - TEMP:   limit 75C, start 70C
+[12:57:18] INFO - ------------------- Device -------------------
+[12:57:18] INFO -  |ID|PCI|  CC|Memory|CU|
+[12:57:18] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[12:57:18] INFO - ----------------------------------------------
+[12:57:18] INFO - ergo - Logging in to erg.2miners.com(51.89.64.232):8888 ...
+[12:57:18] INFO - Set extranonce: a9d3
+[12:57:18] INFO - ergo - Login succeeded.
+[12:57:18] INFO - API:  0.0.0.0:22333
+[12:57:18] INFO - API server started.
+[12:57:18] INFO - ergo - New job: erg.2miners.com:8888, ID: 824, HEIGHT: 564809, DIFF: 8.726G

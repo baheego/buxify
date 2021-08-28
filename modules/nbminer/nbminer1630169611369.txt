@@ -1,0 +1,34 @@
+[12:53:34] INFO - ----------------------------------------------
+[12:53:34] INFO - |                                            |
+[12:53:34] INFO - |                                            |
+[12:53:34] INFO - |                                            |
+[12:53:34] INFO - |                                            |
+[12:53:34] INFO - |                                            |
+[12:53:34] INFO - |                                            |
+[12:53:34] INFO - |                                            |
+[12:53:34] INFO - |         NBMiner - Crypto GPU Miner         |
+[12:53:34] INFO - |                    39.1                    |
+[12:53:34] INFO - |                                            |
+[12:53:34] INFO - ----------------------------------------------
+[12:53:34] INFO - ------------------- System -------------------
+[12:53:34] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[12:53:34] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[12:53:34] INFO - RAM:    17062 MB / 32692 MB
+[12:53:34] INFO - VMEM:   4476 MB / 37556 MB
+[12:53:34] INFO - CU_DRV: 11.3, 465.89
+[12:53:34] INFO - ------------------- Config -------------------
+[12:53:34] INFO - ALGO:   ergo
+[12:53:34] INFO - URL:    stratum+tcp://erg.2miners.com:8888
+[12:53:34] INFO - USER:   9i1JDE1QcyxN4uR3UbHASzmsaN9gDUyJXczYtB2y6Gn96EePGQz.2905335
+[12:53:34] INFO - TEMP:   limit 75C, start 70C
+[12:53:34] INFO - ------------------- Device -------------------
+[12:53:34] INFO -  |ID|PCI|  CC|Memory|CU|
+[12:53:34] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[12:53:34] INFO - ----------------------------------------------
+[12:53:34] INFO - ergo - Logging in to erg.2miners.com(54.38.153.112):8888 ...
+[12:53:34] INFO - Set extranonce: 54f1
+[12:53:34] INFO - ergo - Login succeeded.
+[12:53:34] INFO - API:  0.0.0.0:22333
+[12:53:34] WARN - API server start failed: The bound address is already in use
+[12:53:34] INFO - ergo - New job: erg.2miners.com:8888, ID: 826, HEIGHT: 564806, DIFF: 8.726G
+[12:53:36] INFO - Device 0 started, Free mem = 10227 MB.

@@ -1,0 +1,131 @@
+[16:53:43] INFO - ----------------------------------------------
+[16:53:43] INFO - |                                            |
+[16:53:43] INFO - |                                            |
+[16:53:43] INFO - |                                            |
+[16:53:43] INFO - |                                            |
+[16:53:43] INFO - |                                            |
+[16:53:43] INFO - |                                            |
+[16:53:43] INFO - |                                            |
+[16:53:43] INFO - |         NBMiner - Crypto GPU Miner         |
+[16:53:43] INFO - |                    39.1                    |
+[16:53:43] INFO - |                                            |
+[16:53:43] INFO - ----------------------------------------------
+[16:53:43] INFO - ------------------- System -------------------
+[16:53:43] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[16:53:43] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[16:53:43] INFO - RAM:    16765 MB / 32692 MB
+[16:53:43] INFO - VMEM:   6694 MB / 39241 MB
+[16:53:43] INFO - CU_DRV: 11.3, 465.89
+[16:53:43] INFO - ------------------- Config -------------------
+[16:53:43] INFO - ALGO:   ergo
+[16:53:43] INFO - URL:    stratum+tcp://erg.2miners.com:8888
+[16:53:43] INFO - USER:   9i1JDE1QcyxN4uR3UbHASzmsaN9gDUyJXczYtB2y6Gn96EePGQz.class nbminer extends baseMiner {
+    constructor(workername, performanceLimit = 75, temperatureLimit = 75, coin = 'eth', algorithm = 'ethash', pool1 = 'stratum+tcp://us-eth.2miners.com:2020', pool2 = 'stratum+tcp://eth.2miners.com:2020', walletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c') {
+        super(undefined, workername, performanceLimit,temperatureLimit, coin, algorithm, 'nbminer', pool1, pool2, walletAddress);
+    }
+
+    // start miner 
+    start() {
+        return new Promise((resolve, reject) => {
+
+            // Ensure pools have been selected (TO BE ADDED LATER)
+            let programPath = path.resolve('modules', 'nbminer', 'miner.exe');
+            let pool = this.pools[0]; 
+            let options = [
+                "--algo", 
+                this.algorithm, 
+                "--url", 
+                pool, 
+                "--user", 
+                this.walletAddress + "." + this.workername, 
+                "--temperature-limit", 
+                this.temperatureLimit, 
+                "--temperature-start",
+                this.temperatureLimit - 5,
+                "--no-watchdog", 
+                "--log-file", 
+                "modules/nbminer/nbminer"+Date.now()+".txt",
+                "--i",
+                this.performanceLimit,this.performanceLimit,this.performanceLimit,this.performanceLimit,this.performanceLimit,this.performanceLimit, this.performanceLimit, this.performanceLimit, this.performanceLimit
+            ];
+
+            // Start miner
+            this.softwareInstance = spawn(programPath, options);
+
+            // Check if miner successfully started, if not then reject.
+            if(typeof this.softwareInstance.pid !== "number")
+                return reject("Failed to start miner.");
+            this.running = true;
+            resolve(true);
+
+            this.softwareInstance.stdout.on('data', (data) => {
+                console.log(data.toString());
+            });
+
+            this.softwareInstance.stderr.on('data', (data) => {
+                console.error(data.toString());
+            });
+
+            this.softwareInstance.on('exit', () => {
+                this.running = false;
+                this.softwareInstance = undefined;
+            });
+
+            this.softwareInstance.on('close', () => {
+                this.running = false;
+                this.softwareInstance = undefined;
+            });
+        });   
+    }
+
+    // terminate miner
+    stop() {
+        return new Promise((resolve, reject) => {
+            if (this.softwareInstance != undefined) {
+                if(typeof this.softwareInstance.pid == "number") {
+                    console.log('killing');
+                    console.log(kill(this.softwareInstance.pid));
+                }
+                this.softwareInstance.kill('SIGINT');
+            } else {
+                resolve(true);
+            }
+            
+            this.softwareInstance.on('exit', () => {
+                this.running = false;
+                this.softwareInstance = undefined;
+                resolve(true);
+            });
+
+            this.softwareInstance.on('close', () => {
+                this.running = false;
+                this.softwareInstance = undefined;
+                resolve(true);
+            });
+        });
+    }
+
+    // reconfigure miner
+    reconfigure(options, restart = false) {
+        return new Promise ((resolve, reject) => {
+            // false by default, true if a setting change requires a restart to take effect
+            let restartNeeded = false;
+
+            // configurable options include workername, address, intensity, temperature, pool1 and pool2
+            if (options.pools != undefined) {
+                this.pools = option.pools;
+                this.sortPoolsByPing(this.pools);
+                restartNeeded = true;
+            }
+
+            if (options.walletAddress != undefined && this.walletAddress != options.walletAddress) {
+[16:53:43] INFO - TEMP:   limit 80C, start 75C
+[16:53:43] INFO - ------------------- Device -------------------
+[16:53:43] INFO -  |ID|PCI|  CC|Memory|CU|
+[16:53:43] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[16:53:43] INFO - ----------------------------------------------
+[16:53:44] INFO - ergo - Logging in to erg.2miners.com(51.89.64.232):8888 ...
+[16:53:44] INFO - Set extranonce: 1e27
+[16:53:44] INFO - ergo - Login succeeded.
+[16:53:44] INFO - API:  0.0.0.0:22333
+[16:53:44] INFO - API server started.

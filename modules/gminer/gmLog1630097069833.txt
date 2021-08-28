@@ -1,0 +1,25 @@
++----------------------------------------------------------------+
+|                          GMiner v2.66                          |
++----------------------------------------------------------------+
+Algorithm:          KAWPOW
+DevFee:             1 %
+Stratum server:     
+  host:             us-rvn.2miners.com:6060
+  user:             RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe.9182643
+  password:         x
+Power calculator:   on
+Color output:       on
+Watchdog:           on
+API:                off
+Log to file:        modules/gminer/gmLog1630097069833.txt
+Selected devices:   GPU0  
+Intensity:          95    
+Temperature limits: 80/120
+------------------------------------------------------------------
+16:44:33 Nvidia Driver: 465.89
+16:44:34 Connected to us-rvn.2miners.com:6060 [135.148.55.16]
+16:44:34 Subscribed to Stratum Server
+16:44:34 Set Extra Nonce: 4f
+16:44:34 Authorized on Stratum Server
+16:44:34 New Job: 143c Epoch: #253 Block: #1904353 ProgSeed: #634784 Diff: 4.295G
+16:44:34 Started Mining on GPU0: EVGA NVIDIA GeForce GTX 1080 Ti 11GB [0000:01:00.0]

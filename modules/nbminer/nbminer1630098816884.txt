@@ -1,0 +1,35 @@
+[17:13:38] INFO - ----------------------------------------------
+[17:13:38] INFO - |                                            |
+[17:13:38] INFO - |                                            |
+[17:13:38] INFO - |                                            |
+[17:13:38] INFO - |                                            |
+[17:13:38] INFO - |                                            |
+[17:13:38] INFO - |                                            |
+[17:13:38] INFO - |                                            |
+[17:13:38] INFO - |         NBMiner - Crypto GPU Miner         |
+[17:13:38] INFO - |                    39.1                    |
+[17:13:38] INFO - |                                            |
+[17:13:38] INFO - ----------------------------------------------
+[17:13:38] INFO - ------------------- System -------------------
+[17:13:38] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[17:13:38] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[17:13:38] INFO - RAM:    16890 MB / 32692 MB
+[17:13:38] INFO - VMEM:   9680 MB / 37556 MB
+[17:13:38] INFO - CU_DRV: 11.3, 465.89
+[17:13:38] INFO - ------------------- Config -------------------
+[17:13:38] INFO - ALGO:   ergo
+[17:13:38] INFO - URL:    stratum+tcp://erg.2miners.com:8888
+[17:13:38] INFO - USER:   9i1JDE1QcyxN4uR3UbHASzmsaN9gDUyJXczYtB2y6Gn96EePGQz.9182643
+[17:13:38] INFO - TEMP:   limit 80C, start 75C
+[17:13:38] INFO - ------------------- Device -------------------
+[17:13:38] INFO -  |ID|PCI|  CC|Memory|CU|
+[17:13:38] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[17:13:38] INFO - ----------------------------------------------
+[17:13:38] INFO - ergo - Logging in to erg.2miners.com(51.89.64.232):8888 ...
+[17:13:38] INFO - Set extranonce: 1fe7
+[17:13:38] INFO - ergo - Login succeeded.
+[17:13:38] INFO - API:  0.0.0.0:22333
+[17:13:38] INFO - API server started.
+[17:13:39] INFO - ergo - New job: erg.2miners.com:8888, ID: 61a, HEIGHT: 564292, DIFF: 8.726G
+[17:13:40] INFO - Device 0 started, Free mem = 10227 MB.
+[17:13:43] INFO - Device 0 ready for height 564292, 2.07 s.

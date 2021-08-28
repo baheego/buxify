@@ -1,0 +1,51 @@
+[16:57:57] INFO - ----------------------------------------------
+[16:57:57] INFO - |                                            |
+[16:57:57] INFO - |                                            |
+[16:57:57] INFO - |                                            |
+[16:57:57] INFO - |                                            |
+[16:57:57] INFO - |                                            |
+[16:57:57] INFO - |                                            |
+[16:57:57] INFO - |                                            |
+[16:57:57] INFO - |         NBMiner - Crypto GPU Miner         |
+[16:57:57] INFO - |                    39.1                    |
+[16:57:57] INFO - |                                            |
+[16:57:57] INFO - ----------------------------------------------
+[16:57:57] INFO - ------------------- System -------------------
+[16:57:57] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[16:57:57] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[16:57:57] INFO - RAM:    16671 MB / 32692 MB
+[16:57:57] INFO - VMEM:   6583 MB / 39241 MB
+[16:57:57] INFO - CU_DRV: 11.3, 465.89
+[16:57:57] INFO - ------------------- Config -------------------
+[16:57:57] INFO - ALGO:   ergo
+[16:57:57] INFO - URL:    stratum+tcp://erg.2miners.com:8888
+[16:57:57] INFO - USER:   9i1JDE1QcyxN4uR3UbHASzmsaN9gDUyJXczYtB2y6Gn96EePGQz.9182643
+[16:57:57] INFO - TEMP:   limit 80C, start 75C
+[16:57:57] INFO - ------------------- Device -------------------
+[16:57:57] INFO -  |ID|PCI|  CC|Memory|CU|
+[16:57:57] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[16:57:57] INFO - ----------------------------------------------
+[16:57:58] INFO - ergo - Logging in to erg.2miners.com(51.89.64.232):8888 ...
+[16:57:58] INFO - Set extranonce: 1e9b
+[16:57:58] INFO - ergo - Login succeeded.
+[16:57:58] INFO - API:  0.0.0.0:22333
+[16:57:58] INFO - API server started.
+[16:57:58] INFO - ergo - New job: erg.2miners.com:8888, ID: 610, HEIGHT: 564282, DIFF: 8.726G
+[16:58:00] INFO - Device 0 started, Free mem = 10227 MB.
+[16:58:04] INFO - Device 0 ready for height 564282, 3.96 s.
+[16:58:08] INFO - ergo - New job: erg.2miners.com:8888, ID: 611, HEIGHT: 564283, DIFF: 8.726G
+[16:58:12] INFO - Device 0 ready for height 564283, 3.84 s.
+[16:58:28] INFO - ================ [nbminer v39.1] Summary 2021-08-27 16:58:28 ================
+[16:58:28] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[16:58:28] INFO - | 0|1080ti| 16.10 M|     0|     0|  0| 201|  65| 34|1949| 5005|  71| 80.12 K|
+[16:58:28] INFO - |------------------+------+------+---+----+---------------------------------|
+[16:58:28] INFO - |    Total: 16.10 M|     0|     0|  0| 201| Uptime:  0D 00:00:30   CPU: 22% |
+[16:58:28] INFO - =============================================================================
+[16:58:28] INFO - ergo - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[16:58:58] INFO - ================ [nbminer v39.1] Summary 2021-08-27 16:58:58 ================
+[16:58:58] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[16:58:58] INFO - | 0|1080ti| 13.72 M|     0|     0|  0| 196|  65| 34|1949| 5005|  73| 70.01 K|
+[16:58:58] INFO - |------------------+------+------+---+----+---------------------------------|
+[16:58:58] INFO - |    Total: 13.72 M|     0|     0|  0| 196| Uptime:  0D 00:01:00   CPU: 20% |
+[16:58:58] INFO - =============================================================================
+[16:58:58] INFO - ergo - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 

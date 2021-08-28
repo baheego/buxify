@@ -4,7 +4,7 @@ const fs = require('fs');
 const axios = require('axios');
 const { spawn } = require('child_process');
 const gpuInfo = require('./../modules/gpu-info.js');
-const log = require('electron-log');
+const logBuxify = require('electron-log');
 const path = require('path');
 const { resolve } = require('path');
 const kill = require('tree-kill');
@@ -132,26 +132,25 @@ class miningBenchmark {
             "eth": {
                 // nvidia first
                 "nvidia": [
-                "rtx 3090", 
-                "rtx 3060",
-                "rtx 2080 super",
-                "rtx 2080",
-                "rtx 2070",
-                "rtx 2060 super",
-                "rtx 2060",
-                "gtx 1080 ti",
-                "gtx 1080",
-                "gtx 1660 super",
-                "gtx 1660 ti",
-                "gtx 1660",
-                "gtx 1650 super",
-                "gtx 1650 ti",
-                "gtx 1650",
-                "gtx 1070 ti",
-                "gtx 1070",
-                "p104-100",
-                "p106-100",
-                "p106-90",
+                    "rtx 3090", 
+                    "rtx 3060",
+                    "rtx 2080 super",
+                    "rtx 2080",
+                    "rtx 2070",
+                    "rtx 2060 super",
+                    "rtx 2060",
+                    "gtx 1080 tis",
+                    "gtx 1080s",
+                    "gtx 1660 super",
+                    "gtx 1660 ti",
+                    "gtx 1660",
+                    "gtx 1650 super",
+                    "gtx 1650 ti",
+                    "gtx 1070 ti",
+                    "gtx 1070",
+                    "p104-100",
+                    "p106-100",
+                    "p106-90",
                 ],
                 // amd second
                 "amd": [
@@ -176,23 +175,67 @@ class miningBenchmark {
             "rvn": {
                 // nvidia first
                 "nvidia": [
+                    "rtx 3090", 
+                    "rtx 3060",
+                    "rtx 2080 super",
+                    "rtx 2080",
+                    "rtx 2070",
+                    "rtx 2060 super",
+                    "rtx 2060",
+                    "gtx 1080 tis",
+                    "gtx 1080s",
+                    "gtx 1660 super",
+                    "gtx 1660 ti",
+                    "gtx 1660",
+                    "gtx 1650 super",
+                    "gtx 1650 ti",
+                    "gtx 1070 ti",
+                    "gtx 1070",
+                    "p104-100",
+                    "p106-100",
+                    "p106-90",
                     "rtx 3080 ti",
                     "rtx 3080",
                     "rtx 3070 ti",
                     "rtx 3070",
                     "rtx 3060 ti",
                     "gtx 1050 ti",
+                    "gtx 1650",
                 ],
                 // amd second
                 "amd": [
+                    "amd vii",
+                    "rx 6900 xt",
+                    "rx 6800 xt",
+                    "rx 6800",
+                    "rx 5700 xt",
+                    "rx 5700",
+                    "rx vega 64",
+                    "rx vega 56",
+                    "rx 6700 xt",
+                    "rx 5600 xt",
+                    "rx 590",
+                    "rx 580 8gb",
+                    "rx 480 8gb",
+                    "rx 570 8gb",
+                    "rx 470 8gb",
+                    "rx 5500 xt 8gb",
                     "rx 6600 xt",
+                    "rx 5500 xt",
                     "rx 580",
                     "rx 570",
+                    "rx 560",
                     "rx 480",
                     "rx 470",
                     "r9 nano",
                 ]
             },
+            "erg": {
+                "nvidia": [
+                    "gtx 1080 ti",
+                ],
+                "amd": []
+            }
         }
         
         this.defaultAlgoForUnsupportedGPU = undefined;
@@ -237,7 +280,7 @@ class miningBenchmark {
                             gpuSupported = true;
                             gpuSupportedAlgo = 'ethash';
                             gpuSupportedCoin = 'eth';
-                            gpuMinerSoftware = 'nbminer';
+                            gpuMinerSoftware = 'gminer';
                             break;
                         }
                     }
@@ -249,7 +292,7 @@ class miningBenchmark {
                                 gpuSupported = true;
                                 gpuSupportedAlgo = 'ethash';
                                 gpuSupportedCoin = 'eth';
-                                gpuMinerSoftware = 'nbminer';
+                                gpuMinerSoftware = 'gminer';
                                 break;
                             }
 
@@ -263,13 +306,13 @@ class miningBenchmark {
                                 gpuSupported = true;
                                 gpuSupportedAlgo = 'kawpow';
                                 gpuSupportedCoin = 'rvn';
-                                gpuMinerSoftware = 'nbminer';
+                                gpuMinerSoftware = 'gminer';
                                 break;
                             }
 
                         }
                     }
-                    // And FINALLY, RVN support for AMD
+                    // Then RVN support for AMD
                     if (gpuSupported == false) {
                         for (let gpu of this.gpuAlgoPairs.rvn.amd) {
                             if (gpuName.includes(gpu)) {
@@ -277,6 +320,35 @@ class miningBenchmark {
                                 gpuSupported = true;
                                 gpuSupportedAlgo = 'kawpow';
                                 gpuSupportedCoin = 'rvn';
+                                gpuMinerSoftware = 'gminer';
+                                break;
+                            }
+
+                        }
+                    }
+
+                    // Then ERG support for nvidia
+                    if (gpuSupported == false) {
+                        for (let gpu of this.gpuAlgoPairs.erg.nvidia) {
+                            if (gpuName.includes(gpu)) {
+                                gpuPlatform = 'nvidia';
+                                gpuSupported = true;
+                                gpuSupportedAlgo = 'ergo';
+                                gpuSupportedCoin = 'erg';
+                                gpuMinerSoftware = 'nbminer';
+                                break;
+                            }
+
+                        }
+                    }
+                    // And FINALLY, ERG support for AMD
+                    if (gpuSupported == false) {
+                        for (let gpu of this.gpuAlgoPairs.erg.amd) {
+                            if (gpuName.includes(gpu)) {
+                                gpuPlatform = 'amd';
+                                gpuSupported = true;
+                                gpuSupportedAlgo = 'ergo';
+                                gpuSupportedCoin = 'erg';
                                 gpuMinerSoftware = 'nbminer';
                                 break;
                             }
@@ -377,7 +449,7 @@ class baseMiner {
     }
     
 }
-//miner.exe --algo kawpow --server rvn.2miners.com:6060 --user RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe.baheeg --intensity 80 --templimit 80
+
 class gminer extends baseMiner {
     constructor(workername, performanceLimit = 75, temperatureLimit = 75, coin = 'eth', algorithm = 'ethash', pool1 = 'stratum+tcp://us-eth.2miners.com:2020', pool2 = 'stratum+tcp://eth.2miners.com:2020', walletAddress = '0x231d255f4a1b873d66e8d746abcca5e1b149ac6c') {
         super(undefined, workername, performanceLimit, temperatureLimit, coin, algorithm, 'gminer', pool1, pool2, walletAddress);
@@ -442,8 +514,9 @@ class gminer extends baseMiner {
             if (this.softwareInstance != undefined) {
                 if(typeof this.softwareInstance.pid == "number") {
                     kill(this.softwareInstance.pid, 'SIGINT', function(err) {
-                        console.log('User stopped mining.');
+                        logBuxify.err('Could not stop mining: ', err);
                     });
+                    logBuxify.info("User stopped mining.");
                 }
             } else {
                 resolve(true);
@@ -548,13 +621,11 @@ class nbminer extends baseMiner {
                 this.temperatureLimit, 
                 "--temperature-start",
                 this.temperatureLimit - 5,
-                "--no-watchdog", 
                 "--log-file", 
                 "modules/nbminer/nbminer"+Date.now()+".txt",
                 "--i",
                 this.performanceLimit,this.performanceLimit,this.performanceLimit,this.performanceLimit,this.performanceLimit,this.performanceLimit, this.performanceLimit, this.performanceLimit, this.performanceLimit
             ];
-            console.log(options);
 
             // Start miner
             this.softwareInstance = spawn(programPath, options);
@@ -590,10 +661,16 @@ class nbminer extends baseMiner {
         return new Promise((resolve, reject) => {
             if (this.softwareInstance != undefined) {
                 if(typeof this.softwareInstance.pid == "number") {
-                    console.log('killing');
-                    console.log(kill(this.softwareInstance.pid));
+                    kill(this.softwareInstance.pid, 'SIGINT', function(err) {
+                        if (err) {
+                            logBuxify.error('Could not stop mining: ', err);
+                            return;
+                        } else {
+                            logBuxify.info("User stopped mining.");
+                            return;
+                        }
+                    });
                 }
-                this.softwareInstance.kill('SIGINT');
             } else {
                 resolve(true);
             }
@@ -683,6 +760,8 @@ class miningController {
         this.ethPools = ['stratum+tcp://us-eth.2miners.com:2020', 'stratum+tcp://eth.2miners.com:2020'];
         this.rvnAddress = 'RVg5pZnincbBMV2Bikf3wNATNyc1f5RVYe';
         this.rvnPools = ['stratum+tcp://us-rvn.2miners.com:6060', 'stratum+tcp://rvn.2miners.com:6060'];
+        this.ergAddress = '9i1JDE1QcyxN4uR3UbHASzmsaN9gDUyJXczYtB2y6Gn96EePGQz';
+        this.ergPools = ['stratum+tcp://erg.2miners.com:8888'];
         this.buxify = new Buxify();
         this.benchmarkGPU = new miningBenchmark();
     }
@@ -726,8 +805,16 @@ class miningController {
                 if (getConfig.rvnMiningPoolUrl2 != undefined) this.rvnPools.push(getConfig.rvnMiningPoolUrl2);
             }
 
-            // check if ETH miner exists, or create a new one
-            if (this.miners.gminer == undefined) {
+            // Overwrite ERG
+            if (getConfig.ergMiningWalletAddress != undefined) this.ergAddress = getConfig.ergMiningWalletAddress;
+            if (getConfig.ergMiningPoolUrl1 != undefined || getConfig.ergMiningPoolUrl2 != undefined) {
+                this.ergPools = [];
+                if (getConfig.ergMiningPoolUrl1 != undefined) this.ergPools.push(getConfig.ergMiningPoolUrl1);
+                if (getConfig.ergMiningPoolUrl2 != undefined) this.ergPools.push(getConfig.ergMiningPoolUrl2);
+            }
+
+            // check if the miner exists, or create a new one
+            if (this.miners[this.benchmarkGPU.gpuMinerSoftware] == undefined) {
 
                 // store pools to mine with here
                 let pool1;
@@ -746,6 +833,11 @@ class miningController {
                         pool2 = this.rvnPools[1];
                         address = this.rvnAddress;
                         break;
+                    case 'ergo':
+                        pool1 = this.ergPools[0];
+                        pool2 = this.ergPools[0];
+                        address = this.ergAddress;
+                        break;
                 }
 
                 // get performance/temperature settings if set in config file
@@ -758,15 +850,28 @@ class miningController {
                 if (getConfig.temperatureLimit != undefined)
                     temperatureLimit = getConfig.temperatureLimit;
 
-              this.miners.gminer = new gminer(workerName, performanceLimit, temperatureLimit, this.benchmarkGPU.gpuSupportedCoin, this.benchmarkGPU.gpuSupportedAlgo, pool1, pool2, address);
+                // start new miner
+                switch (this.benchmarkGPU.gpuMinerSoftware) {
+                    case 'gminer':
+                        this.miners.gminer = new gminer(workerName, performanceLimit, temperatureLimit, this.benchmarkGPU.gpuSupportedCoin, this.benchmarkGPU.gpuSupportedAlgo, pool1, pool2, address);
+                        break;
+                    case 'nbminer':
+                        this.miners.nbminer = new nbminer(workerName, performanceLimit, temperatureLimit, this.benchmarkGPU.gpuSupportedCoin, this.benchmarkGPU.gpuSupportedAlgo, pool1, pool2, address);
+                        break;
+                }
             }
 
-            // start ETH miner
-            this.miners.gminer.start()
+            // reference benchmark
+            let theBenchmark = this.benchmarkGPU;
+
+            // start miner
+            this.miners[this.benchmarkGPU.gpuMinerSoftware].start()
               .then(function(){
+                logBuxify.info('User started mining ', theBenchmark.gpuSupportedCoin, ' with ', theBenchmark.gpuName);
                 theController.isMining = true;
                 return resolve({success: true, mining: true});
               }).catch(function(err){
+                logBuxify.info('ERR: User tried mining ', theBenchmark.gpuSupportedCoin, ' with ', theBenchmark.gpuName, ' but error was raised: ', err);
                 theController.isMining = false;
                 return reject({success: false, mining: false, error: err});
               });
@@ -834,7 +939,7 @@ class miningController {
             }
 
             // return result
-            return resolve({success: true, mining: oneMinerRunning}); 
+            return resolve({success: true, mining: oneMinerRunning, miners: Object.keys(this.miners)}); 
 
         });
     }

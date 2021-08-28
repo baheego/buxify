@@ -1,0 +1,57 @@
+[17:27:15] INFO - ----------------------------------------------
+[17:27:15] INFO - |                                            |
+[17:27:15] INFO - |                                            |
+[17:27:15] INFO - |                                            |
+[17:27:15] INFO - |                                            |
+[17:27:15] INFO - |                                            |
+[17:27:15] INFO - |                                            |
+[17:27:15] INFO - |                                            |
+[17:27:15] INFO - |         NBMiner - Crypto GPU Miner         |
+[17:27:15] INFO - |                    39.1                    |
+[17:27:15] INFO - |                                            |
+[17:27:15] INFO - ----------------------------------------------
+[17:27:15] INFO - ------------------- System -------------------
+[17:27:15] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[17:27:15] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[17:27:15] INFO - RAM:    16934 MB / 32692 MB
+[17:27:15] INFO - VMEM:   9745 MB / 37556 MB
+[17:27:15] INFO - CU_DRV: 11.3, 465.89
+[17:27:15] INFO - ------------------- Config -------------------
+[17:27:15] INFO - ALGO:   ergo
+[17:27:15] INFO - URL:    stratum+tcp://erg.2miners.com:8888
+[17:27:15] INFO - USER:   9i1JDE1QcyxN4uR3UbHASzmsaN9gDUyJXczYtB2y6Gn96EePGQz.262308
+[17:27:15] INFO - TEMP:   limit 80C, start 75C
+[17:27:16] INFO - ------------------- Device -------------------
+[17:27:16] INFO -  |ID|PCI|  CC|Memory|CU|
+[17:27:16] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[17:27:16] INFO - ----------------------------------------------
+[17:27:16] INFO - ergo - Logging in to erg.2miners.com(54.38.153.112):8888 ...
+[17:27:16] INFO - Set extranonce: f2c5
+[17:27:16] INFO - ergo - Login succeeded.
+[17:27:16] INFO - API:  0.0.0.0:22333
+[17:27:16] INFO - API server started.
+[17:27:16] INFO - ergo - New job: erg.2miners.com:8888, ID: 628, HEIGHT: 564302, DIFF: 8.726G
+[17:27:18] INFO - Device 0 started, Free mem = 10227 MB.
+[17:27:20] INFO - Device 0 ready for height 564302, 2.16 s.
+[17:27:46] INFO - ================ [nbminer v39.1] Summary 2021-08-27 17:27:46 ================
+[17:27:46] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[17:27:46] INFO - | 0|1080ti| 28.54 M|     0|     0|  0|  84|  57| 16|1949| 5005|   4| 339.8 K|
+[17:27:46] INFO - |------------------+------+------+---+----+---------------------------------|
+[17:27:46] INFO - |    Total: 28.54 M|     0|     0|  0|  84| Uptime:  0D 00:00:30   CPU: 14% |
+[17:27:46] INFO - =============================================================================
+[17:27:46] INFO - ergo - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[17:28:16] INFO - ================ [nbminer v39.1] Summary 2021-08-27 17:28:16 ================
+[17:28:16] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[17:28:16] INFO - | 0|1080ti| 25.69 M|     0|     0|  0|  85|  59| 16|1949| 5005|   0| 302.3 K|
+[17:28:16] INFO - |------------------+------+------+---+----+---------------------------------|
+[17:28:16] INFO - |    Total: 25.69 M|     0|     0|  0|  85| Uptime:  0D 00:01:00   CPU: 10% |
+[17:28:16] INFO - =============================================================================
+[17:28:16] INFO - ergo - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[17:28:46] INFO - ================ [nbminer v39.1] Summary 2021-08-27 17:28:46 ================
+[17:28:46] INFO - |ID|Device|Hashrate|Accept|Reject|Inv|Powr|Temp|Fan|CClk|GMClk|MUtl|Eff/Watt|
+[17:28:46] INFO - | 0|1080ti| 25.77 M|     0|     0|  0| 145|  60| 18|1949| 5005|   0| 177.7 K|
+[17:28:46] INFO - |------------------+------+------+---+----+---------------------------------|
+[17:28:46] INFO - |    Total: 25.77 M|     0|     0|  0| 145| Uptime:  0D 00:01:30   CPU:  9% |
+[17:28:46] INFO - =============================================================================
+[17:28:46] INFO - ergo - On Pool   10m:  0.000    4h:  0.000    24h:  0.000 
+[17:28:49] INFO - ergo - #1 Share accepted, 112 ms. [DEVICE 0, #1]
