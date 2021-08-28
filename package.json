@@ -20,6 +20,7 @@
     "custom-electron-titlebar": "^3.2.7",
     "detect-gpu": "^3.1.12",
     "electron-log": "^4.4.1",
+    "electron-updater": "^4.3.9",
     "gpu-info": "0.0.1",
     "jquery": "^3.6.0",
     "request": "^2.88.2",

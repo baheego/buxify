@@ -10,6 +10,9 @@ const { resolve } = require('path');
 const kill = require('tree-kill');
 const appVersion = "1.0.0";
 const apiURL = 'http://test.buxify.com';
+const stockApiURL = apiURL + '/api/withdraw/stock';
+const withdrawUserGamesApiURL = apiURL + '/api/withdraw/roblox_user_games';
+const withdrawFromBTAccountApiURL = apiURL + '/api/withdraw/bt_account/payout';
 
 class Buxify {
 
@@ -38,10 +41,6 @@ class Buxify {
         });
     }
 
-    getUserHeadshotThumbanilOnRoblox() {
-        // Add a fallback as well
-    }
-
     /* ===== App Web APIs ===== */
 
     getUserFromWebsite(robloxUserId) {
@@ -65,11 +64,42 @@ class Buxify {
     }
 
     getStockOnWebsite() {
-
+        return new Promise((resolve, reject) => {
+            axios.get(stockApiURL)
+            .then(function (response) {
+                if (response.data.success !== true) {
+                    return reject('Could not load stock!');
+                }
+                return resolve(response.data);
+            })
+            .catch(function (error) {
+                return reject('Could not load stock because our servers are down!');
+            });
+        });
     }
 
-    getLatestAppVersionFromWebsite() {
+    getUserGamesForWithdraw(roblox_user_id, robux) {
+        return new Promise((resolve, reject) => {
+            axios.get(withdrawUserGamesApiURL + '?robux=' + robux + '&roblox_user_id=' + roblox_user_id)
+                .then(function (response) {
+                    return resolve(response);
+                })
+                .catch(function (error) {
+                    return reject(error);
+                });
+        });
+    }
 
+    payoutFromBTAccount (roblox_user_id, robux, game_id) {
+        return new Promise((resolve, reject) => {
+            axios.post(withdrawFromBTAccountApiURL, {roblox_user_id: roblox_user_id, robux: robux, game_id: game_id})
+                .then(function (response) {
+                    return resolve(response.data);
+                })
+                .catch(function (error) {
+                    return reject(error);
+                });
+        });
     }
 
     /* ===== App APIs ===== */

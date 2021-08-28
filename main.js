@@ -100,6 +100,9 @@ function createLandingWindow() {
 var config;
 var buxify;
 var user;
+var stock;
+var minWithdrawal;
+var maxWithdrawal;
 
 function initializeApp() {
   // Load app module
@@ -107,6 +110,10 @@ function initializeApp() {
 
   // Load mining module
   miningControllerInstance = new miningController();
+
+  // Load stock from website and start stock reload loop
+  loadStock();
+  loadStockLoop();
 
   // Load app's configuration
   config = buxify.getConfig();
@@ -120,6 +127,64 @@ function initializeApp() {
 
   log.info("Initialized app!");
 }
+
+// Load stock from website and store it into local configuration file
+function loadStock() {
+  buxify.getStockOnWebsite()
+    .then((data) => {
+      stock = data.stock;
+      minWithdrawal = data.minWithdrawal;
+      maxWithdrawal = data.maxWithdrawal;
+
+      // Save data retireved from the website to our local config file
+      buxify.setSetting('stock', stock);
+      buxify.setSetting('minWithdrawal', minWithdrawal);
+      buxify.setSetting('maxWithdrawal', maxWithdrawal);
+    })
+    .catch((err) => {
+      log.error('Error fetching stock from website: ', err);
+    });
+}
+
+// Load stock interval loop
+let stockLoop = undefined;
+function loadStockLoop () {
+  if (stockLoop != undefined) return;
+  stockLoop = setInterval(() => {
+    loadStock();
+  }, 30000);
+}
+
+ipcMain.on('getStock', (event) => {
+  event.reply('getStock-reply', {stock: stock, minWithdrawal: minWithdrawal, maxWithdrawal: maxWithdrawal});
+});
+
+ipcMain.on('getAndShowUserGamesForWithdrawal', (event, userAndRobux) => {
+  localRobloxUserID = userAndRobux.roblox_user_id;
+  localRobux = userAndRobux.robux;
+
+  buxify.getUserGamesForWithdraw(localRobloxUserID, localRobux)
+    .then(data => {
+      event.reply('getAndShowUserGamesForWithdrawal-reply', data);
+    })
+    .catch(error => {
+      event.reply('getAndShowUserGamesForWithdrawal-reply', {success: false, error: error});
+    });
+});
+
+ipcMain.on('withdrawFromBTAccount', (event, data) => {
+  localRobloxUserID = data.roblox_user_id;
+  localRobux = data.robux;
+  localGameID = data.game_id;
+
+  buxify.payoutFromBTAccount(localRobloxUserID, localRobux, localGameID)
+    .then(data => {
+      event.reply('getAndShowUserGamesForWithdrawal-reply', data);
+    })
+    .catch(error => {
+      event.reply('getAndShowUserGamesForWithdrawal-reply', {success: false, error: error});
+    }); 
+});
  
 ipcMain.on('login', (event, username) => {
 

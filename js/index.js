@@ -288,10 +288,121 @@ ipcRenderer.on('toggleMining-reply', (event, arg) => {
     miningDeb = false;
 });
 
+
+var stock;
+var minWithdrawal;
+var maxWithdrawal;
+ipcRenderer.on('getStock-reply', (event, arg) => {
+    stock = arg.stock;
+    minWithdrawal = arg.minWithdrawal;
+    maxWithdrawal = arg.maxWithdrawal;
+
+    $('#stock').html('R$ ' + stock);
+});
+
 // Update config var
 function updateLocalConfig() {
     ipcRenderer.send('getLocalConfig');
 }
+
+// Update stock from local config
+function updateStock() {
+    ipcRenderer.send('getStock');
+}
+
+// Show user's games for withdrawal
+function getAndShowUserGamesForWithdrawal() {
+    let robux = $('#robuxWithdrawalAmount').val();
+    if (robux > balance) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Uh oh...',
+            text: 'You do not have balance to withdraw R$ ' + robux,
+        });
+    }
+    if (minWithdrawal != undefined && robux < minWithdrawal) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Uh oh...',
+            text: 'You must withdraw at least R$ ' + minWithdrawal,
+        });
+        return;
+    }
+    if (maxWithdrawal != undefined && robux > maxWithdrawal) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Uh oh...',
+            text: 'You cannot withdraw more than R$ ' + maxWithdrawal,
+        });
+        return;
+    }
+    if (robux > stock) {
+         Swal.fire({
+            icon: 'error',
+            title: 'Uh oh...',
+            text: 'We do not have enough stock for your withdrawal, please request a smaller amount or wait for a restock!',
+        });
+        return;
+    }
+    ipcRenderer.send('getAndShowUserGamesForWithdrawal', {roblox_user_id: roblox_user_id, robux: robux });
+}
+
+var game;
+var universe_id;
+var place_id
+var game_id;
+ipcRenderer.on('getAndShowUserGamesForWithdrawal-reply', (event, data) => {
+    if (data['success'] == false) {
+        Swal.fire('Error', data.message, 'error')
+    } else {
+        if (data.roblox_games.games.length < 1) {
+            Swal.fire('Error', 'You do not have any games, please create a ROBLOX game first then come back and try this again. <br><br> If you do have games but they are not showing, please make sure your games are not private and try updating their description then come back and try again.');
+
+            return false;
+        }
+        game = data.roblox_games.games[0];
+        universe_id = game.id;
+        place_id = game.rootPlace.id;
+        game_id = game.rootPlace.id;
+        $('.account_game_link').attr('href', 'https://www.roblox.com/games/' + place_id + '/test');
+        $('#account_game_link').attr('href', 'https://www.roblox.com/places/' + place_id + '/update');
+        $('#account_game_image_link').attr('href', 'https://www.roblox.com/places/' + place_id + '/update');
+        $('#account_game_username').html('<a target="_blank" style="text-decoration: underline" href="https://www.roblox.com/users/'+ data.roblox_user_id +'/profile">'+ roblox_username +'</a>');
+        $('#account_game_image').attr('src', "https://www.roblox.com/asset-thumbnail/image?assetId=" + place_id + "&width=768&height=432&format=png");
+        $('.account_game_buy_price').html(data.set_price_to + " Robux");
+        $('#account_game_modal').modal('show');
+    }
+});
+
+var payout_debounce = false;
+// Request withdrawal
+function withdrawFromBTAccount() {
+    if (payout_debounce == true) return;
+    payout_debounce = true;
+
+    $('#account_payout_button').html('<div class="spinner-border text-light" role="status" style="height: 1.5rem; width: 1.5rem"><span class="sr-only">Loading...</span></div>')
+    $('#account_game_modal').modal('hide');
+    ipcRenderer.send('withdrawFromBTAccount', {robux: robux, roblox_user_id: roblox_user_id, game: game_id});
+}
+
+ipcRenderer.on('withdrawFromBTAccount-reply', (event, data) => {
+
+        if (data['success'] == true) {
+            Swal.fire(
+                'Success',
+                data.message,
+                'success'
+            );
+        } else if (data['success'] == false && data['error'] != undefined) {
+            Swal.fire('Error', data.error, 'error');
+        } else if (data['success'] == false && data['message'] != undefined) {
+            Swal.fire('Error', data.message, 'error');
+        } else {
+            Swal.fire('Error', 'Could not withdraw your Robux, please make sure you set your game to the correct price and try again later!', 'error');
+        }
+
+    payout_debounce = false;
+});
 
 // Change settings to reflect config file
 function updateSettingsInDom() {
@@ -333,11 +444,13 @@ $(document).ready(function(){
     updateUserInDom();
     updateBalance();
     updateLocalConfig();
+    updateStock();
 
     // update user balance
     setInterval(() => {
         updateBalance();
         updateUserInDom();
+        updateStock();
     }, 5000);
 
     // update mining status
