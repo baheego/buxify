@@ -1,0 +1,264 @@
++----------------------------------------------------------------+
+|                          GMiner v2.66                          |
++----------------------------------------------------------------+
+Algorithm:          Ethash
+DevFee:             0.65 %
+Stratum server:     
+  host:             us-eth.2miners.com:2020
+  user:             0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.104830449
+  password:         x
+Power calculator:   on
+Color output:       on
+Watchdog:           on
+API:                off
+Log to file:        modules/gminer/gmLog1630197736180.txt
+Selected devices:   GPU0  
+Intensity:          75    
+Temperature limits: 75/120
+------------------------------------------------------------------
+20:42:20 Nvidia Driver: 465.89
+20:42:21 Connected to us-eth.2miners.com:2020 [51.81.57.44]
+20:42:21 Authorized on Stratum Server
+20:42:21 New Job: d62396d9 Epoch: #437 Block: #13117220 Diff: 8.726G
+20:42:21 Started Mining on GPU0: EVGA NVIDIA GeForce GTX 1080 Ti 11GB [0000:01:00.0]
+20:42:23 GPU0: Generating DAG for epoch #437 [Single Buffer 4520 MB]
+20:42:24 New Job: 79173677 Epoch: #437 Block: #13117220 Diff: 8.726G
+20:42:31 New Job: 7012dbe9 Epoch: #437 Block: #13117220 Diff: 8.726G
+20:42:34 GPU0: DAG generated in 11.40s [397 MB/s]
+20:42:34 GPU0: DAG verification passed
+20:42:38 New Job: 91998252 Epoch: #437 Block: #13117220 Diff: 8.726G
+20:42:45 New Job: 66dda8db Epoch: #437 Block: #13117220 Diff: 8.726G
+20:42:46 New Job: 2f001d21 Epoch: #437 Block: #13117221 Diff: 8.726G
+20:42:46 New Job: 11eb32ba Epoch: #437 Block: #13117221 Diff: 8.726G
++---+-------+----+---+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp Fan    Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+---+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   56 8 %  21.48 MH/s  0/0/0 1961  5005 158 W  135.92 KH/W |
++---+-------+----+---+-----------+------+----+-----+-----+-------------+
+20:42:51 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:42:51 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:42:51 Uptime: 0d 00:00:30 Electricity: 0.001 kWh
+20:42:53 New Job: 8db347e1 Epoch: #437 Block: #13117221 Diff: 8.726G
+20:42:54 New Job: 2b45541d Epoch: #437 Block: #13117222 Diff: 8.726G
+20:42:54 New Job: 5da4ef51 Epoch: #437 Block: #13117222 Diff: 8.726G
+20:43:01 New Job: 829fd9b2 Epoch: #437 Block: #13117222 Diff: 8.726G
+20:43:04 New Job: 02b4d51a Epoch: #437 Block: #13117223 Diff: 8.726G
+20:43:04 New Job: 72984256 Epoch: #437 Block: #13117223 Diff: 8.726G
+20:43:11 New Job: 6033b2d8 Epoch: #437 Block: #13117223 Diff: 8.726G
+20:43:15 New Job: 4e6ef05d Epoch: #437 Block: #13117224 Diff: 8.726G
+20:43:15 New Job: b3e87e37 Epoch: #437 Block: #13117224 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   60  17 %  18.75 MH/s  0/0/0 1949  5005 153 W  122.55 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:43:21 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:43:21 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:43:21 Uptime: 0d 00:01:00 Electricity: 0.002 kWh
+20:43:23 New Job: fb9ceed1 Epoch: #437 Block: #13117224 Diff: 8.726G
+20:43:30 New Job: 7014fe80 Epoch: #437 Block: #13117224 Diff: 8.726G
+20:43:30 New Job: fd3418e2 Epoch: #437 Block: #13117225 Diff: 8.726G
+20:43:33 New Job: a87842d8 Epoch: #437 Block: #13117226 Diff: 8.726G
+20:43:33 New Job: e5aa432c Epoch: #437 Block: #13117226 Diff: 8.726G
+20:43:40 New Job: d0d7068a Epoch: #437 Block: #13117226 Diff: 8.726G
+20:43:44 New Job: fff5d5e9 Epoch: #437 Block: #13117227 Diff: 8.726G
+20:43:46 GPU0 EVGA NVIDIA GeForce GTX 1080 Ti 11GB: Kernel #3 Selected
+20:43:50 New Job: 81abce5d Epoch: #437 Block: #13117228 Diff: 8.726G
+20:43:50 New Job: 85a16f11 Epoch: #437 Block: #13117228 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   62  22 %  21.07 MH/s  0/0/0 1949  5005 154 W  136.83 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:43:51 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:43:51 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:43:51 Uptime: 0d 00:01:30 Electricity: 0.004 kWh
+20:43:57 New Job: fd7709d7 Epoch: #437 Block: #13117228 Diff: 8.726G
+20:44:04 New Job: c015e9b2 Epoch: #437 Block: #13117228 Diff: 8.726G
+20:44:11 New Job: d76bbd30 Epoch: #437 Block: #13117228 Diff: 8.726G
+20:44:19 New Job: 676fec74 Epoch: #437 Block: #13117228 Diff: 8.726G
+20:44:19 New Job: dc4f378a Epoch: #437 Block: #13117228 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   63  25 %  23.28 MH/s  0/0/0 1949  5005 156 W  149.21 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:44:21 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:44:21 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:44:21 Uptime: 0d 00:02:00 Electricity: 0.005 kWh
+20:44:25 New Job: 1239a0de Epoch: #437 Block: #13117228 Diff: 8.726G
+20:44:32 New Job: c70d323a Epoch: #437 Block: #13117228 Diff: 8.726G
+20:44:39 New Job: 7693ada1 Epoch: #437 Block: #13117228 Diff: 8.726G
+20:44:41 New Job: 4752bedc Epoch: #437 Block: #13117229 Diff: 8.726G
+20:44:41 New Job: 9159f217 Epoch: #437 Block: #13117229 Diff: 8.726G
+20:44:48 New Job: 3823ac57 Epoch: #437 Block: #13117229 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   64  26 %  23.38 MH/s  0/0/0 1949  5005 158 W  147.96 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:44:51 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:44:51 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:44:51 Uptime: 0d 00:02:30 Electricity: 0.006 kWh
+20:44:55 New Job: 5e155a28 Epoch: #437 Block: #13117229 Diff: 8.726G
+20:44:55 New Job: ff49e4fd Epoch: #437 Block: #13117229 Diff: 8.726G
+20:44:58 New Job: b6089c62 Epoch: #437 Block: #13117230 Diff: 8.726G
+20:44:58 New Job: d5a92ffc Epoch: #437 Block: #13117230 Diff: 8.726G
+20:44:58 New Job: 2c8d342e Epoch: #437 Block: #13117230 Diff: 8.726G
+20:45:05 New Job: d2a88142 Epoch: #437 Block: #13117230 Diff: 8.726G
+20:45:12 New Job: 8ef238c2 Epoch: #437 Block: #13117230 Diff: 8.726G
+20:45:13 New Job: ca89cb18 Epoch: #437 Block: #13117231 Diff: 8.726G
+20:45:13 New Job: 9c9d6859 Epoch: #437 Block: #13117231 Diff: 8.726G
+20:45:20 New Job: 82d419f8 Epoch: #437 Block: #13117231 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   64  28 %  23.56 MH/s  0/0/0 1949  5005 159 W  148.18 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:45:21 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:45:21 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:45:21 Uptime: 0d 00:03:00 Electricity: 0.008 kWh
+20:45:22 New Job: 6ab0fffc Epoch: #437 Block: #13117232 Diff: 8.726G
+20:45:27 New Job: 21edca73 Epoch: #437 Block: #13117233 Diff: 8.726G
+20:45:27 New Job: 02a1692d Epoch: #437 Block: #13117233 Diff: 8.726G
+20:45:34 New Job: db3c8a8c Epoch: #437 Block: #13117233 Diff: 8.726G
+20:45:41 New Job: 0e4a88dd Epoch: #437 Block: #13117233 Diff: 8.726G
+20:45:48 New Job: e7a8e783 Epoch: #437 Block: #13117233 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   63  28 %  22.90 MH/s  0/0/0 1949  5005 159 W  144.02 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:45:51 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:45:51 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:45:51 Uptime: 0d 00:03:30 Electricity: 0.009 kWh
+20:45:55 New Job: 49ed1677 Epoch: #437 Block: #13117233 Diff: 8.726G
+20:46:02 New Job: 76ecbe19 Epoch: #437 Block: #13117233 Diff: 8.726G
+20:46:05 New Job: ce4422b9 Epoch: #437 Block: #13117234 Diff: 8.726G
+20:46:05 New Job: 78cfad8d Epoch: #437 Block: #13117234 Diff: 8.726G
+20:46:12 New Job: 751c2dde Epoch: #437 Block: #13117234 Diff: 8.726G
+20:46:18 New Job: d9f433c7 Epoch: #437 Block: #13117235 Diff: 8.726G
+20:46:19 New Job: 5ff455cf Epoch: #437 Block: #13117236 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   62  28 %  23.11 MH/s  0/0/0 1949  5005 160 W  144.44 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:46:21 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:46:21 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:46:21 Uptime: 0d 00:04:00 Electricity: 0.010 kWh
+20:46:23 New Job: 72477000 Epoch: #437 Block: #13117237 Diff: 8.726G
+20:46:24 New Job: 5af826f0 Epoch: #437 Block: #13117237 Diff: 8.726G
+20:46:27 New Job: 8872c26e Epoch: #437 Block: #13117238 Diff: 8.726G
+20:46:34 New Job: 84bd6666 Epoch: #437 Block: #13117238 Diff: 8.726G
+20:46:36 New Job: 3fdd6c90 Epoch: #437 Block: #13117239 Diff: 8.726G
+20:46:36 New Job: 65018aff Epoch: #437 Block: #13117239 Diff: 8.726G
+20:46:36 New Job: 424d7a74 Epoch: #437 Block: #13117239 Diff: 8.726G
+20:46:43 New Job: e70a7f39 Epoch: #437 Block: #13117239 Diff: 8.726G
+20:46:50 New Job: 1dcb584c Epoch: #437 Block: #13117239 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   61  28 %  23.25 MH/s  0/0/0 1949  5005 160 W  145.34 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:46:51 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:46:51 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:46:51 Uptime: 0d 00:04:30 Electricity: 0.012 kWh
+20:46:57 New Job: 22a14d06 Epoch: #437 Block: #13117239 Diff: 8.726G
+20:47:02 New Job: 5a65588d Epoch: #437 Block: #13117240 Diff: 8.726G
+20:47:09 New Job: 468575ed Epoch: #437 Block: #13117240 Diff: 8.726G
+20:47:16 New Job: e0051294 Epoch: #437 Block: #13117240 Diff: 8.726G
+20:47:20 New Job: 40786ed0 Epoch: #437 Block: #13117241 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   61  28 %  23.26 MH/s  0/0/0 1949  5005 160 W  145.39 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:47:21 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:47:21 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:47:21 Uptime: 0d 00:05:00 Electricity: 0.013 kWh
+20:47:22 New Job: 9971dd01 Epoch: #437 Block: #13117242 Diff: 8.726G
+20:47:22 New Job: 95580ed5 Epoch: #437 Block: #13117242 Diff: 8.726G
+20:47:29 New Job: 8e233e4e Epoch: #437 Block: #13117242 Diff: 8.726G
+20:47:36 New Job: a7848c65 Epoch: #437 Block: #13117242 Diff: 8.726G
+20:47:39 New Job: ec5ee260 Epoch: #437 Block: #13117243 Diff: 8.726G
+20:47:39 New Job: c5c242f9 Epoch: #437 Block: #13117243 Diff: 8.726G
+20:47:46 New Job: b210e0e7 Epoch: #437 Block: #13117243 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   60  27 %  23.26 MH/s  0/0/0 1949  5005 160 W  145.37 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:47:51 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:47:51 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:47:51 Uptime: 0d 00:05:30 Electricity: 0.014 kWh
+20:47:53 New Job: c4c05580 Epoch: #437 Block: #13117243 Diff: 8.726G
+20:48:00 New Job: 26d1002a Epoch: #437 Block: #13117243 Diff: 8.726G
+20:48:07 New Job: 5ce81ed0 Epoch: #437 Block: #13117243 Diff: 8.726G
+20:48:07 New Job: 1a27bcaa Epoch: #437 Block: #13117243 Diff: 8.726G
+20:48:13 New Job: a3b0fa84 Epoch: #437 Block: #13117244 Diff: 8.726G
+20:48:17 New Job: fce5a602 Epoch: #437 Block: #13117245 Diff: 8.726G
+20:48:18 New Job: 88708336 Epoch: #437 Block: #13117245 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   60  27 %  23.03 MH/s  0/0/0 1949  5005 160 W  143.92 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:48:21 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:48:21 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:48:21 Uptime: 0d 00:06:00 Electricity: 0.016 kWh
+20:48:22 New Job: b0510efe Epoch: #437 Block: #13117246 Diff: 8.726G
+20:48:22 New Job: 35a6ca08 Epoch: #437 Block: #13117246 Diff: 8.726G
+20:48:29 New Job: f07fe379 Epoch: #437 Block: #13117246 Diff: 8.726G
+20:48:36 New Job: ed01fb49 Epoch: #437 Block: #13117246 Diff: 8.726G
+20:48:43 New Job: dc9c4957 Epoch: #437 Block: #13117246 Diff: 8.726G
+20:48:43 New Job: 1b40c6bf Epoch: #437 Block: #13117246 Diff: 8.726G
+20:48:46 New Job: 7aab09e0 Epoch: #437 Block: #13117247 Diff: 8.726G
+20:48:46 New Job: 3314db0f Epoch: #437 Block: #13117247 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   61  26 %  23.01 MH/s  0/0/0 1949  5005 160 W  143.82 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:48:51 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:48:51 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:48:51 Uptime: 0d 00:06:30 Electricity: 0.017 kWh
+20:48:54 New Job: 9d8a025c Epoch: #437 Block: #13117247 Diff: 8.726G
+20:49:00 New Job: 24c2e8fc Epoch: #437 Block: #13117248 Diff: 8.726G
+20:49:00 New Job: 385fd5a1 Epoch: #437 Block: #13117248 Diff: 8.726G
+20:49:07 New Job: cfc50487 Epoch: #437 Block: #13117248 Diff: 8.726G
+20:49:14 New Job: a8c7ad61 Epoch: #437 Block: #13117248 Diff: 8.726G
+20:49:14 New Job: cb601eea Epoch: #437 Block: #13117248 Diff: 8.726G
+20:49:19 New Job: a15f0596 Epoch: #437 Block: #13117249 Diff: 8.726G
+20:49:19 New Job: 77c4a35b Epoch: #437 Block: #13117249 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   61  26 %  22.83 MH/s  0/0/0 1949  5005 160 W  142.67 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:49:21 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:49:21 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:49:21 Uptime: 0d 00:07:00 Electricity: 0.018 kWh
+20:49:21 New Job: c89dca14 Epoch: #437 Block: #13117250 Diff: 8.726G
+20:49:21 New Job: 474c95b3 Epoch: #437 Block: #13117250 Diff: 8.726G
+20:49:28 New Job: 04396cb5 Epoch: #437 Block: #13117250 Diff: 8.726G
+20:49:35 New Job: 6d4ad89f Epoch: #437 Block: #13117250 Diff: 8.726G
+20:49:42 New Job: 415c1623 Epoch: #437 Block: #13117250 Diff: 8.726G
+20:49:50 New Job: 2fe377df Epoch: #437 Block: #13117250 Diff: 8.726G
+20:49:50 New Job: 5f5fb83c Epoch: #437 Block: #13117250 Diff: 8.726G
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+| ID   GPU   Temp  Fan     Speed    Shares Core  Mem  Power  Efficiency  |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+|  0  1080Ti   61  26 %  22.69 MH/s  0/0/0 1949  5005 160 W  141.81 KH/W |
++---+-------+----+-----+-----------+------+----+-----+-----+-------------+
+20:49:51 Pool: us-eth.2miners.com:2020 Shares/Minute: 0.00
+20:49:51 Pool Hashrate: 0 H/s Efficiency: 0.00 %
+20:49:51 Uptime: 0d 00:07:30 Electricity: 0.020 kWh
+20:49:51 New Job: fd832c51 Epoch: #437 Block: #13117251 Diff: 8.726G
+20:49:51 New Job: cf25deb8 Epoch: #437 Block: #13117251 Diff: 8.726G
+20:49:58 New Job: ccddbe0a Epoch: #437 Block: #13117251 Diff: 8.726G
+20:50:05 New Job: 5bdb3617 Epoch: #437 Block: #13117251 Diff: 8.726G
+20:50:13 New Job: 340fd850 Epoch: #437 Block: #13117251 Diff: 8.726G
+20:50:13 New Job: 9e22609a Epoch: #437 Block: #13117251 Diff: 8.726G
+20:50:17 New Job: 7bfd1a9e Epoch: #437 Block: #13117252 Diff: 8.726G
+20:50:17 New Job: 3bc76744 Epoch: #437 Block: #13117252 Diff: 8.726G

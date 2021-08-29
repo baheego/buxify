@@ -1,0 +1,36 @@
++----------------------------------------------------------------+
+|                          GMiner v2.66                          |
++----------------------------------------------------------------+
+Algorithm:          Ethash
+DevFee:             0.65 %
+Stratum server:     
+  host:             us-eth.2miners.com:2020
+  user:             0x231d255f4a1b873d66e8d746abcca5e1b149ac6c.104830449
+  password:         x
+Power calculator:   on
+Color output:       on
+Watchdog:           on
+API:                off
+Log to file:        modules/gminer/gmLog1630213856063.txt
+Selected devices:   GPU0  
+Intensity:          85    
+Temperature limits: 85/120
+------------------------------------------------------------------
+01:10:59 Nvidia Driver: 465.89
+01:10:59 Connected to us-eth.2miners.com:2020 [147.135.11.144]
+01:10:59 Authorized on Stratum Server
+01:10:59 New Job: 2c32af75 Epoch: #437 Block: #13118438 Diff: 8.726G
+01:10:59 Started Mining on GPU0: EVGA NVIDIA GeForce GTX 1080 Ti 11GB [0000:01:00.0]
+01:11:01 GPU0: Generating DAG for epoch #437 [Single Buffer 4520 MB]
+01:11:02 New Job: 7abcbaa5 Epoch: #437 Block: #13118438 Diff: 8.726G
+01:11:03 New Job: d14c17ad Epoch: #437 Block: #13118439 Diff: 8.726G
+01:11:04 New Job: 105cb65d Epoch: #437 Block: #13118439 Diff: 8.726G
+01:11:11 New Job: 562b103a Epoch: #437 Block: #13118439 Diff: 8.726G
+01:11:12 New Job: c132f299 Epoch: #437 Block: #13118440 Diff: 8.726G
+01:11:12 New Job: 5804323a Epoch: #437 Block: #13118440 Diff: 8.726G
+01:11:13 GPU0: DAG generated in 11.31s [400 MB/s]
+01:11:13 GPU0: DAG verification passed
+01:11:14 New Job: 1ff85862 Epoch: #437 Block: #13118441 Diff: 8.726G
+01:11:21 New Job: 45a6f7d9 Epoch: #437 Block: #13118441 Diff: 8.726G
+01:11:22 New Job: 8e524072 Epoch: #437 Block: #13118442 Diff: 8.726G
+01:11:22 New Job: fc00c3fd Epoch: #437 Block: #13118442 Diff: 8.726G

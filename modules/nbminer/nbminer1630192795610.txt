@@ -1,0 +1,28 @@
+[19:19:58] INFO - ----------------------------------------------
+[19:19:58] INFO - |                                            |
+[19:19:58] INFO - |                                            |
+[19:19:58] INFO - |                                            |
+[19:19:58] INFO - |                                            |
+[19:19:58] INFO - |                                            |
+[19:19:58] INFO - |                                            |
+[19:19:58] INFO - |                                            |
+[19:19:58] INFO - |         NBMiner - Crypto GPU Miner         |
+[19:19:58] INFO - |                    39.1                    |
+[19:19:58] INFO - |                                            |
+[19:19:58] INFO - ----------------------------------------------
+[19:19:58] INFO - ------------------- System -------------------
+[19:19:58] INFO - OS:     Windows 10 Version 2009, 10.0.19042
+[19:19:58] INFO - CPU:    Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+[19:19:58] INFO - RAM:    17837 MB / 32692 MB
+[19:19:58] INFO - VMEM:   10280 MB / 37556 MB
+[19:19:58] INFO - CU_DRV: 11.3, 465.89
+[19:19:58] INFO - ------------------- Config -------------------
+[19:19:58] INFO - ALGO:   ergo
+[19:19:58] INFO - URL:    stratum+tcp://erg.2miners.com:8888
+[19:19:58] INFO - USER:   9i1JDE1QcyxN4uR3UbHASzmsaN9gDUyJXczYtB2y6Gn96EePGQz.97423773
+[19:19:58] INFO - TEMP:   limit 75C, start 70C
+[19:19:58] INFO - ------------------- Device -------------------
+[19:19:58] INFO -  |ID|PCI|  CC|Memory|CU|
+[19:19:58] INFO - *| 0|  1|  61|11264M|28| NVIDIA GeForce GTX 1080 Ti
+[19:19:58] INFO - ----------------------------------------------
+[19:19:59] INFO - ergo - Logging in to erg.2miners.com(54.38.153.112):8888 ...

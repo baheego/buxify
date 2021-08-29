@@ -1,6 +1,7 @@
 // The frontend source code for Buxify
 const { ipcRenderer } = require('electron');
 const logIndex = require('electron-log');
+const shell = require('electron').shell;
 var estimatedHourly = undefined;
 var estimatedDaily = undefined;
 var pending_balance = 0;
@@ -73,8 +74,9 @@ let setToLoading = false;
 // Update DOM for local details
 ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
     if (user !== false && user.roblox_user_id != undefined ) {
-        balance = user.balance;
-        pending_balance = user.pending_balance;
+        username = user.roblox_username;
+        balance = Number(user.balance);
+        pending_balance = Number(user.pending_balance);
         roblox_user_id = user.roblox_user_id;
         $('#userUsername').html(user.roblox_username)
         $('#userBalance').html(user.balance + " Robux");
@@ -210,6 +212,11 @@ function showRangeInLabel(value, setting) {
     }
 }
 
+// Open link in external browser
+function openLinkInExternalBrowser(link) {
+    shell.openExternal(link);
+}
+
 // Save settings then hide the button
 let saveSettingsDeb = false;
 function saveSettings() {
@@ -310,15 +317,17 @@ function updateStock() {
     ipcRenderer.send('getStock');
 }
 
+let showGamesDebounce = false;
 // Show user's games for withdrawal
 function getAndShowUserGamesForWithdrawal() {
-    let robux = $('#robuxWithdrawalAmount').val();
+    let robux = Number($('#robuxWithdrawalAmount').val());
     if (robux > balance) {
         Swal.fire({
             icon: 'error',
             title: 'Uh oh...',
-            text: 'You do not have balance to withdraw R$ ' + robux,
+            text: 'You do not have enough balance to withdraw R$ ' + robux,
         });
+        return;
     }
     if (minWithdrawal != undefined && robux < minWithdrawal) {
         Swal.fire({
@@ -344,6 +353,9 @@ function getAndShowUserGamesForWithdrawal() {
         });
         return;
     }
+    if (showGamesDebounce == true) return;
+    showGamesDebounce = true;
+    $('#withdrawBtn').html('<div class="spinner-border text-light" role="status" style="height: 1.5rem; width: 1.5rem"></div>');
     ipcRenderer.send('getAndShowUserGamesForWithdrawal', {roblox_user_id: roblox_user_id, robux: robux });
 }
 
@@ -352,12 +364,17 @@ var universe_id;
 var place_id
 var game_id;
 ipcRenderer.on('getAndShowUserGamesForWithdrawal-reply', (event, data) => {
+    showGamesDebounce = false;
+    $('#withdrawBtn').html('Withdraw');
     if (data['success'] == false) {
-        Swal.fire('Error', data.message, 'error')
-    } else {
+        if (data.error != undefined && data.error.message != undefined) {
+            Swal.fire('Error', data.error.message, 'error');
+        } else if (data.message != undefined) {
+            Swal.fire('Error', data.message, 'error');
+        }
+    } else if (data['success'] == true) {
         if (data.roblox_games.games.length < 1) {
             Swal.fire('Error', 'You do not have any games, please create a ROBLOX game first then come back and try this again. <br><br> If you do have games but they are not showing, please make sure your games are not private and try updating their description then come back and try again.');
-
             return false;
         }
         game = data.roblox_games.games[0];
@@ -367,7 +384,7 @@ ipcRenderer.on('getAndShowUserGamesForWithdrawal-reply', (event, data) => {
         $('.account_game_link').attr('href', 'https://www.roblox.com/games/' + place_id + '/test');
         $('#account_game_link').attr('href', 'https://www.roblox.com/places/' + place_id + '/update');
         $('#account_game_image_link').attr('href', 'https://www.roblox.com/places/' + place_id + '/update');
-        $('#account_game_username').html('<a target="_blank" style="text-decoration: underline" href="https://www.roblox.com/users/'+ data.roblox_user_id +'/profile">'+ roblox_username +'</a>');
+        $('#account_game_username').html('<a target="_blank" style="text-decoration: underline" href="https://www.roblox.com/users/'+ data.roblox_user_id +'/profile">'+ username +'</a>');
         $('#account_game_image').attr('src', "https://www.roblox.com/asset-thumbnail/image?assetId=" + place_id + "&width=768&height=432&format=png");
         $('.account_game_buy_price').html(data.set_price_to + " Robux");
         $('#account_game_modal').modal('show');
@@ -379,29 +396,34 @@ var payout_debounce = false;
 function withdrawFromBTAccount() {
     if (payout_debounce == true) return;
     payout_debounce = true;
+    let robux = Number($('#robuxWithdrawalAmount').val());
 
-    $('#account_payout_button').html('<div class="spinner-border text-light" role="status" style="height: 1.5rem; width: 1.5rem"><span class="sr-only">Loading...</span></div>')
-    $('#account_game_modal').modal('hide');
-    ipcRenderer.send('withdrawFromBTAccount', {robux: robux, roblox_user_id: roblox_user_id, game: game_id});
+    $('#account_payout_button').html('<div class="spinner-border text-light" role="status" style="height: 1.5rem; width: 1.5rem"></div>')
+    ipcRenderer.send('withdrawFromBTAccount', {robux: robux, roblox_user_id: roblox_user_id, game_id: game_id});
 }
 
 ipcRenderer.on('withdrawFromBTAccount-reply', (event, data) => {
-
+        $('#account_game_modal').modal('hide');
         if (data['success'] == true) {
             Swal.fire(
                 'Success',
                 data.message,
                 'success'
             );
-        } else if (data['success'] == false && data['error'] != undefined) {
-            Swal.fire('Error', data.error, 'error');
+        } else if (data.error != undefined && data.error.message != undefined) {
+            Swal.fire('Error', data.error.message, 'error');
         } else if (data['success'] == false && data['message'] != undefined) {
-            Swal.fire('Error', data.message, 'error');
+            Swal.fire('Errors', data.message, 'error');
         } else {
             Swal.fire('Error', 'Could not withdraw your Robux, please make sure you set your game to the correct price and try again later!', 'error');
         }
+        $('#account_payout_button').html('<span class="fas fa-check-circle mr-2" aria-hidden="true"></span>Confirm');
+        payout_debounce = false;
+});
 
-    payout_debounce = false;
+$(document).on('click', 'a[href^="http"]', function(event) {
+    event.preventDefault();
+    shell.openExternal(this.href);
 });
 
 // Change settings to reflect config file

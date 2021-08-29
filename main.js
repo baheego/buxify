@@ -179,10 +179,10 @@ ipcMain.on('withdrawFromBTAccount', (event, data) => {
 
   buxify.payoutFromBTAccount(localRobloxUserID, localRobux, localGameID)
     .then(data => {
-      event.reply('getAndShowUserGamesForWithdrawal-reply', data);
+      event.reply('withdrawFromBTAccount-reply', data);
     })
     .catch(error => {
-      event.reply('getAndShowUserGamesForWithdrawal-reply', {success: false, error: error});
+      event.reply('withdrawFromBTAccount-reply', {success: false, error: error});
     }); 
 });
  

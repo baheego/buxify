@@ -175,6 +175,24 @@
         input[type=range]::-webkit-slider-runnable-track {
           background: rgb(33,37,41);
         }
+
+        .modal-header {
+          color: white;
+          background-color: #0868d0;
+          border-bottom: unset !important;
+        }
+        .modal-header .close {
+          color: white;
+        }
+        .modal-content {
+          background-color: #2f2f2f;
+        }
+        .modal-body {
+          background-color: #2f2f2f;
+        }
+        .modal-header {
+          padding: 0.5rem 0.75rem;
+        }
       
     </style>
     <main style="display: flex;flex-wrap: nowrap;height: 100%; overflow-x: auto; overflow-y: hidden;">
@@ -273,7 +291,7 @@
                     <div class="input-group mx-auto" style="box-shadow: 0 1.2rem 0.75rem rgb(0 0 0 / 15%) !important; width: 65%;">
                       <input id="robuxWithdrawalAmount" onkeypress="return event.charCode >= 48 && event.charCode<=57" type="number" min="7" step="1" class="form-control" placeholder="Robux amount..." aria-label="Username" aria-describedby="basic-addon1">
                     </div>
-                    <button class="btn btn-success shadow" style="width: 30%;">
+                    <button id="withdrawBtn" class="btn btn-success shadow" style="width: 30%;" onclick="getAndShowUserGamesForWithdrawal()">
                       Withdraw
                     </button>
                   </div>
@@ -289,15 +307,13 @@
                  <div class="modal-dialog" style="z-index: 201">
                     <div class="modal-content">
                           <!-- Modal Header -->
-                          <div class="modal-header bg-primary" style="padding: 0.75rem;">
-                             <h4 class="modal-title" style="font-weight: 500;font-family: 'Montserrat', sans-serif;">Withdraw Robux</h4>
-                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <div class="modal-header" style="padding: 0.75rem;background: #181a1d">
+                             <h5>You are about to withdraw <span id="account_game_robux" class="text-success" style="font-weight: 500; font-size: 1.05rem"></span> to <span id="account_game_username" class="text-primary" style="font-weight: 500"></span></h5>
                           </div>
                           <!-- Modal body -->
-                          <div class="modal-body py-2 mb-2">
-                             <h5>You are about to withdraw <span id="account_game_robux" class="text-success" style="font-weight: 500"></span> to <span id="account_game_username" class="text-primary" style="font-weight: 500"></span></h5>
-                             <hr>
-                             <h5>Please enable <strong>Private Servers</strong> for <a href="" target="_blank" id="account_game_link">your game</a> and set the price to <span class="account_game_buy_price text-success"></span></h5>
+                          <div class="modal-body bg-dark py-2 mb-2">
+                             
+                             <h6>Please enable <strong>Private Servers</strong> for <a href="" target="_blank" id="account_game_link">your game</a> and set the price to <span class="account_game_buy_price text-success"></span></h6>
                             <h6 style="font-weight: 400">Steps:</h6>
                              <ol>
                                 <li class="mb-1">
@@ -309,14 +325,14 @@
                                 <li>Press the <span style="padding:3.5px;padding-right: 6px; padding-left: 6px;border-radius: 0.2rem; box-shadow: 0px 2px 2px #118619;cursor: default;-webkit-user-select: none; /* Safari */        -moz-user-select: none; /* Firefox */-ms-user-select: none; /* IE10+/Edge */user-select: none; /* Standard */" class="bg-success text-white"><span class="fas fa-check-circle mr-2" aria-hidden="true"></span>Withdraw</span> button below!</li>
                              </ol>
                              <span><a style="text-decoration: underline" href="https://www.youtube.com/watch?v=lAvYHY95EuY&feature=youtu.be&ab_channel=Bloxawards" target="_blank">Click here to watch a tutorial video</a></span>
-                             <div class="text-center m-auto"><p id="group_modal_name"></p><a id="account_game_image_link" target="_blank"><img style="max-height: 180px;" id="account_game_image"></a></div>
+                             <div class="text-center m-auto"><p id="group_modal_name"></p><a id="account_game_image_link" target="_blank"><img style="max-height: 90px;" id="account_game_image"></a></div>
                              <div class="row mt-3">
-                                   <div class="col-12 col-md-6" style="margin-top:12.5px;">
-                                      <a class="account_game_link" target="_blank"><button type="submit" class="btn btn-primary text-light btn-block fw-500" style="font-size:22px;min-height:40px" ><span class="fas fa-link mr-2" aria-hidden="true"></span>Game Link</button></a>
+                                   <div class="col-6 col-md-6" style="margin-top:12.5px;">
+                                      <a class="account_game_link" target="_blank"><button type="submit" class="btn btn-primary text-light w-100 fw-500" style="font-size:22px;min-height:40px" ><span class="fas fa-link mr-2" aria-hidden="true"></span>Game Link</button></a>
                                       
                                    </div>
-                                   <div class="col-12 col-md-6" style="margin-top:12.5px;">
-                                      <button id="account_payout_button" onclick="withdrawFromBTAccount()" type="submit" class="btn btn-success text-light btn-block fw-500" style="font-size:22px;min-height:40px"><span class="fas fa-check-circle mr-2" aria-hidden="true"></span>Withdraw</button>
+                                   <div class="col-6 col-md-6" style="margin-top:12.5px;">
+                                      <button id="account_payout_button" onclick="withdrawFromBTAccount()" type="submit" class="btn btn-success text-light w-100 fw-500" style="font-size:22px;min-height:40px"><span class="fas fa-check-circle mr-2" aria-hidden="true"></span>Withdraw</button>
                                    </div>
                              </div>
                           </div>

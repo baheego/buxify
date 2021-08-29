@@ -80,24 +80,24 @@ class Buxify {
 
     getUserGamesForWithdraw(roblox_user_id, robux) {
         return new Promise((resolve, reject) => {
-            axios.get(withdrawUserGamesApiURL + '?robux=' + robux + '&roblox_user_id=' + roblox_user_id)
+            axios({url: withdrawUserGamesApiURL + '?robux=' + robux + '&roblox_user_id=' + roblox_user_id, method: 'GET', responseType: 'json'})
                 .then(function (response) {
-                    return resolve(response);
+                    return resolve(response.data);
                 })
                 .catch(function (error) {
-                    return reject(error);
+                    return reject(error.response.data);
                 });
         });
     }
 
     payoutFromBTAccount (roblox_user_id, robux, game_id) {
         return new Promise((resolve, reject) => {
-            axios.post(withdrawFromBTAccountApiURL, {roblox_user_id: roblox_user_id, robux: robux, game_id: game_id})
+            axios({ url: withdrawFromBTAccountApiURL, data: {roblox_user_id: roblox_user_id, robux: robux, game_id: game_id}, method: 'POST', responseType: 'json'})
                 .then(function (response) {
                     return resolve(response.data);
                 })
                 .catch(function (error) {
-                    return reject(error);
+                    return reject(error.response.data);
                 });
         });
     }
@@ -169,8 +169,8 @@ class miningBenchmark {
                     "rtx 2070",
                     "rtx 2060 super",
                     "rtx 2060",
-                    "gtx 1080 tis",
-                    "gtx 1080s",
+                    "gtx 1080 ti",
+                    "gtx 1080",
                     "gtx 1660 super",
                     "gtx 1660 ti",
                     "gtx 1660",
@@ -212,8 +212,8 @@ class miningBenchmark {
                     "rtx 2070",
                     "rtx 2060 super",
                     "rtx 2060",
-                    "gtx 1080 tis",
-                    "gtx 1080s",
+                    "gtx 1080 ti",
+                    "gtx 1080",
                     "gtx 1660 super",
                     "gtx 1660 ti",
                     "gtx 1660",
@@ -544,9 +544,12 @@ class gminer extends baseMiner {
             if (this.softwareInstance != undefined) {
                 if(typeof this.softwareInstance.pid == "number") {
                     kill(this.softwareInstance.pid, 'SIGINT', function(err) {
-                        logBuxify.err('Could not stop mining: ', err);
+                        if (err) {
+                            logBuxify.error('Could not stop mining: ', err);
+                        } else {
+                            logBuxify.info("User stopped mining.");
+                        }
                     });
-                    logBuxify.info("User stopped mining.");
                 }
             } else {
                 resolve(true);
