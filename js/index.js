@@ -177,10 +177,10 @@ function updateBalance() {
 }
 
 // Toggle mining
-let miningDeb = false;
+var miningDeb = false;
 function toggleMining() {
     if (miningDeb == true) return;
-    miningDeb = false;
+    miningDeb = true;
     ipcRenderer.send("toggleMining");
     $('#mineCircleBtn').removeClass('mineBtnMining').removeClass('mineBtn').addClass('mineBtnLoading');
     $('#mineCircleBtn').html("Starting...");
@@ -253,6 +253,7 @@ ipcRenderer.on('updateSettings-reply', (event, arg) => {
 
 // Mining has been toggled in the backend, respond here
 ipcRenderer.on('toggleMining-reply', (event, arg) => {
+    miningDeb = false;
     if (arg.success == true) {
         if (arg.mining == true) {
             mining = true;

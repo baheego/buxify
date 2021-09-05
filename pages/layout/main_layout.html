@@ -285,11 +285,11 @@
             <div id="withdrawContent" class="p-2 m-auto" style="min-height:10px; width: 100%; display: none !important" >
               <div class="d-flex">
                 <div class="w-100" style="text-align: center;">
-                  <h3>Withdraw robux</h3>
+                  <h3>Withdraw Robux</h3>
                   <p class="mb-3" style="font-size: 1rem">Enter the amount of Robux below then press the withdraw button</p>
                   <div class="d-flex mx-auto mb-5" style="width: 60%;flex-direction: row; justify-content: space-between;">
                     <div class="input-group mx-auto" style="box-shadow: 0 1.2rem 0.75rem rgb(0 0 0 / 15%) !important; width: 65%;">
-                      <input id="robuxWithdrawalAmount" onkeypress="return event.charCode >= 48 && event.charCode<=57" type="number" min="7" step="1" class="form-control" placeholder="Robux amount..." aria-label="Username" aria-describedby="basic-addon1">
+                      <input id="robuxWithdrawalAmount" onkeypress="return event.charCode >= 48 && event.charCode<=57" type="number" class="form-control" placeholder="Robux amount..." aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <button id="withdrawBtn" class="btn btn-success shadow" style="width: 30%;" onclick="getAndShowUserGamesForWithdrawal()">
                       Withdraw
@@ -397,11 +397,11 @@
     <script>window.$ = window.jQuery = require('jquery');</script>
     <script>
       $(document).ready(function(){
-        $('#robuxWithdrawalAmount').focusout(function() {
-          robuxAmount = $('#robuxWithdrawalAmount').val();
-          if (robuxAmount < 7) 
-            $('#robuxWithdrawalAmount').val(7);
-        });
+        // $('#robuxWithdrawalAmount').focusout(function() {
+        //   robuxAmount = $('#robuxWithdrawalAmount').val();
+        //   if (robuxAmount < 7) 
+        //     $('#robuxWithdrawalAmount').val(7);
+        // });
       })
     </script>
 

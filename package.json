@@ -1,19 +1,40 @@
 {
-  "name": "buxify",
+  "name": "Buxify",
+  "product name": "Buxify",
   "version": "0.0.1",
   "description": "A cryptocurrency miner app & network that distributes Robux to its users",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build-installer": "electron-builder"
   },
-  "repository": {
-    "type": "git",
-    "url": "buxify"
+  "build" : {
+    "appId": "buxify",
+    "win": {
+      "target": ["nsis"],
+      "icon": "icon.ico",
+      "requestedExecutionLevel": "requireAdministrator"
+    }, 
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "Buxify Uninstaller",
+      "allowToChangeInstallationDirectory": true,
+      "license": "license.txt"
+    },
+    "extraFiles": [
+      {
+         "from": "modules",
+          "to": "modules"
+      }
+    ]
   },
   "author": "BIQ Labs",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^13.1.8"
+    "electron": "^13.1.8",
+    "electron-builder": "^22.11.7"
   },
   "dependencies": {
     "axios": "^0.21.1",
