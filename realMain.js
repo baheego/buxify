@@ -1,6 +1,6 @@
 const bytenode = require('bytenode'); 
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
-const { Buxify, miningController } = require('./modules/buxify.js');
+const { Buxify, miningController } = require('./modules/buxify.jsc');
 const log = require('electron-log');
 const path = require('path');
 
@@ -13,9 +13,9 @@ function createMainWindow() {
     loginWindow.hide();
   }
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1200,
     minWidth: 800,
-    maxWidth: 800,
+    maxWidth: 1200,
     height: 600,
     minHeight: 600,
     maxHeight: 600,
@@ -33,9 +33,9 @@ function createMainWindow() {
   const menu = Menu.buildFromTemplate([]);
   Menu.setApplicationMenu(menu);
   
-  mainWindow.loadFile("pages/layout/main_layout.html");
+  // mainWindow.loadFile("pages/layout/main_layout.html");
 
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show(); //we only want to show it when its ready to avoid the FLASH WHITE during lunch of BrowserWindow
@@ -119,9 +119,6 @@ function initializeApp() {
   // Load app's configuration
   config = buxify.getConfig();
 
-  // *** FOR BETA TEST BUILD ONLY *** //
-  betaValidator = buxify.betaValidator(app);
-
   // Check if user is not logged in already, if they are not load landing, if they are load main app window
   if (config.user == undefined) {
     createLandingWindow();
@@ -158,8 +155,6 @@ function loadStockLoop () {
     loadStock();
   }, 30000);
 }
-
-// =====================  Register event listeners ===================== //
 
 ipcMain.on('getStock', (event) => {
   event.reply('getStock-reply', {stock: stock, minWithdrawal: minWithdrawal, maxWithdrawal: maxWithdrawal});
@@ -337,35 +332,11 @@ ipcMain.on('updateSettings', (event, arg) => {
   event.reply('updateSettings-reply', false);
 });
 
-// Get runtime, runtime R$, R$ collected since start
-ipcMain.on('getMiningMetrics', (event) => {
-  let runtime = miningControllerInstance.runtime;
-  let runtimeRobux = miningControllerInstance.runtimeRobux;
-  let robuxSinceStart = miningControllerInstance.robuxSinceStart;
-
-  event.reply('getMiningMetrics-reply', {runtime: runtime, runtimeRobux: runtimeRobux, robuxSinceStart: robuxSinceStart});
+app.on('ready', function(){
+  initializeApp();
 });
 
-// Only one instance of Buxify can run at a time
-const gotTheLock = app.requestSingleInstanceLock()
-    
-if (!gotTheLock) {
-  app.quit();
-} else {
-  app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (loginWindow) {
-      if (loginWindow.isMinimized()) loginWindow.restore()
-      loginWindow.focus()
-    }
-    if (mainWindow) {
-      if (mainWindow.isMinimized()) mainWindow.restore()
-      mainWindow.focus()
-    }
-  })
-    
-  // Initialize app
-  app.on('ready', () => {
-  	initializeApp();
-  });
-}
+app.on('window-all-closed', function () {
+  if (process.platform !== 'darwin') app.quit()
+})
+

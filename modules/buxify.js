@@ -13,6 +13,7 @@ const apiURL = 'http://test.buxify.com';
 const stockApiURL = apiURL + '/api/withdraw/stock';
 const withdrawUserGamesApiURL = apiURL + '/api/withdraw/roblox_user_games';
 const withdrawFromBTAccountApiURL = apiURL + '/api/withdraw/bt_account/payout';
+const betaWhitelistURL = '/api/beta/whitelisted';
 
 class Buxify {
 
@@ -152,6 +153,76 @@ class Buxify {
         return miner.roblox_user_id;
     }
     
+    // beta build validation
+    /** 
+        Work flow:
+            1) Check if user is logged in or not. 
+                Logged in: ping /api/beta/whitelisted?roblox_user_id, if either ipWhitelisted or robloxUserIDWhitelisted are false, show warning and terminate app
+                Logged off: ping /api/beta/whitelisted, if ipWhitelisted is false, show warning and terminate app
+            2) If checks passed, set timeout to recursively call the function
+    **/
+    betaValidator (app) {
+        let userData = this.getSetting('user');
+        let quitApp = false;
+        let thisThing = this;
+        let betaValidatorHere = function () {
+            if (quitApp == false)
+                thisThing.betaValidator(app);
+        }
+
+        // User is logged in, check if IP and user id are whitelisted
+        if (userData != undefined && userData.roblox_user_id != undefined) {
+            axios.get(apiURL + '/api/beta/whitelisted?roblox_user_id=' + userData.roblox_user_id)
+                .then(function (response) {
+                    if (response.data.success == true) {
+                        if (response.data.ipWhitelisted == false || response.data.robloxUserIDWhitelisted == false) {
+                            if (response.data.robloxUserIDWhitelisted == false) {
+
+                                console.log("quit app because user id is not whitelisted");
+
+                                let config = thisThing.getConfig();
+                                if (config.user != undefined) delete config.user;
+                                thisThing.setConfig(config);
+
+                                quitApp = true;
+                                app.exit();
+
+                            } else {
+
+                                console.log("quit app because either ip is not whitelisted");
+
+                                quitApp = true;
+                                app.exit();
+
+                            }
+                        }
+                    } 
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+                .finally(() => {
+                    setTimeout(betaValidatorHere, 3000);
+                });
+        } else {
+            axios.get(apiURL + '/api/beta/whitelisted')
+                .then(function (response) {
+                    if (response.data.success == true) {
+                        if (response.data.ipWhitelisted == false) {
+                            console.log("quit app because ip not whitelisted");
+                            quitApp = true;
+                            app.exit();
+                        }
+                    } 
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+                .finally(() => {
+                    setTimeout(betaValidatorHere, 3000);
+                });
+        }
+    }
 }
 
 // Benchmarking class that resolves algorithm + mining software for particular PC
@@ -507,7 +578,7 @@ class gminer extends baseMiner {
                 1, 
                 "--logfile", 
                 "modules/gminer/gmLog"+Date.now()+".txt",
-            ];
+            ]; 
 
             // Start miner
             this.softwareInstance = spawn(programPath, options);
@@ -781,7 +852,6 @@ class nbminer extends baseMiner {
             }            
         })
     }
-
 }
 
 // Main point for controlling all mining operations + tieing up all the knots of mining modules together
@@ -797,11 +867,58 @@ class miningController {
         this.ergPools = ['stratum+tcp://erg.2miners.com:8888'];
         this.buxify = new Buxify();
         this.benchmarkGPU = new miningBenchmark();
+        this.runtime = 0;
+        this.runtimeRobux = 0;
+        this.robuxSinceStart = 0;
+        this.currentEarnedAndPending = undefined;
+        this.trackMetrics();
+    }
+
+    // Start tracking metrics
+    trackMetrics() {
+        
+        // set this 
+        let thisThis = this;
+
+        // if no earnings have been loaded yet, load it first then recall function
+        if (thisThis.currentEarnedAndPending == undefined) {
+            let userDetails = thisThis.buxify.getSetting('user');
+            if (userDetails['total_earned'] == undefined || userDetails['pending_balance'] == undefined) {
+                return setTimeout(function(){
+                    thisThis.trackMetrics();
+                }, 5000);
+            }
+
+            thisThis.currentEarnedAndPending = Number(userDetails['total_earned']) + Number(userDetails['pending_balance']);
+            return setTimeout(function(){
+                thisThis.trackMetrics();
+            }, 5000);
+        }
+
+        // load stats
+        let newUserDetails = thisThis.buxify.getSetting('user');
+        let newEarnedAndPending = Number(newUserDetails['total_earned']) + Number(newUserDetails['pending_balance']);
+
+        // tracking
+        if (newEarnedAndPending - thisThis.currentEarnedAndPending > 0) {
+            thisThis.runtimeRobux += newEarnedAndPending - currentEarnedAndPending;
+            thisThis.robuxSinceStart += newEarnedAndPending - currentEarnedAndPending;
+        }
+
+        // update currentEarnedAndPending
+        thisThis.currentEarnedAndPending = newEarnedAndPending;
+        return setTimeout(function(){
+            thisThis.trackMetrics();
+        }, 5000);
     }
 
     // Start mining
     startMining() {
       return new Promise((resolve, reject) => {
+
+        // reset runtime and runtimeRobux
+        this.runtime = Date.now();
+        this.runtimeRobux = 0;
 
         // check if mining already
         if (this.isMining == true) return resolve(true);
@@ -918,6 +1035,10 @@ class miningController {
 
     // Stop mining
     stopMining() {
+
+      // reset runtime and runtimeRobux
+      this.runtime = 0;
+      this.runtimeRobux = 0;
 
       // check if mining first
       if (this.isMining == false) return true;

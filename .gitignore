@@ -1,1 +1,5 @@
 *.exe
+node_modules/*
+modules/nbminer/*
+dist
+modules/gminer/gmLog*

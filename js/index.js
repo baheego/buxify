@@ -64,6 +64,24 @@ function updateUserInDom() {
     ipcRenderer.send("getUserLocalDetails");
 }
 
+// Update mining runtime stats
+function updateMiningMetrics() {
+    ipcRenderer.send('getMiningMetrics');
+}
+
+// Update mining metrics in DOM
+ipcRenderer.on('getMiningMetrics-reply', (event, arg) => {
+    if (arg.runtime != undefined && arg.runtime != 0) {
+        $('#runtime').html(countdown(new Date(), new Date(parseInt(arg.runtime)), countdown.MONTHS | countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS, 1).toString());
+    } else {
+        $('#runtime').html('...');
+    }
+    if (arg.runtimeRobux != undefined)
+        $('#earningsSinceEarningLastStarted').html('R$ ' + arg.runtimeRobux.toFixed(2));
+    if (arg.robuxSinceStart != undefined)
+        $('#earningsSinceAppStarted').html('R$ ' + arg.robuxSinceStart.toFixed(2));
+});
+
 // Update user's stats from website, then update DOM
 ipcRenderer.on('updateUserStats-reply', (event, arg) => {
     if (arg !== false) updateUserInDom();
@@ -215,6 +233,14 @@ function showRangeInLabel(value, setting) {
 // Open link in external browser
 function openLinkInExternalBrowser(link) {
     shell.openExternal(link);
+}
+
+// Open user profile in external browser
+function openUserProfileInBrowser(section) {
+    let link = 'http://test.buxify.com/profile/' + roblox_user_id;
+    if (section)
+        link += '#' + section;
+    openLinkInExternalBrowser(link);
 }
 
 // Save settings then hide the button
@@ -468,6 +494,7 @@ $(document).ready(function(){
     updateBalance();
     updateLocalConfig();
     updateStock();
+    updateMiningMetrics();
 
     // update user balance
     setInterval(() => {
@@ -479,6 +506,7 @@ $(document).ready(function(){
     // update mining status
     setInterval(() => {
         ipcRenderer.send("updateMiningStatus");
+        updateMiningMetrics();
     }, 1000);
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
