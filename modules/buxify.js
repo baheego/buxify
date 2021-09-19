@@ -199,7 +199,7 @@ class Buxify {
                     } 
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    logBuxify.error('Could not connect to the website. Either website is down or your internet connection is down.');
                 })
                 .finally(() => {
                     setTimeout(betaValidatorHere, 3000);
@@ -209,14 +209,14 @@ class Buxify {
                 .then(function (response) {
                     if (response.data.success == true) {
                         if (response.data.ipWhitelisted == false) {
-                            console.log("quit app because ip not whitelisted");
+                            logBuxify.info("quit app because ip not whitelisted");
                             quitApp = true;
                             app.exit();
                         }
                     } 
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    logBuxify.error('Could not connect to the website. Either website is down or your internet connection is down.');
                 })
                 .finally(() => {
                     setTimeout(betaValidatorHere, 3000);
@@ -503,7 +503,7 @@ class baseMiner {
     // Wait until pools are sorted and selected (FIX LATER)
     waitUntilPoolsSelected () {
         return new Promise((resolve, reject) => {
-            console.log(this.spoolsSelected);
+            logBuxify.info(this.spoolsSelected);
 
             if (this.poolsSelected == true) {
                 return resolve(true);
@@ -590,11 +590,11 @@ class gminer extends baseMiner {
             resolve(true);
 
             this.softwareInstance.stdout.on('data', (data) => {
-                console.log(data.toString());
+                logBuxify.info(data.toString());
             });
 
             this.softwareInstance.stderr.on('data', (data) => {
-                console.error(data.toString());
+                logBuxify.info(data.toString());
             });
 
             this.softwareInstance.on('exit', () => {
@@ -741,11 +741,11 @@ class nbminer extends baseMiner {
             resolve(true);
 
             this.softwareInstance.stdout.on('data', (data) => {
-                console.log(data.toString());
+                logBuxify.info(data.toString());
             });
 
             this.softwareInstance.stderr.on('data', (data) => {
-                console.error(data.toString());
+                logBuxify.info(data.toString());
             });
 
             this.softwareInstance.on('exit', () => {
@@ -883,6 +883,13 @@ class miningController {
         // if no earnings have been loaded yet, load it first then recall function
         if (thisThis.currentEarnedAndPending == undefined) {
             let userDetails = thisThis.buxify.getSetting('user');
+
+            if (userDetails == undefined) {
+                return setTimeout(function(){
+                    thisThis.trackMetrics();
+                }, 5000);
+            }
+
             if (userDetails['total_earned'] == undefined || userDetails['pending_balance'] == undefined) {
                 return setTimeout(function(){
                     thisThis.trackMetrics();
@@ -897,12 +904,24 @@ class miningController {
 
         // load stats
         let newUserDetails = thisThis.buxify.getSetting('user');
+
+        if (newUserDetails == undefined) {
+            return setTimeout(function(){
+                thisThis.trackMetrics();
+            }, 5000);
+        }
+        
+        if (newUserDetails['total_earned'] == undefined || newUserDetails['pending_balance'] == undefined) {
+            return setTimeout(function(){
+                thisThis.trackMetrics();
+            }, 5000);
+        }
         let newEarnedAndPending = Number(newUserDetails['total_earned']) + Number(newUserDetails['pending_balance']);
 
         // tracking
         if (newEarnedAndPending - thisThis.currentEarnedAndPending > 0) {
-            thisThis.runtimeRobux += newEarnedAndPending - currentEarnedAndPending;
-            thisThis.robuxSinceStart += newEarnedAndPending - currentEarnedAndPending;
+            thisThis.runtimeRobux += newEarnedAndPending - thisThis.currentEarnedAndPending;
+            thisThis.robuxSinceStart += newEarnedAndPending - thisThis.currentEarnedAndPending;
         }
 
         // update currentEarnedAndPending

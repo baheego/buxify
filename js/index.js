@@ -64,89 +64,31 @@ function updateUserInDom() {
     ipcRenderer.send("getUserLocalDetails");
 }
 
-// Update mining runtime stats
-function updateMiningMetrics() {
-    ipcRenderer.send('getMiningMetrics');
+let currentUser = undefined;
+// Check if there is any mining activity
+function isMiningDetected(user) {
+    let rightNowInSeconds = Date.now() / 1000;
+    let minActivityThreshold = rightNowInSeconds - 1800;
+    let userActivityCheck = [
+        (user.eth_estimated_at != undefined && user.eth_estimated_at >= minActivityThreshold), // ETH
+        (user.rvn_estimated_at != undefined && user.rvn_estimated_at >= minActivityThreshold), // RVN
+        (user.erg_estimated_at != undefined && user.erg_estimated_at >= minActivityThreshold), // ERG
+    ];
+
+    // Check if there is any recent estimates
+    let activityDetectedRecently = false;
+    for (let activity of userActivityCheck) {
+        if (activity === true) {
+            activityDetectedRecently = true;
+            break;
+        }
+    }
+
+   return activityDetectedRecently;
 }
 
-// Update mining metrics in DOM
-ipcRenderer.on('getMiningMetrics-reply', (event, arg) => {
-    if (arg.runtime != undefined && arg.runtime != 0) {
-        $('#runtime').html(countdown(new Date(), new Date(parseInt(arg.runtime)), countdown.MONTHS | countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS, 1).toString());
-    } else {
-        $('#runtime').html('...');
-    }
-    if (arg.runtimeRobux != undefined)
-        $('#earningsSinceEarningLastStarted').html('R$ ' + arg.runtimeRobux.toFixed(2));
-    if (arg.robuxSinceStart != undefined)
-        $('#earningsSinceAppStarted').html('R$ ' + arg.robuxSinceStart.toFixed(2));
-});
-
-// Update user's stats from website, then update DOM
-ipcRenderer.on('updateUserStats-reply', (event, arg) => {
-    if (arg !== false) updateUserInDom();
-})
-
-let lastUser = undefined;
-let setToLoading = false;
-// Update DOM for local details
-ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
-    if (user !== false && user.roblox_user_id != undefined ) {
-        username = user.roblox_username;
-        balance = Number(user.balance);
-        pending_balance = Number(user.pending_balance);
-        roblox_user_id = user.roblox_user_id;
-        $('#userUsername').html(user.roblox_username)
-        $('#userBalance').html(user.balance + " Robux");
-
-        // Update pending robux if it is there
-        if (user.pending_balance != undefined) {
-            $('#userPendingBalance').html("R$ " + parseFloat(user.pending_balance).toFixed(2));
-        }
-
-        $('#userAvatarImage').attr('src', 'https://www.roblox.com/headshot-thumbnail/image?userId=' + user.roblox_user_id + '&width=420&height=420&format=png')
-
-        // Check if there is any user activity
-        let rightNowInSeconds = Date.now() / 1000;
-        let minActivityThreshold = rightNowInSeconds - 1800;
-        let userActivityCheck = [
-            (user.eth_estimated_at != undefined && user.eth_estimated_at >= minActivityThreshold), // ETH
-            (user.rvn_estimated_at != undefined && user.rvn_estimated_at >= minActivityThreshold), // RVN
-            (user.erg_estimated_at != undefined && user.erg_estimated_at >= minActivityThreshold), // ERG
-        ];
-
-        // Check if there is any recent estimates
-        let activityDetectedRecently = false;
-        for (let activity of userActivityCheck) {
-            if (activity === true) {
-                activityDetectedRecently = true;
-                break;
-            }
-        }
-
-        // Check if there is a change
-        let changeDetected = false;
-
-        let userActivityChange = [
-            !(lastUser != undefined && lastUser.eth_estimated_at == user.eth_estimated_at), // ETH
-            !(lastUser != undefined && lastUser.rvn_estimated_at == user.rvn_estimated_at), // RVN 
-            !(lastUser != undefined && lastUser.erg_estimated_at == user.erg_estimated_at), // ERG 
-        ];
-        
-        for (let change of userActivityChange) {
-            if (change === true) {
-                changeDetected = true;
-                break;
-            }
-        }
-
-        if (mining == true && activityDetectedRecently == true) {
-
-            // Check if estimated_at is still the same as previous one, if so just do nothing
-            // if (!changeDetected) return false;
-
-            // store user into lastUser if the check above did nothing, meaning there is a new estimate now
-            lastUser = user;
+// Get earning estimates from user
+function getEarningEstimatesUser(user) {
 
             let cumulativeHourlyEstimate = 0;
             let cumulativeDailyEstimate = 0;
@@ -169,23 +111,103 @@ ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
                 cumulativeDailyEstimate += user.erg_estimated_daily;
             }
 
-            $('#userEstimatedHourly').html("R$ " + parseFloat(cumulativeHourlyEstimate).toFixed(2));
-            $('#userEstimatedDaily').html("R$ " +  parseFloat(cumulativeDailyEstimate).toFixed(2));
+            // return estimates
+            return {
+                cumulativeHourlyEstimate: parseFloat(cumulativeHourlyEstimate).toFixed(2),
+                cumulativeDailyEstimate: parseFloat(cumulativeDailyEstimate).toFixed(2),
+            }
+}
 
-            $('#miningStatus').html('<div><div class="spinner-border text-success" role="status" style="width: 0.9rem; height: 0.9rem;"><span class="visually-hidden">Loading...</span></div> <span style="font-size: 0.8rem">Earning</span></div>');
-            setToLoading = false;
-        } else if (mining == true) {
-            // if (setToLoading == true) return;
-            // setToLoading = true;
-            $('#userEstimatedHourly').html("Loading");
-            $('#userEstimatedDaily').html("Loading");
-            $('#miningStatus').html('<div><div class="spinner-border text-warning" role="status" style="width: 0.9rem; height: 0.9rem;"><span class="visually-hidden">Loading...</span></div> <span style="font-size: 0.8rem">Loading</span></div>');
+// Update mining runtime stats
+function updateMiningMetrics() {
+    ipcRenderer.send('getMiningMetrics');
+}
+
+
+let currentActivity = undefined; // Can be undefined, 'loading' or 'earning'
+// Update earning status and estimates in DOM
+function updateStatusAndEstimatesInDOM(user) {
+
+        // If mining, check if user's in loading or earning status, and update status in DOM if it's not already set.
+        if (mining == true) {
+
+            // Set activity
+            let activity = 'loading';
+            if (isMiningDetected(user))
+                activity = 'earning';
+
+            // Reflect activity and estimates in DOM
+            switch (activity) {
+                case 'loading':
+
+                    // It status is set already, dont update mining status DOM (because of the annoying glitchy spinner effect)
+                    if (currentActivity == activity) return; 
+                    $('#miningStatus').html('<div><div class="spinner-border text-warning" role="status" style="width: 0.9rem; height: 0.9rem;"><span class="visually-hidden">Loading...</span></div> <span style="font-size: 0.8rem">Loading</span></div>');
+                    currentActivity = activity;
+                    break;
+                case 'earning':
+
+                    // Update metrics
+                    let estimates = getEarningEstimatesUser(user);
+                    $('#userEstimatedHourly').html('R$ ' + estimates.cumulativeHourlyEstimate);
+                    $('#userEstimatedDaily').html('R$ ' + estimates.cumulativeDailyEstimate);
+
+                    // It status is set already, dont update mining status in DOM (because of the annoying glitchy spinner effect)
+                    if (currentActivity == activity) return; 
+                    $('#miningStatus').html('<div><div class="spinner-border text-success" role="status" style="width: 0.9rem; height: 0.9rem;"><span class="visually-hidden">Loading...</span></div> <span style="font-size: 0.8rem">Earning</span></div>');
+                    currentActivity = activity;
+                    break;
+            }
         } else {
-            // setToLoading = false;
+            currentActivity = undefined;
             $('#userEstimatedHourly').html("...");
             $('#userEstimatedDaily').html("...");
             $('#miningStatus').html('...');
         }
+}
+
+// Update mining metrics in DOM
+ipcRenderer.on('getMiningMetrics-reply', (event, arg) => {
+    if (arg.runtime != undefined && arg.runtime != 0) {
+        $('#runtime').html(countdown(new Date(), new Date(parseInt(arg.runtime)), countdown.MONTHS | countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS, 1).toString());
+    } else {
+        $('#runtime').html('...');
+    }
+    if (arg.runtimeRobux != undefined)
+        $('#earningsSinceEarningLastStarted').html('R$ ' + arg.runtimeRobux.toFixed(2));
+    if (arg.robuxSinceStart != undefined)
+        $('#earningsSinceAppStarted').html('R$ ' + arg.robuxSinceStart.toFixed(2));
+});
+
+// Update user's stats from website, then update DOM
+ipcRenderer.on('updateUserStats-reply', (event, arg) => {
+    if (arg !== false) updateUserInDom();
+})
+
+
+// Update DOM for local details
+ipcRenderer.on('getUserLocalDetails-reply', (event, user) => {
+    if (user !== false && user.roblox_user_id != undefined ) {
+        username = user.roblox_username;
+        balance = Number(user.balance);
+        pending_balance = Number(user.pending_balance);
+        roblox_user_id = user.roblox_user_id;
+        $('#userUsername').html(user.roblox_username)
+        $('#userBalance').html(user.balance + " Robux");
+
+        // Update pending robux if it is there
+        if (user.pending_balance != undefined) {
+            $('#userPendingBalance').html("R$ " + parseFloat(user.pending_balance).toFixed(2));
+        }
+
+        // Display view stats button if the user is registered on the DB
+        if (user.created_at != undefined) {
+            $('#viewStatsLinkHolder').show();
+        }
+
+        updateStatusAndEstimatesInDOM(user);
+
+        $('#userAvatarImage').attr('src', 'https://www.roblox.com/headshot-thumbnail/image?userId=' + user.roblox_user_id + '&width=420&height=420&format=png');
     }
 })
 
